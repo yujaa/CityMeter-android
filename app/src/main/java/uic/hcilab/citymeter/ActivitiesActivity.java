@@ -2,6 +2,7 @@ package uic.hcilab.citymeter;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 
 public class ActivitiesActivity extends TabHost {
 
@@ -18,6 +19,7 @@ public class ActivitiesActivity extends TabHost {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().setTitle("My Activities");
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar_activities);
+        setSupportActionBar(myToolbar);
     }
 }

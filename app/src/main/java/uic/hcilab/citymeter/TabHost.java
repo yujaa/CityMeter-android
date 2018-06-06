@@ -68,4 +68,7 @@ public abstract class TabHost extends AppCompatActivity implements BottomNavigat
     public abstract int getContentViewId();
     public abstract int getNavigationMenuItemId();
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {return true;}
+
 }
