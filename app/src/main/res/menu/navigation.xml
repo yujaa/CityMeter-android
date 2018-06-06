@@ -3,22 +3,25 @@
 
     <item
         android:id="@+id/navigation_home"
-        android:icon="@drawable/baseline_home_black_18dp"
+        android:icon="@drawable/ic_home_black_24dp"
         android:title="@string/title_home" />
+        <!--android:icon="@drawable/baseline_home_black_18dp"-->
 
     <item
         android:id="@+id/navigation_search"
-        android:icon="@drawable/baseline_search_black_18dp"
+        android:icon="@drawable/ic_home_black_24dp"
         android:title="@string/title_search" />
+        <!--android:icon="@drawable/baseline_search_black_18dp"-->
 
     <item
         android:id="@+id/navigation_activities"
-        android:icon="@drawable/baseline_directions_run_black_18dp"
+        android:icon="@drawable/ic_home_black_24dp"
         android:title="@string/title_activities" />
+        <!--android:icon="@drawable/baseline_directions_run_black_18dp"-->
 
     <item
         android:id="@+id/navigation_summary"
-        android:icon="@drawable/baseline_person_black_18dp"
+        android:icon="@drawable/ic_home_black_24dp"
         android:title="@string/title_summary" />
-
+        <!--android:icon="@drawable/baseline_person_black_18dp"-->
 </menu>
