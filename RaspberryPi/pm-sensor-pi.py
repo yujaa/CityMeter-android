@@ -12,7 +12,7 @@ permission_command = os.system('echo %s|sudo -S %s' % ('', command))
 #For data storing path
 data_store_path = '/home/pi/Desktop/sensor-data/'
 data_store_command = 'chmod 777 ' + data_store_path
-data_store_permission_command = os.system('echo %s|sudo -S %s' % ('', command))
+data_store_permission_command = os.system('echo %s|sudo -S %s' % ('', data_store_command))
 
 #Open a serial communication channel to recieve data from the PM sensor
 serial_channel = serial.Serial('/dev/serial0', baudrate=9600, timeout=3)
