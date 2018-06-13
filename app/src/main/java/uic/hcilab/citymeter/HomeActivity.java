@@ -48,6 +48,22 @@ public class HomeActivity extends TabHost {
                 != PackageManager.PERMISSION_GRANTED) {
                 ActivityCompat.requestPermissions(this, permissions, 9);
             }
+            else{
+            Thread thread = new Thread(new Runnable() {//To run the noise detector in the background
+                @Override
+                public void run() {
+                    noiseDetector.noiseDetect();
+                    while (true) {
+                        double dBval = noiseDetector.noiseLevel();
+                        Log.i("Recorder", (int)dBval + "");
+                        if (dBval > 0 && dBval <= 5000) {
+                            noiseBar.setProgress((int) dBval);
+                        }
+                    }
+                }
+            });
+            thread.start();
+        }
     }
 
     @Override
