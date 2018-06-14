@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="uic.hcilab.citymeter">
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -24,6 +26,9 @@
             android:label="@string/title_activities"/>
         <activity android:name=".SearchActivity"
             android:label="@string/title_search"/>
+
+        <meta-data android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDVvTGEXE19Gvk0f49-Qq_F7ocf0J8DNa8"/>
     </application>
 
 </manifest>
