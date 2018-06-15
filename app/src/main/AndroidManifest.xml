@@ -37,15 +37,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".SummaryActivity"
-            android:label="@string/title_summary" />
-        <activity android:name=".ActivitiesActivity"
-            android:label="@string/title_activities"/>
-        <activity android:name=".SearchActivity"
-            android:label="@string/title_search"/>
-
         <meta-data android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDVvTGEXE19Gvk0f49-Qq_F7ocf0J8DNa8"/>
+            android:value="@string/google_maps_key"/>
     </application>
 
 </manifest>

@@ -15,9 +15,8 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 
 public class SearchActivity extends TabHost implements OnMapReadyCallback{
-    private MapView mapView;
     private GoogleMap gmap;
-    private static final String MAP_VIEW_BUNDLE_KEY = "AIzaSyDVvTGEXE19Gvk0f49-Qq_F7ocf0J8DNa8";
+
     @Override
     public int getContentViewId() {
         return R.layout.activity_search;
@@ -34,31 +33,9 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback{
         Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar_search);
         setSupportActionBar(myToolbar);
 
-//        //Map
-////        Bundle mapViewBundle = null;
-////        if (savedInstanceState != null) {
-////            mapViewBundle = savedInstanceState.getBundle(MAP_VIEW_BUNDLE_KEY);
-////        }
-////
-////        mapView = findViewById(R.id.map_view);
-////        mapView.onCreate(mapViewBundle);
-////        mapView.getMapAsync(this);
-
-            initMap();
+        initMap();
     }
 
-//    @Override
-//    public void onSaveInstanceState(Bundle outState) {
-//        super.onSaveInstanceState(outState);
-//
-//        Bundle mapViewBundle = outState.getBundle(MAP_VIEW_BUNDLE_KEY);
-//        if (mapViewBundle == null) {
-//            mapViewBundle = new Bundle();
-//            outState.putBundle(MAP_VIEW_BUNDLE_KEY, mapViewBundle);
-//        }
-//
-//        mapView.onSaveInstanceState(mapViewBundle);
-//    }
 
     public void initMap() {
         SupportMapFragment map = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
