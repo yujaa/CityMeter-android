@@ -22,7 +22,7 @@ public class HomeActivity extends TabHost {
 
     private NoiseDetector noiseDetector = new NoiseDetector();
     private ProgressBar noiseBar;
-
+    private BluetoothController mBluetoothController;
     @Override
     public int getContentViewId() {
         return R.layout.activity_home;
@@ -32,6 +32,7 @@ public class HomeActivity extends TabHost {
     public int getNavigationMenuItemId() {
         return R.id.navigation_home;
     }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +65,10 @@ public class HomeActivity extends TabHost {
             });
             thread.start();
         }
+        //Create a bluetooth controller
+        mBluetoothController= new BluetoothController(this, savedInstanceState);
+        mBluetoothController.checkBTEnabled();
+        mBluetoothController.lookupBTDevices();
     }
 
     @Override
