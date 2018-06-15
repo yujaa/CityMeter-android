@@ -14,7 +14,9 @@ import android.view.MenuInflater;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import uic.hcilab.citymeter.NoiseDetector;
 
@@ -23,6 +25,7 @@ public class HomeActivity extends TabHost {
     private NoiseDetector noiseDetector = new NoiseDetector();
     private ProgressBar noiseBar;
     private BluetoothController mBluetoothController;
+    private SensorsDataHandler sensorsDataHandler;
     @Override
     public int getContentViewId() {
         return R.layout.activity_home;
@@ -55,11 +58,11 @@ public class HomeActivity extends TabHost {
                 public void run() {
                     noiseDetector.noiseDetect();
                     while (true) {
-                        double dBval = noiseDetector.noiseLevel();
+                        /*double dBval = noiseDetector.noiseLevel();
                         Log.i("Recorder", (int)dBval + "");
                         if (dBval > 0 && dBval <= 5000) {
                             noiseBar.setProgress((int) dBval);
-                        }
+                        }*/
                     }
                 }
             });
@@ -68,7 +71,6 @@ public class HomeActivity extends TabHost {
         //Create a bluetooth controller
         mBluetoothController= new BluetoothController(this, savedInstanceState);
         mBluetoothController.checkBTEnabled();
-        mBluetoothController.lookupBTDevices();
     }
 
     @Override
@@ -84,11 +86,11 @@ public class HomeActivity extends TabHost {
                         public void run() {
                             noiseDetector.noiseDetect();
                             while (true) {
-                                double dBval = noiseDetector.noiseLevel();
+                                /*double dBval = noiseDetector.noiseLevel();
                                 Log.i("Recorder", (int)dBval + "");
                                 if (dBval > 0 && dBval <= 5000) {
                                     noiseBar.setProgress((int) dBval);
-                                }
+                                }*/
                             }
                         }
                     });

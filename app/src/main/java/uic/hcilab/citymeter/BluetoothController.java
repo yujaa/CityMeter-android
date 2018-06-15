@@ -1,5 +1,7 @@
 package uic.hcilab.citymeter;
 
+import android.Manifest;
+import android.Manifest.permission;
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
@@ -10,13 +12,18 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.ParcelUuid;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 
 import java.io.IOException;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.Set;
 import java.util.UUID;
 
@@ -27,6 +34,24 @@ public class BluetoothController {
     Bundle mBundle;
     BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
     final int REQUEST_ENABLE_BT = 7;
+    double longitude ;
+    double latitude ;
+    //Permissions handling
+    String [] my_permissions = new String[2];
+    /*my_permissions[0] = permission.ACCESS_COARSE_LOCATION;
+    my_permissions[1] = permission.ACCESS_FINE_LOCATION;
+    if (mActivity.checkSelfPermission(mActivity, permission.ACCESS_COARSE_LOCATION)
+            != PackageManager.PERMISSION_GRANTED) {
+        ActivityCompat.requestPermissions(this, permissions, 7);
+    }
+    else{
+        LocationManager lm = (LocationManager) mActivity.getSystemService(mActivity.LOCATION_SERVICE);
+        Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+        latitude =  location.getLatitude();
+        longitude = location.getLongitude();
+    }*/
+
+
 
     // Create a BroadcastReceiver to handle bluetooth actions
     BroadcastReceiver mReceiver = new BroadcastReceiver() {
@@ -54,7 +79,6 @@ public class BluetoothController {
                 BluetoothDevice device = (BluetoothDevice) intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
                 String deviceName = device.getName();
                 String deviceMACAddress = device.getAddress(); // MAC address
-                Log.i("BT","Found device " + deviceName  + " address " + deviceMACAddress);
             }
         }
     };
@@ -78,7 +102,6 @@ public class BluetoothController {
 
     //Scan for devices
     public void lookupBTDevices() {
-        Log.i("BT", "Looking Up devices..");
         boolean isPiPaired = false;
 
         // To broadcast when devices are discovered
@@ -95,13 +118,12 @@ public class BluetoothController {
         if (pairedDevices.size() > 0) {
             for (BluetoothDevice device : pairedDevices) {
                 if (device.getAddress()=="B8:27:EB:73:04:B1"){
-                    isPiPaired = true;
+                    isPiPaired = true;//Make sure the raspberry pi is paired, otherwise pair
                 }
-                Log.i("BT", "paired devices " + device);
             }
         }
         //For discovering all other devices
-        // If discovery is running, stop it
+        // If already discovering, stop
         if (mBluetoothAdapter.isDiscovering()) {
             mBluetoothAdapter.cancelDiscovery();
         }
@@ -121,42 +143,76 @@ public class BluetoothController {
             BluetoothDevice device= mBluetoothAdapter.getRemoteDevice("B8:27:EB:73:04:B1");
             Method method = device.getClass().getMethod("createBond", (Class[]) null);
             method.invoke(device, (Object[]) null);
-
-            ParcelUuid[] mpUUID = device.getUuids();
-            //Log.i("BT", mpUUID.toString());
-            String str = "00000003-0000-1000-8000-00805F9B34FB";
-                    //mpUUID[6].getUuid().toString();//"00000000-0000-1000-8000-00805F9B34FB";
-
-            UUID myUUID = UUID.fromString(str);
-
-            Log.i("BT", myUUID + " " + device.getBluetoothClass() );
-            BluetoothSocket mBluetoothSocket = device.createInsecureRfcommSocketToServiceRecord(myUUID);
-            BluetoothDevice remote = mBluetoothSocket.getRemoteDevice();
-            mBluetoothAdapter.cancelDiscovery();
-            try {
-                mBluetoothSocket.connect();
-                Log.i("BT", "is connected " + mBluetoothSocket.isConnected());
-                byte []readLine = new byte[100];
-                while (true) {
-                    readLine = new byte[100];
-                    mBluetoothSocket.getInputStream().read(readLine);
-                    String msginfo = new String(readLine, "UTF-8");
-                    Log.i("BT", "write x = " + msginfo);
-                }
-
-            } catch (IOException connectException) {
-                Log.i("BT", " " + mBluetoothSocket.getRemoteDevice());
-                Log.i("BT", connectException.getMessage());
-            }
-            Log.i("BT", "connected to pi " + remote + " " );
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    public ArrayList<String> connectDevice(double longitude, double latitude) {
+        checkBTEnabled();
+        ArrayList<String> results = new ArrayList<String>();
+        try {
+            //This should be able to connect to any device not just ours
+            BluetoothDevice device= mBluetoothAdapter.getRemoteDevice("B8:27:EB:73:04:B1");//create a device with the mac address of the Pi
+            ParcelUuid[] mpUUID = device.getUuids();
+            String uuid_str = "00000003-0000-1000-8000-00805F9B34FB";//The uuid for rfcomm, by bluetooth
+            UUID myUUID = UUID.fromString(uuid_str);
+
+            BluetoothSocket mBluetoothSocket = device.createInsecureRfcommSocketToServiceRecord(myUUID);//socket to open connection
+            BluetoothDevice remoteDevice = mBluetoothSocket.getRemoteDevice();//Getting the remote device
+            mBluetoothAdapter.cancelDiscovery();//Make sure discovery is off for less battery consumption
+            try {
+                mBluetoothSocket.connect();
+                Log.i("BT", "is connected " + mBluetoothSocket.isConnected());
+                byte []readLine;
+                if (mBluetoothSocket.isConnected()) {
+                    while (true) {
+                        readLine = new byte[100];
+                        mBluetoothSocket.getInputStream().read(readLine);
+                        String msgInfo = new String(readLine, "UTF-8");
+                        Log.i("BT", "recieved = " + msgInfo);
+                        int pm = pm_value(msgInfo);
+                        String msg_timestamp = timestamp(msgInfo);
+                        String result = "[{'latitude': " + latitude + ", 'pm2.5': " + pm + ", 'longitude': " + longitude + ", 'timestamp': '" + msg_timestamp + "'}]";
+                        results.add(result);
+                    }
+                }
+                else{
+                    connectDevice(longitude,latitude);
+                }
+            } catch (IOException connectException) {
+                Log.i("BT", connectException.getMessage());
+                connectDevice(longitude,latitude);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            connectDevice(longitude,latitude);
+        }
+        return results;
+    }
+    //To extract pm value from string
+    private int pm_value (String line){
+        int start_index = line.indexOf("pm2.5");
+        int end_index1 = line.indexOf(',', start_index);
+        int end_index2 = line.indexOf('}', start_index);
+        int end_index;
+        if (end_index1<end_index2)
+            end_index = end_index1;
+        else
+            end_index=end_index2;
+        String value_str  = line.substring(start_index+8, end_index);
+        int value = Integer.valueOf(value_str);
+        return value;
+    }
+    //to extract timestamp from string
+    private String timestamp(String line){//[{'pm2.5': 10, 'timestamp': 'Jun 12 2018 17:51:51'}]
+        int start_index = line.indexOf("timestamp");
+        int end_index = line.indexOf('\'', start_index + 13);
+        String value  = line.substring(start_index + 13, end_index);
+        return value;
+    }
     //To finalize
     public void destroyBTReciever() {
         mActivity.unregisterReceiver(mReceiver);
     }
-
 }
