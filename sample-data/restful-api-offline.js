@@ -15,13 +15,13 @@ var port = process.env.PORT || 9000;
 // =============================================================================
 var router = express.Router();              // get an instance of the express Router
 
-var nodes_csv = "./AoT-complete-latest/nodes.csv";
+var nodes_csv = "./nodes.csv";
 var nodes_csv_header =['node_id','project_id','vsn','address','lat','lon','description'];
 
-var data_csv = "./AoT-complete-latest/data.csv";
+var week1_csv = "./aot-week1.csv"
+var week1_csv_header = ['Node','Timestamp','Parameter','Value_raw','Value_hrf']//TODO
 
-var week2_csv = "aot-week1.csv"
-var week2_csv_header = ['Node','Timestamp','Parameter','Value_raw','Value_hrf']//TODO
+var latest_csv = "./latest.csv"
 
 var targetSensorArr = ['no2','spv1840lr5h_b'];
 var targetParamArr = ['pm2_5','pm25_atm'];
@@ -70,11 +70,11 @@ router.route('/info/nodes/:node_id')
             if (data['node_id'] == req.params.node_id) {
                var sensor=[];
                
-               //scan week2.csv
-               var wStream = fs.createReadStream(week2_csv);
+               //scan week1.csv
+               var wStream = fs.createReadStream(latest_csv);
                new Promise(function(resolve, reject){
                   fcsv
-                  .fromStream(wStream, {headers:week2_csv_header})
+                  .fromStream(wStream, {headers:week1_csv_header})
                   .on('data', function(wData){
                      line_cnt++;
                      if(line_cnt > 50)
@@ -116,9 +116,9 @@ router.route('/info/sound')
        var line_cnt=0;
         var nodesList=[];
         var info ={};
-        var stream = fs.createReadStream(week2_csv);
+        var stream = fs.createReadStream(week1_csv);
         fcsv
-        .fromStream(stream, { headers: week2_csv_header})
+        .fromStream(stream, { headers: week1_csv_header})
         .on('data', function (data) {
            line_cnt++;
            if(line_cnt>300)
@@ -147,9 +147,9 @@ router.route('/info/pm25')
        var line_cnt=0;
         var nodesList=[];
         var info ={};
-        var stream = fs.createReadStream(week2_csv);
+        var stream = fs.createReadStream(week1_csv);
         fcsv
-        .fromStream(stream, { headers: week2_csv_header})
+        .fromStream(stream, { headers: week1_csv_header})
         .on('data', function (data) {
            line_cnt++;
            if(line_cnt>300)
@@ -177,9 +177,9 @@ router.route('/info/no2')
        var line_cnt=0;
         var nodesList=[];
         var info ={};
-        var stream = fs.createReadStream(week2_csv);
+        var stream = fs.createReadStream(week1_csv);
         fcsv
-        .fromStream(stream, { headers: week2_csv_header})
+        .fromStream(stream, { headers: week1_csv_header})
         .on('data', function (data) {
            line_cnt++;
            if(line_cnt>300)
@@ -203,11 +203,27 @@ router.route('/info/no2')
     
 // on routes that end in /value
 // ----------------------------------------------------
-//The latest data from a node
-router.route('/value/:node_id')
+//The latest data from  nodes
+router.route('/value/nodes')
     .get(function(req, res) {
-      
-    
+        var nodesList={};
+        var stream = fs.createReadStream(latest_csv);
+        fcsv
+        .fromStream(stream, { headers: week1_csv_header})
+        .on('data', function (data) {
+            if (data['Node'] != 'Node') {
+                if(!(data['Node'] in nodesList))
+                  nodesList[data['Node']] = {}
+                  nodesList[data['Node']]['Timestamp']= data['Timestamp'];
+                  nodesList[data['Node']][data['Parameter']]= data['Value_raw']+"/"+data['Value_hrf'];
+
+            }
+                
+        })
+        .on('end', function(){
+           nodesList['total']= Object.keys(nodesList).length;
+           res.json(nodesList);
+        })
     });
 
 
