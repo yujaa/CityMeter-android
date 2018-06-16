@@ -9,7 +9,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.widget.Toast;
+import android.util.Log;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -17,12 +17,22 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
-public class SearchActivity extends TabHost implements OnMapReadyCallback {
+import org.json.simple.JSONObject;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCallback{
 
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
-
     private GoogleMap mMap;
+    private JSONObject nodesLocation = null;
+    HashMap<String, HashMap<String, String>> nodesInfo = new HashMap<String,  HashMap<String, String>>();
 
     @Override
     public int getContentViewId() {
@@ -41,6 +51,10 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback {
         setSupportActionBar(myToolbar);
 
         initMap();
+
+        new AoTData(SearchActivity.this).execute();
+
+
     }
 
 
@@ -126,5 +140,48 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback {
                     mMap.addCircle(circleOptions);
                 }
             };
+
+    @Override
+    public void onApiCallback(JSONObject jsonData){
+        //Log.i("my", String.valueOf(jsonData));
+        nodesLocation = jsonData;
+        drawMarker();
+    }
+
+    public void drawMarker()
+    {
+        //parse json
+        for(Object k: nodesLocation.keySet()){
+            Log.i("my", k.toString());
+            if(!k.toString().equals("total")){
+
+                HashMap<String, String> node = new HashMap<String, String>();
+                node.put("lat",((JSONObject)nodesLocation.get(k.toString())).get("lat").toString());
+                node.put("lon",((JSONObject)nodesLocation.get(k.toString())).get("lon").toString());
+                node.put("addr",((JSONObject)nodesLocation.get(k.toString())).get("address").toString());
+                nodesInfo.put(k.toString(), node);
+            }
+
+        }
+
+        Set set = nodesInfo.entrySet();
+        Iterator iterator = set.iterator();
+        while(iterator.hasNext()) {
+            Map.Entry entry = (Map.Entry)iterator.next();
+
+            double lat = Double.parseDouble((((HashMap)entry.getValue()).get("lat")).toString());
+            double lon = Double.parseDouble((((HashMap)entry.getValue()).get("lon")).toString());
+            Log.i("my", lat+","+lon);
+
+            mMap.addMarker(new MarkerOptions()
+                    .position(new LatLng(lat,lon))
+                    .title((String) entry.getKey()));
+        }
+
+        //draw markers
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(41.8693, -87.6475))
+                .title("UIC"));
+    }
 
 }

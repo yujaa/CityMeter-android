@@ -47,8 +47,9 @@ public class HomeActivity extends TabHost {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
                 != PackageManager.PERMISSION_GRANTED) {
                 ActivityCompat.requestPermissions(this, permissions, 9);
-            }
-            else{
+        }
+
+        else{
             Thread thread = new Thread(new Runnable() {//To run the noise detector in the background
                 @Override
                 public void run() {
@@ -89,11 +90,11 @@ public class HomeActivity extends TabHost {
                     });
                     thread.start();
                 }
-                }
-                return;
             }
-
+            return;
         }
+
+    }
 
     @Override
     protected void onDestroy() {
