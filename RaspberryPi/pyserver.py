@@ -1,12 +1,13 @@
 import socket
 import time
 import os
+import sys
 from datetime import datetime, timedelta
 
 #=============================
 #initializing variables
-TCP_IP = '67.175.106.4'
-TCP_PORT = 80
+TCP_IP = '192.168.1.4'
+TCP_PORT = 3678
 BUFFER_SIZE = 10240
 #Create a socket to store the connection made to file
 connection = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -50,7 +51,7 @@ def recieve_data():
 	print("Data = " + data.decode("utf-8"))
 
 #=============================
-#Function to write to file
+#Function to write to active file
 def write_to_active(data):
 	try:
 		day = str(datetime.today())
@@ -94,10 +95,17 @@ def close_connection():
 	connection.close()
 
 #=============================
+#function to restart script
+def restart_script():
+	python= sys.executable
+	os.execl(python, python, *  sys.argv)
+
+#=============================
 #Function to handle exiting the script
 def on_exit_handler():
 	close_connection()
-	time.sleep(2)
+	time.sleep(1)
+	restart_script()
 
 #=============================
 #Function to handle termination and stopping
@@ -111,9 +119,9 @@ def set_exit_handler(func):
 if __name__== "__main__":
 	set_exit_handler(on_exit_handler)
 	try:
-		write_to_active(1)
 		connection = server_setup()
-		recieve_data()
+		while True:
+			recieve_data()
 	except BaseException:
 		on_exit_handler()
 	except SystemExit:
