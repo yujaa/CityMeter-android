@@ -17,12 +17,11 @@ import java.net.URL;
 
 
 public class AoTData extends AsyncTask<String, Void, JSONObject> {
-    private Context mContext;
-    private Exception exception;
     private ApiCallback mCallback;
+    private String apiUrl;
 
     public AoTData(Context context){
-        this.mContext = context;
+
         this.mCallback = (ApiCallback) context;
 
     }
@@ -31,13 +30,14 @@ public class AoTData extends AsyncTask<String, Void, JSONObject> {
 
         JSONParser jParser= new JSONParser();
         JSONObject aotData = null;
+
         try {
             aotData = (JSONObject) jParser.parse("Null");
         } catch (ParseException e) {
             e.printStackTrace();
         }
         try {
-
+            apiUrl = urls[0];
             URL url = new URL("http://34.229.219.45:9000/api/"+urls[0]);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
@@ -78,7 +78,9 @@ public class AoTData extends AsyncTask<String, Void, JSONObject> {
     protected void onPostExecute(JSONObject result) {
         // TODO: check this.exception
         // TODO: do something with the feed
-        mCallback.onApiCallback(result);
+        String apiUrl =  this.apiUrl;
+        mCallback.onApiCallback(result, apiUrl);
+
     }
 }
 
