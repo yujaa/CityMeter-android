@@ -38,7 +38,7 @@ public class AoTData extends AsyncTask<String, Void, JSONObject> {
         }
         try {
 
-            URL url = new URL("http://34.229.219.45:9000/api/info/nodes");
+            URL url = new URL("http://34.229.219.45:9000/api/"+urls[0]);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
             conn.setRequestProperty("Accept", "application/json");

@@ -52,9 +52,7 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
 
         initMap();
 
-        new AoTData(SearchActivity.this).execute();
-
-
+        new AoTData(SearchActivity.this).execute("info/nodes");
     }
 
 
@@ -154,24 +152,21 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
         for(Object k: nodesLocation.keySet()){
             Log.i("my", k.toString());
             if(!k.toString().equals("total")){
-
                 HashMap<String, String> node = new HashMap<String, String>();
                 node.put("lat",((JSONObject)nodesLocation.get(k.toString())).get("lat").toString());
                 node.put("lon",((JSONObject)nodesLocation.get(k.toString())).get("lon").toString());
                 node.put("addr",((JSONObject)nodesLocation.get(k.toString())).get("address").toString());
                 nodesInfo.put(k.toString(), node);
             }
-
         }
 
         Set set = nodesInfo.entrySet();
         Iterator iterator = set.iterator();
         while(iterator.hasNext()) {
             Map.Entry entry = (Map.Entry)iterator.next();
-
             double lat = Double.parseDouble((((HashMap)entry.getValue()).get("lat")).toString());
             double lon = Double.parseDouble((((HashMap)entry.getValue()).get("lon")).toString());
-            Log.i("my", lat+","+lon);
+            //Log.i("my", lat+","+lon);
 
             mMap.addMarker(new MarkerOptions()
                     .position(new LatLng(lat,lon))
