@@ -5,8 +5,8 @@ from datetime import datetime, timedelta
 
 #=============================
 #initializing variables
-TCP_IP = '192.168.1.4'
-TCP_PORT = 3678
+TCP_IP = '67.175.106.4'
+TCP_PORT = 80
 BUFFER_SIZE = 10240
 #Create a socket to store the connection made to file
 connection = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -19,12 +19,15 @@ archive_path = '/home/saleh/city-meter/archive/'
 #Set ip address and port
 #Start listening
 def server_setup():
-	ssocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-	ssocket.bind((TCP_IP, TCP_PORT))
-	print("Waiting for connection...")
-	ssocket.listen(1)
-	connection, address = ssocket.accept()
-	print("Accepted Connection.. ")
+	try:
+		ssocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+		ssocket.bind((TCP_IP, TCP_PORT))
+		print("Waiting for connection...")
+		ssocket.listen(1)
+		connection, address = ssocket.accept()
+		print("Accepted Connection.. ")
+	except BaseException as e:
+		print(str(e))
 	return connection
 
 #=============================
