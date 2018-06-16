@@ -140,13 +140,25 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
             };
 
     @Override
-    public void onApiCallback(JSONObject jsonData){
+    public void onApiCallback(JSONObject jsonData, String url){
         //Log.i("my", String.valueOf(jsonData));
         nodesLocation = jsonData;
-        drawMarker();
+        if(url.equals("value/nodes")) {
+            getNodesLocation();
+            getCurrentData();
+        }
+        if(url.equals("info/nodes")) {
+            getNodesLocation();
+            DrawMarker();
+        }
     }
 
-    public void drawMarker()
+    public void getCurrentData()
+    {
+
+    }
+
+    public void getNodesLocation()
     {
         //parse json
         for(Object k: nodesLocation.keySet()){
@@ -159,7 +171,9 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
                 nodesInfo.put(k.toString(), node);
             }
         }
+    }
 
+    public void DrawMarker(){
         Set set = nodesInfo.entrySet();
         Iterator iterator = set.iterator();
         while(iterator.hasNext()) {
@@ -178,5 +192,4 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
                 .position(new LatLng(41.8693, -87.6475))
                 .title("UIC"));
     }
-
 }

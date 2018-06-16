@@ -20,6 +20,7 @@ public class AoTData extends AsyncTask<String, Void, JSONObject> {
     private Context mContext;
     private Exception exception;
     private ApiCallback mCallback;
+    private String mUrl;
 
     public AoTData(Context context){
         this.mContext = context;
@@ -39,6 +40,7 @@ public class AoTData extends AsyncTask<String, Void, JSONObject> {
         try {
 
             URL url = new URL("http://34.229.219.45:9000/api/"+urls[0]);
+            this.mUrl = urls[0];
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
             conn.setRequestProperty("Accept", "application/json");
@@ -75,10 +77,10 @@ public class AoTData extends AsyncTask<String, Void, JSONObject> {
         return aotData;
     }
 
-    protected void onPostExecute(JSONObject result) {
+    protected void onPostExecute(JSONObject result, String url) {
         // TODO: check this.exception
         // TODO: do something with the feed
-        mCallback.onApiCallback(result);
+        mCallback.onApiCallback(result, mUrl);
     }
 }
 
