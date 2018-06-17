@@ -22,10 +22,10 @@ import uic.hcilab.citymeter.NoiseDetector;
 
 public class HomeActivity extends TabHost {
 
-    private NoiseDetector noiseDetector = new NoiseDetector();
+    //private NoiseDetector noiseDetector = new NoiseDetector();
     private ProgressBar noiseBar;
     private BluetoothController mBluetoothController;
-    private SensorsDataHandler sensorsDataHandler;
+    //private SensorsDataHandler sensorsDataHandler;
     @Override
     public int getContentViewId() {
         return R.layout.activity_home;
@@ -45,6 +45,7 @@ public class HomeActivity extends TabHost {
         //End of to be removed
         Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar_home);
         setSupportActionBar(myToolbar);
+        //sensorsDataHandler = new SensorsDataHandler(this, savedInstanceState);
         //Permissions handling
         String [] permissions = new String[1];
         permissions[0] = Manifest.permission.RECORD_AUDIO;
@@ -57,7 +58,7 @@ public class HomeActivity extends TabHost {
             Thread thread = new Thread(new Runnable() {//To run the noise detector in the background
                 @Override
                 public void run() {
-                    noiseDetector.noiseDetect();
+                    //noiseDetector.noiseDetect();
                     while (true) {
                         /*double dBval = noiseDetector.noiseLevel();
                         Log.i("Recorder", (int)dBval + "");
@@ -71,7 +72,7 @@ public class HomeActivity extends TabHost {
         }
         //Create a bluetooth controller
         mBluetoothController= new BluetoothController(this, savedInstanceState);
-        mBluetoothController.checkBTEnabled();
+        mBluetoothController.connectDevice();
     }
 
     @Override
@@ -85,7 +86,7 @@ public class HomeActivity extends TabHost {
                     Thread thread = new Thread(new Runnable() {//To run the noise detector in the background
                         @Override
                         public void run() {
-                            noiseDetector.noiseDetect();
+                            //noiseDetector.noiseDetect();
                             while (true) {
                                 /*double dBval = noiseDetector.noiseLevel();
                                 Log.i("Recorder", (int)dBval + "");
@@ -106,6 +107,6 @@ public class HomeActivity extends TabHost {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        noiseDetector.stop();
+        //noiseDetector.stop();
     }
 }
