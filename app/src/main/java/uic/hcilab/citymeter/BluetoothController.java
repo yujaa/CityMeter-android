@@ -40,8 +40,8 @@ public class BluetoothController {
     private OutputStream outputStream;
     private PrintWriter printWriter;
 
-    private static final int SERVERPORT = 3678;
-    private static final String SERVER_IP = "192.168.1.4";
+    private static final int SERVERPORT = 80;
+    private static final String SERVER_IP = "ec2-34-229-219-45.compute-1.amazonaws.com";
     //Permissions handling
     /*String[] my_permissions = new String[2];
     my_permissions[0] = permission.ACCESS_COARSE_LOCATION;
@@ -194,10 +194,10 @@ public class BluetoothController {
                         try {
                             mBluetoothSocket.connect();
                             byte[] readLine;
-                            if (mBluetoothSocket.isConnected()) {
-                                Log.i("BT", "Connected to bluetooth... 4");
                                 while (true) {//needs to handle archive data for syncing
                                     readLine = new byte[100];
+                                    if (mBluetoothSocket.isConnected()) {
+                                        Log.i("BT", "Connected to bluetooth... 4");
                                     mBluetoothSocket.getInputStream().read(readLine);
                                     String msgInfo = new String(readLine, "UTF-8");
                                     Log.i("BT", "recieved = " + msgInfo + "  5");
@@ -211,19 +211,19 @@ public class BluetoothController {
                                     if (result.length() > 0) {
                                         SensorsDataHandler(result, printWriter);
                                     }
+                                    } else {
+                                        connectDevice();
+                                    }
                                     String my_dB = noiseDetector.noiseLevel(longitude, latitude);
                                     if (my_dB.length() > 0) {
                                         SensorsDataHandler(my_dB, printWriter);
                                     }
                                     Log.i("BT", "data sent to server  6");
                                 }
-
-                            } else {
-                                connectDevice();
-                            }
                         } catch (Exception e) {
-                            Log.i("BT", "error: " + e.toString() + "  e1");
+                            Log.i("BT",e.toString() + "  e1");
                             e.printStackTrace();
+                            connectDevice();
                         }
                     }
                 } catch (IOException connectException) {
