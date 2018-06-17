@@ -15,6 +15,8 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.Circle;
 import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -23,7 +25,6 @@ import org.json.simple.JSONObject;
 
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -53,6 +54,7 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
         initMap();
 
         new AoTData(SearchActivity.this).execute("info/nodes");
+
     }
 
 
@@ -125,32 +127,39 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
                 @Override
                 public void onMyLocationClick(@NonNull Location location) {
 
-                    mMap.setMinZoomPreference(12);
-
-                    CircleOptions circleOptions = new CircleOptions();
-                    circleOptions.center(new LatLng(location.getLatitude(),
-                            location.getLongitude()));
-
-                    circleOptions.radius(200);
-                    circleOptions.fillColor(Color.RED);
-                    circleOptions.strokeWidth(6);
-
-                    mMap.addCircle(circleOptions);
+//                    mMap.setMinZoomPreference(12);
+//
+//                    CircleOptions circleOptions = new CircleOptions();
+//                    circleOptions.center(new LatLng(location.getLatitude(),
+//                            location.getLongitude()));
+//
+//                    circleOptions.radius(200);
+//                    circleOptions.fillColor(Color.RED);
+//                    circleOptions.strokeWidth(6);
+//
+//                    mMap.addCircle(circleOptions);
                 }
             };
 
     @Override
-    public void onApiCallback(JSONObject jsonData){
+    public void onApiCallback(JSONObject jsonData, String urlApi){
         //Log.i("my", String.valueOf(jsonData));
-        nodesLocation = jsonData;
-        drawMarker();
+        if(urlApi.equals("info/nodes")) {
+            getNodesLocationData(jsonData);
+            new AoTData(SearchActivity.this).execute("value/nodes");
+            //drawMarker(nodesInfo);
+        }
+        else if(urlApi.equals("value/nodes")){
+            getNodesValueData(jsonData);
+            drawMarker(nodesInfo);
+        }
     }
 
-    public void drawMarker()
-    {
+
+    public void getNodesLocationData(JSONObject nodesLocation){
         //parse json
         for(Object k: nodesLocation.keySet()){
-            Log.i("my", k.toString());
+            //Log.i("my", k.toString());
             if(!k.toString().equals("total")){
                 HashMap<String, String> node = new HashMap<String, String>();
                 node.put("lat",((JSONObject)nodesLocation.get(k.toString())).get("lat").toString());
@@ -160,23 +169,78 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
             }
         }
 
-        Set set = nodesInfo.entrySet();
+    }
+
+    public void getNodesValueData(JSONObject nodesValue)
+    {
+        //parse json
+        for(Object k: nodesValue.keySet()){
+            //Log.i("my", k.toString());
+            if(!k.toString().equals("total")){
+                HashMap<String, String> node = new HashMap<String, String>();
+                if(((JSONObject)nodesValue.get(k.toString())).containsKey("timestamp"))
+                    node.put("timeStamp",((JSONObject)nodesValue.get(k.toString())).get("timestamp").toString());
+                if(((JSONObject)nodesValue.get(k.toString())).containsKey("sound"))
+                    node.put("sound",((JSONObject)nodesValue.get(k.toString())).get("sound").toString());
+                if(((JSONObject)nodesValue.get(k.toString())).containsKey("no2"))
+                    node.put("no2",((JSONObject)nodesValue.get(k.toString())).get("no2").toString());
+                if(((JSONObject)nodesValue.get(k.toString())).containsKey("pm2_5"))
+                    node.put("pm2_5",((JSONObject)nodesValue.get(k.toString())).get("pm2_5").toString());
+                nodesInfo.get(k.toString()).putAll(node);
+            }
+        }
+        Log.i("my", nodesInfo+"");
+    }
+
+
+    public void drawMarker( HashMap<String, HashMap<String, String>> nodesInfoParam)
+    {
+
+        Set set = nodesInfoParam.entrySet();
         Iterator iterator = set.iterator();
         while(iterator.hasNext()) {
-            Map.Entry entry = (Map.Entry)iterator.next();
-            double lat = Double.parseDouble((((HashMap)entry.getValue()).get("lat")).toString());
-            double lon = Double.parseDouble((((HashMap)entry.getValue()).get("lon")).toString());
-            //Log.i("my", lat+","+lon);
+            double sound;
+            int circleColor;
 
-            mMap.addMarker(new MarkerOptions()
-                    .position(new LatLng(lat,lon))
-                    .title((String) entry.getKey()));
+            Map.Entry entry = (Map.Entry) iterator.next();
+            double lat = Double.parseDouble((((HashMap) entry.getValue()).get("lat")).toString());
+            double lon = Double.parseDouble((((HashMap) entry.getValue()).get("lon")).toString());
+
+            if(((HashMap) entry.getValue()).containsKey("sound")) {
+                sound = Double.parseDouble((((HashMap) entry.getValue()).get("sound")).toString());
+                if (sound < 57) circleColor = Color.argb(100,0,255,0);//R.drawable.green_circle;
+                else if (sound < 70) circleColor = circleColor = Color.argb(100,255,255,0);//R.drawable.yellow_circle;
+                else circleColor = circleColor = Color.argb(100,255,0,0);//R.drawable.red_circle;
+            }
+            else
+                continue;
+
+            // Instantiates a new CircleOptions object and defines the center and radius
+            CircleOptions circleOptions = new CircleOptions()
+                    .center(new LatLng(lat, lon))
+                    .radius(400) // In meters
+                    .strokeWidth(0)
+                    .fillColor(circleColor)
+                    .clickable(true);
+
+            // Get back the mutable Circle
+            Circle circle = mMap.addCircle(circleOptions);
+
+
+//            mMap.addMarker(new MarkerOptions()
+//                    .position(new LatLng(lat, lon))
+//                    .icon(BitmapDescriptorFactory.fromResource(mMarker))
+//                    .title((String) entry.getKey())
+//                    .alpha(0.45f)
+//                    .anchor(0.5f,0.5f)
+//                    .flat(true)
+//                    );
         }
 
         //draw markers
-        mMap.addMarker(new MarkerOptions()
-                .position(new LatLng(41.8693, -87.6475))
-                .title("UIC"));
+//        mMap.addMarker(new MarkerOptions()
+//                .position(new LatLng(41.8693, -87.6475))
+//                .title("UIC"));
     }
 
 }
