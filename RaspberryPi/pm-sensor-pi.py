@@ -205,8 +205,8 @@ def on_exit_handler ():
     serial_channel.close()
     bluetooth_close_connections(server_socket, client_socket)
     led_off()
-    time.sleep(5)
-    #restart_script()
+    time.sleep(1)
+    restart_script()
     
 #========================================
 #Function to catch termination
@@ -227,6 +227,8 @@ if __name__== "__main__":
         read_data_thrd = Thread(target= data_extract, args = (serial_channel, ))
         read_data_thrd.start()
     except BaseException:
+        on_exit_handler()
+    except BluetoothError:
         on_exit_handler()
     except SystemExit:
         on_exit_handler()
