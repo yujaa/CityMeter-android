@@ -171,7 +171,7 @@ public class BluetoothController {
                     noiseDetector.noiseDetect();
 
                     //location setup
-                    location_setup();
+                    location_setup();//
 
                     //connect to server
                     inetAddress = InetAddress.getByName(SERVER_IP);
