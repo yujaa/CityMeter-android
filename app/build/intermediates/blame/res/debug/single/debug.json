@@ -1528,6 +1528,10 @@
         "source": "C:\\Users\\Nina Sakhnini\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\04b3eccd16314a9e026539f0e5a9e746\\res\\layout\\abc_list_menu_item_layout.xml"
     },
     {
+        "merged": "F:\\Projects\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_pin.png.flat",
+        "source": "F:\\Projects\\CityMeter-android\\app\\src\\main\\res\\drawable\\pin.png"
+    },
+    {
         "merged": "F:\\Projects\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_design_ic_visibility.png.flat",
         "source": "C:\\Users\\Nina Sakhnini\\.gradle\\caches\\transforms-1\\files-1.1\\design-27.1.1.aar\\ef2d03b93fdde47f0e26833da93339b9\\res\\drawable-xxhdpi-v4\\design_ic_visibility.png"
     },

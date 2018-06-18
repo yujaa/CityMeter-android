@@ -1,6 +1,7 @@
 package uic.hcilab.citymeter;
 
 import android.app.Activity;
+import android.app.Service;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
@@ -12,6 +13,8 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.os.IBinder;
+import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 
@@ -29,14 +32,12 @@ import java.util.UUID;
 
 //Needs to be generalized: this code only works for the particular Raspberry Pi 3 we have
 //Look into low energy bluetooth communication (LE BT)
-public class BluetoothController {
+public class SensingController {
     //======================================================
     //Variables
-    private Activity mActivity;
-    private Bundle mBundle;
     private BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
     private String result;
-    private LocationManager locationManager;
+    public LocationManager locationManager;
     private InetAddress inetAddress;
     private Socket serverClientSocket;
     private OutputStream outputStream;
@@ -56,12 +57,11 @@ public class BluetoothController {
 
     //======================================================
     //Constructor
-    BluetoothController(Activity activity, Bundle bundle) {
-        mActivity = activity;
-        mBundle = bundle;
+    SensingController() {
         noiseDetector = new NoiseDetector();
         //location setup
         location_setup();
+
     }
 
     //Destructor
@@ -94,29 +94,13 @@ public class BluetoothController {
     //==================Bluetooth handler===================
     //======================================================
 
-    //Function to check if BT is enabled only
-    public Boolean checkBTEnabled() {//change name
-        if (mBluetoothAdapter == null) {
-            Log.i("BT", "Device is not supported by Bluetooth");
-            return false;
-        } else {
-            return true;
-        }
-    }
-    //Enables bluetooth
-    public void BTEnable(){
-        if (!mBluetoothAdapter.isEnabled()) {
-            Intent enableBTIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-            int REQUEST_ENABLE_BT = 7;
-            ActivityCompat.startActivityForResult(mActivity, enableBTIntent, REQUEST_ENABLE_BT, mBundle);
-        }
-    }
+
 
     //To finalize
     public void BTDisable() {
         try {
             mBluetoothAdapter.disable();
-            mActivity.unregisterReceiver(mReceiver);
+           // mActivity.unregisterReceiver(mReceiver);
         } catch (Exception e) {
             Log.e("bt", "unregister error");
         }
@@ -186,7 +170,8 @@ public class BluetoothController {
 
     //Location setup
     private void location_setup() {
-        locationManager = (LocationManager) mActivity.getSystemService(mActivity.LOCATION_SERVICE);
+        //locationManager = (LocationManager) sv.getSystemService(Context.LOCATION_SERVICE);
+        //locationManager = (LocationManager) mActivity.getSystemService(mActivity.LOCATION_SERVICE);
         try {
             assert locationManager != null;
             Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);

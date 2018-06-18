@@ -73,7 +73,13 @@ public class NoiseDetector {
         double dBA = wa + dB;*/
         SimpleDateFormat s = new SimpleDateFormat("MMM dd yyyy HH:mm:ss");
         String msg_timestamp = s.format(new Date());
-        String result = "[{'timestamp': " + msg_timestamp + ", 'dB': " + dB + ", 'longitude': " + longitude + ", 'latitude': '" + latitude + "'}]";
+        String result;
+        if (dB < Double.MAX_VALUE) {
+             result = "[{'timestamp': " + msg_timestamp + ", 'dB': " + dB + ", 'longitude': " + longitude + ", 'latitude': '" + latitude + "'}]";
+        }
+        else{
+             result = "[{'timestamp': " + msg_timestamp + ", 'dB': " + 0 + ", 'longitude': " + longitude + ", 'latitude': '" + latitude + "'}]";
+        }
         return result;
     }
 
