@@ -19,7 +19,6 @@ import android.widget.TextView;
 
 public class HomeActivity extends TabHost {
 
-    private SensingController mSensingController;
     private BluetoothAdapter mBluetoothAdapter;
 
     private View view;
@@ -41,8 +40,6 @@ public class HomeActivity extends TabHost {
         setSupportActionBar(myToolbar);
         //For no keyboard showing on starting the activity
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
-        //Create a sensing controller
-        //mSensingController = new SensingControlle;
         mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         if(!checkBTEnabled()){
             BTEnable(savedInstanceState);

@@ -37,20 +37,22 @@ public class SensingController {
     //Variables
     private BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
     private String result;
-    public LocationManager locationManager;
     private InetAddress inetAddress;
     private Socket serverClientSocket;
     private OutputStream outputStream;
     private PrintWriter printWriter;
-    public NoiseDetector noiseDetector;
+    private BluetoothDevice bluetoothDevice;
+    private UUID myUUID;
+    private BluetoothSocket mBluetoothSocket;
+    private byte[] readLine;
+
     double longitude;
     double latitude;
-    BluetoothDevice bluetoothDevice;
-    UUID myUUID;
-    BluetoothSocket mBluetoothSocket;
-    byte[] readLine;
+
     public String [] PMs = new String[60];
     public String [] dBs = new String[60];
+    public LocationManager locationManager;
+    public NoiseDetector noiseDetector;
 
     private static final int SERVERPORT = 80;
     private static final String SERVER_IP = "ec2-34-229-219-45.compute-1.amazonaws.com";

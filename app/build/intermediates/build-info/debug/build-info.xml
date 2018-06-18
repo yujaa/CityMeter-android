@@ -5,45 +5,38 @@
     build-mode="COLD"
     density="hdpi"
     format="10"
+    ir-eligibility="COMPATIBLE"
     plugin-version="3.1.2"
-    timestamp="1529361923696"
+    timestamp="1529362589399"
     token="6557461817571977091"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="0" />
+        duration="506" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="0" />
+        duration="43" />
     <task
         name="verifier"
-        duration="0" />
+        duration="7" />
+
+    <artifact
+        location="F:\Projects\CityMeter-android\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
+        type="SPLIT" />
 
     <build
         build-mode="FULL"
-        timestamp="1529360726221"
+        timestamp="1529362499808"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="F:\Projects\CityMeter-android\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
             type="SPLIT" />
         <artifact
-            location="F:\Projects\CityMeter-android\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
-            type="SPLIT" />
-        <artifact
-            location="F:\Projects\CityMeter-android\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
-            type="SPLIT" />
-        <artifact
-            location="F:\Projects\CityMeter-android\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
-            type="SPLIT" />
-        <artifact
             location="F:\Projects\CityMeter-android\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
-            type="SPLIT" />
-        <artifact
-            location="F:\Projects\CityMeter-android\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
             type="SPLIT" />
         <artifact
             location="F:\Projects\CityMeter-android\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
@@ -52,13 +45,25 @@
             location="F:\Projects\CityMeter-android\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
             type="SPLIT" />
         <artifact
+            location="F:\Projects\CityMeter-android\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
+            type="SPLIT" />
+        <artifact
+            location="F:\Projects\CityMeter-android\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
+            type="SPLIT" />
+        <artifact
+            location="F:\Projects\CityMeter-android\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
+            type="SPLIT" />
+        <artifact
+            location="F:\Projects\CityMeter-android\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
+            type="SPLIT" />
+        <artifact
             location="F:\Projects\CityMeter-android\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
             type="SPLIT" />
         <artifact
-            location="F:\Projects\CityMeter-android\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
+            location="F:\Projects\CityMeter-android\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
             type="SPLIT" />
         <artifact
-            location="F:\Projects\CityMeter-android\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
+            location="F:\Projects\CityMeter-android\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
             type="SPLIT" />
         <artifact
             location="F:\Projects\CityMeter-android\app\build\intermediates\instant-run-apk\debug\app-debug.apk"
@@ -66,16 +71,12 @@
     </build>
     <build
         build-mode="COLD"
-        ir-eligibility="METHOD_ADDED"
-        timestamp="1529361860345"
+        ir-eligibility="COMPATIBLE"
+        timestamp="1529362589399"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="F:\Projects\CityMeter-android\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
             type="SPLIT" />
     </build>
-    <build
-        build-mode="COLD"
-        timestamp="1529361923696"
-        verifier="COLD_SWAP_REQUESTED" />
 
 </instant-run>
