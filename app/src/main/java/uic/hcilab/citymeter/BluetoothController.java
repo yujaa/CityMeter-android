@@ -20,16 +20,18 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Method;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.util.Set;
 import java.util.UUID;
 
-
 //Needs to be generalized: this code only works for the particular Raspberry Pi 3 we have
 //Look into low energy bluetooth communication (LE BT)
 public class BluetoothController {
+    //======================================================
+    //Variables
     private Activity mActivity;
     private Bundle mBundle;
     private BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
@@ -39,33 +41,114 @@ public class BluetoothController {
     private Socket serverClientSocket;
     private OutputStream outputStream;
     private PrintWriter printWriter;
+    public NoiseDetector noiseDetector;
+    double longitude;
+    double latitude;
+    BluetoothDevice bluetoothDevice;
+    UUID myUUID;
+    BluetoothSocket mBluetoothSocket;
+    byte[] readLine;
+    public String [] PMs = new String[60];
+    public String [] dBs = new String[60];
 
     private static final int SERVERPORT = 80;
     private static final String SERVER_IP = "ec2-34-229-219-45.compute-1.amazonaws.com";
-    //Permissions handling
-    /*String[] my_permissions = new String[2];
-    my_permissions[0] = permission.ACCESS_COARSE_LOCATION;
-    my_permissions[1] = permission.ACCESS_FINE_LOCATION;
-    if (mActivity.checkSelfPermission(mActivity, permission.ACCESS_COARSE_LOCATION)
-            != PackageManager.PERMISSION_GRANTED) {
-        ActivityCompat.requestPermissions(this, permissions, 7);
-    }
-    else{
-        LocationManager lm = (LocationManager) mActivity.getSystemService(mActivity.LOCATION_SERVICE);
-        Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-        latitude =  location.getLatitude();
-        longitude = location.getLongitude();
-    }*/
+
+    //======================================================
     //Constructor
     BluetoothController(Activity activity, Bundle bundle) {
         mActivity = activity;
         mBundle = bundle;
-        //location_setup();
+        noiseDetector = new NoiseDetector();
+        //location setup
+        location_setup();
+    }
+
+    //Destructor
+    public void destructor(){
+        try {
+            noiseDetector.stop();
+        }catch(Exception e){
+            Log.e("db", "stop error");
+        }
+        try {
+            serverClientSocket.close();
+        }
+        catch (Exception e){
+            Log.e("svr", "close error");
+        }
+        try {
+            outputStream.close();
+        }
+        catch (Exception e){
+            Log.e("ots", "output stream close error");
+        }
+        try {
+            printWriter.close();
+        } catch (Exception e){
+            Log.e("prt", "PrintWriter close error");
+        }
     }
 
     //======================================================
     //==================Bluetooth handler===================
     //======================================================
+
+    //Function to check if BT is enabled only
+    public Boolean checkBTEnabled() {//change name
+        if (mBluetoothAdapter == null) {
+            Log.i("BT", "Device is not supported by Bluetooth");
+            return false;
+        } else {
+            return true;
+        }
+    }
+    //Enables bluetooth
+    public void BTEnable(){
+        if (!mBluetoothAdapter.isEnabled()) {
+            Intent enableBTIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+            int REQUEST_ENABLE_BT = 7;
+            ActivityCompat.startActivityForResult(mActivity, enableBTIntent, REQUEST_ENABLE_BT, mBundle);
+        }
+    }
+
+    //To finalize
+    public void BTDisable() {
+        try {
+            mBluetoothAdapter.disable();
+            mActivity.unregisterReceiver(mReceiver);
+        } catch (Exception e) {
+            Log.e("bt", "unregister error");
+        }
+    }
+
+    public void BTSetup() throws IOException {
+        bluetoothDevice = mBluetoothAdapter.getRemoteDevice("B8:27:EB:73:04:B1");//create a device with the mac address of the Pi
+        String uuid_str = "00000003-0000-1000-8000-00805F9B34FB";//The uuid for rfcomm, by bluetooth
+        myUUID = UUID.fromString(uuid_str);
+        mBluetoothSocket = bluetoothDevice.createInsecureRfcommSocketToServiceRecord(myUUID);//socket to open connectio
+    }
+
+    public void BTConnect() throws IOException {
+        mBluetoothAdapter.cancelDiscovery();//Make sure discovery is off for less battery consumption
+        mBluetoothSocket.connect();
+        Log.i("BT", "Connected to bluetooth...");
+    }
+
+    public Boolean BTIsConnected(){
+        return mBluetoothSocket.isConnected();
+    }
+
+    public String BTRead() throws IOException {
+        readLine = new byte[100];
+        mBluetoothSocket.getInputStream().read(readLine);
+        String msgInfo = new String(readLine, "UTF-8");
+        Log.i("BT", "recieved = " + msgInfo + "  5");
+        int pm = pm_value(msgInfo);
+        String msg_timestamp = timestamp(msgInfo);
+        result = "[{'latitude': " + latitude + ", 'pm2.5': " + pm + ", 'longitude': " + longitude + ", 'timestamp': '" + msg_timestamp + "'}]";
+        return result;
+    }
 
     // Create a BroadcastReceiver to handle bluetooth actions
     private BroadcastReceiver mReceiver = new BroadcastReceiver() {
@@ -97,182 +180,80 @@ public class BluetoothController {
         }
     };
 
-    //Function to check if BT is enabled and enables it if it is not enabled
-    public void checkBTEnabled() {
-        if (mBluetoothAdapter == null) {
-            Log.i("BT", "Device is not supported by Bluetooth");
-        } else {
-            if (!mBluetoothAdapter.isEnabled()) {
-                Intent enableBTIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-                int REQUEST_ENABLE_BT = 7;
-                ActivityCompat.startActivityForResult(mActivity, enableBTIntent, REQUEST_ENABLE_BT, mBundle);
-            }
-        }
-    }
+    //======================================================
+    //==================Location handler====================
+    //======================================================
 
-    //Scan for devices
-    public void lookupBTDevices() {
-        boolean isPiPaired = false;
-
-        // To broadcast when devices are discovered
-        IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
-        filter.addAction(BluetoothDevice.ACTION_FOUND);
-        filter.addAction(BluetoothAdapter.ACTION_DISCOVERY_STARTED);
-        filter.addAction(BluetoothAdapter.ACTION_DISCOVERY_FINISHED);
-        mActivity.registerReceiver(mReceiver, filter);
-
-        // Set of the paired devices
-        Set<BluetoothDevice> pairedDevices = mBluetoothAdapter.getBondedDevices();
-
-        //Check if there are any paired devices
-        if (pairedDevices.size() > 0) {
-            for (BluetoothDevice device : pairedDevices) {
-                if (device.getAddress().equals("B8:27:EB:73:04:B1")) {
-                    isPiPaired = true;//Make sure the raspberry pi is paired, otherwise pair
-                }
-            }
-        }
-        //For discovering all other devices
-        // If already discovering, stop
-        if (mBluetoothAdapter.isDiscovering()) {
-            mBluetoothAdapter.cancelDiscovery();
-        }
-
-        // Start discovery
-        mBluetoothAdapter.startDiscovery();
-        Log.i("BT", "started Discovery");
-
-        if (!isPiPaired) {
-            pairDevice();
-        }
-    }
-
-    //Pair a device
-    private void pairDevice() {
+    //Location setup
+    private void location_setup() {
+        locationManager = (LocationManager) mActivity.getSystemService(mActivity.LOCATION_SERVICE);
         try {
-            BluetoothDevice device = mBluetoothAdapter.getRemoteDevice("B8:27:EB:73:04:B1");
-            Method method = device.getClass().getMethod("createBond", (Class[]) null);
-            method.invoke(device, (Object[]) null);
-        } catch (Exception e) {
-            e.printStackTrace();
+            assert locationManager != null;
+            Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+            longitude = location.getLongitude();
+            latitude = location.getLatitude();
+            Log.i("BT", "location setup : " + longitude + " " + latitude);
+        }catch (SecurityException exception){
+
         }
+        catch (Exception exception) {
+            Log.i("BT", "location error " + exception.toString());
+        }
+
     }
 
-    public void connectDevice() {
-        checkBTEnabled();
-        Thread thread = new Thread(new Runnable() {
-            double longitude, latitude;
-            NoiseDetector noiseDetector = new NoiseDetector();
+    private final LocationListener locationListener = new LocationListener() {
+        public void onLocationChanged(Location location) {
+            longitude = location.getLongitude();
+            latitude = location.getLatitude();
+        }
 
-            @Override
-            public void run() {
-                try {
-                    //start recording
-                    noiseDetector.noiseDetect();
+        @Override
+        public void onStatusChanged(String provider, int status, Bundle extras) {
 
-                    //location setup
-                    location_setup();
+        }
 
-                    //connect to server
-                    inetAddress = InetAddress.getByName(SERVER_IP);
-                    Log.i("BT", "address : " + inetAddress.getHostAddress() + "   1");
-                    serverClientSocket = new Socket(inetAddress, SERVERPORT);
-                    if (!serverClientSocket.isConnected()) {
-                        Log.i("BT", "not connected to server 2");
-                    } else {
-                        Log.i("BT", "connected to server.. 2");
+        @Override
+        public void onProviderEnabled(String provider) {
 
+        }
 
-                        //connect to bluetooth
-                        //This should be able to connect to any device not just ours
-                        BluetoothDevice device = mBluetoothAdapter.getRemoteDevice("B8:27:EB:73:04:B1");//create a device with the mac address of the Pi
-                        String uuid_str = "00000003-0000-1000-8000-00805F9B34FB";//The uuid for rfcomm, by bluetooth
-                        UUID myUUID = UUID.fromString(uuid_str);
-                        //Create Socket
-                        BluetoothSocket mBluetoothSocket = device.createInsecureRfcommSocketToServiceRecord(myUUID);//socket to open connection
-                        mBluetoothAdapter.cancelDiscovery();//Make sure discovery is off for less battery consumption
-                        try {
-                            mBluetoothSocket.connect();
-                            byte[] readLine;
-                                while (true) {//needs to handle archive data for syncing
-                                    readLine = new byte[100];
-                                    if (mBluetoothSocket.isConnected()) {
-                                        Log.i("BT", "Connected to bluetooth... 4");
-                                    mBluetoothSocket.getInputStream().read(readLine);
-                                    String msgInfo = new String(readLine, "UTF-8");
-                                    Log.i("BT", "recieved = " + msgInfo + "  5");
-                                    int pm = pm_value(msgInfo);
-                                    String msg_timestamp = timestamp(msgInfo);
-                                    result = "[{'latitude': " + latitude + ", 'pm2.5': " + pm + ", 'longitude': " + longitude + ", 'timestamp': '" + msg_timestamp + "'}]";
-                                    outputStream = serverClientSocket.getOutputStream();
-                                    printWriter = new PrintWriter(new BufferedWriter(
-                                            new OutputStreamWriter(outputStream)),
-                                            true);
-                                    if (result.length() > 0) {
-                                        SensorsDataHandler(result, printWriter);
-                                    }
-                                    } else {
-                                        connectDevice();
-                                    }
-                                    String my_dB = noiseDetector.noiseLevel(longitude, latitude);
-                                    if (my_dB.length() > 0) {
-                                        SensorsDataHandler(my_dB, printWriter);
-                                    }
-                                    Log.i("BT", "data sent to server  6");
-                                }
-                        } catch (Exception e) {
-                            Log.i("BT",e.toString() + "  e1");
-                            e.printStackTrace();
-                            connectDevice();
-                        }
-                    }
-                } catch (IOException connectException) {
-                    Log.i("BT", connectException.toString() + "  e2");
-                    connectDevice();
-                }
-            }
+        @Override
+        public void onProviderDisabled(String provider) {
 
+        }
+    };
 
-            //Location handler
-            private void location_setup() {
-                locationManager = (LocationManager) mActivity.getSystemService(mActivity.LOCATION_SERVICE);
-                try {
-                    assert locationManager != null;
-                    Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-                    longitude = location.getLongitude();
-                    latitude = location.getLatitude();
-                    Log.i("BT", "location setup : " + longitude + " " + latitude);
-                } catch (SecurityException exception) {
-                    Log.i("BT", "location error");
-                }
-            }
+    //======================================================
+    //==================Server handler======================
+    //======================================================
 
-            private final LocationListener locationListener = new LocationListener() {
-                public void onLocationChanged(Location location) {
-                    longitude = location.getLongitude();
-                    latitude = location.getLatitude();
-                }
-
-                @Override
-                public void onStatusChanged(String provider, int status, Bundle extras) {
-
-                }
-
-                @Override
-                public void onProviderEnabled(String provider) {
-
-                }
-
-                @Override
-                public void onProviderDisabled(String provider) {
-
-                }
-            };
-        });
-
-        thread.start();
+    private void serverSetup() throws IOException {
+        outputStream = serverClientSocket.getOutputStream();
+        printWriter = new PrintWriter(new BufferedWriter(
+                new OutputStreamWriter(outputStream)),
+                true);
     }
 
+    public void serverConnect() throws IOException {
+        //connect to server
+        inetAddress = InetAddress.getByName(SERVER_IP);
+        Log.i("BT", "address : " + inetAddress.getHostAddress() + "   1");
+        serverClientSocket = new Socket(inetAddress, SERVERPORT);
+        serverSetup();
+    }
+
+    public Boolean serverIsConnected(){
+        return serverClientSocket.isConnected();
+    }
+
+    public void serverWrite(String value) {
+        printWriter.println(value);
+    }
+
+    //======================================================
+    //==================Formatting output===================
+    //======================================================
     //To extract pm value from string
     private int pm_value(String line) {
         int start_index = line.indexOf("pm2.5");
@@ -298,18 +279,7 @@ public class BluetoothController {
         return line.substring(start_index + 13, end_index);
     }
 
-    //To finalize
-    private void destroyBTReciever() {
-        mActivity.unregisterReceiver(mReceiver);
-    }
-
     //======================================================
-    //==================Server handler===================
     //======================================================
-
-    private void SensorsDataHandler(String value, PrintWriter pw) {
-        pw.println(value);
-    }
-
-
+    //======================================================
 }

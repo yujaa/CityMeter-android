@@ -22,10 +22,8 @@ import uic.hcilab.citymeter.NoiseDetector;
 
 public class HomeActivity extends TabHost {
 
-    //private NoiseDetector noiseDetector = new NoiseDetector();
-    private ProgressBar noiseBar;
     private BluetoothController mBluetoothController;
-    //private SensorsDataHandler sensorsDataHandler;
+
     @Override
     public int getContentViewId() {
         return R.layout.activity_home;
@@ -38,41 +36,114 @@ public class HomeActivity extends TabHost {
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //To be removed: just for preview\
-        noiseBar = (ProgressBar) findViewById(R.id.noiseBar);
-        //End of to be removed
         Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar_home);
         setSupportActionBar(myToolbar);
-        //sensorsDataHandler = new SensorsDataHandler(this, savedInstanceState);
+        //Create a bluetooth controller
+        mBluetoothController = new BluetoothController(HomeActivity.this, savedInstanceState);
         //Permissions handling
-        String [] permissions = new String[1];
+        String[] permissions = new String[1];
         permissions[0] = Manifest.permission.RECORD_AUDIO;
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
                 != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions(this, permissions, 9);
-        }
-
-        else{
-            Thread thread = new Thread(new Runnable() {//To run the noise detector in the background
-                @Override
+            ActivityCompat.requestPermissions(this, permissions, 9);
+        } else{
+            new Thread(new Runnable() {
                 public void run() {
-                    //noiseDetector.noiseDetect();
-                    while (true) {
-                        /*double dBval = noiseDetector.noiseLevel();
-                        Log.i("Recorder", (int)dBval + "");
-                        if (dBval > 0 && dBval <= 5000) {
-                            noiseBar.setProgress((int) dBval);
-                        }*/
+                    try {
+                        int db_counter = 0;
+                        boolean db_flag = false;
+                        int pm_counter = 0;
+                        boolean pm_flag = false;
+
+                        //Enable noise detector
+                        mBluetoothController.noiseDetector.start();
+
+                        //Get noise levels readings
+                        while (mBluetoothController.noiseDetector.isRecording()){
+                            if (db_counter <= 59) {
+                                mBluetoothController.dBs[db_counter] = mBluetoothController.noiseDetector.noiseLevel(mBluetoothController.longitude, mBluetoothController.latitude);
+                                db_counter = db_counter + 1;
+                                db_flag = false;
+                            }
+                            else {
+                                db_counter = 0;
+                                mBluetoothController.dBs[db_counter] = mBluetoothController.noiseDetector.noiseLevel(mBluetoothController.longitude, mBluetoothController.latitude);
+                                db_counter = db_counter + 1;
+                                db_flag = true;
+                            }
+                        }
+
+                        //Enable BT
+                        if (!mBluetoothController.checkBTEnabled()) {
+                            mBluetoothController.BTEnable();
+                        }
+                        mBluetoothController.BTSetup();
+                        //Connect BT
+                        if (!mBluetoothController.BTIsConnected())
+                            mBluetoothController.BTConnect();
+
+                        //Read BT
+                        while (mBluetoothController.BTIsConnected()){
+                            if (pm_counter <= 59) {
+                                mBluetoothController.PMs[pm_counter] = mBluetoothController.BTRead();
+                                pm_counter = pm_counter + 1;
+                                pm_flag = false;
+                            }
+                            else {
+                                pm_counter = 0;
+                                mBluetoothController.PMs[pm_counter] = mBluetoothController.BTRead();
+                                pm_counter = pm_counter + 1;
+                                pm_flag = true;
+                            }
+                        }
+
+                    } catch (Exception e) {
+                        Log.i("BT", "Data Thread Error: " + e.toString());
                     }
                 }
-            });
-            thread.start();
+            }).start();
+
+            new Thread(new Runnable() {
+                public void run() {
+                    try {
+                        int pm_counter = 0;
+                        int db_counter = 0;
+
+                        mBluetoothController.serverConnect();
+
+                        while (mBluetoothController.serverIsConnected()) {
+                            if (pm_counter >= 59) {
+                                mBluetoothController.serverWrite(mBluetoothController.PMs[pm_counter]);
+                                //mBluetoothController.PMs[pm_counter]= null;
+                                pm_counter = pm_counter + 1;
+                            }
+                            else{
+                                pm_counter = 0;
+                                mBluetoothController.serverWrite(mBluetoothController.PMs[pm_counter]);
+                                //mBluetoothController.PMs[pm_counter]= null;
+                                pm_counter = pm_counter + 1;
+                            }
+                            if (db_counter >= 59) {
+                                mBluetoothController.serverWrite(mBluetoothController.dBs[db_counter]);
+                                //mBluetoothController.PMs[pm_counter]= null;
+                                db_counter = db_counter + 1;
+                            }
+                            else{
+                                db_counter = 0;
+                                mBluetoothController.serverWrite(mBluetoothController.dBs[db_counter]);
+                                //mBluetoothController.PMs[pm_counter]= null;
+                                db_counter = db_counter + 1;
+                            }
+                        }
+                    }
+                    catch (Exception e) {
+                        Log.i("BT", "Server Thread Error: " + e.toString());
+                    }
+                }
+            }).start();
         }
-        //Create a bluetooth controller
-        mBluetoothController= new BluetoothController(this, savedInstanceState);
-        mBluetoothController.connectDevice();
     }
 
     @Override
@@ -81,32 +152,111 @@ public class HomeActivity extends TabHost {
         switch (requestCode) {
             case 9: {
                 // If request is cancelled, the result arrays are empty.
-                if (grantResults.length > 0
-                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    Thread thread = new Thread(new Runnable() {//To run the noise detector in the background
-                        @Override
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    new Thread(new Runnable() {
                         public void run() {
-                            //noiseDetector.noiseDetect();
-                            while (true) {
-                                /*double dBval = noiseDetector.noiseLevel();
-                                Log.i("Recorder", (int)dBval + "");
-                                if (dBval > 0 && dBval <= 5000) {
-                                    noiseBar.setProgress((int) dBval);
-                                }*/
+                            try {
+                                int db_counter = 0;
+                                boolean db_flag = false;
+                                int pm_counter = 0;
+                                boolean pm_flag = false;
+
+                                //Enable noise detector
+                                mBluetoothController.noiseDetector.start();
+
+                                //Get noise levels readings
+                                while (mBluetoothController.noiseDetector.isRecording()){
+                                    if (db_counter <= 59) {
+                                        mBluetoothController.dBs[db_counter] = mBluetoothController.noiseDetector.noiseLevel(mBluetoothController.longitude, mBluetoothController.latitude);
+                                        db_counter = db_counter + 1;
+                                        db_flag = false;
+                                    }
+                                    else {
+                                        db_counter = 0;
+                                        mBluetoothController.dBs[db_counter] = mBluetoothController.noiseDetector.noiseLevel(mBluetoothController.longitude, mBluetoothController.latitude);
+                                        db_counter = db_counter + 1;
+                                        db_flag = true;
+                                    }
+                                }
+
+                                //Enable BT
+                                if (!mBluetoothController.checkBTEnabled()) {
+                                    mBluetoothController.BTEnable();
+                                }
+
+
+                                mBluetoothController.BTSetup();
+
+                                //Connect BT
+                                mBluetoothController.BTConnect();
+
+                                //Read BT
+                                while (mBluetoothController.BTIsConnected()){
+                                    if (pm_counter <= 59) {
+                                        mBluetoothController.PMs[pm_counter] = mBluetoothController.BTRead();
+                                        pm_counter = pm_counter + 1;
+                                        pm_flag = false;
+                                    }
+                                    else {
+                                        pm_counter = 0;
+                                        mBluetoothController.PMs[pm_counter] = mBluetoothController.BTRead();
+                                        pm_counter = pm_counter + 1;
+                                        pm_flag = true;
+                                    }
+                                }
+
+                            } catch (Exception e) {
+                                Log.i("BT", "Data Thread Error: " + e.toString());
                             }
                         }
-                    });
-                    thread.start();
+                    }).start();
+
+                    new Thread(new Runnable() {
+                        public void run() {
+                            try {
+                                int pm_counter = 0;
+                                int db_counter = 0;
+
+                                mBluetoothController.serverConnect();
+
+                                while (mBluetoothController.serverIsConnected()) {
+                                    if (pm_counter >= 59) {
+                                        mBluetoothController.serverWrite(mBluetoothController.PMs[pm_counter]);
+                                        //mBluetoothController.PMs[pm_counter]= null;
+                                        pm_counter = pm_counter + 1;
+                                    }
+                                    else{
+                                        pm_counter = 0;
+                                        mBluetoothController.serverWrite(mBluetoothController.PMs[pm_counter]);
+                                        //mBluetoothController.PMs[pm_counter]= null;
+                                        pm_counter = pm_counter + 1;
+                                    }
+                                    if (db_counter >= 59) {
+                                        mBluetoothController.serverWrite(mBluetoothController.dBs[db_counter]);
+                                        //mBluetoothController.PMs[pm_counter]= null;
+                                        db_counter = db_counter + 1;
+                                    }
+                                    else{
+                                        db_counter = 0;
+                                        mBluetoothController.serverWrite(mBluetoothController.dBs[db_counter]);
+                                        //mBluetoothController.PMs[pm_counter]= null;
+                                        db_counter = db_counter + 1;
+                                    }
+                                }
+                            }
+                            catch (Exception e) {
+                                Log.i("BT", "Server Thread Error: " + e.toString());
+                            }
+                        }
+                    }).start();
                 }
             }
-            return;
         }
-
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        //noiseDetector.stop();
+       // mBluetoothController.destroyBTController();
     }
 }
