@@ -69,7 +69,7 @@
     <android.support.constraint.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="0dp"
-        android:layout_height="148dp"
+        android:layout_height="139dp"
         android:background="#F2F2F6"
         app:layout_constraintEnd_toStartOf="@+id/home_left_bar"
         app:layout_constraintHorizontal_bias="0.0"
@@ -91,7 +91,7 @@
             android:layout_width="0dp"
             android:layout_height="54dp"
             android:layout_marginStart="24dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="3dp"
             android:text="Home"
             android:textColor="#0B2161"
             android:textSize="45dp"
@@ -104,7 +104,7 @@
             android:layout_height="44dp"
             android:layout_marginEnd="10dp"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="5dp"
             android:ems="10"
             android:enabled="false"
             android:text="575 W. Madison st. "
@@ -118,9 +118,9 @@
             android:id="@+id/home_text1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="24dp"
-            android:text="You are at"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="22dp"
+            android:text="You are near"
             android:textColor="#1C1C1C"
             android:textSize="25dp"
             app:layout_constraintStart_toStartOf="parent"
@@ -130,8 +130,9 @@
     <android.support.constraint.ConstraintLayout
         android:id="@+id/constraintLayout2"
         android:layout_width="0dp"
-        android:layout_height="97dp"
+        android:layout_height="100dp"
         app:layout_constraintEnd_toStartOf="@+id/home_left_bar"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/home_right_bar"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
@@ -140,34 +141,59 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:text="Air Pollution"
+            android:layout_marginTop="3dp"
+            android:text="PM 2.5"
             android:textColor="#1C1C1C"
             android:textSize="25dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <SeekBar
-            android:id="@+id/colorBar"
+        <android.support.constraint.ConstraintLayout
             android:layout_width="0dp"
-            android:layout_height="18dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="19dp"
-            android:background="@drawable/color_coded_bar"
-            android:clickable="false"
-            android:focusableInTouchMode="false"
-            android:thumb="@drawable/custom_thumb"
+            android:layout_height="55dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/home_text3" />
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <ImageView
+                android:id="@+id/noise_bar"
+                android:layout_width="0dp"
+                android:layout_height="18dp"
+                android:layout_marginBottom="3dp"
+                android:layout_marginEnd="25dp"
+                android:layout_marginStart="25dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/color_coded_bar" />
+
+            <TextView
+                android:id="@+id/noise_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:text="0"
+                app:layout_constraintBottom_toTopOf="@+id/noise_bar"
+                app:layout_constraintStart_toEndOf="@+id/noise_thumb" />
+
+            <ImageView
+                android:id="@+id/noise_thumb"
+                android:layout_width="20dp"
+                android:layout_height="22dp"
+                android:layout_marginBottom="1dp"
+                android:layout_marginStart="20dp"
+                app:layout_constraintBottom_toTopOf="@+id/noise_bar"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/pin" />
+        </android.support.constraint.ConstraintLayout>
 
     </android.support.constraint.ConstraintLayout>
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/constraintLayout3"
         android:layout_width="0dp"
-        android:layout_height="70dp"
+        android:layout_height="100dp"
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toStartOf="@+id/home_left_bar"
         app:layout_constraintStart_toEndOf="@+id/home_right_bar"
@@ -177,16 +203,60 @@
             android:id="@+id/home_text2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="3dp"
             android:text="Noise"
             android:textColor="#1C1C1C"
             android:textSize="25dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <ImageView
+                android:id="@+id/pm25_bar"
+                android:layout_width="0dp"
+                android:layout_height="18dp"
+                android:layout_marginBottom="3dp"
+                android:layout_marginEnd="25dp"
+                android:layout_marginStart="25dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/color_coded_bar" />
+
+            <TextView
+                android:id="@+id/pm25_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:text="0"
+                app:layout_constraintBottom_toTopOf="@+id/pm25_bar"
+                app:layout_constraintStart_toEndOf="@+id/pm25_thumb" />
+
+            <ImageView
+                android:id="@+id/pm25_thumb"
+                android:layout_width="20dp"
+                android:layout_height="22dp"
+                android:layout_marginBottom="1dp"
+                android:layout_marginStart="20dp"
+                app:layout_constraintBottom_toTopOf="@+id/pm25_bar"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/pin" />
+        </android.support.constraint.ConstraintLayout>
+
     </android.support.constraint.ConstraintLayout>
 
     <android.support.constraint.ConstraintLayout
-        android:layout_width="322dp"
-        android:layout_height="74dp"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        app:layout_constraintEnd_toStartOf="@+id/home_left_bar"
         app:layout_constraintStart_toEndOf="@+id/home_right_bar"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
 
@@ -194,11 +264,14 @@
             android:id="@+id/home_text4"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="3dp"
             android:text="Take Action"
             android:textColor="#1C1C1C"
             android:textSize="25dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
     </android.support.constraint.ConstraintLayout>
 
 </android.support.constraint.ConstraintLayout>
