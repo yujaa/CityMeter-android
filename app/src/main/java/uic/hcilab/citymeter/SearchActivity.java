@@ -176,8 +176,8 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
         //parse json
         for(Object k: nodesValue.keySet()){
             //Log.i("my", k.toString());
-            if(!k.toString().equals("total")){
-                HashMap<String, String> node = new HashMap<String, String>();
+            HashMap<String, String> node = new HashMap<String, String>();
+            if(!k.toString().equals("total")&&!k.toString().equals("node")){
                 if(((JSONObject)nodesValue.get(k.toString())).containsKey("timestamp"))
                     node.put("timeStamp",((JSONObject)nodesValue.get(k.toString())).get("timestamp").toString());
                 if(((JSONObject)nodesValue.get(k.toString())).containsKey("sound"))
