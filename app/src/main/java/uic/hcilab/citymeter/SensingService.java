@@ -13,11 +13,17 @@ public class SensingService extends Service {
     }
 
     @Override
-    public int onStartCommand(Intent intent, int flags, int startId) {
+    public void onCreate() {
+        super.onCreate();
         sensingController = new SensingController();
         dbThread.start();
         pmThread.start();
         serverThread.start();
+    }
+
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+
 
         return super.onStartCommand(intent, flags, startId);
     }
@@ -27,6 +33,7 @@ public class SensingService extends Service {
         public void run() {
             try {
                 sensingController.locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+                sensingController.location_setup();
 
                 int db_counter = 0;
 
@@ -62,15 +69,19 @@ public class SensingService extends Service {
         @Override
         public void run() {
             try {
-                sensingController.locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+                //sensingController.locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
 
                 int pm_counter = 0;
 
+                Log.i("BT", "setup starting");
                 sensingController.BTSetup();
-
+                Log.i("BT", "setup successful");
                 //Connect BT
-                if (!sensingController.BTIsConnected())
+                if (!sensingController.BTIsConnected()) {
+                    Log.i("BT", "connecting bt");
                     sensingController.BTConnect();
+                    Log.i("BT", "bt connected");
+                }
 
                 while (true) {
                     //Read BT
@@ -93,18 +104,18 @@ public class SensingService extends Service {
     Thread serverThread = new Thread(new Runnable() {
         public void run() {
             try {
-                sensingController.locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+               // sensingController.locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
 
                 int pm_counter = 0;
                 int db_counter = 0;
 
-                sensingController.serverConnect();
-
                 while (true) {
+                    sensingController.serverConnect();
 
                     while (sensingController.serverIsConnected()) {
                         if (pm_counter >= 59) {
                             sensingController.serverWrite(sensingController.PMs[pm_counter]);
+                            Log.i("BT" ,sensingController.PMs[pm_counter]);
                             pm_counter = pm_counter + 1;
                         } else {
                             pm_counter = 0;

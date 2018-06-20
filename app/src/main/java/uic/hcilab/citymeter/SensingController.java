@@ -35,7 +35,7 @@ import java.util.UUID;
 public class SensingController {
     //======================================================
     //Variables
-    private BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+    private BluetoothAdapter mBluetoothAdapter ;
     private String result;
     private InetAddress inetAddress;
     private Socket serverClientSocket;
@@ -62,7 +62,7 @@ public class SensingController {
     SensingController() {
         noiseDetector = new NoiseDetector();
         //location setup
-        location_setup();
+        //location_setup();
 
     }
 
@@ -109,10 +109,11 @@ public class SensingController {
     }
 
     public void BTSetup() throws IOException {
+        mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         bluetoothDevice = mBluetoothAdapter.getRemoteDevice("B8:27:EB:73:04:B1");//create a device with the mac address of the Pi
         String uuid_str = "00000003-0000-1000-8000-00805F9B34FB";//The uuid for rfcomm, by bluetooth
         myUUID = UUID.fromString(uuid_str);
-        mBluetoothSocket = bluetoothDevice.createInsecureRfcommSocketToServiceRecord(myUUID);//socket to open connectio
+        mBluetoothSocket = bluetoothDevice.createRfcommSocketToServiceRecord(myUUID);//socket to open connection
     }
 
     public void BTConnect() throws IOException {
@@ -171,7 +172,7 @@ public class SensingController {
     //======================================================
 
     //Location setup
-    private void location_setup() {
+    public void location_setup() {
         //locationManager = (LocationManager) sv.getSystemService(Context.LOCATION_SERVICE);
         //locationManager = (LocationManager) mActivity.getSystemService(mActivity.LOCATION_SERVICE);
         try {
@@ -181,6 +182,7 @@ public class SensingController {
             latitude = location.getLatitude();
             Log.i("BT", "location setup : " + longitude + " " + latitude);
         }catch (SecurityException exception){
+            Log.i("BT", "location security error: " + exception.toString());
 
         }
         catch (Exception exception) {
