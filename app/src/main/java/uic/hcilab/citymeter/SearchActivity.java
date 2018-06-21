@@ -15,18 +15,23 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.Circle;
 import com.google.android.gms.maps.model.CircleOptions;
+import com.google.android.gms.maps.model.JointType;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.PolygonOptions;
 
 import org.json.simple.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
+import voronoi.Pnt;
+import voronoi.VoronoiLayer;
 
 public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCallback{
 
@@ -126,18 +131,6 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
             new GoogleMap.OnMyLocationClickListener() {
                 @Override
                 public void onMyLocationClick(@NonNull Location location) {
-
-//                    mMap.setMinZoomPreference(12);
-//
-//                    CircleOptions circleOptions = new CircleOptions();
-//                    circleOptions.center(new LatLng(location.getLatitude(),
-//                            location.getLongitude()));
-//
-//                    circleOptions.radius(200);
-//                    circleOptions.fillColor(Color.RED);
-//                    circleOptions.strokeWidth(6);
-//
-//                    mMap.addCircle(circleOptions);
                 }
             };
 
@@ -147,11 +140,11 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
         if(urlApi.equals("info/nodes")) {
             getNodesLocationData(jsonData);
             new AoTData(SearchActivity.this).execute("value/nodes");
-            //drawMarker(nodesInfo);
         }
         else if(urlApi.equals("value/nodes")){
             getNodesValueData(jsonData);
-            drawMarker(nodesInfo);
+            drawNodesMarker(nodesInfo);
+            drawNodesVoronoi(nodesInfo);
         }
     }
 
@@ -193,14 +186,14 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
     }
 
 
-    public void drawMarker( HashMap<String, HashMap<String, String>> nodesInfoParam)
+    public void drawNodesMarker( HashMap<String, HashMap<String, String>> nodesInfoParam)
     {
 
         Set set = nodesInfoParam.entrySet();
         Iterator iterator = set.iterator();
         while(iterator.hasNext()) {
             double sound;
-            int circleColor;
+            int circleColor = Color.argb(100, 100, 100, 100);;
 
             Map.Entry entry = (Map.Entry) iterator.next();
             double lat = Double.parseDouble((((HashMap) entry.getValue()).get("lat")).toString());
@@ -209,8 +202,8 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
             if(((HashMap) entry.getValue()).containsKey("sound")) {
                 sound = Double.parseDouble((((HashMap) entry.getValue()).get("sound")).toString());
                 if (sound < 57) circleColor = Color.argb(100,0,255,0);//R.drawable.green_circle;
-                else if (sound < 70) circleColor = circleColor = Color.argb(100,255,255,0);//R.drawable.yellow_circle;
-                else circleColor = circleColor = Color.argb(100,255,0,0);//R.drawable.red_circle;
+                else if (sound < 70) circleColor = Color.argb(100,255,255,0);//R.drawable.yellow_circle;
+                else circleColor = Color.argb(100,255,0,0);//R.drawable.red_circle;
             }
             else
                 continue;
@@ -236,11 +229,52 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
 //                    .flat(true)
 //                    );
         }
-
-        //draw markers
-//        mMap.addMarker(new MarkerOptions()
-//                .position(new LatLng(41.8693, -87.6475))
-//                .title("UIC"));
     }
 
+
+    public void drawNodesVoronoi( HashMap<String, HashMap<String, String>> nodesInfoParam)
+    {
+        List<Pnt> pntList = new ArrayList<>();
+        List<List<Pnt>> VoronoiRegionVertices = new ArrayList<>();
+        VoronoiLayer vLayer = new VoronoiLayer();
+
+        Set set = nodesInfoParam.entrySet();
+        Iterator iterator = set.iterator();
+
+
+        while(iterator.hasNext()) {
+            double sound;
+            int regionColor = Color.argb(100, 100, 100, 100);
+
+            Map.Entry entry = (Map.Entry) iterator.next();
+            double lat = Double.parseDouble((((HashMap) entry.getValue()).get("lat")).toString());
+            double lon = Double.parseDouble((((HashMap) entry.getValue()).get("lon")).toString());
+
+            pntList.add(new Pnt(lat, lon));
+            vLayer.addSite(new Pnt(lat, lon));
+//            if(((HashMap) entry.getValue()).containsKey("sound")) {
+//                sound = Double.parseDouble((((HashMap) entry.getValue()).get("sound")).toString());
+//                if (sound < 57) regionColor = Color.argb(100,0,255,0);//R.drawable.green_circle;
+//                else if (sound < 70) regionColor = Color.argb(100,255,255,0);//R.drawable.yellow_circle;
+//                else regionColor  = Color.argb(100,255,0,0);//R.drawable.red_circle;
+//            }
+//            else
+//                continue;
+        }
+
+        VoronoiRegionVertices = vLayer.drawAllVoronoi();
+        for(List<Pnt> region:VoronoiRegionVertices){
+            PolygonOptions polygonOptions = new PolygonOptions();
+            for(Pnt vertex: region){
+
+                polygonOptions.add(new LatLng(vertex.coord(0), vertex.coord(1)));
+
+            }
+            polygonOptions.strokeJointType(JointType.ROUND);
+            polygonOptions.strokeColor(Color.RED);
+            polygonOptions.strokeWidth(10);
+
+            mMap.addPolygon(polygonOptions);
+        }
+    }
 }
