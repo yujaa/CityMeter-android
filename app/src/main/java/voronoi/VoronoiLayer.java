@@ -1,8 +1,6 @@
 package voronoi;
 
 import android.graphics.Color;
-
-import java.lang.reflect.GenericArrayType;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -12,24 +10,23 @@ import java.util.Random;
 
 public class VoronoiLayer {
 
-    public static int voronoiColor = Color.MAGENTA;
-    public static int delaunayColor = Color.GREEN;
-    public static int pointRadius = 3;
-
     private Triangulation dt;                   // Delaunay triangulation
     private Map<Object, Integer> colorTable;      // Remembers colors for display
     private Triangle initialTriangle;           // Initial triangle
-    private static int initialSize = 10000;     // Size of initial triangle
-    private Random random = new Random();       // Source of random numbers
+//    private static int initialSize = 90;     // Size of initial triangle
 
     /**
      * Create and initialize the DT.
      */
     public VoronoiLayer () {
+//        initialTriangle = new Triangle(
+//                new Pnt(-initialSize, -initialSize),
+//                new Pnt( initialSize, -initialSize),
+//                new Pnt(           0,  initialSize));
         initialTriangle = new Triangle(
-                new Pnt(-initialSize, -initialSize),
-                new Pnt( initialSize, -initialSize),
-                new Pnt(           0,  initialSize));
+                new Pnt(30, -100),
+                new Pnt( 50, -100),
+                new Pnt(           40,  -60));
         dt = new Triangulation(initialTriangle);
         colorTable = new HashMap<Object, Integer>();
     }
@@ -38,8 +35,9 @@ public class VoronoiLayer {
      * Add a new site to the DT.
      * @param point the site to add
      */
-    public void addSite(Pnt point) {
+    public void addSite(Pnt point, int regionColor) {
         dt.delaunayPlace(point);
+        colorTable.put(point, regionColor);
     }
 //
 //    /**
@@ -56,9 +54,8 @@ public class VoronoiLayer {
      */
     private int getColor (Object item) {
         if (colorTable.containsKey(item)) return colorTable.get(item);
-        int color = Color.argb(100,random.nextInt(256),random.nextInt(256),random.nextInt(256));
-        colorTable.put(item, color);
-        return color;
+        else return Color.argb(50,100,100,100);
+
     }
 
 //    /**
@@ -88,10 +85,10 @@ public class VoronoiLayer {
     /**
      * Draw all the Voronoi cells.
      */
-    public List<List<Pnt>> drawAllVoronoi () {
+    public HashMap<List<Pnt>, Integer> drawAllVoronoi () {
         // Keep track of sites done; no drawing for initial triangles sites
         HashSet<Pnt> done = new HashSet<Pnt>(initialTriangle);
-        List<List<Pnt>> verticesList = new ArrayList<>();
+        HashMap<List<Pnt>, Integer> verticesTable = new HashMap<>();
         for (Triangle triangle : dt)
             for (Pnt site: triangle) {
                 if (done.contains(site)) continue;
@@ -101,11 +98,10 @@ public class VoronoiLayer {
                 for (Triangle tri: list)
                     vertices.add(tri.getCircumcenter());
 
-                verticesList.add(vertices);
-                //draw(vertices, getColor(site));
-                //if (withSites) draw(site);
+                verticesTable.put(vertices,getColor(site));
+
             }
-         return verticesList;
+         return verticesTable;
 
     }
 

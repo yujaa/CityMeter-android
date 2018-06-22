@@ -80,7 +80,7 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
         enableMyLocationIfPermitted();
 
         mMap.getUiSettings().setZoomControlsEnabled(true);
-        mMap.setMinZoomPreference(11);
+        mMap.setMinZoomPreference(10);
     }
 
     private void enableMyLocationIfPermitted() {
@@ -122,7 +122,7 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
             new GoogleMap.OnMyLocationButtonClickListener() {
                 @Override
                 public boolean onMyLocationButtonClick() {
-                    mMap.setMinZoomPreference(15);
+                    mMap.setMinZoomPreference(10);
                     return false;
                 }
             };
@@ -205,13 +205,13 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
                 else if (sound < 70) circleColor = Color.argb(100,255,255,0);//R.drawable.yellow_circle;
                 else circleColor = Color.argb(100,255,0,0);//R.drawable.red_circle;
             }
-            else
-                continue;
+//            else
+//                continue;
 
             // Instantiates a new CircleOptions object and defines the center and radius
             CircleOptions circleOptions = new CircleOptions()
                     .center(new LatLng(lat, lon))
-                    .radius(400) // In meters
+                    .radius(100) // In meters
                     .strokeWidth(0)
                     .fillColor(circleColor)
                     .clickable(true);
@@ -234,8 +234,7 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
 
     public void drawNodesVoronoi( HashMap<String, HashMap<String, String>> nodesInfoParam)
     {
-        List<Pnt> pntList = new ArrayList<>();
-        List<List<Pnt>> VoronoiRegionVertices = new ArrayList<>();
+        HashMap<List<Pnt>, Integer> VoronoiRegionVertices = new HashMap<>();
         VoronoiLayer vLayer = new VoronoiLayer();
 
         Set set = nodesInfoParam.entrySet();
@@ -250,30 +249,33 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
             double lat = Double.parseDouble((((HashMap) entry.getValue()).get("lat")).toString());
             double lon = Double.parseDouble((((HashMap) entry.getValue()).get("lon")).toString());
 
-            pntList.add(new Pnt(lat, lon));
-            vLayer.addSite(new Pnt(lat, lon));
-//            if(((HashMap) entry.getValue()).containsKey("sound")) {
-//                sound = Double.parseDouble((((HashMap) entry.getValue()).get("sound")).toString());
-//                if (sound < 57) regionColor = Color.argb(100,0,255,0);//R.drawable.green_circle;
-//                else if (sound < 70) regionColor = Color.argb(100,255,255,0);//R.drawable.yellow_circle;
-//                else regionColor  = Color.argb(100,255,0,0);//R.drawable.red_circle;
-//            }
+
+            if(((HashMap) entry.getValue()).containsKey("sound")) {
+                sound = Double.parseDouble((((HashMap) entry.getValue()).get("sound")).toString());
+                if (sound < 57) regionColor = Color.argb(40,0,255,0);
+                else if (sound < 70) regionColor = Color.argb(40,255,255,0);
+                else regionColor  = Color.argb(40,255,0,0);
+            }
 //            else
 //                continue;
+
+            vLayer.addSite(new Pnt(lat, lon), regionColor);
+
         }
 
         VoronoiRegionVertices = vLayer.drawAllVoronoi();
-        for(List<Pnt> region:VoronoiRegionVertices){
+        Log.i("my",VoronoiRegionVertices.size()+"");
+        for(HashMap.Entry<List<Pnt>, Integer> region: VoronoiRegionVertices.entrySet()){
             PolygonOptions polygonOptions = new PolygonOptions();
-            for(Pnt vertex: region){
+            for(Pnt vertex: region.getKey()){
 
                 polygonOptions.add(new LatLng(vertex.coord(0), vertex.coord(1)));
 
             }
             polygonOptions.strokeJointType(JointType.ROUND);
-            polygonOptions.strokeColor(Color.RED);
-            polygonOptions.strokeWidth(10);
-
+            polygonOptions.strokeColor(Color.argb(100,0,0,0));
+            polygonOptions.strokeWidth(1);
+            polygonOptions.fillColor(region.getValue());
             mMap.addPolygon(polygonOptions);
         }
     }
