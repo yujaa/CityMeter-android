@@ -44,7 +44,7 @@
         <service
             android:name=".SensingService"
             android:enabled="true"
-            android:exported="true">
+            android:exported="true" android:stopWithTask="true">
         </service>
     </application>
 

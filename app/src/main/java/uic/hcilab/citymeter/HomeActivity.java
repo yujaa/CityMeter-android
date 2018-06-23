@@ -44,16 +44,6 @@ public class HomeActivity extends TabHost {
         if(!checkBTEnabled()){
             BTEnable(savedInstanceState);
         }
-        //Permissions handling
-        String[] permissions = new String[1];
-        permissions[0] = Manifest.permission.RECORD_AUDIO;
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
-                != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, permissions, 9);
-        } else{
-
-            startService(new Intent(this, SensingService.class));
-        }
 
         //get View for change bar
         final View view = findViewById(android.R.id.content);
@@ -119,16 +109,47 @@ public class HomeActivity extends TabHost {
         if (mBluetoothAdapter == null) {
             Log.i("BT", "Device is not supported by Bluetooth");
             return false;
-        } else {
+        } else if (mBluetoothAdapter.isEnabled()) {
+            //Permissions handling
+            String[] permissions = new String[1];
+            permissions[0] = Manifest.permission.RECORD_AUDIO;
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
+                    != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(this, permissions, 9);
+            } else{
+
+                    startService(new Intent(this, SensingService.class));
+            }
             return true;
         }
+        return false;
     }
     //Enables bluetooth
     public void BTEnable(Bundle mBundle){
-        if (true) {
             Intent enableBTIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
             int REQUEST_ENABLE_BT = 7;
             ActivityCompat.startActivityForResult(this, enableBTIntent, REQUEST_ENABLE_BT, mBundle);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode){
+            case 7:
+                Log.i("BT", "enable bt");
+                //Permissions handling
+                String[] permissions = new String[1];
+                permissions[0] = Manifest.permission.RECORD_AUDIO;
+                if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
+                        != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(this, permissions, 9);
+                } else{
+
+                    if (mBluetoothAdapter.isEnabled()) {
+                        startService(new Intent(this, SensingService.class));
+                    }
+                }
+                break;
         }
     }
 

@@ -152,6 +152,8 @@ ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:44:9-4
 		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:46:13-35
 	android:exported
 		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:47:13-36
+	android:stopWithTask
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:47:37-64
 	android:name
 		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:45:13-43
 uses-sdk

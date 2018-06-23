@@ -59,7 +59,8 @@
         <service
             android:name="uic.hcilab.citymeter.SensingService"
             android:enabled="true"
-            android:exported="true" >
+            android:exported="true"
+            android:stopWithTask="true" >
         </service>
 
         <activity

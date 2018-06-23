@@ -61,9 +61,6 @@ public class SensingController {
     //Constructor
     SensingController() {
         noiseDetector = new NoiseDetector();
-        //location setup
-        //location_setup();
-
     }
 
     //Destructor
@@ -119,7 +116,6 @@ public class SensingController {
     public void BTConnect() throws IOException {
         mBluetoothAdapter.cancelDiscovery();//Make sure discovery is off for less battery consumption
         mBluetoothSocket.connect();
-        Log.i("BT", "Connected to bluetooth...");
     }
 
     public Boolean BTIsConnected(){
@@ -130,7 +126,6 @@ public class SensingController {
         readLine = new byte[100];
         mBluetoothSocket.getInputStream().read(readLine);
         String msgInfo = new String(readLine, "UTF-8");
-        Log.i("BT", "recieved = " + msgInfo + "  5");
         int pm = pm_value(msgInfo);
         String msg_timestamp = timestamp(msgInfo);
         result = "[{'latitude': " + latitude + ", 'pm2.5': " + pm + ", 'longitude': " + longitude + ", 'timestamp': '" + msg_timestamp + "'}]";
@@ -180,7 +175,6 @@ public class SensingController {
             Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
             longitude = location.getLongitude();
             latitude = location.getLatitude();
-            Log.i("BT", "location setup : " + longitude + " " + latitude);
         }catch (SecurityException exception){
             Log.i("BT", "location security error: " + exception.toString());
 
@@ -227,7 +221,6 @@ public class SensingController {
     public void serverConnect() throws IOException {
         //connect to server
         inetAddress = InetAddress.getByName(SERVER_IP);
-        Log.i("BT", "address : " + inetAddress.getHostAddress() + "   1");
         serverClientSocket = new Socket(inetAddress, SERVERPORT);
         serverSetup();
     }
@@ -256,7 +249,6 @@ public class SensingController {
             end_index = end_index2;
 
         }
-        Log.i("BT", "Line = " + line + "\nstart index = " + start_index + " end index = " + end_index  );
         String value_str = line.substring(start_index + 8, end_index);
         return Integer.valueOf(value_str);
     }

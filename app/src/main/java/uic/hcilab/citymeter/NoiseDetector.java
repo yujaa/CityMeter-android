@@ -26,17 +26,12 @@ public class NoiseDetector {
     }
     public boolean isRecording(){
         int state =  mAudioRecord.getRecordingState();
-        if (state == mAudioRecord.RECORDSTATE_RECORDING){
-            return true;
-        }
-        else{
-            return false;
-        }
+        return state == AudioRecord.RECORDSTATE_RECORDING;
     }
     public void start(){
-        if (mAudioRecord == null) {
+        if (mAudioRecord != null) {
             mAudioRecord.startRecording();
-            Log.i("RECORDER", "Started recording");
+            //Log.i("RECORDER", "Started recording : " + isRecording());
         }
     }
     public void stop() {
