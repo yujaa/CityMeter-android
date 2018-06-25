@@ -85,25 +85,31 @@ public class VoronoiLayer {
     /**
      * Draw all the Voronoi cells.
      */
-    public HashMap<List<Pnt>, Integer> drawAllVoronoi () {
+    public HashMap<List<Pnt>, List<Double>> drawAllVoronoi () {
         // Keep track of sites done; no drawing for initial triangles sites
         HashSet<Pnt> done = new HashSet<Pnt>(initialTriangle);
-        HashMap<List<Pnt>, Integer> verticesTable = new HashMap<>();
-        for (Triangle triangle : dt)
-            for (Pnt site: triangle) {
+        HashMap<List<Pnt>, List<Double>> verticesTable = new HashMap<>();
+
+        for (Triangle triangle : dt) {
+            List<Double> centerColor = new ArrayList<>();
+            for (Pnt site : triangle) {
                 if (done.contains(site)) continue;
                 done.add(site);
                 List<Triangle> list = dt.surroundingTriangles(site, triangle);
                 List<Pnt> vertices = new ArrayList<>();
-                for (Triangle tri: list)
+                for (Triangle tri : list)
                     vertices.add(tri.getCircumcenter());
 
-                verticesTable.put(vertices,getColor(site));
-
+                centerColor.add(triangle.getCircumcenter().coord(0));
+                centerColor.add(triangle.getCircumcenter().coord(1));
+                centerColor.add((double) getColor(site));
+                verticesTable.put(vertices, centerColor);
             }
+        }
          return verticesTable;
 
     }
+
 
 //    /**
 //     * Draw all the empty circles (one for each triangle) of the DT.
