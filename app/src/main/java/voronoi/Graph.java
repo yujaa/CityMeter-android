@@ -26,12 +26,12 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * Straightforward undirected graph implementation.
+ * Straightforward unidirected graph implementation.
  * Nodes are generic type N.
  *
  * @author Paul Chew
  *
- * Created November, December 2007.  For use in Delaunay/Voronoi code.
+ * Created November, December 2007.  For use n Delaunay/Voronoi code.
  *
  */
 public class Graph<N> {
