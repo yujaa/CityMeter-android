@@ -1,9 +1,12 @@
 package uic.hcilab.citymeter;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -35,10 +38,14 @@ import java.util.Set;
 import voronoi.Pnt;
 import voronoi.VoronoiLayer;
 
-public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCallback{
+public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCallback, LocationListener {
 
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
+    LatLng uic = new LatLng(41.8693, -87.6475);
+    String curLat = "41.8693";
+    String curLng = "-87.6475";
     private GoogleMap mMap;
+
     private JSONObject nodesLocation = null;
     HashMap<String, HashMap<String, String>> nodesInfo = new HashMap<String,  HashMap<String, String>>();
 
@@ -72,6 +79,7 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar_search);
+        LocationManager locationManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
         setSupportActionBar(myToolbar);
 
         initMap();
@@ -115,8 +123,8 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
     }
 
     private void showDefaultLocation() {
-        LatLng uic = new LatLng(41.8693, -87.6475);
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(uic));
+        LatLng curLoc = new LatLng(Double.parseDouble(curLat), Double.parseDouble(curLng));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(curLoc));
     }
 
     @Override
@@ -164,9 +172,9 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
             drawNodesMarker(nodesInfo);
             drawNodesVoronoi(nodesInfo);
             Location loc = new Location("temporary");
-            loc.setLongitude(-87.590228);
-            loc.setLatitude(41.810342);
-            //Log.i("my",getNearestNodes(loc));
+            loc.setLongitude(Double.parseDouble(curLng));
+            loc.setLatitude(Double.parseDouble(curLat));
+            Log.i("my",getNearestNodes(loc));
         }
     }
 
@@ -245,7 +253,7 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
 //            mMap.addMarker(new MarkerOptions()
 //                    .position(new LatLng(lat, lon))
 //                    .title((String) entry.getKey())
-//                    .alpha(0.0f)
+//                    .alpha(5.0f)
 //                    .flat(true)
 //                    );
         }
@@ -254,76 +262,49 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
 
     public void drawNodesVoronoi( HashMap<String, HashMap<String, String>> nodesInfoParam)
     {
-        HashMap<List<Pnt>,List<Double>> VoronoiRegionVertices = new HashMap<>();
+        HashMap<List<Pnt>, Integer> VoronoiRegionVertices = new HashMap<>();
         VoronoiLayer vLayer = new VoronoiLayer();
-
         Set set = nodesInfoParam.entrySet();
         Iterator iterator = set.iterator();
-
-
         while(iterator.hasNext()) {
             double sound;
             int regionColor = Color.argb(100, 100, 100, 100);
 
             Map.Entry entry = (Map.Entry) iterator.next();
             double lat = Double.parseDouble((((HashMap) entry.getValue()).get("lat")).toString());
-            double lon = Double.parseDouble((((HashMap) entry.getValue()).get("lon")).toString());
+            double lng = Double.parseDouble((((HashMap) entry.getValue()).get("lon")).toString());
 
-
-            if(((HashMap) entry.getValue()).containsKey("sound")) {
+            if (((HashMap) entry.getValue()).containsKey("sound")) {
                 sound = Double.parseDouble((((HashMap) entry.getValue()).get("sound")).toString());
-                if (sound < 57) regionColor = Color.argb(40,0,255,0);
-                else if (sound < 70) regionColor = Color.argb(40,255,255,0);
-                else regionColor  = Color.argb(40,255,0,0);
+                if (sound < 57) regionColor = Color.argb(50, 0, 255, 0);//R.drawable.green_circle;
+                else if (sound < 70)
+                    regionColor = Color.argb(50, 255, 255, 0);//R.drawable.yellow_circle;
+                else regionColor = Color.argb(50, 255, 0, 0);//R.drawable.red_circle;
             }
 //            else
 //                continue;
 
-            vLayer.addSite(new Pnt(lat, lon), regionColor);
+            // Instantiates a new CircleOptions object and defines the center and radius
+
+            vLayer.addSite(new Pnt(lat, lng), regionColor);
 
         }
 
         VoronoiRegionVertices = vLayer.drawAllVoronoi();
-        //Log.i("my",VoronoiRegionVertices.size()+"");
-        for(HashMap.Entry<List<Pnt>, List<Double>> region: VoronoiRegionVertices.entrySet()){
+        for(HashMap.Entry<List<Pnt>, Integer> region: VoronoiRegionVertices.entrySet()){
             PolygonOptions polygonOptions = new PolygonOptions();
             for(Pnt vertex: region.getKey()){
-                double lat = vertex.coord(0);
-                double lng = vertex.coord(1);
-                Log.i("my",lat+","+lng);
-//                if(lng > -87.54|| lng < - 87.9){//|| lat < 41.645 ||lat > 42.02) {
-//                    double closestPoint[] = {0,0};
-//                    double closestDist = -1;
-//                    for(double points[]: chicago_boundary) {
-//                        if(closestPoint[0]==0)
-//                        {
-//                            closestDist = getDistance(new double[]{lng, lat}, points);
-//                            closestPoint = points;
-//                        }
-//                        else {
-//                            if (getDistance(new double[]{lng, lat}, points) < closestDist)
-//                                closestPoint = points;
-//                        }
-//                    }
-//                    lng = closestPoint[0];
-//                    lat = region.getValue().get(0);
-//                }
-                polygonOptions.add(new LatLng(lat, lng));
+                polygonOptions.add(new LatLng(vertex.coord(0), vertex.coord(1)));
             }
             polygonOptions.strokeJointType(JointType.ROUND);
-            double color = region.getValue().get(2);
-            polygonOptions.fillColor((int)color);
             polygonOptions.strokeColor(Color.argb(100,0,0,0));
             polygonOptions.strokeWidth(0);
-            polygonOptions.geodesic(true);
+            polygonOptions.fillColor(region.getValue());
             mMap.addPolygon(polygonOptions);
         }
-    }
-
-    private double getDistance(double[] a, double[]b){
-        return Math.sqrt((a[0]-b[0])*(a[0]-b[0])+(a[1]-b[1])*(a[1]-b[1]));
 
     }
+
 
     private String getNearestNodes(Location current) {
         Set set = nodesInfo.entrySet();
@@ -331,20 +312,49 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
 
         double nearestDistance = 1000000;
         String nearestNode = "null";
-        Location nLoc = new Location("node");
+        Location cLoc = new Location("node");
+        Location nLoc= new Location("nearestLocation");
         while (iterator.hasNext()) {
             Map.Entry entry = (Map.Entry) iterator.next();
             double lat = Double.parseDouble((((HashMap) entry.getValue()).get("lat")).toString());
             double lon = Double.parseDouble((((HashMap) entry.getValue()).get("lon")).toString());
-            nLoc.setLatitude(lat);
-            nLoc.setLongitude(lon);
+            cLoc.setLatitude(lat);
+            cLoc.setLongitude(lon);
 
-            if (nLoc.distanceTo(current) < nearestDistance) {
-                nearestDistance = nLoc.distanceTo(current);
+            if (cLoc.distanceTo(current) < nearestDistance) {
+                nearestDistance = cLoc.distanceTo(current);
                 nearestNode = entry.getKey().toString();
             }
         }
+        nLoc.setLatitude(Double.parseDouble(((nodesInfo.get(nearestNode)).get("lat"))));
+        nLoc.setLongitude(Double.parseDouble(((nodesInfo.get(nearestNode)).get("lon"))));
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(nLoc.getLatitude(), nLoc.getLongitude()))
+                .title(nearestNode)
+                .alpha(5.0f)
+                .flat(true)
+        );
+
         return nearestNode;
     }
 
+
+    ///gps
+
+    @Override
+    public void onLocationChanged(Location loc) {
+
+        String longitude = "Longitude: " + loc.getLongitude();
+        String latitude = "Latitude: " + loc.getLatitude();
+        getNearestNodes(loc);
+    }
+
+    @Override
+    public void onProviderDisabled(String provider) {}
+
+    @Override
+    public void onProviderEnabled(String provider) {}
+
+    @Override
+    public void onStatusChanged(String provider, int status, Bundle extras) {}
 }

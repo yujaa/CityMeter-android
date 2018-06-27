@@ -1,6 +1,8 @@
 package voronoi;
 
 import android.graphics.Color;
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -85,13 +87,12 @@ public class VoronoiLayer {
     /**
      * Draw all the Voronoi cells.
      */
-    public HashMap<List<Pnt>, List<Double>> drawAllVoronoi () {
+    public HashMap<List<Pnt>, Integer> drawAllVoronoi () {
         // Keep track of sites done; no drawing for initial triangles sites
         HashSet<Pnt> done = new HashSet<Pnt>(initialTriangle);
-        HashMap<List<Pnt>, List<Double>> verticesTable = new HashMap<>();
+        HashMap<List<Pnt>, Integer> verticesTable = new HashMap<>();
 
         for (Triangle triangle : dt) {
-            List<Double> centerColor = new ArrayList<>();
             for (Pnt site : triangle) {
                 if (done.contains(site)) continue;
                 done.add(site);
@@ -100,10 +101,7 @@ public class VoronoiLayer {
                 for (Triangle tri : list)
                     vertices.add(tri.getCircumcenter());
 
-                centerColor.add(triangle.getCircumcenter().coord(0));
-                centerColor.add(triangle.getCircumcenter().coord(1));
-                centerColor.add((double) getColor(site));
-                verticesTable.put(vertices, centerColor);
+                verticesTable.put(vertices,getColor(site));
             }
         }
          return verticesTable;
