@@ -69,8 +69,8 @@ public class Intersection {
         if ((dyline1 * dxline2 - dyline2 * dxline1) == 0)
             return null;
 
-        return (new Point((int) (-(e * dxline2 - dxline1 * f) / (dyline1 * dxline2 - dyline2 * dxline1)),
-                (int) (-(dyline1 * f - dyline2 * e) / (dyline1 * dxline2 - dyline2 * dxline1))));
+        return (new Point((double) (-(e * dxline2 - dxline1 * f) / (dyline1 * dxline2 - dyline2 * dxline1)),
+                (double) (-(dyline1 * f - dyline2 * e) / (dyline1 * dxline2 - dyline2 * dxline1))));
     }
 
     private static boolean intersects(Line l1, Line l2) {

@@ -98,6 +98,7 @@ public class VoronoiLayer {
                 done.add(site);
                 List<Triangle> list = dt.surroundingTriangles(site, triangle);
                 List<Pnt> vertices = new ArrayList<>();
+                vertices.add(site);
                 for (Triangle tri : list)
                     vertices.add(tri.getCircumcenter());
 
