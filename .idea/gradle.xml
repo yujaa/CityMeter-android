@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$/aws-android-sdk-ddb-2.6.22" />
             <option value="$PROJECT_DIR$/aws-android-sdk-lambda-2.6.22" />
             <option value="$PROJECT_DIR$/aws-android-sdk-s3-2.6.22" />
+            <option value="$PROJECT_DIR$/musicg-1.4.2.0" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

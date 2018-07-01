@@ -27,6 +27,8 @@ import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Method;
 import java.net.InetAddress;
 import java.net.Socket;
+import java.util.Dictionary;
+import java.util.Enumeration;
 import java.util.Set;
 import java.util.UUID;
 
@@ -122,13 +124,13 @@ public class SensingController {
         return mBluetoothSocket.isConnected();
     }
 
-    public String BTRead() throws IOException {
+    public ExposureObject BTRead() throws IOException {
         readLine = new byte[100];
         mBluetoothSocket.getInputStream().read(readLine);
         String msgInfo = new String(readLine, "UTF-8");
-        int pm = pm_value(msgInfo);
-        String msg_timestamp = timestamp(msgInfo);
-        result = "[{'latitude': " + latitude + ", 'pm2.5': " + pm + ", 'longitude': " + longitude + ", 'timestamp': '" + msg_timestamp + "'}]";
+        Double pm = pm_value(msgInfo);
+        ExposureObject result = new ExposureObject(timestamp(msgInfo), pm ,longitude, latitude);
+
         return result;
     }
 
@@ -237,7 +239,7 @@ public class SensingController {
     //==================Formatting output===================
     //======================================================
     //To extract pm value from string
-    private int pm_value(String line) {
+    private Double pm_value(String line) {
         int start_index = line.indexOf("pm2.5");
         int end_index1 = line.indexOf(',', start_index);
         int end_index2 = line.indexOf('}', start_index);
@@ -250,7 +252,7 @@ public class SensingController {
 
         }
         String value_str = line.substring(start_index + 8, end_index);
-        return Integer.valueOf(value_str);
+        return Double.valueOf(value_str);
     }
 
     //to extract timestamp from string

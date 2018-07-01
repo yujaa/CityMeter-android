@@ -5,8 +5,12 @@ import android.media.AudioRecord;
 import android.media.MediaRecorder;
 import android.util.Log;
 
+import org.json.JSONObject;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Dictionary;
+import java.util.Enumeration;
 
 public class NoiseDetector {
 
@@ -48,7 +52,7 @@ public class NoiseDetector {
         mAudioRecord.read(buffer, 0, mBufferSize);
         return buffer;
     }
-    public String noiseLevel(double longitude, double latitude) {
+    public ExposureObject noiseLevel(double longitude, double latitude) {
         short[] buffer = measureAmplitude();
         int amplitude = 0;
         for (short window : buffer)//Get the maximum amplitude in each window read (buffer size)
@@ -68,12 +72,13 @@ public class NoiseDetector {
         double dBA = wa + dB;*/
         SimpleDateFormat s = new SimpleDateFormat("MMM dd yyyy HH:mm:ss");
         String msg_timestamp = s.format(new Date());
-        String result;
+        ExposureObject result ;
         if (dB < Double.MAX_VALUE) {
-             result = "[{'timestamp': " + msg_timestamp + ", 'dB': " + dB + ", 'longitude': " + longitude + ", 'latitude': '" + latitude + "'}]";
+            result = new ExposureObject(msg_timestamp, dB, longitude, latitude);
         }
         else{
-             result = "[{'timestamp': " + msg_timestamp + ", 'dB': " + 0 + ", 'longitude': " + longitude + ", 'latitude': '" + latitude + "'}]";
+
+            result = new ExposureObject(msg_timestamp, -1.0, longitude, latitude);
         }
         return result;
     }

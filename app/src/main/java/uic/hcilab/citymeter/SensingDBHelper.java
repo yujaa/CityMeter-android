@@ -1,20 +1,103 @@
 package uic.hcilab.citymeter;
 
-import android.content.ContentValues;
 import android.content.Context;
-import android.database.Cursor;
-import android.database.SQLException;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.util.Log;
 
-import java.util.ArrayList;
+import com.amazonaws.auth.AWSCredentialsProvider;
+import com.amazonaws.mobile.client.AWSMobileClient;
+import com.amazonaws.mobile.client.AWSStartupHandler;
+import com.amazonaws.mobile.client.AWSStartupResult;
+import com.amazonaws.mobile.config.AWSConfiguration;
+import com.amazonaws.mobileconnectors.dynamodbv2.dynamodbmapper.DynamoDBMapper;
+import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
 
-import static uic.hcilab.citymeter.SensingDB.COLUMN_ENTRY;
-import static uic.hcilab.citymeter.SensingDB.TABLE_NAME;
 
-public class SensingDBHelper extends SQLiteOpenHelper {
-    private static final int DATABASE_VERSION = 1;// Database Version
+
+public class SensingDBHelper  {
+    // Declare a DynamoDBMapper object
+    DynamoDBMapper dynamoDBMapper;
+    Context ctx;
+
+    SensingDBHelper (Context context) {
+        ctx = context;
+        connect();
+    }
+    public void connect(){
+        // AWSMobileClient enables AWS user credentials to access your table
+        AWSMobileClient.getInstance().initialize(ctx, new AWSStartupHandler() {
+            @Override
+            public void onComplete(AWSStartupResult awsStartupResult) {
+
+            }
+        }).execute();
+
+
+        AWSCredentialsProvider credentialsProvider = AWSMobileClient.getInstance().getCredentialsProvider();
+        AWSConfiguration configuration = AWSMobileClient.getInstance().getConfiguration();
+
+
+        // Add code to instantiate a AmazonDynamoDBClient
+        AmazonDynamoDBClient dynamoDBClient = new AmazonDynamoDBClient(credentialsProvider);
+
+        dynamoDBMapper = DynamoDBMapper.builder()
+                .dynamoDBClient(dynamoDBClient)
+                .awsConfiguration(configuration)
+                .build();
+    }
+    //CREATE
+    public void createExposureInst_pm(String id, String timestamp, double pm , double lon, double lat ) {
+        final UserExposureDO exposureInst = new UserExposureDO();
+
+        Log.i("nina", "1");
+        exposureInst.setUserId(id);
+
+        Log.i("nina", "2");
+        exposureInst.setTimestamp(timestamp);
+
+        Log.i("nina", "3");
+        exposureInst.setPm25(pm);
+        exposureInst.setDBA(-1.0);
+        exposureInst.setLongitude(lon);
+        exposureInst.setLatitude(lat);
+
+        Log.i("nina", "4");
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                dynamoDBMapper.save(exposureInst);
+                Log.i("nina", "wrote to db");
+                // Item saved
+            }
+        }).start();
+    }
+    public void createExposureInst_dBA(String id, String timestamp, double dbA , double lon, double lat ) {
+        final UserExposureDO exposureInst = new UserExposureDO();
+
+        exposureInst.setUserId(id);
+        exposureInst.setTimestamp(timestamp);
+        exposureInst.setPm25(-1.0);
+        exposureInst.setDBA(dbA);
+        exposureInst.setLongitude(lon);
+        exposureInst.setLatitude(lat);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Log.i("nina", "writing");
+                    dynamoDBMapper.save(exposureInst);
+                    Log.i("nina", "wrote to db");
+                    // Item saved
+                }
+                catch (Exception e){
+                    Log.i("nina", e.toString());
+                }
+            }
+        }).start();
+    }
+}
+    /*private static final int DATABASE_VERSION = 1;// Database Version
     private static final String DATABASE_NAME = "sensing_db";// Database Name
 
     private SQLiteDatabase sensingDB;
@@ -143,3 +226,4 @@ public class SensingDBHelper extends SQLiteOpenHelper {
         closeDb();
     }
 }
+*/

@@ -1924,6 +1924,10 @@
         "source": "C:\\Users\\Nina Sakhnini\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\04b3eccd16314a9e026539f0e5a9e746\\res\\drawable-xxxhdpi-v4\\abc_ic_star_black_48dp.png"
     },
     {
+        "merged": "F:\\Projects\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\raw_awsconfiguration.json.flat",
+        "source": "F:\\Projects\\CityMeter-android\\app\\src\\main\\res\\raw\\awsconfiguration.json"
+    },
+    {
         "merged": "F:\\Projects\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\color-v23_abc_btn_colored_borderless_text_material.xml.flat",
         "source": "C:\\Users\\Nina Sakhnini\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\04b3eccd16314a9e026539f0e5a9e746\\res\\color-v23\\abc_btn_colored_borderless_text_material.xml"
     },
