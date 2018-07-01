@@ -28,9 +28,9 @@
             android:name=".ActivitiesActivity"
             android:label="@string/title_activities" />
         <activity
-            android:name=".SearchActivity"
+            android:name=".HomeActivity"
             android:label="@string/title_search" />
-        <activity android:name=".HomeActivity"
+        <activity android:name=".SearchActivity"
             android:label="@string/title_home" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
