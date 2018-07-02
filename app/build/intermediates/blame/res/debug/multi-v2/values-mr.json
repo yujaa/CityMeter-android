@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Ja Eun\\Desktop\\CityMeter\\CityMeter-android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-mr\\values-mr.xml",
+            "outputFile": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-mr\\values-mr.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\8f88624224205c3379103693de9b55cf\\res\\values-mr\\values-mr.xml",

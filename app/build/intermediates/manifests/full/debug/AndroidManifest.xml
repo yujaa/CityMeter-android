@@ -42,10 +42,10 @@
             android:name="uic.hcilab.citymeter.ActivitiesActivity"
             android:label="@string/title_activities" />
         <activity
-            android:name="uic.hcilab.citymeter.SearchActivity"
+            android:name="uic.hcilab.citymeter.HomeActivity"
             android:label="@string/title_search" />
         <activity
-            android:name="uic.hcilab.citymeter.HomeActivity"
+            android:name="uic.hcilab.citymeter.SearchActivity"
             android:label="@string/title_home" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

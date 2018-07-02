@@ -308,12 +308,6 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
             }
             else {
                 chicagoBoundary.add(new Line(prevPnt.x, prevPnt.y, point[0], point[1]));
-
-//                Polyline line = mMap.addPolyline(new PolylineOptions()
-//                        .add(new LatLng(prevPnt.x, prevPnt.y), new LatLng(point[0], point[1]))
-//                        .width(5)
-//                        .color(Color.RED));
-
                 prevPnt.x = point[0];
                 prevPnt.y = point[1];
             }
@@ -334,8 +328,8 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
 
             if (((HashMap) entry.getValue()).containsKey("sound")) {
                 sound = Double.parseDouble((((HashMap) entry.getValue()).get("sound")).toString());
-                if (sound < 57) regionColor = Color.argb(50, 0, 255, 0);//R.drawable.green_circle;
-                else if (sound < 70)
+                if (sound < 45) regionColor = Color.argb(50, 0, 255, 0);//R.drawable.green_circle;
+                else if (sound < 55)
                     regionColor = Color.argb(50, 255, 255, 0);//R.drawable.yellow_circle;
                 else regionColor = Color.argb(50, 255, 0, 0);//R.drawable.red_circle;
             }
@@ -348,14 +342,38 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
         }
 
         VoronoiRegionVertices = vLayer.drawAllVoronoi();
+
         for(HashMap.Entry<List<Pnt>, Integer> region: VoronoiRegionVertices.entrySet()){
             PolygonOptions polygonOptions = new PolygonOptions();
             Intersection.Point prevVertex = new Intersection.Point(0,0);
             first = true;
-            boolean modify = false;
-            for(Pnt vertex: region.getKey()){
+
+            int modify = 0;
+            ArrayList<Pnt> suspendedVertices = new ArrayList<>();
+            int count =0;
+            for(Pnt vertex: region.getKey()) {
+//                int i=0;
+//                if(sortedVertices.isEmpty())
+//                    sortedVertices.add(vertex);
+//                else {
+//                    for(i=0; i<count; i++)
+//                    {
+//                        Log.i("myyy",sortedVertices.size()+"");
+//                        if(comparePnt(vertex, sortedVertices.get(i)))
+//                        {
+//                            //when vertex is small
+//                            sortedVertices.add(i, vertex);
+//                        }
+//                    }
+//                    if(i==sortedVertices.size())
+//                        sortedVertices.add(vertex);
+//                }
+//                count++;
+//            }
+//            for(Pnt vertex: sortedVertices)   {
                 double lat = vertex.coord(0);
                 double lng = vertex.coord(1);
+
                 if(first) {
                     prevVertex = new Intersection.Point(vertex.coord(0), vertex.coord(1));
                     first =false;
@@ -365,20 +383,38 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
                     for(Line boundL : chicagoBoundary) {
                         Intersection.Point intersectPnt =  Intersection.detect(boundL, new Line(prevVertex.x, prevVertex.y, vertex.coord(0), vertex.coord(1)));
                         if (intersectPnt != null){
-
                             lat = intersectPnt.x;
                             lng = intersectPnt.y;
-                            modify = true;
-
+                            if(modify ==0)
+                                modify= 1;
+                            if(modify ==2) {
+                                modify = 3;
+                            }
                             break;
                         }
-
                     }
                 }
 
+                prevVertex.x = vertex.coord(0);
+                prevVertex.y = vertex.coord(1);
+
+
+                if(modify==2)
+                    continue;
+
                 if(lat <41.6 || lng >-87.4 || lng <-87.93)
                     continue;
+
                 polygonOptions.add(new LatLng(lat, lng));
+                if(modify==3){
+
+                    if(vertex.coord(0) <41.6 || vertex.coord(1) >-87.4 || vertex.coord(1) <-87.93){}
+                    else
+                        polygonOptions.add(new LatLng(vertex.coord(0), vertex.coord(1)));
+                    modify =0;
+                }
+                if(modify ==1)
+                    modify = 2;
             }
 
 
@@ -423,6 +459,33 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
         return nearestNode;
     }
 
+    boolean comparePnt(Pnt p1, Pnt p2){
+        Pnt center = new Pnt((p1.coord(0)+p2.coord(0))/2, (p1.coord(1)+p2.coord(1))/2);
+
+        if (p1.coord(0) - center.coord(0) >= 0 && p2.coord(0) - center.coord(0) < 0)
+            return true;
+        if (p1.coord(0) - center.coord(0) < 0 && p2.coord(0) - center.coord(0) >= 0)
+            return false;
+        if (p1.coord(0) - center.coord(0) == 0 && p2.coord(0) - center.coord(0) == 0) {
+            if (p1.coord(1) - center.coord(1) >= 0 || p2.coord(1) - center.coord(1) >= 0)
+                return p1.coord(1) > p2.coord(1);
+            return p2.coord(1) > p1.coord(1);
+            //true when p1 is small
+        }
+
+        // compute the cross product of vectors (center -> a) x (center -> b)
+        double det = (p1.coord(0) - center.coord(0)) * (p2.coord(1) - center.coord(1)) - (p2.coord(0) - center.coord(0)) * (p1.coord(1) - center.coord(1));
+        if (det < 0)
+            return true;
+        if (det > 0)
+            return false;
+
+        // points a and b are on the same line from the center
+        // check which point is closer to the center
+        double d1 = (p1.coord(0) - center.coord(0)) * (p1.coord(0) - center.coord(0)) + (p1.coord(1) - center.coord(1)) * (p1.coord(1) - center.coord(1));
+        double d2 = (p2.coord(0) - center.coord(0)) * (p2.coord(0) - center.coord(0)) + (p2.coord(1) - center.coord(1)) * (p2.coord(1) - center.coord(1));
+        return d1 > d2;
+    }
 
     ///gps
 
