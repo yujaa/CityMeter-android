@@ -1,24 +1,12 @@
 package uic.hcilab.citymeter;
 
-import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.Service;
 import android.content.ComponentName;
-import android.content.Context;
-import android.content.ContextWrapper;
 import android.content.Intent;
 import android.location.LocationManager;
-import android.os.Bundle;
 import android.os.IBinder;
 import android.util.Log;
-
-import com.amazonaws.mobile.client.AWSMobileClient;
-import com.amazonaws.mobile.client.AWSStartupHandler;
-import com.amazonaws.mobile.client.AWSStartupResult;
-
-import java.util.Dictionary;
-
-
 
 //Be careful with the variable when the available data is less than the buffer size
 
@@ -52,7 +40,6 @@ public class SensingService extends Service {
             try {
                 sensingController.locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
                 sensingController.location_setup();
-
                 //Enable noise detector
                 sensingController.noiseDetector.start();
                 //Get noise levels readings
@@ -71,10 +58,7 @@ public class SensingService extends Service {
                             onDestroy();
                             break;
                         }
-                        Log.i("nina", "Waiting..");
-                        //wait(50);
                         Thread.sleep(5000);
-                        Log.i("nina", "After Wait..");
                     }
                     if (!sensingController.noiseDetector.isRecording()) {
 
@@ -96,7 +80,6 @@ public class SensingService extends Service {
                 if (!sensingController.BTIsConnected()) {
                     sensingController.BTConnect();
                 }
-
                 while (true) {
                     //Read BT
                     while (sensingController.BTIsConnected()) {
@@ -119,33 +102,6 @@ public class SensingService extends Service {
             }
         }
     });
-    /*Thread serverThread = new Thread(new Runnable() {
-        public void run() {
-            try {
-                // sensingController.locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
-
-                int pm_counter = 0;
-                int db_counter = 0;
-
-                while (true) {
-                    sensingController.serverConnect();
-
-                    while (sensingController.serverIsConnected()) {
-                        String entry = sensingDBHelper.readNext();
-                        sensingController.serverWrite(entry);
-                        sensingDBHelper.updateDBRow(entry);
-                        sensingDBHelper.deleteDBRow(entry);
-                        Log.i("BT", "Write to server successful");
-                    }
-                    if (!sensingController.serverIsConnected()) {
-                        sensingController.serverConnect();
-                    }
-                }
-            } catch (Exception e) {
-                Log.i("BT", "Server Thread Error: " + e.toString());
-            }
-        }
-    });*/
 
     //Function to check if the app is open and active or not
     private boolean checkAppOpen(){
@@ -158,20 +114,16 @@ public class SensingService extends Service {
         }
         return result;
     }
-
     @Override
     public IBinder onBind(Intent intent) {
         // TODO: Return the communication channel to the service.
         throw new UnsupportedOperationException("Not yet implemented");
     }
-
     @Override
     public void onDestroy() {
         super.onDestroy();
-        //sensingDBHelper.close();
         dbThread.interrupt();
         pmThread.interrupt();
-        //serverThread.interrupt();
         sensingController.destructor();
     }
 }
