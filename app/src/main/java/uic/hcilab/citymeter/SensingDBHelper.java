@@ -47,7 +47,7 @@ public class SensingDBHelper  {
                 .build();
     }
     //CREATE
-    public void createExposureInst_pm(String id, String timestamp, double pm , double lon, double lat ) {
+    public void createExposureInst_pm(String id, String timestamp, double pm , double lon, double lat, double ind ) {
         final UserExposureDO exposureInst = new UserExposureDO();
 
         exposureInst.setUserId(id);
@@ -58,6 +58,7 @@ public class SensingDBHelper  {
         exposureInst.setDBA(-1.0);
         exposureInst.setLongitude(lon);
         exposureInst.setLatitude(lat);
+        exposureInst.setIndoor(ind);
 
         new Thread(new Runnable() {
             @Override
@@ -67,7 +68,7 @@ public class SensingDBHelper  {
             }
         }).start();
     }
-    public void createExposureInst_dBA(String id, String timestamp, double dbA , double lon, double lat ) {
+    public void createExposureInst_dBA(String id, String timestamp, double dbA , double lon, double lat, double ind ) {
         final UserExposureDO exposureInst = new UserExposureDO();
 
         exposureInst.setUserId(id);
@@ -76,6 +77,7 @@ public class SensingDBHelper  {
         exposureInst.setDBA(dbA);
         exposureInst.setLongitude(lon);
         exposureInst.setLatitude(lat);
+        exposureInst.setIndoor(ind);
         new Thread(new Runnable() {
             @Override
             public void run() {

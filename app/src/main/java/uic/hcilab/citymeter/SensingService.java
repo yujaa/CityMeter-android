@@ -8,6 +8,8 @@ import android.location.LocationManager;
 import android.os.IBinder;
 import android.util.Log;
 
+import java.io.IOException;
+
 //Be careful with the variable when the available data is less than the buffer size
 
 public class SensingService extends Service {
@@ -51,7 +53,10 @@ public class SensingService extends Service {
                             Double dbA_ = dat.reading;
                             Double longitude_ = dat.longitude;
                             Double latitude_ = dat.latitude;
-                            sensingDBHelper.createExposureInst_dBA("1", timestamp_,dbA_,longitude_,latitude_);
+                            Double indoor_ = dat.indoor;
+                            if(dbA_ != -1.0) {
+                                sensingDBHelper.createExposureInst_dBA("1", timestamp_, dbA_, longitude_, latitude_, indoor_);
+                            }
                         }
                         else {
                             stopSelf();
@@ -70,35 +75,45 @@ public class SensingService extends Service {
             }
         }
     });
-
+ private void pmThread_helper() {
+     try {
+     //not looping to try to connect again
+     sensingController.BTSetup();
+     //Connect BT
+     if (!sensingController.BTIsConnected()) {
+         sensingController.BTConnect();
+     }
+     while (true) {
+         //Read BT
+         while (sensingController.BTIsConnected()) {
+             ExposureObject dat =sensingController.BTRead();
+             String timestamp_ = dat.timestamp;
+             Double pm_ = dat.reading;
+             Double longitude_ = dat.longitude;
+             Double latitude_ = dat.latitude;
+             Double indoor_ = dat.indoor;
+             sensingDBHelper.createExposureInst_pm("1", timestamp_, pm_, longitude_, latitude_, indoor_ );
+         }
+         if (!sensingController.BTIsConnected()) {
+             sensingController.BTDisable();
+             sensingController.BTSetup();
+             sensingController.BTConnect();
+         }
+     }}
+     catch (Exception e){
+         Log.e("BT", "BT Handler Exception: " + e.toString());
+     }
+ }
     Thread pmThread = new Thread(new Runnable() {
         @Override
         public void run() {
-            try {
-                sensingController.BTSetup();
-                //Connect BT
-                if (!sensingController.BTIsConnected()) {
-                    sensingController.BTConnect();
+            while (true) {
+                try {
+                    pmThread_helper();
+                    Thread.sleep(5000);
+                } catch (Exception e) {
+                    Log.i("BT", "BT Thread Error: " + e.toString());
                 }
-                while (true) {
-                    //Read BT
-                    while (sensingController.BTIsConnected()) {
-                        ExposureObject dat =sensingController.BTRead();
-
-                        String timestamp_ = dat.timestamp;
-                        Double pm_ = dat.reading;
-                        Double longitude_ = dat.longitude;
-                        Double latitude_ = dat.latitude;
-                        sensingDBHelper.createExposureInst_pm("1", timestamp_, pm_, longitude_, latitude_ );
-                    }
-                    if (!sensingController.BTIsConnected()) {
-                        sensingController.BTDisable();
-                        sensingController.BTSetup();
-                        sensingController.BTConnect();
-                    }
-                }
-            } catch (Exception e) {
-                Log.i("BT", "BT Thread Error: " + e.toString());
             }
         }
     });

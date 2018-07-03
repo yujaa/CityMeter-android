@@ -17,6 +17,7 @@ public class UserExposureDO {
     private String _userId;
     private String _timestamp;
     private Double _dBA;
+    private Double _indoor;
     private Double _latitude;
     private Double _longitude;
     private Double _pm25;
@@ -46,6 +47,14 @@ public class UserExposureDO {
 
     public void setDBA(final Double _dBA) {
         this._dBA = _dBA;
+    }
+    @DynamoDBAttribute(attributeName = "indoor")
+    public Double getIndoor() {
+        return _indoor;
+    }
+
+    public void setIndoor(final Double _indoor) {
+        this._indoor = _indoor;
     }
     @DynamoDBAttribute(attributeName = "latitude")
     public Double getLatitude() {
