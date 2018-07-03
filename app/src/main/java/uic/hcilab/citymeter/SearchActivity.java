@@ -54,7 +54,7 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
 
     private JSONObject nodesLocation = null;
     HashMap<String, HashMap<String, String>> nodesInfo = new HashMap<String,  HashMap<String, String>>();
-
+    HashMap<String, String> currentLocationData = new HashMap<String, String>();
     private double[][] chicagoLonLat = {
             {42.021263,-87.664207}, {41.971456,-87.64545}, {41.971252,-87.645323}, {41.968581,-87.630898}, {41.96854,-87.630882}, {41.960198, -87.631689},{41.961451,-87.642289}, {41.961371,-87.642296},
             {41.942403,-87.633004}, {41.942335,-87.633028}, {41.947903,-87.642142}, {41.94788,-87.642141}, {41.926581, -87.627703},{41.904062,-87.623655}, {41.904049,-87.623723}, {41.89224,-87.600582},
@@ -94,27 +94,6 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
 
         boolean first= true;
         Intersection.Point prevPnt = new Intersection.Point(0,0);
-//        for(double[] point: chicagoLonLat) {
-//            if(first) {
-//                prevPnt.x = (float) point[0];
-//                prevPnt.y = (float) point[1];
-//                first = false;
-//            }
-//            else {
-//                chicagoBoundary.add(new Line(prevPnt.x, prevPnt.y, point[0], point[1]));
-//
-//                Polyline line = mMap.addPolyline(new PolylineOptions()
-//                        .add(new LatLng(51.5, -0.1), new LatLng(40.7, -74.0))
-//                        .width(5)
-//                        .color(Color.RED));
-//
-//                prevPnt.x = point[0];
-//                prevPnt.y = point[1];
-//
-//
-//            }
-//        }
-
         initMap();
 
         new AoTData(SearchActivity.this).execute("info/nodes");
@@ -158,6 +137,8 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
     private void showDefaultLocation() {
         LatLng curLoc = new LatLng(Double.parseDouble(curLat), Double.parseDouble(curLng));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(curLoc));
+        new AoTData(SearchActivity.this).execute("value/nearest/"+curLat+"/"+curLng);
+        Log.i("my","here");
     }
 
     @Override
@@ -168,12 +149,10 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     enableMyLocationIfPermitted();
-                } else {
+                } else
                     showDefaultLocation();
-                }
                 return;
             }
-
         }
     }
 
@@ -207,7 +186,10 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
             Location loc = new Location("temporary");
             loc.setLongitude(Double.parseDouble(curLng));
             loc.setLatitude(Double.parseDouble(curLat));
-            Log.i("my",getNearestNodes(loc));
+            //Log.i("my",getNearestNodes(loc));
+        }
+        else if(urlApi.contains("value/nearest/")){
+            getCurrentLocationData(jsonData);
         }
     }
 
@@ -245,13 +227,26 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
                 nodesInfo.get(k.toString()).putAll(node);
             }
         }
-        //Log.i("my", nodesInfo+"");
     }
 
+    public void getCurrentLocationData(JSONObject nodesValue)
+    {
+        //parse json
+            HashMap<String, String> currentLocationData = new HashMap<String, String>();
+            if(nodesValue.containsKey("lat"))
+                currentLocationData.put("lat",nodesValue.get("lat").toString());
+            if(nodesValue.containsKey("lon"))
+                currentLocationData.put("lon",nodesValue.get("lon").toString());
+            if(nodesValue.containsKey("node_id"))
+                currentLocationData.put("node_id",nodesValue.get("node_id").toString());
+            if(nodesValue.containsKey("distance"))
+                currentLocationData.put("distance",nodesValue.get("distance").toString());
+           //Log.i("myyy", currentLocationData.get("lat"));
+
+    }
 
     public void drawNodesMarker( HashMap<String, HashMap<String, String>> nodesInfoParam)
     {
-
         Set set = nodesInfoParam.entrySet();
         Iterator iterator = set.iterator();
         while(iterator.hasNext()) {
@@ -335,8 +330,6 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
 //            else
 //                continue;
 
-            // Instantiates a new CircleOptions object and defines the center and radius
-
             vLayer.addSite(new Pnt(lat, lng), regionColor);
         }
 
@@ -359,19 +352,6 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
                     continue;
                 }
                 else{
-//                    if(region.getKey().get(0).coord(0) == 41.741148 && second)
-//                    {
-//                        CircleOptions circleOptions = new CircleOptions()
-//                            .center(new LatLng(vertex.coord(0), vertex.coord(1)))
-//                            .radius(100) // In meters
-//                            .strokeWidth(0)
-//                            .fillColor(Color.RED)
-//                            .clickable(true);
-//
-//                    // Get back the mutable Circle
-//                    Circle circle = mMap.addCircle(circleOptions);
-//                    second = false;
-//                    }
                     for(Line boundL : chicagoBoundary) {
                         Intersection.Point intersectPnt =  Intersection.detect(boundL, new Line(prevVertex.x, prevVertex.y, vertex.coord(0), vertex.coord(1)));
                         if (intersectPnt != null){
@@ -404,7 +384,6 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
                 }
             }
 
-
             polygonOptions.strokeJointType(JointType.ROUND);
             polygonOptions.strokeColor(Color.argb(100,0,0,0));
             polygonOptions.strokeWidth(0);
@@ -414,37 +393,38 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
     }
 
 
-    private String getNearestNodes(Location current) {
-        Set set = nodesInfo.entrySet();
-        Iterator iterator = set.iterator();
-
-        double nearestDistance = 1000000;
-        String nearestNode = "null";
-        Location cLoc = new Location("node");
-        Location nLoc= new Location("nearestLocation");
-        while (iterator.hasNext()) {
-            Map.Entry entry = (Map.Entry) iterator.next();
-            double lat = Double.parseDouble((((HashMap) entry.getValue()).get("lat")).toString());
-            double lon = Double.parseDouble((((HashMap) entry.getValue()).get("lon")).toString());
-            cLoc.setLatitude(lat);
-            cLoc.setLongitude(lon);
-
-            if (cLoc.distanceTo(current) < nearestDistance) {
-                nearestDistance = cLoc.distanceTo(current);
-                nearestNode = entry.getKey().toString();
-            }
-        }
-        nLoc.setLatitude(Double.parseDouble(((nodesInfo.get(nearestNode)).get("lat"))));
-        nLoc.setLongitude(Double.parseDouble(((nodesInfo.get(nearestNode)).get("lon"))));
-        mMap.addMarker(new MarkerOptions()
-                .position(new LatLng(nLoc.getLatitude(), nLoc.getLongitude()))
-                .title(nearestNode)
-                .alpha(5.0f)
-                .flat(true)
-        );
-
-        return nearestNode;
-    }
+//    private void getNearestNodes(Location current) {
+//        new AoTData(SearchActivity.this).execute("value/nearest/"+current.getLatitude()+"/"+current.getLongitude());
+//
+////        Set set = nodesInfo.entrySet();
+////        Iterator iterator = set.iterator();
+////
+////        double nearestDistance = 1000000;
+////        String nearestNode = "null";
+////        Location cLoc = new Location("node");
+////        Location nLoc= new Location("nearestLocation");
+////        while (iterator.hasNext()) {
+////            Map.Entry entry = (Map.Entry) iterator.next();
+////            double lat = Double.parseDouble((((HashMap) entry.getValue()).get("lat")).toString());
+////            double lon = Double.parseDouble((((HashMap) entry.getValue()).get("lon")).toString());
+////            cLoc.setLatitude(lat);
+////            cLoc.setLongitude(lon);
+////
+////            if (cLoc.distanceTo(current) < nearestDistance) {
+////                nearestDistance = cLoc.distanceTo(current);
+////                nearestNode = entry.getKey().toString();
+////            }
+////        }
+////        nLoc.setLatitude(Double.parseDouble(((nodesInfo.get(nearestNode)).get("lat"))));
+////        nLoc.setLongitude(Double.parseDouble(((nodesInfo.get(nearestNode)).get("lon"))));
+////        mMap.addMarker(new MarkerOptions()
+////                .position(new LatLng(nLoc.getLatitude(), nLoc.getLongitude()))
+////                .title(nearestNode)
+////                .alpha(5.0f)
+////                .flat(true)
+////        );
+////        return nearestNode;
+//    }
 
     ///gps
 
@@ -453,7 +433,8 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
 
         String longitude = "Longitude: " + loc.getLongitude();
         String latitude = "Latitude: " + loc.getLatitude();
-        getNearestNodes(loc);
+        new AoTData(SearchActivity.this).execute("value/nearest/"+loc.getLatitude()+"/"+loc.getLongitude());
+        //getNearestNodes(loc);
 
     }
 
