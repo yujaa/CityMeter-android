@@ -89,7 +89,7 @@ public class NoiseDetector {
         String msg_timestamp = s.format(new Date());
         ExposureObject result;
         if (dBA < 100 && f != 0) {
-            result = new ExposureObject(msg_timestamp, dB, longitude, latitude, -1.0);
+            result = new ExposureObject(msg_timestamp, dBA, longitude, latitude, -1.0);
         } else {
 
             result = new ExposureObject(msg_timestamp, -1.0, longitude, latitude, -1.0);
