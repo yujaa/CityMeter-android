@@ -158,7 +158,7 @@ public class SensingController {
 
     }
 
-    private final LocationListener locationListener = new LocationListener() {
+    public final LocationListener locationListener = new LocationListener() {
         public void onLocationChanged(Location location) {
             longitude = location.getLongitude();
             latitude = location.getLatitude();
