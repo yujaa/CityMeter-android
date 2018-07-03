@@ -5,8 +5,11 @@ import android.app.Service;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.location.LocationManager;
+import android.os.Handler;
 import android.os.IBinder;
+import android.os.Looper;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.io.IOException;
 
@@ -50,7 +53,13 @@ public class SensingService extends Service {
                         if (checkAppOpen()) {
                             ExposureObject dat = sensingController.noiseDetector.noiseLevel(sensingController.longitude, sensingController.latitude);
                             String timestamp_ = dat.timestamp;
-                            Double dbA_ = dat.reading;
+                            final Double dbA_ = dat.reading;
+                            Handler handler = new Handler(Looper.getMainLooper());
+                            handler.post(new Runnable() {
+                                @Override
+                                public void run() {Toast.makeText(SensingService.this, "dB(A) = " + String.valueOf(dbA_),Toast.LENGTH_SHORT).show();
+                                }
+                            });
                             Double longitude_ = dat.longitude;
                             Double latitude_ = dat.latitude;
                             Double indoor_ = dat.indoor;
@@ -88,7 +97,14 @@ public class SensingService extends Service {
          while (sensingController.BTIsConnected()) {
              ExposureObject dat =sensingController.BTRead();
              String timestamp_ = dat.timestamp;
-             Double pm_ = dat.reading;
+             final Double pm_ = dat.reading;
+             Handler handler = new Handler(Looper.getMainLooper());
+             handler.post(new Runnable() {
+                 @Override
+                 public void run() {
+                     Toast.makeText(SensingService.this, "PM 2.5 = " + String.valueOf(pm_),Toast.LENGTH_SHORT).show();
+                 }
+             });
              Double longitude_ = dat.longitude;
              Double latitude_ = dat.latitude;
              Double indoor_ = dat.indoor;

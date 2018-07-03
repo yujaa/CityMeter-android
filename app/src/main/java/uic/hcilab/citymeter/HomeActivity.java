@@ -26,6 +26,7 @@ import com.amazonaws.mobile.client.AWSStartupResult;
 public class HomeActivity extends TabHost {
 
     private BluetoothAdapter mBluetoothAdapter;
+    public static float noise_value;
 
     private View view;
     @Override
@@ -89,7 +90,7 @@ public class HomeActivity extends TabHost {
                 float noise_bar_loc;
                 int noise_bar_width;
                 float noise_range = 100f; //max - min //ToDo: Toy data
-                float noise_value = 20f;              //ToDo: Toy data
+                 noise_value = 20f;              //ToDo: Toy data
                 ImageView noise_bar = (ImageView) findViewById(R.id.noise_bar);
                 ImageView noise_thumb = (ImageView) findViewById(R.id.noise_thumb);
                 TextView noise_thumb_value = (TextView) findViewById(R.id.noise_value);
