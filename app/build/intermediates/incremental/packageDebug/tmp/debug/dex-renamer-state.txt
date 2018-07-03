@@ -1,4 +1,4 @@
-#Mon Jul 02 11:47:44 CDT 2018
-base.0=C\:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+#Tue Jul 03 00:08:11 CDT 2018
+base.0=C\:\\Users\\yujaa\\AndroidStudioProjects\\CityMeter\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
 path.0=classes.dex
 renamed.0=classes.dex

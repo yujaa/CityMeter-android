@@ -56,14 +56,13 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
     HashMap<String, HashMap<String, String>> nodesInfo = new HashMap<String,  HashMap<String, String>>();
 
     private double[][] chicagoLonLat = {
-            {42.021263,-87.664207}, {41.971456,-87.64545}, {41.971252,-87.645323}, {41.968581,-87.630898}, {41.96854,-87.630882}, {41.961451,-87.642289}, {41.961371,-87.642296},
+            {42.021263,-87.664207}, {41.971456,-87.64545}, {41.971252,-87.645323}, {41.968581,-87.630898}, {41.96854,-87.630882}, {41.960198, -87.631689},{41.961451,-87.642289}, {41.961371,-87.642296},
             {41.942403,-87.633004}, {41.942335,-87.633028}, {41.947903,-87.642142}, {41.94788,-87.642141}, {41.926581, -87.627703},{41.904062,-87.623655}, {41.904049,-87.623723}, {41.89224,-87.600582},
             {41.892274,-87.598549}, {41.881779,-87.616497}, {41.881727,-87.616506}, {41.834036,-87.604944}, {41.833796,-87.604868}, {41.784622,-87.567644}, {41.784597,-87.567532},
-            {41.775931,-87.575079}, {41.775785,-87.575043}, {41.741468,-87.52448}, {41.741469,-87.524462}, {41.741045,-87.536849}, {41.741013,-87.539855}, {41.731221,-87.524734},
+            {41.775931,-87.575079}, {41.775785,-87.575043}, {41.741468,-87.52448}, {41.741469,-87.524462},  {41.731221,-87.524734},
             {41.731093,-87.524688}, {41.644555,-87.525166}, {41.644543,-87.525166}, {41.644584,-87.616847}, {41.644584,-87.617216}, {41.661002,-87.619721}, {41.661141,-87.619857},
             {41.657662,-87.646817}, {41.65763,-87.646988}, {41.668715,-87.641604}, {41.67054,-87.641665}, {41.677447,-87.661382}, {41.677544,-87.661365}, {41.683643,-87.73884},
-            {41.683632,-87.73945}, {41.691315,-87.720533}, {41.691285,-87.720317}, {41.713159,-87.721125}, {41.71317,-87.721125}, {41.713669,-87.682103}, {41.713662,-87.681842},
-            {41.73546,-87.682512}, {41.735527,-87.682514}, {41.734547,-87.740165}, {41.734524,-87.741067}, {41.774454,-87.742145}, {41.77478,-87.742165}, {41.773716,-87.799751},
+            {41.683632,-87.73945}, {41.691315,-87.720533}, {41.691285,-87.720317}, {41.713159,-87.721125}, {41.71317,-87.721125},  {41.734547,-87.740165}, {41.734524,-87.741067}, {41.774454,-87.742145}, {41.77478,-87.742165}, {41.773716,-87.799751},
             {41.773697,-87.800806}, {41.797778,-87.80162}, {41.797995,-87.801626}, {41.800184,-87.752848}, {41.800187,-87.752736}, {41.86582,-87.739977}, {41.865959,-87.739982},
             {41.865462,-87.77386}, {41.865459,-87.774139}, {41.909211,-87.775598}, {41.909254,-87.775599}, {41.908892,-87.803942}, {41.908839,-87.805745}, {41.934376,-87.806618},
             {41.934511,-87.806624}, {41.937751,-87.850187}, {41.938079,-87.85066}, {41.972341,-87.854979}, {41.972458,-87.855158}, {41.972922,-87.87807}, {41.972855,-87.880773},
@@ -93,8 +92,8 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
         LocationManager locationManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
         setSupportActionBar(myToolbar);
 
-//        boolean first= true;
-//        Intersection.Point prevPnt = new Intersection.Point(0,0);
+        boolean first= true;
+        Intersection.Point prevPnt = new Intersection.Point(0,0);
 //        for(double[] point: chicagoLonLat) {
 //            if(first) {
 //                prevPnt.x = (float) point[0];
@@ -347,30 +346,10 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
             PolygonOptions polygonOptions = new PolygonOptions();
             Intersection.Point prevVertex = new Intersection.Point(0,0);
             first = true;
-
+            boolean second = true;
             int modify = 0;
-            ArrayList<Pnt> suspendedVertices = new ArrayList<>();
-            int count =0;
-            for(Pnt vertex: region.getKey()) {
-//                int i=0;
-//                if(sortedVertices.isEmpty())
-//                    sortedVertices.add(vertex);
-//                else {
-//                    for(i=0; i<count; i++)
-//                    {
-//                        Log.i("myyy",sortedVertices.size()+"");
-//                        if(comparePnt(vertex, sortedVertices.get(i)))
-//                        {
-//                            //when vertex is small
-//                            sortedVertices.add(i, vertex);
-//                        }
-//                    }
-//                    if(i==sortedVertices.size())
-//                        sortedVertices.add(vertex);
-//                }
-//                count++;
-//            }
-//            for(Pnt vertex: sortedVertices)   {
+            List<Pnt> verticesList = region.getKey();
+            for(Pnt vertex: verticesList) {
                 double lat = vertex.coord(0);
                 double lng = vertex.coord(1);
 
@@ -380,47 +359,55 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
                     continue;
                 }
                 else{
+//                    if(region.getKey().get(0).coord(0) == 41.741148 && second)
+//                    {
+//                        CircleOptions circleOptions = new CircleOptions()
+//                            .center(new LatLng(vertex.coord(0), vertex.coord(1)))
+//                            .radius(100) // In meters
+//                            .strokeWidth(0)
+//                            .fillColor(Color.RED)
+//                            .clickable(true);
+//
+//                    // Get back the mutable Circle
+//                    Circle circle = mMap.addCircle(circleOptions);
+//                    second = false;
+//                    }
                     for(Line boundL : chicagoBoundary) {
                         Intersection.Point intersectPnt =  Intersection.detect(boundL, new Line(prevVertex.x, prevVertex.y, vertex.coord(0), vertex.coord(1)));
                         if (intersectPnt != null){
                             lat = intersectPnt.x;
                             lng = intersectPnt.y;
-                            if(modify ==0)
-                                modify= 1;
-                            if(modify ==2) {
-                                modify = 3;
-                            }
+                            if(modify ==0)  modify= 1;
+                            if(modify ==2)  modify = 3;
                             break;
                         }
                     }
                 }
-
                 prevVertex.x = vertex.coord(0);
                 prevVertex.y = vertex.coord(1);
 
-
-                if(modify==2)
-                    continue;
-
-                if(lat <41.6 || lng >-87.4 || lng <-87.93)
-                    continue;
-
+                if(modify==2) continue;
                 polygonOptions.add(new LatLng(lat, lng));
-                if(modify==3){
 
-                    if(vertex.coord(0) <41.6 || vertex.coord(1) >-87.4 || vertex.coord(1) <-87.93){}
-                    else
-                        polygonOptions.add(new LatLng(vertex.coord(0), vertex.coord(1)));
+                if(modify==3){
+                    polygonOptions.add(new LatLng(vertex.coord(0), vertex.coord(1)));
                     modify =0;
                 }
-                if(modify ==1)
-                    modify = 2;
+                if(modify ==1) modify = 2;
+            }
+
+            for(Line boundL : chicagoBoundary) {
+                Intersection.Point intersectPnt =  Intersection.detect(boundL, new Line(prevVertex.x, prevVertex.y, region.getKey().get(1).coord(0), region.getKey().get(1).coord(1)));
+                if (intersectPnt != null){
+                    polygonOptions.add(new LatLng(intersectPnt.x, intersectPnt.y));
+                    break;
+                }
             }
 
 
             polygonOptions.strokeJointType(JointType.ROUND);
             polygonOptions.strokeColor(Color.argb(100,0,0,0));
-            polygonOptions.strokeWidth(1);
+            polygonOptions.strokeWidth(0);
             polygonOptions.fillColor(region.getValue());
             mMap.addPolygon(polygonOptions);
         }
@@ -457,34 +444,6 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
         );
 
         return nearestNode;
-    }
-
-    boolean comparePnt(Pnt p1, Pnt p2){
-        Pnt center = new Pnt((p1.coord(0)+p2.coord(0))/2, (p1.coord(1)+p2.coord(1))/2);
-
-        if (p1.coord(0) - center.coord(0) >= 0 && p2.coord(0) - center.coord(0) < 0)
-            return true;
-        if (p1.coord(0) - center.coord(0) < 0 && p2.coord(0) - center.coord(0) >= 0)
-            return false;
-        if (p1.coord(0) - center.coord(0) == 0 && p2.coord(0) - center.coord(0) == 0) {
-            if (p1.coord(1) - center.coord(1) >= 0 || p2.coord(1) - center.coord(1) >= 0)
-                return p1.coord(1) > p2.coord(1);
-            return p2.coord(1) > p1.coord(1);
-            //true when p1 is small
-        }
-
-        // compute the cross product of vectors (center -> a) x (center -> b)
-        double det = (p1.coord(0) - center.coord(0)) * (p2.coord(1) - center.coord(1)) - (p2.coord(0) - center.coord(0)) * (p1.coord(1) - center.coord(1));
-        if (det < 0)
-            return true;
-        if (det > 0)
-            return false;
-
-        // points a and b are on the same line from the center
-        // check which point is closer to the center
-        double d1 = (p1.coord(0) - center.coord(0)) * (p1.coord(0) - center.coord(0)) + (p1.coord(1) - center.coord(1)) * (p1.coord(1) - center.coord(1));
-        double d2 = (p2.coord(0) - center.coord(0)) * (p2.coord(0) - center.coord(0)) + (p2.coord(1) - center.coord(1)) * (p2.coord(1) - center.coord(1));
-        return d1 > d2;
     }
 
     ///gps
