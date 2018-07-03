@@ -1,7 +1,10 @@
 package uic.hcilab.citymeter;
 
 import android.Manifest;
+import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
+import android.content.Context;
+import android.content.ContextWrapper;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
@@ -16,10 +19,14 @@ import android.view.ViewTreeObserver;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.amazonaws.mobile.client.AWSMobileClient;
+import com.amazonaws.mobile.client.AWSStartupHandler;
+import com.amazonaws.mobile.client.AWSStartupResult;
 
 public class HomeActivity extends TabHost {
 
     private BluetoothAdapter mBluetoothAdapter;
+    public static float noise_value;
 
     private View view;
     @Override
@@ -31,8 +38,7 @@ public class HomeActivity extends TabHost {
     public int getNavigationMenuItemId() {
         return R.id.navigation_home;
     }
-
-
+    public static SensingDBHelper sensingDBHelper;
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,11 +46,19 @@ public class HomeActivity extends TabHost {
         setSupportActionBar(myToolbar);
         //For no keyboard showing on starting the activity
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+
+        sensingDBHelper = new SensingDBHelper(this);
+        //BT adapter initialization
         mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         if(!checkBTEnabled()){
             BTEnable(savedInstanceState);
         }
-
+        AWSMobileClient.getInstance().initialize(this, new AWSStartupHandler() {
+            @Override
+            public void onComplete(AWSStartupResult awsStartupResult) {
+                Log.d("nina", "AWSMobileClient is instantiated and connected to AWS");
+            }
+        }).execute();
         //get View for change bar
         final View view = findViewById(android.R.id.content);
         view.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
@@ -76,7 +90,7 @@ public class HomeActivity extends TabHost {
                 float noise_bar_loc;
                 int noise_bar_width;
                 float noise_range = 100f; //max - min //ToDo: Toy data
-                float noise_value = 20f;              //ToDo: Toy data
+                 noise_value = 20f;              //ToDo: Toy data
                 ImageView noise_bar = (ImageView) findViewById(R.id.noise_bar);
                 ImageView noise_thumb = (ImageView) findViewById(R.id.noise_thumb);
                 TextView noise_thumb_value = (TextView) findViewById(R.id.noise_value);
@@ -98,7 +112,8 @@ public class HomeActivity extends TabHost {
             case 9: {
                 // If request is cancelled, the result arrays are empty.
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    startService(new Intent(this, SensingService.class));
+                    Intent svcIntent = new Intent(this, SensingService.class);
+                    startService(svcIntent);
                 }
             }
         }
@@ -118,7 +133,8 @@ public class HomeActivity extends TabHost {
                 ActivityCompat.requestPermissions(this, permissions, 9);
             } else{
 
-                    startService(new Intent(this, SensingService.class));
+                Intent svcIntent = new Intent(this, SensingService.class);
+                startService(svcIntent);
             }
             return true;
         }

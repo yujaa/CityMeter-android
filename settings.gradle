@@ -1,1 +1,1 @@
-include ':app', ':aws-android-sdk-core-2.6.22', ':aws-android-sdk-ddb-2.6.22', ':aws-android-sdk-s3-2.6.22', ':aws-android-sdk-lambda-2.6.22'
+include ':app', ':aws-android-sdk-core-2.6.22', ':aws-android-sdk-ddb-2.6.22', ':aws-android-sdk-s3-2.6.22', ':aws-android-sdk-lambda-2.6.22', ':musicg-1.4.2.0'

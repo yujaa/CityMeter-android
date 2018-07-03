@@ -1,33 +1,20 @@
 package uic.hcilab.citymeter;
 
-import android.app.Activity;
-import android.app.Service;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
-import android.os.IBinder;
-import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 
-import java.io.BufferedWriter;
 import java.io.IOException;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
-import java.lang.reflect.Method;
-import java.net.InetAddress;
-import java.net.Socket;
-import java.util.Set;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.UUID;
 
 //Needs to be generalized: this code only works for the particular Raspberry Pi 3 we have
@@ -36,11 +23,6 @@ public class SensingController {
     //======================================================
     //Variables
     private BluetoothAdapter mBluetoothAdapter ;
-    private String result;
-    private InetAddress inetAddress;
-    private Socket serverClientSocket;
-    private OutputStream outputStream;
-    private PrintWriter printWriter;
     private BluetoothDevice bluetoothDevice;
     private UUID myUUID;
     private BluetoothSocket mBluetoothSocket;
@@ -49,13 +31,8 @@ public class SensingController {
     double longitude;
     double latitude;
 
-    public String [] PMs = new String[60];
-    public String [] dBs = new String[60];
     public LocationManager locationManager;
     public NoiseDetector noiseDetector;
-
-    private static final int SERVERPORT = 80;
-    private static final String SERVER_IP = "ec2-34-229-219-45.compute-1.amazonaws.com";
 
     //======================================================
     //Constructor
@@ -69,23 +46,6 @@ public class SensingController {
             noiseDetector.stop();
         }catch(Exception e){
             Log.e("db", "stop error");
-        }
-        try {
-            serverClientSocket.close();
-        }
-        catch (Exception e){
-            Log.e("svr", "close error");
-        }
-        try {
-            outputStream.close();
-        }
-        catch (Exception e){
-            Log.e("ots", "output stream close error");
-        }
-        try {
-            printWriter.close();
-        } catch (Exception e){
-            Log.e("prt", "PrintWriter close error");
         }
     }
 
@@ -116,20 +76,35 @@ public class SensingController {
     public void BTConnect() throws IOException {
         mBluetoothAdapter.cancelDiscovery();//Make sure discovery is off for less battery consumption
         mBluetoothSocket.connect();
+        BTSendTime();
     }
 
     public Boolean BTIsConnected(){
         return mBluetoothSocket.isConnected();
     }
 
-    public String BTRead() throws IOException {
-        readLine = new byte[100];
+    public ExposureObject BTRead() throws IOException {
+        readLine = new byte[80];
         mBluetoothSocket.getInputStream().read(readLine);
         String msgInfo = new String(readLine, "UTF-8");
-        int pm = pm_value(msgInfo);
-        String msg_timestamp = timestamp(msgInfo);
-        result = "[{'latitude': " + latitude + ", 'pm2.5': " + pm + ", 'longitude': " + longitude + ", 'timestamp': '" + msg_timestamp + "'}]";
+        Double pm = pm_value(msgInfo);
+        Double indoor_ = get_indoor(msgInfo);
+        ExposureObject result = new ExposureObject(timestamp(msgInfo), pm ,longitude, latitude, indoor_);
         return result;
+    }
+
+    public void BTSendTime(){
+        try{
+        SimpleDateFormat s = new SimpleDateFormat("MMM dd yyyy HH:mm:ss");
+        String timestamp = s.format(new Date());
+        Log.i("BT", timestamp.getBytes() + " ");
+        mBluetoothSocket.getOutputStream().write(timestamp.getBytes());
+        Log.i("BT", "Timestamp sent");
+        }
+        catch (Exception e){
+            Log.i("BT", "error sending time");
+        }
+
     }
 
     // Create a BroadcastReceiver to handle bluetooth actions
@@ -168,8 +143,6 @@ public class SensingController {
 
     //Location setup
     public void location_setup() {
-        //locationManager = (LocationManager) sv.getSystemService(Context.LOCATION_SERVICE);
-        //locationManager = (LocationManager) mActivity.getSystemService(mActivity.LOCATION_SERVICE);
         try {
             assert locationManager != null;
             Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
@@ -185,7 +158,7 @@ public class SensingController {
 
     }
 
-    private final LocationListener locationListener = new LocationListener() {
+    public final LocationListener locationListener = new LocationListener() {
         public void onLocationChanged(Location location) {
             longitude = location.getLongitude();
             latitude = location.getLatitude();
@@ -208,56 +181,74 @@ public class SensingController {
     };
 
     //======================================================
-    //==================Server handler======================
-    //======================================================
-
-    private void serverSetup() throws IOException {
-        outputStream = serverClientSocket.getOutputStream();
-        printWriter = new PrintWriter(new BufferedWriter(
-                new OutputStreamWriter(outputStream)),
-                true);
-    }
-
-    public void serverConnect() throws IOException {
-        //connect to server
-        inetAddress = InetAddress.getByName(SERVER_IP);
-        serverClientSocket = new Socket(inetAddress, SERVERPORT);
-        serverSetup();
-    }
-
-    public Boolean serverIsConnected(){
-        return serverClientSocket.isConnected();
-    }
-
-    public void serverWrite(String value) {
-        printWriter.println(value);
-    }
-
-    //======================================================
     //==================Formatting output===================
     //======================================================
     //To extract pm value from string
-    private int pm_value(String line) {
+    private Double pm_value(String line) {
         int start_index = line.indexOf("pm2.5");
         int end_index1 = line.indexOf(',', start_index);
         int end_index2 = line.indexOf('}', start_index);
         int end_index = start_index + 8;
-        if (end_index1 < end_index2 && end_index1 != -1) {
+        if(end_index1 == -1){
+            end_index =end_index2;
+        }
+        else if (end_index2 == -1){
             end_index = end_index1;
         }
-        else if (end_index2 < end_index1 && end_index2 != -1){
+        else if (end_index1 < end_index2 ) {
+            end_index = end_index1;
+        }
+        else if (end_index2 < end_index1 ){
             end_index = end_index2;
 
         }
-        String value_str = line.substring(start_index + 8, end_index);
-        return Integer.valueOf(value_str);
+        String value_str = line.substring(start_index + 7, end_index);
+        return Double.valueOf(value_str);
     }
 
     //to extract timestamp from string
     private String timestamp(String line) {//[{'pm2.5': 10, 'timestamp': 'Jun 12 2018 17:51:51'}]
         int start_index = line.indexOf("timestamp");
-        int end_index = line.indexOf('\'', start_index + 13);
-        return line.substring(start_index + 13, end_index);
+        int end_index = line.indexOf(',', start_index + 13);
+        int end_index1 = line.indexOf(',', start_index);
+        int end_index2 = line.indexOf('}', start_index);
+        if(end_index1 == -1){
+            end_index =end_index2;
+        }
+        else if (end_index2 == -1){
+            end_index = end_index1;
+        }
+        else if (end_index1 < end_index2 ) {
+            end_index = end_index1;
+        }
+        else if (end_index2 < end_index1 ){
+            end_index = end_index2;
+
+        }
+        return line.substring(start_index + 12, end_index);
+    }
+
+    //to extract indoor flag from string
+    private Double get_indoor(String line){
+        int start_index = line.indexOf("indoor");
+        int end_index1 = line.indexOf(',', start_index);
+        int end_index2 = line.indexOf('}', start_index);
+        int end_index = start_index + 9;
+        if(end_index1 == -1){
+            end_index =end_index2;
+        }
+        else if (end_index2 == -1){
+            end_index = end_index1;
+        }
+        else if (end_index1 < end_index2 ) {
+            end_index = end_index1;
+        }
+        else if (end_index2 < end_index1 ){
+            end_index = end_index2;
+
+        }
+        String value_str = line.substring(start_index + 8, end_index);
+        return Double.valueOf(value_str);
     }
 
     //======================================================
