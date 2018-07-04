@@ -17,6 +17,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.amazonaws.mobile.client.AWSMobileClient;
@@ -99,6 +100,15 @@ public class HomeActivity extends TabHost {
                 noise_thumb.setX(noise_bar_loc+ noise_bar_width*(noise_value/noise_range)-(noise_thumb.getWidth()/2));
                 noise_thumb_value.setX(noise_thumb.getX()+noise_thumb.getWidth());
                 noise_thumb_value.setText(noise_value+"");
+            }
+        });
+
+        Button xposure_btn = (Button)findViewById(R.id.xposure_btn);
+        final Intent xp_intent = new Intent(this, XposureActivity.class);
+        xposure_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(xp_intent);
             }
         });
     }

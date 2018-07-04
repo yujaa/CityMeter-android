@@ -4,7 +4,6 @@ import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
-import android.graphics.Path;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -15,6 +14,10 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 
+import com.google.android.gms.common.api.Status;
+import com.google.android.gms.location.places.Place;
+import com.google.android.gms.location.places.ui.PlaceAutocompleteFragment;
+import com.google.android.gms.location.places.ui.PlaceSelectionListener;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -46,6 +49,7 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
     String curLat = "41.8693";
     String curLng = "-87.6475";
     private GoogleMap mMap;
+    PlaceAutocompleteFragment placeAutoComplete;
 
     private JSONObject nodesLocation = null;
     HashMap<String, HashMap<String, String>> nodesInfo = new HashMap<String,  HashMap<String, String>>();
@@ -97,6 +101,23 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
 
 
     public void initMap() {
+        placeAutoComplete = (PlaceAutocompleteFragment) getFragmentManager().findFragmentById(R.id.place_search_bar);
+        placeAutoComplete.setOnPlaceSelectedListener(new PlaceSelectionListener() {
+            @Override
+            public void onPlaceSelected(Place place) {
+
+                Log.d("Maps", "Place selected: " + place.getName());
+                mMap.addMarker(new MarkerOptions().position(place.getLatLng()));
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(place.getLatLng()));
+                mMap.animateCamera(CameraUpdateFactory.zoomTo(16.0f));
+            }
+
+            @Override
+            public void onError(Status status) {
+                Log.d("Maps", "An error occurred: " + status);
+            }
+        });
+
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
@@ -315,7 +336,7 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
         Iterator iterator = set.iterator();
         while(iterator.hasNext()) {
             double sound;
-            int regionColor = Color.argb(100, 100, 100, 100);
+            int regionColor = Color.argb(0, 0, 0, 0);
 
             Map.Entry entry = (Map.Entry) iterator.next();
             double lat = Double.parseDouble((((HashMap) entry.getValue()).get("lat")).toString());

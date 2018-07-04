@@ -4,5 +4,11 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="textColorPrimary">#303F9F</color>
+    <color name="AQI_green">#00E400</color>
+    <color name="AQI_yellow">#FFFF00</color>
+    <color name="AQI_orange">#FF7E00</color>
+    <color name="AQI_red">#FF0000</color>
+    <color name="AQI_purple">#8F3F97</color>
+    <color name="AQI_maroon">#7E0023</color>
 
 </resources>
