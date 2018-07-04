@@ -186,10 +186,17 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
             Location loc = new Location("temporary");
             loc.setLongitude(Double.parseDouble(curLng));
             loc.setLatitude(Double.parseDouble(curLat));
-            //Log.i("my",getNearestNodes(loc));
+
         }
         else if(urlApi.contains("value/nearest/")){
             getCurrentLocationData(jsonData);
+            Log.i("myy",""+Double.parseDouble(currentLocationData.get("lon")));
+            mMap.addMarker(new MarkerOptions()
+                    .position(new LatLng(Double.parseDouble(currentLocationData.get("lat")), Double.parseDouble(currentLocationData.get("lon"))))
+                    .title(currentLocationData.get("node_id"))
+                    .alpha(5.0f)
+                    .flat(true)
+            );
         }
     }
 
@@ -232,7 +239,7 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
     public void getCurrentLocationData(JSONObject nodesValue)
     {
         //parse json
-            HashMap<String, String> currentLocationData = new HashMap<String, String>();
+
             if(nodesValue.containsKey("lat"))
                 currentLocationData.put("lat",nodesValue.get("lat").toString());
             if(nodesValue.containsKey("lon"))
@@ -241,7 +248,6 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
                 currentLocationData.put("node_id",nodesValue.get("node_id").toString());
             if(nodesValue.containsKey("distance"))
                 currentLocationData.put("distance",nodesValue.get("distance").toString());
-           //Log.i("myyy", currentLocationData.get("lat"));
 
     }
 
@@ -322,10 +328,14 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
 
             if (((HashMap) entry.getValue()).containsKey("sound")) {
                 sound = Double.parseDouble((((HashMap) entry.getValue()).get("sound")).toString());
-                if (sound < 45) regionColor = Color.argb(50, 0, 255, 0);//R.drawable.green_circle;
-                else if (sound < 55)
-                    regionColor = Color.argb(50, 255, 255, 0);//R.drawable.yellow_circle;
-                else regionColor = Color.argb(50, 255, 0, 0);//R.drawable.red_circle;
+                if (sound < 58) regionColor = Color.argb(50, 0, 255, 0);
+                else if (sound < 65) regionColor = Color.argb(50, 255, 255, 0);
+                else if (sound < 70)
+                    regionColor = Color.argb(50, 255, 94, 00);
+                else if (sound < 85)
+                    regionColor = Color.argb(50, 255, 0, 0);
+                else
+                    regionColor = Color.argb(50, 93, 0, 0);
             }
 //            else
 //                continue;
@@ -393,38 +403,6 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
     }
 
 
-//    private void getNearestNodes(Location current) {
-//        new AoTData(SearchActivity.this).execute("value/nearest/"+current.getLatitude()+"/"+current.getLongitude());
-//
-////        Set set = nodesInfo.entrySet();
-////        Iterator iterator = set.iterator();
-////
-////        double nearestDistance = 1000000;
-////        String nearestNode = "null";
-////        Location cLoc = new Location("node");
-////        Location nLoc= new Location("nearestLocation");
-////        while (iterator.hasNext()) {
-////            Map.Entry entry = (Map.Entry) iterator.next();
-////            double lat = Double.parseDouble((((HashMap) entry.getValue()).get("lat")).toString());
-////            double lon = Double.parseDouble((((HashMap) entry.getValue()).get("lon")).toString());
-////            cLoc.setLatitude(lat);
-////            cLoc.setLongitude(lon);
-////
-////            if (cLoc.distanceTo(current) < nearestDistance) {
-////                nearestDistance = cLoc.distanceTo(current);
-////                nearestNode = entry.getKey().toString();
-////            }
-////        }
-////        nLoc.setLatitude(Double.parseDouble(((nodesInfo.get(nearestNode)).get("lat"))));
-////        nLoc.setLongitude(Double.parseDouble(((nodesInfo.get(nearestNode)).get("lon"))));
-////        mMap.addMarker(new MarkerOptions()
-////                .position(new LatLng(nLoc.getLatitude(), nLoc.getLongitude()))
-////                .title(nearestNode)
-////                .alpha(5.0f)
-////                .flat(true)
-////        );
-////        return nearestNode;
-//    }
 
     ///gps
 
@@ -434,7 +412,6 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
         String longitude = "Longitude: " + loc.getLongitude();
         String latitude = "Latitude: " + loc.getLatitude();
         new AoTData(SearchActivity.this).execute("value/nearest/"+loc.getLatitude()+"/"+loc.getLongitude());
-        //getNearestNodes(loc);
 
     }
 
