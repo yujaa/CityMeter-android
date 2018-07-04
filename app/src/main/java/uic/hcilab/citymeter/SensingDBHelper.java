@@ -59,12 +59,16 @@ public class SensingDBHelper  {
         exposureInst.setLongitude(lon);
         exposureInst.setLatitude(lat);
         exposureInst.setIndoor(ind);
-
+        connect();
         new Thread(new Runnable() {
             @Override
             public void run() {
-                dynamoDBMapper.save(exposureInst);
-                // Item saved
+                try {
+                    dynamoDBMapper.save(exposureInst);
+                    // Item saved
+                }catch (Exception e){
+                    Log.i("BT", "Error writing to dB: " + e.toString());
+                }
             }
         }).start();
     }
@@ -78,6 +82,7 @@ public class SensingDBHelper  {
         exposureInst.setLongitude(lon);
         exposureInst.setLatitude(lat);
         exposureInst.setIndoor(ind);
+        connect();
         new Thread(new Runnable() {
             @Override
             public void run() {

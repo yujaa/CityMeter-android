@@ -4,10 +4,13 @@ import android.Manifest;
 import android.app.ActivityManager;
 import android.app.Service;
 import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Criteria;
 import android.location.LocationManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.IBinder;
@@ -47,48 +50,48 @@ public class SensingService extends Service {
     Thread dbThread = new Thread(new Runnable() {
 
         public void run() {
-            try {
-                sensingController.locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
-                sensingController.location_setup();
-                //Enable noise detector
-                sensingController.noiseDetector.start();
-                setLocation();
-                //Get noise levels readings
-                while (true) {
-                    while (sensingController.noiseDetector.isRecording()) {
-                        if (checkAppOpen()) {
-                            ExposureObject dat = sensingController.noiseDetector.noiseLevel(sensingController.longitude, sensingController.latitude);
-                            String timestamp_ = dat.timestamp;
-                            final Double dbA_ = dat.reading;
-                            Handler handler = new Handler(Looper.getMainLooper());
-                            handler.post(new Runnable() {
-                                @Override
-                                public void run() {
-                                    Toast.makeText(SensingService.this, "dB(A) = " + String.valueOf(dbA_), Toast.LENGTH_SHORT).show();
+                try {
+                    sensingController.locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+                    sensingController.location_setup();
+                    //Enable noise detector
+                    sensingController.noiseDetector.start();
+                    setLocation();
+                    //Get noise levels readings
+                    while (true) {
+                        while (sensingController.noiseDetector.isRecording() && isOnline()) {
+                            if (checkAppOpen()) {
+                                ExposureObject dat = sensingController.noiseDetector.noiseLevel(sensingController.longitude, sensingController.latitude);
+                                String timestamp_ = dat.timestamp;
+                                final Double dbA_ = dat.reading;
+                                Double longitude_ = dat.longitude;
+                                Double latitude_ = dat.latitude;
+                                Double indoor_ = dat.indoor;
+                                if (dbA_ != -1.0) {
+                                    sensingDBHelper.createExposureInst_dBA("1", timestamp_, dbA_, longitude_, latitude_, indoor_);
                                 }
-                            });
-                            Double longitude_ = dat.longitude;
-                            Double latitude_ = dat.latitude;
-                            Double indoor_ = dat.indoor;
-                            if (dbA_ != -1.0) {
-                                sensingDBHelper.createExposureInst_dBA("1", timestamp_, dbA_, longitude_, latitude_, indoor_);
+                                Handler handler = new Handler(Looper.getMainLooper());
+                                handler.post(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        Toast.makeText(SensingService.this, "dB(A) = " + String.valueOf(dbA_), Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                            } else {
+                                stopSelf();
+                                onDestroy();
+                                break;
                             }
-                        } else {
-                            stopSelf();
-                            onDestroy();
-                            break;
+                            Thread.sleep(5000);
                         }
-                        Thread.sleep(5000);
+                        if (!sensingController.noiseDetector.isRecording()) {
+                            sensingController.noiseDetector.stop();
+                            sensingController.noiseDetector.start();
+                        }
                     }
-                    if (!sensingController.noiseDetector.isRecording()) {
-
-                        sensingController.noiseDetector.start();
-                    }
+                } catch (Exception e) {
+                    Log.i("BT", "dB Thread Error: " + e.toString());
                 }
-            } catch (Exception e) {
-                Log.i("BT", "dB Thread Error: " + e.toString());
             }
-        }
     });
 
     private void pmThread_helper() {
@@ -99,34 +102,35 @@ public class SensingService extends Service {
             if (!sensingController.BTIsConnected()) {
                 sensingController.BTConnect();
             }
-            while (true) {
-                //Read BT
-                while (sensingController.BTIsConnected()) {
-                    ExposureObject dat = sensingController.BTRead();
-                    String timestamp_ = dat.timestamp;
-                    final Double pm_ = dat.reading;
-                    Handler handler = new Handler(Looper.getMainLooper());
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            Toast.makeText(SensingService.this, "PM 2.5 = " + String.valueOf(pm_), Toast.LENGTH_SHORT).show();
-                        }
-                    });
-                    Double longitude_ = dat.longitude;
-             Double latitude_ = dat.latitude;
-             Double indoor_ = dat.indoor;
-             sensingDBHelper.createExposureInst_pm("1", timestamp_, pm_, longitude_, latitude_, indoor_ );
-         }
-         if (!sensingController.BTIsConnected()) {
-             sensingController.BTDisable();
-             sensingController.BTSetup();
-             sensingController.BTConnect();
-         }
-     }}
-     catch (Exception e){
-         Log.e("BT", "BT Handler Exception: " + e.toString());
-     }
- }
+            //Read BT
+            while (sensingController.BTIsConnected() && isOnline()) {
+                ExposureObject dat = sensingController.BTRead();
+                String timestamp_ = dat.timestamp;
+                final Double pm_ = dat.reading;
+                Double longitude_ = dat.longitude;
+                Double latitude_ = dat.latitude;
+                Double indoor_ = dat.indoor;
+                sensingDBHelper.createExposureInst_pm("1", timestamp_, pm_, longitude_, latitude_, indoor_);
+                Handler handler = new Handler(Looper.getMainLooper());
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(SensingService.this, "PM 2.5 = " + String.valueOf(pm_), Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+            if (!sensingController.BTIsConnected()) {
+                sensingController.BTDisable();
+                sensingController.BTSetup();
+                sensingController.BTConnect();
+            }
+
+
+        } catch (Exception e) {
+            Log.e("BT", "BT Handler Exception: " + e.toString());
+        }
+    }
+
     Thread pmThread = new Thread(new Runnable() {
         @Override
         public void run() {
@@ -167,6 +171,21 @@ public class SensingService extends Service {
         }
         sensingController.locationManager.requestLocationUpdates(provider, 5000, 10, sensingController.locationListener, looper);
 
+    }
+
+    public boolean isOnline() {
+        boolean connected = false;
+        try {
+            ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
+            NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+            connected = networkInfo != null && networkInfo.isAvailable() &&
+                    networkInfo.isConnected();
+            return connected;
+        } catch (Exception e) {
+            System.out.println("CheckConnectivity Exception: " + e.getMessage());
+            Log.v("connectivity", e.toString());
+        }
+        return connected;
     }
     //Function to check if the app is open and active or not
     private boolean checkAppOpen(){
