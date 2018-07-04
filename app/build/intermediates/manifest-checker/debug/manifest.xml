@@ -32,6 +32,9 @@
         android:testOnly="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
         <activity
+            android:name="uic.hcilab.citymeter.XposureActivity"
+            android:label="Xposure" />
+        <activity
             android:name="uic.hcilab.citymeter.SummaryActivity"
             android:label="@string/title_summary" />
         <activity
@@ -58,8 +61,7 @@
             android:name="uic.hcilab.citymeter.SensingService"
             android:enabled="true"
             android:exported="true"
-            android:stopWithTask="true" >
-        </service>
+            android:stopWithTask="true" />
 
         <activity
             android:name="com.google.android.gms.common.api.GoogleApiActivity"
