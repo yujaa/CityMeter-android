@@ -47,28 +47,33 @@ public class NoiseDetector {
         }
     }
 
-    public byte[] measureAmplitude() {
-        byte[] buffer = new byte[mBufferSize];//buffer to save the read sound pressure values
+    public short[] measureAmplitude() {
+        short[] buffer = new short[mBufferSize];//buffer to save the read sound pressure values
         mAudioRecord.read(buffer, 0, mBufferSize);
         return buffer;
     }
 
     public ExposureObject noiseLevel(double longitude, double latitude) {
-        byte[] buffer = measureAmplitude();
-        double amplitude = 0;
-        double[] amps = new double[512];
+        short[] buffer = measureAmplitude();
+        double[] amps = new double[2048];
         int i = 0;
+        double avg = 0.0;
         for (short window : buffer)//Get the maximum amplitude in each window read (buffer size)
         {
-            if (i < 512) {
-                amps[i] = window;
-                i++;
-            }
-            if (Math.abs(window) > amplitude) {
-                amplitude = Math.abs(window);
-            }
+            avg = avg + Math.abs(window);
+            amps[i] = Math.abs(window);
+            i++;
         }
-        double dB = 20 * Math.log10(amplitude);
+
+        //rms of amps
+        double mean = 0;
+        for (int n = 0; n < amps.length; n++){
+            mean = mean + amps[n];
+        }
+        mean = mean/amps.length;
+        double sqr = Math.pow(mean,2);
+        double root = Math.sqrt(sqr);
+        double dB = 20 * Math.log10(root);
         //Calculating A-weighted dB
         //FFT transform of amplitude give intensity magnitudes
         FastFourierTransform fft = new FastFourierTransform();
@@ -82,13 +87,14 @@ public class NoiseDetector {
                 ctr = i;
             }
         }
-        double f = ctr * 44100 / magnitudes.length;
+        double f = (ctr * 44100) / magnitudes.length;
         double a_weight = getFrequencyWeight(f);
-        double dBA = 10 * (Math.log10(Math.pow((amplitude),2))) - a_weight;
+        double dBA = dB - a_weight;
         SimpleDateFormat s = new SimpleDateFormat("MMM dd yyyy HH:mm:ss");
         String msg_timestamp = s.format(new Date());
         ExposureObject result;
-        if (dBA < 100 && f != 0) {
+        Log.i("BT", "" + dBA);
+        if (dBA < 130.0 ) {
             result = new ExposureObject(msg_timestamp, dBA, longitude, latitude, -1.0);
         } else {
 
@@ -171,6 +177,6 @@ public class NoiseDetector {
         else if(frequency > 16000 && frequency <=20000 )
             return -9.3;
         else
-            return -100.0;
+            return -10.0;
     }
 }

@@ -87,19 +87,21 @@ public class SensingController {
         readLine = new byte[80];
         mBluetoothSocket.getInputStream().read(readLine);
         String msgInfo = new String(readLine, "UTF-8");
-        Double pm = pm_value(msgInfo);
-        Double indoor_ = get_indoor(msgInfo);
-        ExposureObject result = new ExposureObject(timestamp(msgInfo), pm ,longitude, latitude, indoor_);
-        return result;
+        Log.i("BT", msgInfo);
+        if(msgInfo.indexOf('[') == 0 && msgInfo.indexOf('{') == 1) {
+            Double pm = pm_value(msgInfo);
+            Double indoor_ = get_indoor(msgInfo);
+            ExposureObject result = new ExposureObject(timestamp(msgInfo), pm, longitude, latitude, indoor_);
+            return result;
+        }
+        return null;
     }
 
     public void BTSendTime(){
         try{
         SimpleDateFormat s = new SimpleDateFormat("MMM dd yyyy HH:mm:ss");
         String timestamp = s.format(new Date());
-        Log.i("BT", timestamp.getBytes() + " ");
         mBluetoothSocket.getOutputStream().write(timestamp.getBytes());
-        Log.i("BT", "Timestamp sent");
         }
         catch (Exception e){
             Log.i("BT", "error sending time");
