@@ -19,6 +19,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".HereNowActivity"
+            android:label="Here &amp; Now" />
         <activity
             android:name=".XposureActivity"
             android:label="Xposure" />
@@ -49,7 +51,8 @@
             android:name=".SensingService"
             android:enabled="true"
             android:exported="true"
-            android:stopWithTask="true"></service>
+            android:stopWithTask="true" />
+
 
     </application>
 

@@ -31,8 +31,10 @@
         android:id="@+id/home_left_bar"
         android:layout_width="23dp"
         android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
         android:background="#0B3B0B"
         android:enabled="false"
+        app:layout_constraintBottom_toTopOf="@+id/navigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar_home" />
 
@@ -40,19 +42,22 @@
         android:id="@+id/home_right_bar"
         android:layout_width="23dp"
         android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
         android:background="#0B3B0B"
         android:enabled="false"
+        app:layout_constraintBottom_toTopOf="@+id/navigation"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar_home" />
-
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="0dp"
         android:layout_height="139dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
         android:background="#F2F2F6"
         app:layout_constraintEnd_toStartOf="@+id/home_left_bar"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/home_right_bar"
         app:layout_constraintTop_toBottomOf="@+id/toolbar_home">
 
@@ -108,143 +113,115 @@
     </android.support.constraint.ConstraintLayout>
 
     <android.support.constraint.ConstraintLayout
-        android:id="@+id/constraintLayout2"
         android:layout_width="0dp"
-        android:layout_height="100dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/navigation"
         app:layout_constraintEnd_toStartOf="@+id/home_left_bar"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/home_right_bar"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        app:layout_constraintVertical_bias="1.0">
 
-        <TextView
-            android:id="@+id/home_text3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="3dp"
-            android:text="PM 2.5"
-            android:textColor="#1C1C1C"
-            android:textSize="25dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <android.support.constraint.ConstraintLayout
-            android:layout_width="0dp"
-            android:layout_height="55dp"
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:stretchColumns="1"
+            android:weightSum="2.4"
+            android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent">
-
-            <ImageView
-                android:id="@+id/noise_bar"
-                android:layout_width="0dp"
-                android:layout_height="18dp"
-                android:layout_marginBottom="3dp"
-                android:layout_marginEnd="25dp"
-                android:layout_marginStart="25dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:srcCompat="@drawable/color_coded_bar" />
-
-            <TextView
-                android:id="@+id/noise_value"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="4dp"
-                android:text="0"
-                app:layout_constraintBottom_toTopOf="@+id/noise_bar"
-                app:layout_constraintStart_toEndOf="@+id/noise_thumb" />
-
-            <ImageView
-                android:id="@+id/noise_thumb"
-                android:layout_width="20dp"
-                android:layout_height="22dp"
-                android:layout_marginBottom="1dp"
-                android:layout_marginStart="20dp"
-                app:layout_constraintBottom_toTopOf="@+id/noise_bar"
-                app:layout_constraintStart_toStartOf="parent"
-                app:srcCompat="@drawable/pin" />
-        </android.support.constraint.ConstraintLayout>
-
-    </android.support.constraint.ConstraintLayout>
-
-    <android.support.constraint.ConstraintLayout
-        android:id="@+id/constraintLayout3"
-        android:layout_width="0dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toStartOf="@+id/home_left_bar"
-        app:layout_constraintStart_toEndOf="@+id/home_right_bar"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
-
-        <TextView
-            android:id="@+id/home_text2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="3dp"
-            android:text="Noise"
-            android:textColor="#1C1C1C"
-            android:textSize="25dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
 
-        <android.support.constraint.ConstraintLayout
-            android:layout_width="0dp"
-            android:layout_height="55dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent">
-
-            <ImageView
-                android:id="@+id/pm25_bar"
+            <TableRow
                 android:layout_width="0dp"
-                android:layout_height="18dp"
-                android:layout_marginBottom="3dp"
-                android:layout_marginEnd="25dp"
-                android:layout_marginStart="25dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:srcCompat="@drawable/color_coded_bar" />
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:weightSum="2">
 
-            <TextView
-                android:id="@+id/pm25_value"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="4dp"
-                android:text="0"
-                app:layout_constraintBottom_toTopOf="@+id/pm25_bar"
-                app:layout_constraintStart_toEndOf="@+id/pm25_thumb" />
+                <Button
+                    android:id="@+id/home_xposure_btn"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/round_corner_button"
+                    android:backgroundTint="#92d050"
+                    android:gravity="right|bottom"
+                    android:paddingBottom="18dp"
+                    android:paddingRight="18dp"
+                    android:text="Xposure"
+                    android:textColor="#FFFFFF"
+                    android:textSize="19dp" />
 
-            <ImageView
-                android:id="@+id/pm25_thumb"
-                android:layout_width="20dp"
-                android:layout_height="22dp"
-                android:layout_marginBottom="1dp"
-                android:layout_marginStart="20dp"
-                app:layout_constraintBottom_toTopOf="@+id/pm25_bar"
-                app:layout_constraintStart_toStartOf="parent"
-                app:srcCompat="@drawable/pin" />
-        </android.support.constraint.ConstraintLayout>
+                <Button
+                    android:id="@+id/home_step_btn"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/round_corner_button"
+                    android:backgroundTint="#FFFFFF"
+                    android:gravity="right|bottom"
+                    android:paddingBottom="18dp"
+                    android:paddingRight="18dp"
+                    android:text=" Steps\n You can\n Take"
+                    android:textColor="#000000"
+                    android:textSize="19dp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1.4"
+                android:weightSum="2">
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:id="@+id/home_hereNow_btn"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/round_corner_button"
+                    android:backgroundTint="#ffc000"
+                    android:gravity="right|bottom"
+                    android:paddingBottom="18dp"
+                    android:paddingRight="18dp"
+                    android:text="Here &amp; Now"
+                    android:textColor="#FFFFFF"
+                    android:textSize="19dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/home_xposure_btn"
+                    app:layout_constraintTop_toBottomOf="@+id/home_step_btn" />
+            </TableRow>
+
+        </TableLayout>
 
     </android.support.constraint.ConstraintLayout>
-
-    <Button
-        android:id="@+id/xposure_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="288dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="44dp"
-        android:text="Xposure"
-        app:layout_constraintBottom_toTopOf="@+id/navigation"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
 
 </android.support.constraint.ConstraintLayout>
