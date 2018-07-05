@@ -81,8 +81,9 @@ def wifi_data_extract(channel , session , indoor_):
             result = get_result(channel)
         if not (result == None):
             timestamp = str(result['timestamp']).split('.')[0]
-            line = '[{\'timestamp\': '+ str(timestamp) +', \'pm2.5\': '+ str(result['pm25']) +  '}]'       
-            write_to_db(session, str(result['timestamp']), result['pm25'] , 0 , indoor_)
+            line = '[{\'timestamp\': '+ str(timestamp) +', \'pm2.5\': '+ str(result['pm25']) +  '}]'
+            print(result['pm25'] + result['pm10'])
+            write_to_db(session, str(result['timestamp']), result['pm25'] + result['pm10'], 0 , indoor_)
             return 'zaba6'
     except BaseException as e:
         print(" wifi data extract error " + str(e))
