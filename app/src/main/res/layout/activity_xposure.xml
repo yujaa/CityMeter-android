@@ -6,7 +6,7 @@ android:layout_width="match_parent"
 android:layout_height="match_parent"
 tools:context=".XposureActivity">
 
-<android.support.v7.widget.Toolbar
+    <android.support.v7.widget.Toolbar
     android:id="@+id/toolbar_xposure"
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
@@ -37,50 +37,23 @@ tools:context=".XposureActivity">
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar_xposure">
 
-        <Button
-            android:id="@+id/button"
-            android:layout_width="152dp"
-            android:layout_height="24dp"
-            android:layout_marginEnd="16dp"
-            android:background="#D8D8D8"
-            android:text="It is not my place"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editText" />
-
         <TextView
-            android:id="@+id/home_mylocation"
+            android:id="@+id/xposure_contentHead"
             android:layout_width="0dp"
             android:layout_height="54dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="3dp"
-            android:text="Home"
+            android:layout_marginStart="8dp"
+            android:text="some text here..."
             android:textColor="#0B2161"
-            android:textSize="45dp"
-            app:layout_constraintStart_toEndOf="@+id/home_text1"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <EditText
-            android:id="@+id/editText"
-            android:layout_width="0dp"
-            android:layout_height="44dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="5dp"
-            android:ems="10"
-            android:enabled="false"
-            android:text="575 W. Madison st. "
-            android:textColor="#252525"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            android:textSize="30dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/home_text1" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/home_text1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="22dp"
+            android:layout_marginStart="128dp"
+            android:layout_marginTop="76dp"
             android:text="You are near"
             android:textColor="#1C1C1C"
             android:textSize="25dp"
@@ -89,72 +62,7 @@ tools:context=".XposureActivity">
     </android.support.constraint.ConstraintLayout>
 
     <android.support.constraint.ConstraintLayout
-        android:id="@+id/constraintLayout2"
-        android:layout_width="0dp"
-        android:layout_height="100dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
-
-        <TextView
-            android:id="@+id/home_text3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="3dp"
-            android:text="PM 2.5"
-            android:textColor="#1C1C1C"
-            android:textSize="25dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <android.support.constraint.ConstraintLayout
-            android:layout_width="0dp"
-            android:layout_height="55dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent">
-
-            <ImageView
-                android:id="@+id/noise_bar"
-                android:layout_width="0dp"
-                android:layout_height="18dp"
-                android:layout_marginBottom="3dp"
-                android:layout_marginEnd="25dp"
-                android:layout_marginStart="25dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:srcCompat="@drawable/color_coded_bar" />
-
-            <TextView
-                android:id="@+id/noise_value"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="4dp"
-                android:text="0"
-                app:layout_constraintBottom_toTopOf="@+id/noise_bar"
-                app:layout_constraintStart_toEndOf="@+id/noise_thumb" />
-
-            <ImageView
-                android:id="@+id/noise_thumb"
-                android:layout_width="20dp"
-                android:layout_height="22dp"
-                android:layout_marginBottom="1dp"
-                android:layout_marginStart="20dp"
-                app:layout_constraintBottom_toTopOf="@+id/noise_bar"
-                app:layout_constraintStart_toStartOf="parent"
-                app:srcCompat="@drawable/pin" />
-        </android.support.constraint.ConstraintLayout>
-
-    </android.support.constraint.ConstraintLayout>
-
-    <android.support.constraint.ConstraintLayout
-        android:id="@+id/constraintLayout3"
+        android:id="@+id/pm25_layout"
         android:layout_width="0dp"
         android:layout_height="100dp"
         android:layout_marginEnd="8dp"
@@ -162,59 +70,265 @@ tools:context=".XposureActivity">
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
-        <TextView
-            android:id="@+id/home_text2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="3dp"
-            android:text="Noise"
-            android:textColor="#1C1C1C"
-            android:textSize="25dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <android.support.constraint.ConstraintLayout
-            android:layout_width="0dp"
-            android:layout_height="55dp"
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:stretchColumns="1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <ImageView
-                android:id="@+id/pm25_bar"
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:weightSum="10">
+
+                <TextView
+                    android:id="@+id/pm25_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="18dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_weight="3"
+                    android:text="PM2.5"
+                    android:textColor="#1C1C1C"
+                    android:textSize="25dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="0dp"
+                    android:layout_height="55dp"
+                    android:layout_marginBottom="22dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="23dp"
+                    android:layout_weight="7"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/pm25_bar"
+                        android:layout_width="0dp"
+                        android:layout_height="18dp"
+                        android:layout_marginBottom="3dp"
+                        android:layout_marginEnd="24dp"
+                        android:layout_marginStart="24dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:srcCompat="@drawable/color_coded_bar" />
+
+                    <TextView
+                        android:id="@+id/pm25_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
+                        android:text="0"
+                        app:layout_constraintBottom_toTopOf="@+id/pm25_bar"
+                        app:layout_constraintStart_toEndOf="@+id/pm25_thumb" />
+
+                    <ImageView
+                        android:id="@+id/pm25_thumb"
+                        android:layout_width="20dp"
+                        android:layout_height="22dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginStart="20dp"
+                        app:layout_constraintBottom_toTopOf="@+id/pm25_bar"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:srcCompat="@drawable/pin" />
+                </android.support.constraint.ConstraintLayout>
+
+            </TableRow>
+
+        </TableLayout>
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/day_noise_layout"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pm25_layout">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:stretchColumns="1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:weightSum="10">
+
+                <TextView
+                    android:id="@+id/home_day_noise_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="18dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_weight="3"
+                    android:text="Day Time \nNoise"
+                    android:textColor="#1C1C1C"
+                    android:textSize="25dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="0dp"
+                    android:layout_height="55dp"
+                    android:layout_marginBottom="22dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="23dp"
+                    android:layout_weight="7"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toEndOf="@+id/home_day_noise_text"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/day_noise_bar"
+                        android:layout_width="0dp"
+                        android:layout_height="18dp"
+                        android:layout_marginBottom="3dp"
+                        android:layout_marginEnd="24dp"
+                        android:layout_marginStart="24dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:srcCompat="@drawable/color_coded_bar" />
+
+                    <TextView
+                        android:id="@+id/day_noise_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
+                        android:text="0"
+                        app:layout_constraintBottom_toTopOf="@+id/day_noise_bar"
+                        app:layout_constraintStart_toEndOf="@+id/day_noise_thumb" />
+
+                    <ImageView
+                        android:id="@+id/day_noise_thumb"
+                        android:layout_width="20dp"
+                        android:layout_height="22dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginStart="20dp"
+                        app:layout_constraintBottom_toTopOf="@+id/day_noise_bar"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:srcCompat="@drawable/pin" />
+                </android.support.constraint.ConstraintLayout>
+
+            </TableRow>
+
+        </TableLayout>
+
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/night_noise_layout"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/day_noise_layout">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:stretchColumns="1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TableRow
                 android:layout_width="0dp"
-                android:layout_height="18dp"
-                android:layout_marginBottom="3dp"
-                android:layout_marginEnd="25dp"
-                android:layout_marginStart="25dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:srcCompat="@drawable/color_coded_bar" />
+                android:layout_height="match_parent"
+                android:weightSum="10">
 
-            <TextView
-                android:id="@+id/pm25_value"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="4dp"
-                android:text="0"
-                app:layout_constraintBottom_toTopOf="@+id/pm25_bar"
-                app:layout_constraintStart_toEndOf="@+id/pm25_thumb" />
+                <TextView
+                    android:id="@+id/home_night_noise_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="18dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_weight="3"
+                    android:text="Night Time \nNoise"
+                    android:textColor="#1C1C1C"
+                    android:textSize="23dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:id="@+id/pm25_thumb"
-                android:layout_width="20dp"
-                android:layout_height="22dp"
-                android:layout_marginBottom="1dp"
-                android:layout_marginStart="20dp"
-                app:layout_constraintBottom_toTopOf="@+id/pm25_bar"
-                app:layout_constraintStart_toStartOf="parent"
-                app:srcCompat="@drawable/pin" />
-        </android.support.constraint.ConstraintLayout>
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="0dp"
+                    android:layout_height="55dp"
+                    android:layout_marginBottom="22dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="23dp"
+                    android:layout_weight="7"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toEndOf="@+id/home_night_noise_text"
+                    app:layout_constraintTop_toTopOf="parent">
 
+                    <ImageView
+                        android:id="@+id/night_noise_bar"
+                        android:layout_width="0dp"
+                        android:layout_height="18dp"
+                        android:layout_marginBottom="3dp"
+                        android:layout_marginEnd="24dp"
+                        android:layout_marginStart="24dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:srcCompat="@drawable/color_coded_bar" />
+
+                    <TextView
+                        android:id="@+id/night_noise_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
+                        android:text="0"
+                        app:layout_constraintBottom_toTopOf="@+id/night_noise_bar"
+                        app:layout_constraintStart_toEndOf="@+id/night_noise_thumb" />
+
+                    <ImageView
+                        android:id="@+id/night_noise_thumb"
+                        android:layout_width="20dp"
+                        android:layout_height="22dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginStart="20dp"
+                        app:layout_constraintBottom_toTopOf="@+id/night_noise_bar"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:srcCompat="@drawable/pin" />
+                </android.support.constraint.ConstraintLayout>
+            </TableRow>
+
+        </TableLayout>
     </android.support.constraint.ConstraintLayout>
 </android.support.constraint.ConstraintLayout>

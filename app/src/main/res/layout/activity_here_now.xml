@@ -25,4 +25,223 @@ tools:context=".HereNowActivity">
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent" />
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="0dp"
+        android:layout_height="139dp"
+        android:layout_marginTop="8dp"
+        android:background="#F2F2F6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_here_now">
+
+        <TextView
+            android:id="@+id/here_contentHead"
+            android:layout_width="0dp"
+            android:layout_height="54dp"
+            android:layout_marginStart="8dp"
+            android:text="some text here..."
+            android:textColor="#0B2161"
+            android:textSize="30dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/here_text1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="128dp"
+            android:layout_marginTop="76dp"
+            android:text="You are near"
+            android:textColor="#1C1C1C"
+            android:textSize="25dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/here_pm25_layout"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:stretchColumns="1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:weightSum="10">
+
+                <TextView
+                    android:id="@+id/here_pm25_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="18dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_weight="3"
+                    android:text="PM2.5"
+                    android:textColor="#1C1C1C"
+                    android:textSize="25dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="0dp"
+                    android:layout_height="55dp"
+                    android:layout_marginBottom="22dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="23dp"
+                    android:layout_weight="7"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toEndOf="@+id/here_pm25_text"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/here_pm25_bar"
+                        android:layout_width="0dp"
+                        android:layout_height="18dp"
+                        android:layout_marginBottom="3dp"
+                        android:layout_marginEnd="24dp"
+                        android:layout_marginStart="24dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:srcCompat="@drawable/color_coded_bar" />
+
+                    <TextView
+                        android:id="@+id/here_pm25_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
+                        android:text="0"
+                        app:layout_constraintBottom_toTopOf="@+id/here_pm25_bar"
+                        app:layout_constraintStart_toEndOf="@+id/here_pm25_thumb" />
+
+                    <ImageView
+                        android:id="@+id/here_pm25_thumb"
+                        android:layout_width="20dp"
+                        android:layout_height="22dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginStart="20dp"
+                        app:layout_constraintBottom_toTopOf="@+id/pm25_bar"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:srcCompat="@drawable/pin" />
+                </android.support.constraint.ConstraintLayout>
+
+            </TableRow>
+
+        </TableLayout>
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/here_layout"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/here_pm25_layout">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:stretchColumns="1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:weightSum="10">
+
+                <TextView
+                    android:id="@+id/here_noise_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="18dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_weight="3"
+                    android:text="Noise"
+                    android:textColor="#1C1C1C"
+                    android:textSize="25dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="0dp"
+                    android:layout_height="55dp"
+                    android:layout_marginBottom="22dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="23dp"
+                    android:layout_weight="7"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toEndOf="@+id/here_noise_text"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/here_noise_bar"
+                        android:layout_width="0dp"
+                        android:layout_height="18dp"
+                        android:layout_marginBottom="3dp"
+                        android:layout_marginEnd="24dp"
+                        android:layout_marginStart="24dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:srcCompat="@drawable/color_coded_bar" />
+
+                    <TextView
+                        android:id="@+id/here_noise_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
+                        android:text="0"
+                        app:layout_constraintBottom_toTopOf="@+id/here_noise_bar"
+                        app:layout_constraintStart_toEndOf="@+id/here_noise_thumb" />
+
+                    <ImageView
+                        android:id="@+id/here_noise_thumb"
+                        android:layout_width="20dp"
+                        android:layout_height="22dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginStart="20dp"
+                        app:layout_constraintBottom_toTopOf="@+id/here_noise_bar"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:srcCompat="@drawable/pin" />
+                </android.support.constraint.ConstraintLayout>
+
+            </TableRow>
+
+        </TableLayout>
+
+
+    </android.support.constraint.ConstraintLayout>
+
 </android.support.constraint.ConstraintLayout>
