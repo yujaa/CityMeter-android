@@ -69,6 +69,15 @@ public class HomeActivity extends TabHost {
                 startActivity(xp_intent);
             }
         });
+
+        Button hereNow_btn = (Button)findViewById(R.id.home_hereNow_btn);
+        final Intent hn_intent = new Intent(this, HereNowActivity.class);
+        hereNow_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(hn_intent);
+            }
+        });
     }
 
 

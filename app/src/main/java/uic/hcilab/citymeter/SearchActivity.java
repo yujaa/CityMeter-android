@@ -207,12 +207,12 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
         else if(urlApi.contains("value/nearest/")){
             getCurrentLocationData(jsonData);
             Log.i("myy",""+Double.parseDouble(currentLocationData.get("lon")));
-            mMap.addMarker(new MarkerOptions()
-                    .position(new LatLng(Double.parseDouble(currentLocationData.get("lat")), Double.parseDouble(currentLocationData.get("lon"))))
-                    .title(currentLocationData.get("node_id"))
-                    .alpha(5.0f)
-                    .flat(true)
-            );
+//            mMap.addMarker(new MarkerOptions()
+//                    .position(new LatLng(Double.parseDouble(currentLocationData.get("lat")), Double.parseDouble(currentLocationData.get("lon"))))
+//                    .title(currentLocationData.get("node_id"))
+//                    .alpha(5.0f)
+//                    .flat(true)
+//            );
         }
     }
 
@@ -238,7 +238,7 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
         for(Object k: nodesValue.keySet()){
             //Log.i("my", k.toString());
             HashMap<String, String> node = new HashMap<String, String>();
-            if(!k.toString().equals("total")&&!k.toString().equals("node")){
+            if(!k.toString().equals("total")&&!k.toString().equals("node")&&!k.toString().equals(" ")){
                 if(((JSONObject)nodesValue.get(k.toString())).containsKey("timestamp"))
                     node.put("timeStamp",((JSONObject)nodesValue.get(k.toString())).get("timestamp").toString());
                 if(((JSONObject)nodesValue.get(k.toString())).containsKey("sound"))
@@ -247,7 +247,8 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
                     node.put("no2",((JSONObject)nodesValue.get(k.toString())).get("no2").toString());
                 if(((JSONObject)nodesValue.get(k.toString())).containsKey("pm2_5"))
                     node.put("pm2_5",((JSONObject)nodesValue.get(k.toString())).get("pm2_5").toString());
-                nodesInfo.get(k.toString()).putAll(node);
+                if(nodesInfo.get(k.toString())!=null)
+                    nodesInfo.get(k.toString()).putAll(node);
             }
         }
     }

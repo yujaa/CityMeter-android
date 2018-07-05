@@ -8,8 +8,12 @@ import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 import android.widget.TextView;
+import org.json.simple.JSONObject;
 
-public class XposureActivity extends TabHost {
+import java.util.HashMap;
+
+public class XposureActivity extends TabHost implements ApiCallback{
+    float pmData = 0;
 
     @Override
     public int getContentViewId() {
@@ -27,6 +31,8 @@ public class XposureActivity extends TabHost {
         Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar_xposure);
         setSupportActionBar(myToolbar);
 
+        new AoTData(XposureActivity.this).execute("value/node/pm25/001e06113107");
+
         //get View for change bar
         final View view = findViewById(android.R.id.content);
         view.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
@@ -43,8 +49,8 @@ public class XposureActivity extends TabHost {
                 //PM2.5
                 float pm25_bar_loc;
                 int pm25_bar_width;
-                float pm25_range = 100f; //max - min //ToDo: Toy data
-                float pm25_value = 60f;              //ToDo: Toy data
+                float pm25_range = 650f; //max - min //ToDo: Toy data
+                float pm25_value = pmData;              //ToDo: Toy data
                 ImageView pm25_bar = (ImageView) findViewById(R.id.pm25_bar);
                 ImageView pm25_thumb = (ImageView) findViewById(R.id.pm25_thumb);
                 TextView pm25_thumb_value = (TextView) findViewById(R.id.pm25_value);
@@ -83,5 +89,20 @@ public class XposureActivity extends TabHost {
                 night_noise_thumb_value.setText(night_noise_value+"");
             }
         });
+    }
+
+    @Override
+    public void onApiCallback(JSONObject jsonData, String urlApi) {
+        //Log.i("my", String.valueOf(jsonData));
+        if (urlApi.equals("value/node/pm25/001e06113107")) {
+            getPmData(jsonData);
+
+        }
+    }
+
+    private void getPmData(JSONObject nodeValue)
+    {
+//        if(nodeValue.containsKey("001e06113107"))
+//            pmData.put("001e06113107",nodeValue.get("001e06113107").toString());
     }
 }

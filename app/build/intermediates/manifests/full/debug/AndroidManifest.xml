@@ -32,6 +32,9 @@
         android:testOnly="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
         <activity
+            android:name="uic.hcilab.citymeter.HereNowActivity"
+            android:label="Here &amp; Now" />
+        <activity
             android:name="uic.hcilab.citymeter.XposureActivity"
             android:label="Xposure" />
         <activity

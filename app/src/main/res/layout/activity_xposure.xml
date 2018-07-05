@@ -84,7 +84,9 @@ tools:context=".XposureActivity">
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:weightSum="10">
+                android:weightSum="10"
+                android:background="@drawable/round_corner_button"
+                android:backgroundTint="#EEEEEE">
 
                 <TextView
                     android:id="@+id/pm25_text"
@@ -174,7 +176,9 @@ tools:context=".XposureActivity">
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:weightSum="10">
+                android:weightSum="10"
+                android:background="@drawable/round_corner_button"
+                android:backgroundTint="#EEEEEE">
 
                 <TextView
                     android:id="@+id/home_day_noise_text"
@@ -266,7 +270,9 @@ tools:context=".XposureActivity">
             <TableRow
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:weightSum="10">
+                android:weightSum="10"
+                android:background="@drawable/round_corner_button"
+                android:backgroundTint="#EEEEEE">
 
                 <TextView
                     android:id="@+id/home_night_noise_text"
