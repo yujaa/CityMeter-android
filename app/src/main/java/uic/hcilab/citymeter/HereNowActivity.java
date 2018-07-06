@@ -155,7 +155,6 @@ public class HereNowActivity extends TabHost implements OnMapReadyCallback, ApiC
     {
         for(Object k: nodesValue.keySet()){
             if(k.toString().equals("001e0610bbff")) {
-                //Log.i("myy", ((JSONObject)nodesValue.get(k.toString())).get("sound").toString());
                 soundNowData = Float.parseFloat(((JSONObject)nodesValue.get(k.toString())).get("sound").toString());
             }
         }

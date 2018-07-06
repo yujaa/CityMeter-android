@@ -220,7 +220,7 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
     public void getNodesLocationData(JSONObject nodesLocation){
         //parse json
         for(Object k: nodesLocation.keySet()){
-            //Log.i("my", k.toString());
+            //Log.i("my1", k.toString());
             if(!k.toString().equals("total")){
                 HashMap<String, String> node = new HashMap<String, String>();
                 node.put("lat",((JSONObject)nodesLocation.get(k.toString())).get("lat").toString());
@@ -236,17 +236,20 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
     {
         //parse json
         for(Object k: nodesValue.keySet()){
-            //Log.i("my", k.toString());
+
             HashMap<String, String> node = new HashMap<String, String>();
-            if(!k.toString().equals("total")&&!k.toString().equals("node")&&!k.toString().equals(" ")){
+            if(!k.toString().equals("total")&&!k.toString().equals("node")&&!k.toString().equals("")){
                 if(((JSONObject)nodesValue.get(k.toString())).containsKey("timestamp"))
-                    node.put("timeStamp",((JSONObject)nodesValue.get(k.toString())).get("timestamp").toString());
+                    if(!((JSONObject)nodesValue.get(k.toString())).get("timestamp").toString().equals(""))
+                        node.put("timeStamp",((JSONObject)nodesValue.get(k.toString())).get("timestamp").toString());
                 if(((JSONObject)nodesValue.get(k.toString())).containsKey("sound"))
-                    node.put("sound",((JSONObject)nodesValue.get(k.toString())).get("sound").toString());
+                    if(!((JSONObject)nodesValue.get(k.toString())).get("sound").toString().equals(""))
+                        node.put("sound",((JSONObject)nodesValue.get(k.toString())).get("sound").toString());
                 if(((JSONObject)nodesValue.get(k.toString())).containsKey("no2"))
-                    node.put("no2",((JSONObject)nodesValue.get(k.toString())).get("no2").toString());
-                if(((JSONObject)nodesValue.get(k.toString())).containsKey("pm2_5"))
-                    node.put("pm2_5",((JSONObject)nodesValue.get(k.toString())).get("pm2_5").toString());
+                    if(!((JSONObject)nodesValue.get(k.toString())).get("no2").toString().equals(""))
+                        node.put("no2",((JSONObject)nodesValue.get(k.toString())).get("no2").toString());
+//                if(((JSONObject)nodesValue.get(k.toString())).containsKey("pm2_5"))
+//                        node.put("pm2_5",((JSONObject)nodesValue.get(k.toString())).get("pm2_5").toString());
                 if(nodesInfo.get(k.toString())!=null)
                     nodesInfo.get(k.toString()).putAll(node);
             }
@@ -282,9 +285,12 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
 
             if(((HashMap) entry.getValue()).containsKey("sound")) {
                 sound = Double.parseDouble((((HashMap) entry.getValue()).get("sound")).toString());
-                if (sound < 57) circleColor = Color.argb(100,0,255,0);//R.drawable.green_circle;
-                else if (sound < 70) circleColor = Color.argb(100,255,255,0);//R.drawable.yellow_circle;
-                else circleColor = Color.argb(100,255,0,0);//R.drawable.red_circle;
+                if (sound < 20) circleColor = Color.argb(100,0,228,0);
+                else if (sound < 40) circleColor = Color.argb(100,255,255,0);
+                else if (sound < 60) circleColor = Color.argb(100,255,126,0);
+                else if (sound < 80) circleColor = Color.argb(100,255,0,0);
+                else if (sound < 100) circleColor = Color.argb(100,143,63,151);
+                else circleColor = Color.argb(100,126,0,35);
             }
 //            else
 //                continue;
@@ -345,14 +351,12 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
 
             if (((HashMap) entry.getValue()).containsKey("sound")) {
                 sound = Double.parseDouble((((HashMap) entry.getValue()).get("sound")).toString());
-                if (sound < 58) regionColor = Color.argb(50, 0, 255, 0);
-                else if (sound < 65) regionColor = Color.argb(50, 255, 255, 0);
-                else if (sound < 70)
-                    regionColor = Color.argb(50, 255, 94, 00);
-                else if (sound < 85)
-                    regionColor = Color.argb(50, 255, 0, 0);
-                else
-                    regionColor = Color.argb(50, 93, 0, 0);
+                if (sound < 50) regionColor = Color.argb(100,0,228,0);
+                else if (sound < 65) regionColor = Color.argb(100,255,255,0);
+                else if (sound < 80) regionColor = Color.argb(100,255,126,0);
+                else if (sound < 95) regionColor = Color.argb(100,255,0,0);
+                else if (sound < 110) regionColor = Color.argb(100,143,63,151);
+                else regionColor = Color.argb(100,126,0,35);
             }
 //            else
 //                continue;
