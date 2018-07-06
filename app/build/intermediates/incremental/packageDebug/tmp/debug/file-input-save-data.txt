@@ -1,7 +1,27 @@
 #Internal package file, do not edit.
-#Sat Jul 07 00:16:07 CDT 2018
-0.baseType=DIRECTORY
-0.base=C\:\\Users\\yujaa\\AndroidStudioProjects\\CityMeter-android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\57
+#Fri Jul 06 18:55:57 CDT 2018
+2.base=F\:\\Projects\\CityMeter-android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\74
+5.set=DEX
 0.path=classes.dex
+2.baseType=DIRECTORY
+3.base=F\:\\Projects\\CityMeter-android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\71
+2.set=DEX
+1.path=classes.dex
+4.base=F\:\\Projects\\CityMeter-android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\72
+count=6
+5.baseType=DIRECTORY
+2.path=classes.dex
+5.base=F\:\\Projects\\CityMeter-android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\73
+4.set=DEX
+3.path=classes.dex
+3.baseType=DIRECTORY
+1.set=DEX
+4.path=classes.dex
+1.baseType=DIRECTORY
+5.path=classes.dex
+0.base=F\:\\Projects\\CityMeter-android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\69
+0.baseType=DIRECTORY
+3.set=DEX
+1.base=F\:\\Projects\\CityMeter-android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\70
+4.baseType=DIRECTORY
 0.set=DEX
-count=1

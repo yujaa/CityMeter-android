@@ -1,268 +1,268 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:2:1-64:12
-INJECTED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:2:1-64:12
-INJECTED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:2:1-64:12
-INJECTED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:2:1-64:12
-MERGED from [com.android.support:design:27.1.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\835838e1b9f5ea48dbd564cb27b5ca8e\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\d8626798dd563ba54cbd5cc787017155\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support.constraint:constraint-layout:1.1.0] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.0.aar\b8a00d9caba6a3e4461a2cd121c110b9\AndroidManifest.xml:2:1-11:12
-MERGED from [com.google.android.gms:play-services-places:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-places-15.0.1.aar\d2c0d8a0706e1176679276391b887fd3\AndroidManifest.xml:17:1-24:12
-MERGED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.1.aar\2f1f6a9d0892f04c3fd9ebabb7cca38e\AndroidManifest.xml:17:1-32:12
-MERGED from [com.google.android.gms:play-services-base:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-base-15.0.1.aar\5245fbf517f0eca7ddbd7ad7bee6b8e1\AndroidManifest.xml:17:1-29:12
-MERGED from [com.google.android.gms:play-services-places-placereport:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-places-placereport-15.0.1.aar\1c19ebcea7beafa6cad02bbb6ec0de2a\AndroidManifest.xml:17:1-24:12
-MERGED from [com.google.android.gms:play-services-tasks:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-tasks-15.0.1.aar\ce113c986296d371a5a2e1b7533fcdea\AndroidManifest.xml:2:1-9:12
-MERGED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-basement-15.0.1.aar\16ae8b5b9049908afdee82666cd7023a\AndroidManifest.xml:17:1-28:12
-MERGED from [com.android.support:support-v4:27.1.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\59fd70b08b3c424e1f63113d78a1b4ca\AndroidManifest.xml:17:1-22:12
-MERGED from [com.amazonaws:aws-android-sdk-mobile-client:2.6.24] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-mobile-client-2.6.24.aar\1c67390439096abd67d2204c42b3b8b1\AndroidManifest.xml:2:1-6:12
-MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\822eea33aff1a58cc161892406c4a484\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\c20e9847ecfff6d7148ea244443cb3f4\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:recyclerview-v7:27.1.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.1.aar\62c4605d81900faafdab889dc98cd9fc\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\ea4a42216f5d9d288dc27daacfb34c8c\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\685414b9af3a2be6c2e87a5bc5a099ce\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\a12522f1e4f4832b5519f0353bbbdd24\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:transition:27.1.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\transition-27.1.1.aar\9aea042195cb726bdd0bea6189086ab9\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\583683fcc158137871101430c6217b69\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-compat:27.1.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\31fc37f7253092a1f883fb6f1c034ba8\AndroidManifest.xml:17:1-22:12
-MERGED from [com.amazonaws:aws-android-sdk-auth-core:2.6.24] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-core-2.6.24.aar\24fb8f354e233a0fee64ea7053b5e215\AndroidManifest.xml:2:1-4:80
-MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\d4bb2cd85cf4d8ffe230ef13550dd6ed\AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\361640ceabff4ffd6bdc202148b510d1\AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\1d10b832bc2f1b8ae62c328e874e4c78\AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.core:runtime:1.1.0] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\f47601d158c14cfc6d01fa7ef2d0166e\AndroidManifest.xml:17:1-22:12
-INJECTED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:2:1-64:12
-INJECTED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:2:1-64:12
-INJECTED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:2:1-64:12
+ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:2:1-64:12
+INJECTED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:2:1-64:12
+INJECTED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:2:1-64:12
+INJECTED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:2:1-64:12
+MERGED from [com.android.support:design:27.1.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\ef2d03b93fdde47f0e26833da93339b9\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\04b3eccd16314a9e026539f0e5a9e746\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support.constraint:constraint-layout:1.1.0] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.0.aar\59f40e1f474486184b3bf1083ce9af83\AndroidManifest.xml:2:1-11:12
+MERGED from [com.google.android.gms:play-services-places:15.0.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\play-services-places-15.0.1.aar\44b3587f968d20ab6fc14086f204f8f9\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.1.aar\1ac778ec58f4f4b55350ff42a3aa8b18\AndroidManifest.xml:17:1-32:12
+MERGED from [com.google.android.gms:play-services-base:15.0.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\play-services-base-15.0.1.aar\c02992c584d2bd84a7c6ac52a61ebd19\AndroidManifest.xml:17:1-29:12
+MERGED from [com.google.android.gms:play-services-places-placereport:15.0.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\play-services-places-placereport-15.0.1.aar\a09ce2f3f0415047f4ba3c6a24cbd46b\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-tasks:15.0.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\play-services-tasks-15.0.1.aar\9ec4a1a55203f642e058e14c26548b50\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\play-services-basement-15.0.1.aar\966c6ce9d3b1164e0772667f995d4d86\AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:support-v4:27.1.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\c11e60ef613464c3087dd99f2a941814\AndroidManifest.xml:17:1-22:12
+MERGED from [com.amazonaws:aws-android-sdk-mobile-client:2.6.24] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-mobile-client-2.6.24.aar\1db1b6ac1d5fa2d959e1daf52f252886\AndroidManifest.xml:2:1-6:12
+MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\8939a9286a28d42d537b3552e90f10a3\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\ffb4aa3421bbd50297d32cf8005fe1c1\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:recyclerview-v7:27.1.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.1.aar\fc3593900f27f5412b026a349c27090c\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\d7d7faee09b402e073049737bed2678e\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\3b63585019952c3b71a69e0f8eac1717\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\524a6a73bf432374c9c9d3d6653380cb\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:transition:27.1.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\transition-27.1.1.aar\a8301faed0e77afd38d6408734c9b7d3\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\bfc418b533b0a9a208b58073b0969457\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:27.1.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\a570bdf09499bda37905911df531a19d\AndroidManifest.xml:17:1-22:12
+MERGED from [com.amazonaws:aws-android-sdk-auth-core:2.6.24] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-core-2.6.24.aar\9d330843773a4c131cbf50a32a1094b9\AndroidManifest.xml:2:1-4:80
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\5092db06817fbfc8559141ad55c9e10b\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\479eef037a18b91977cb018fefb8276e\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\e0d60bb1dbeeee18f268875c36e0d886\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.0] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\83f78417c48485955668df4c0da7fad9\AndroidManifest.xml:17:1-22:12
+INJECTED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:2:1-64:12
+INJECTED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:2:1-64:12
+INJECTED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:2:1-64:12
 	package
-		ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:3:5-35
-		INJECTED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:3:5-35
+		INJECTED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml
+		INJECTED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml
 	android:versionName
-		INJECTED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:2:1-64:12
-		INJECTED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml
+		INJECTED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:2:1-64:12
+		INJECTED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml
 	android:versionCode
-		INJECTED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:2:1-64:12
-		INJECTED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml
+		INJECTED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:2:1-64:12
+		INJECTED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml
 	xmlns:android
-		ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:2:11-69
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:2:11-69
 uses-permission#android.permission.RECORD_AUDIO
-ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:5:5-71
+ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:5:5-71
 	android:name
-		ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:5:22-68
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:5:22-68
 uses-permission#android.permission.BLUETOOTH
-ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:6:5-68
+ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:6:5-68
 	android:name
-		ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:6:22-65
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:6:22-65
 uses-permission#android.permission.BLUETOOTH_ADMIN
-ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:7:5-74
+ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:7:5-74
 	android:name
-		ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:7:22-71
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:7:22-71
 uses-permission#android.permission.ACCESS_COARSE_LOCATION
-ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:8:5-81
+ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:8:5-81
 	android:name
-		ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:8:22-78
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:8:22-78
 uses-permission#android.permission.ACCESS_FINE_LOCATION
-ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:9:5-79
+ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:9:5-79
 	android:name
-		ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:9:22-76
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:9:22-76
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
-ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:10:5-80
+ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:10:5-80
 	android:name
-		ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:10:22-77
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:10:22-77
 uses-permission#android.permission.INTERNET
-ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:11:5-67
-MERGED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.1.aar\2f1f6a9d0892f04c3fd9ebabb7cca38e\AndroidManifest.xml:24:5-67
-MERGED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.1.aar\2f1f6a9d0892f04c3fd9ebabb7cca38e\AndroidManifest.xml:24:5-67
+ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:11:5-67
+MERGED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.1.aar\1ac778ec58f4f4b55350ff42a3aa8b18\AndroidManifest.xml:24:5-67
+MERGED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.1.aar\1ac778ec58f4f4b55350ff42a3aa8b18\AndroidManifest.xml:24:5-67
 	android:name
-		ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:11:22-64
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:11:22-64
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:12:5-81
+ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:12:5-81
 	android:name
-		ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:12:22-78
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:12:22-78
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:13:5-79
-MERGED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.1.aar\2f1f6a9d0892f04c3fd9ebabb7cca38e\AndroidManifest.xml:23:5-79
-MERGED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.1.aar\2f1f6a9d0892f04c3fd9ebabb7cca38e\AndroidManifest.xml:23:5-79
+ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:13:5-79
+MERGED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.1.aar\1ac778ec58f4f4b55350ff42a3aa8b18\AndroidManifest.xml:23:5-79
+MERGED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.1.aar\1ac778ec58f4f4b55350ff42a3aa8b18\AndroidManifest.xml:23:5-79
 	android:name
-		ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:13:22-76
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:13:22-76
 application
-ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:15:5-62:19
-MERGED from [com.android.support.constraint:constraint-layout:1.1.0] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.0.aar\b8a00d9caba6a3e4461a2cd121c110b9\AndroidManifest.xml:9:5-20
-MERGED from [com.android.support.constraint:constraint-layout:1.1.0] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.0.aar\b8a00d9caba6a3e4461a2cd121c110b9\AndroidManifest.xml:9:5-20
-MERGED from [com.google.android.gms:play-services-places:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-places-15.0.1.aar\d2c0d8a0706e1176679276391b887fd3\AndroidManifest.xml:22:5-20
-MERGED from [com.google.android.gms:play-services-places:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-places-15.0.1.aar\d2c0d8a0706e1176679276391b887fd3\AndroidManifest.xml:22:5-20
-MERGED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.1.aar\2f1f6a9d0892f04c3fd9ebabb7cca38e\AndroidManifest.xml:30:5-20
-MERGED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.1.aar\2f1f6a9d0892f04c3fd9ebabb7cca38e\AndroidManifest.xml:30:5-20
-MERGED from [com.google.android.gms:play-services-base:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-base-15.0.1.aar\5245fbf517f0eca7ddbd7ad7bee6b8e1\AndroidManifest.xml:22:5-27:19
-MERGED from [com.google.android.gms:play-services-base:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-base-15.0.1.aar\5245fbf517f0eca7ddbd7ad7bee6b8e1\AndroidManifest.xml:22:5-27:19
-MERGED from [com.google.android.gms:play-services-places-placereport:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-places-placereport-15.0.1.aar\1c19ebcea7beafa6cad02bbb6ec0de2a\AndroidManifest.xml:22:5-20
-MERGED from [com.google.android.gms:play-services-places-placereport:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-places-placereport-15.0.1.aar\1c19ebcea7beafa6cad02bbb6ec0de2a\AndroidManifest.xml:22:5-20
-MERGED from [com.google.android.gms:play-services-tasks:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-tasks-15.0.1.aar\ce113c986296d371a5a2e1b7533fcdea\AndroidManifest.xml:7:5-20
-MERGED from [com.google.android.gms:play-services-tasks:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-tasks-15.0.1.aar\ce113c986296d371a5a2e1b7533fcdea\AndroidManifest.xml:7:5-20
-MERGED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-basement-15.0.1.aar\16ae8b5b9049908afdee82666cd7023a\AndroidManifest.xml:22:5-26:19
-MERGED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-basement-15.0.1.aar\16ae8b5b9049908afdee82666cd7023a\AndroidManifest.xml:22:5-26:19
+ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:15:5-62:19
+MERGED from [com.android.support.constraint:constraint-layout:1.1.0] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.0.aar\59f40e1f474486184b3bf1083ce9af83\AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.1.0] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.0.aar\59f40e1f474486184b3bf1083ce9af83\AndroidManifest.xml:9:5-20
+MERGED from [com.google.android.gms:play-services-places:15.0.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\play-services-places-15.0.1.aar\44b3587f968d20ab6fc14086f204f8f9\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-places:15.0.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\play-services-places-15.0.1.aar\44b3587f968d20ab6fc14086f204f8f9\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.1.aar\1ac778ec58f4f4b55350ff42a3aa8b18\AndroidManifest.xml:30:5-20
+MERGED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.1.aar\1ac778ec58f4f4b55350ff42a3aa8b18\AndroidManifest.xml:30:5-20
+MERGED from [com.google.android.gms:play-services-base:15.0.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\play-services-base-15.0.1.aar\c02992c584d2bd84a7c6ac52a61ebd19\AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-base:15.0.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\play-services-base-15.0.1.aar\c02992c584d2bd84a7c6ac52a61ebd19\AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-places-placereport:15.0.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\play-services-places-placereport-15.0.1.aar\a09ce2f3f0415047f4ba3c6a24cbd46b\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-places-placereport:15.0.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\play-services-places-placereport-15.0.1.aar\a09ce2f3f0415047f4ba3c6a24cbd46b\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-tasks:15.0.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\play-services-tasks-15.0.1.aar\9ec4a1a55203f642e058e14c26548b50\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-tasks:15.0.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\play-services-tasks-15.0.1.aar\9ec4a1a55203f642e058e14c26548b50\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\play-services-basement-15.0.1.aar\966c6ce9d3b1164e0772667f995d4d86\AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\play-services-basement-15.0.1.aar\966c6ce9d3b1164e0772667f995d4d86\AndroidManifest.xml:22:5-26:19
 	android:supportsRtl
-		ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:20:9-35
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:20:9-35
 	android:label
-		ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:18:9-41
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:18:9-41
 	android:roundIcon
-		ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:19:9-54
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:19:9-54
 	android:icon
-		ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:17:9-43
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:17:9-43
 	android:allowBackup
-		ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:16:9-35
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:16:9-35
 	android:theme
-		ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:21:9-65
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:21:9-65
 activity#uic.hcilab.citymeter.StepsActivity
-ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:23:9-24:51
+ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:23:9-24:51
 	android:label
-		ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:24:13-48
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:24:13-48
 	android:name
-		ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:23:19-48
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:23:19-48
 activity#uic.hcilab.citymeter.HereNowActivity
-ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:26:9-28:46
+ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:26:9-28:46
 	android:label
-		ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:28:13-43
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:28:13-43
 	android:name
-		ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:27:13-44
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:27:13-44
 activity#uic.hcilab.citymeter.XposureActivity
-ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:29:9-31:39
+ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:29:9-31:39
 	android:label
-		ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:31:13-36
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:31:13-36
 	android:name
-		ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:30:13-44
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:30:13-44
 activity#uic.hcilab.citymeter.SummaryActivity
-ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:32:9-34:53
+ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:32:9-34:53
 	android:label
-		ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:34:13-50
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:34:13-50
 	android:name
-		ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:33:13-44
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:33:13-44
 activity#uic.hcilab.citymeter.ActivitiesActivity
-ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:35:9-37:56
+ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:35:9-37:56
 	android:label
-		ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:37:13-53
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:37:13-53
 	android:name
-		ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:36:13-47
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:36:13-47
 activity#uic.hcilab.citymeter.SearchActivity
-ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:38:9-40:52
+ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:38:9-40:52
 	android:label
-		ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:40:13-49
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:40:13-49
 	android:name
-		ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:39:13-43
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:39:13-43
 activity#uic.hcilab.citymeter.HomeActivity
-ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:41:9-49:20
+ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:41:9-49:20
 	android:label
-		ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:43:13-47
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:43:13-47
 	android:name
-		ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:42:13-41
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:42:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:44:13-48:29
+ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:44:13-48:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:45:17-69
+ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:45:17-69
 	android:name
-		ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:45:25-66
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:45:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:47:17-77
+ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:47:17-77
 	android:name
-		ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:47:27-74
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:47:27-74
 meta-data#com.google.android.geo.API_KEY
-ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:51:9-53:55
+ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:51:9-53:55
 	android:value
-		ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:53:13-52
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:53:13-52
 	android:name
-		ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:52:13-58
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:52:13-58
 service#uic.hcilab.citymeter.SensingService
-ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:55:9-59:43
+ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:55:9-59:43
 	android:enabled
-		ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:57:13-35
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:57:13-35
 	android:exported
-		ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:58:13-36
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:58:13-36
 	android:stopWithTask
-		ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:59:13-40
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:59:13-40
 	android:name
-		ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:56:13-43
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:56:13-43
 uses-sdk
-INJECTED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml
-INJECTED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml
-MERGED from [com.android.support:design:27.1.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\835838e1b9f5ea48dbd564cb27b5ca8e\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:design:27.1.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\835838e1b9f5ea48dbd564cb27b5ca8e\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\d8626798dd563ba54cbd5cc787017155\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\d8626798dd563ba54cbd5cc787017155\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support.constraint:constraint-layout:1.1.0] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.0.aar\b8a00d9caba6a3e4461a2cd121c110b9\AndroidManifest.xml:5:5-7:41
-MERGED from [com.android.support.constraint:constraint-layout:1.1.0] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.0.aar\b8a00d9caba6a3e4461a2cd121c110b9\AndroidManifest.xml:5:5-7:41
-MERGED from [com.google.android.gms:play-services-places:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-places-15.0.1.aar\d2c0d8a0706e1176679276391b887fd3\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-places:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-places-15.0.1.aar\d2c0d8a0706e1176679276391b887fd3\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.1.aar\2f1f6a9d0892f04c3fd9ebabb7cca38e\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.1.aar\2f1f6a9d0892f04c3fd9ebabb7cca38e\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-base:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-base-15.0.1.aar\5245fbf517f0eca7ddbd7ad7bee6b8e1\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-base:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-base-15.0.1.aar\5245fbf517f0eca7ddbd7ad7bee6b8e1\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-places-placereport:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-places-placereport-15.0.1.aar\1c19ebcea7beafa6cad02bbb6ec0de2a\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-places-placereport:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-places-placereport-15.0.1.aar\1c19ebcea7beafa6cad02bbb6ec0de2a\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-tasks:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-tasks-15.0.1.aar\ce113c986296d371a5a2e1b7533fcdea\AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-tasks:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-tasks-15.0.1.aar\ce113c986296d371a5a2e1b7533fcdea\AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-basement-15.0.1.aar\16ae8b5b9049908afdee82666cd7023a\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-basement-15.0.1.aar\16ae8b5b9049908afdee82666cd7023a\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-v4:27.1.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\59fd70b08b3c424e1f63113d78a1b4ca\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-v4:27.1.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\59fd70b08b3c424e1f63113d78a1b4ca\AndroidManifest.xml:20:5-44
-MERGED from [com.amazonaws:aws-android-sdk-mobile-client:2.6.24] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-mobile-client-2.6.24.aar\1c67390439096abd67d2204c42b3b8b1\AndroidManifest.xml:4:5-73
-MERGED from [com.amazonaws:aws-android-sdk-mobile-client:2.6.24] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-mobile-client-2.6.24.aar\1c67390439096abd67d2204c42b3b8b1\AndroidManifest.xml:4:5-73
-MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\822eea33aff1a58cc161892406c4a484\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\822eea33aff1a58cc161892406c4a484\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\c20e9847ecfff6d7148ea244443cb3f4\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\c20e9847ecfff6d7148ea244443cb3f4\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:recyclerview-v7:27.1.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.1.aar\62c4605d81900faafdab889dc98cd9fc\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:recyclerview-v7:27.1.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.1.aar\62c4605d81900faafdab889dc98cd9fc\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\ea4a42216f5d9d288dc27daacfb34c8c\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\ea4a42216f5d9d288dc27daacfb34c8c\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\685414b9af3a2be6c2e87a5bc5a099ce\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\685414b9af3a2be6c2e87a5bc5a099ce\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\a12522f1e4f4832b5519f0353bbbdd24\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\a12522f1e4f4832b5519f0353bbbdd24\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:transition:27.1.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\transition-27.1.1.aar\9aea042195cb726bdd0bea6189086ab9\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:transition:27.1.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\transition-27.1.1.aar\9aea042195cb726bdd0bea6189086ab9\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\583683fcc158137871101430c6217b69\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\583683fcc158137871101430c6217b69\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-compat:27.1.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\31fc37f7253092a1f883fb6f1c034ba8\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-compat:27.1.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\31fc37f7253092a1f883fb6f1c034ba8\AndroidManifest.xml:20:5-44
-MERGED from [com.amazonaws:aws-android-sdk-auth-core:2.6.24] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-core-2.6.24.aar\24fb8f354e233a0fee64ea7053b5e215\AndroidManifest.xml:4:1-69
-MERGED from [com.amazonaws:aws-android-sdk-auth-core:2.6.24] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-core-2.6.24.aar\24fb8f354e233a0fee64ea7053b5e215\AndroidManifest.xml:4:1-69
-MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\d4bb2cd85cf4d8ffe230ef13550dd6ed\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\d4bb2cd85cf4d8ffe230ef13550dd6ed\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\361640ceabff4ffd6bdc202148b510d1\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\361640ceabff4ffd6bdc202148b510d1\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\1d10b832bc2f1b8ae62c328e874e4c78\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\1d10b832bc2f1b8ae62c328e874e4c78\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.core:runtime:1.1.0] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\f47601d158c14cfc6d01fa7ef2d0166e\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.core:runtime:1.1.0] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\f47601d158c14cfc6d01fa7ef2d0166e\AndroidManifest.xml:20:5-44
-INJECTED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml
-INJECTED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml
+INJECTED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml
+INJECTED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml
+MERGED from [com.android.support:design:27.1.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\ef2d03b93fdde47f0e26833da93339b9\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:27.1.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\ef2d03b93fdde47f0e26833da93339b9\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\04b3eccd16314a9e026539f0e5a9e746\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\04b3eccd16314a9e026539f0e5a9e746\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support.constraint:constraint-layout:1.1.0] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.0.aar\59f40e1f474486184b3bf1083ce9af83\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.1.0] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.0.aar\59f40e1f474486184b3bf1083ce9af83\AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.android.gms:play-services-places:15.0.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\play-services-places-15.0.1.aar\44b3587f968d20ab6fc14086f204f8f9\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-places:15.0.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\play-services-places-15.0.1.aar\44b3587f968d20ab6fc14086f204f8f9\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.1.aar\1ac778ec58f4f4b55350ff42a3aa8b18\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.1.aar\1ac778ec58f4f4b55350ff42a3aa8b18\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:15.0.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\play-services-base-15.0.1.aar\c02992c584d2bd84a7c6ac52a61ebd19\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:15.0.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\play-services-base-15.0.1.aar\c02992c584d2bd84a7c6ac52a61ebd19\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-places-placereport:15.0.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\play-services-places-placereport-15.0.1.aar\a09ce2f3f0415047f4ba3c6a24cbd46b\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-places-placereport:15.0.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\play-services-places-placereport-15.0.1.aar\a09ce2f3f0415047f4ba3c6a24cbd46b\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-tasks:15.0.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\play-services-tasks-15.0.1.aar\9ec4a1a55203f642e058e14c26548b50\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-tasks:15.0.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\play-services-tasks-15.0.1.aar\9ec4a1a55203f642e058e14c26548b50\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\play-services-basement-15.0.1.aar\966c6ce9d3b1164e0772667f995d4d86\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\play-services-basement-15.0.1.aar\966c6ce9d3b1164e0772667f995d4d86\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.1.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\c11e60ef613464c3087dd99f2a941814\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.1.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\c11e60ef613464c3087dd99f2a941814\AndroidManifest.xml:20:5-44
+MERGED from [com.amazonaws:aws-android-sdk-mobile-client:2.6.24] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-mobile-client-2.6.24.aar\1db1b6ac1d5fa2d959e1daf52f252886\AndroidManifest.xml:4:5-73
+MERGED from [com.amazonaws:aws-android-sdk-mobile-client:2.6.24] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-mobile-client-2.6.24.aar\1db1b6ac1d5fa2d959e1daf52f252886\AndroidManifest.xml:4:5-73
+MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\8939a9286a28d42d537b3552e90f10a3\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\8939a9286a28d42d537b3552e90f10a3\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\ffb4aa3421bbd50297d32cf8005fe1c1\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\ffb4aa3421bbd50297d32cf8005fe1c1\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:27.1.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.1.aar\fc3593900f27f5412b026a349c27090c\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:27.1.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.1.aar\fc3593900f27f5412b026a349c27090c\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\d7d7faee09b402e073049737bed2678e\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\d7d7faee09b402e073049737bed2678e\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\3b63585019952c3b71a69e0f8eac1717\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\3b63585019952c3b71a69e0f8eac1717\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\524a6a73bf432374c9c9d3d6653380cb\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\524a6a73bf432374c9c9d3d6653380cb\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:27.1.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\transition-27.1.1.aar\a8301faed0e77afd38d6408734c9b7d3\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:27.1.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\transition-27.1.1.aar\a8301faed0e77afd38d6408734c9b7d3\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\bfc418b533b0a9a208b58073b0969457\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\bfc418b533b0a9a208b58073b0969457\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\a570bdf09499bda37905911df531a19d\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\a570bdf09499bda37905911df531a19d\AndroidManifest.xml:20:5-44
+MERGED from [com.amazonaws:aws-android-sdk-auth-core:2.6.24] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-core-2.6.24.aar\9d330843773a4c131cbf50a32a1094b9\AndroidManifest.xml:4:1-69
+MERGED from [com.amazonaws:aws-android-sdk-auth-core:2.6.24] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-core-2.6.24.aar\9d330843773a4c131cbf50a32a1094b9\AndroidManifest.xml:4:1-69
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\5092db06817fbfc8559141ad55c9e10b\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\5092db06817fbfc8559141ad55c9e10b\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\479eef037a18b91977cb018fefb8276e\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\479eef037a18b91977cb018fefb8276e\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\e0d60bb1dbeeee18f268875c36e0d886\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\e0d60bb1dbeeee18f268875c36e0d886\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\83f78417c48485955668df4c0da7fad9\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\83f78417c48485955668df4c0da7fad9\AndroidManifest.xml:20:5-44
+INJECTED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml
+INJECTED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml
+		INJECTED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml
+		INJECTED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml
+		INJECTED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml
+		INJECTED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml
 uses-feature#0x00020000
-ADDED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.1.aar\2f1f6a9d0892f04c3fd9ebabb7cca38e\AndroidManifest.xml:26:5-28:35
+ADDED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.1.aar\1ac778ec58f4f4b55350ff42a3aa8b18\AndroidManifest.xml:26:5-28:35
 	android:glEsVersion
-		ADDED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.1.aar\2f1f6a9d0892f04c3fd9ebabb7cca38e\AndroidManifest.xml:27:9-41
+		ADDED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.1.aar\1ac778ec58f4f4b55350ff42a3aa8b18\AndroidManifest.xml:27:9-41
 	android:required
-		ADDED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.1.aar\2f1f6a9d0892f04c3fd9ebabb7cca38e\AndroidManifest.xml:28:9-32
+		ADDED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.1.aar\1ac778ec58f4f4b55350ff42a3aa8b18\AndroidManifest.xml:28:9-32
 activity#com.google.android.gms.common.api.GoogleApiActivity
-ADDED from [com.google.android.gms:play-services-base:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-base-15.0.1.aar\5245fbf517f0eca7ddbd7ad7bee6b8e1\AndroidManifest.xml:23:9-26:75
+ADDED from [com.google.android.gms:play-services-base:15.0.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\play-services-base-15.0.1.aar\c02992c584d2bd84a7c6ac52a61ebd19\AndroidManifest.xml:23:9-26:75
 	android:exported
-		ADDED from [com.google.android.gms:play-services-base:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-base-15.0.1.aar\5245fbf517f0eca7ddbd7ad7bee6b8e1\AndroidManifest.xml:25:13-37
+		ADDED from [com.google.android.gms:play-services-base:15.0.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\play-services-base-15.0.1.aar\c02992c584d2bd84a7c6ac52a61ebd19\AndroidManifest.xml:25:13-37
 	android:theme
-		ADDED from [com.google.android.gms:play-services-base:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-base-15.0.1.aar\5245fbf517f0eca7ddbd7ad7bee6b8e1\AndroidManifest.xml:26:13-72
+		ADDED from [com.google.android.gms:play-services-base:15.0.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\play-services-base-15.0.1.aar\c02992c584d2bd84a7c6ac52a61ebd19\AndroidManifest.xml:26:13-72
 	android:name
-		ADDED from [com.google.android.gms:play-services-base:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-base-15.0.1.aar\5245fbf517f0eca7ddbd7ad7bee6b8e1\AndroidManifest.xml:24:13-79
+		ADDED from [com.google.android.gms:play-services-base:15.0.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\play-services-base-15.0.1.aar\c02992c584d2bd84a7c6ac52a61ebd19\AndroidManifest.xml:24:13-79
 meta-data#com.google.android.gms.version
-ADDED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-basement-15.0.1.aar\16ae8b5b9049908afdee82666cd7023a\AndroidManifest.xml:23:9-25:69
+ADDED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\play-services-basement-15.0.1.aar\966c6ce9d3b1164e0772667f995d4d86\AndroidManifest.xml:23:9-25:69
 	android:value
-		ADDED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-basement-15.0.1.aar\16ae8b5b9049908afdee82666cd7023a\AndroidManifest.xml:25:13-66
+		ADDED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\play-services-basement-15.0.1.aar\966c6ce9d3b1164e0772667f995d4d86\AndroidManifest.xml:25:13-66
 	android:name
-		ADDED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-basement-15.0.1.aar\16ae8b5b9049908afdee82666cd7023a\AndroidManifest.xml:24:13-58
+		ADDED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\play-services-basement-15.0.1.aar\966c6ce9d3b1164e0772667f995d4d86\AndroidManifest.xml:24:13-58

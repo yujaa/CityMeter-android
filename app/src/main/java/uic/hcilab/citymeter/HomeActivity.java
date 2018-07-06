@@ -12,11 +12,15 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.view.menu.MenuBuilder;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.view.WindowManager;
+import android.widget.ActionMenuView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -27,27 +31,51 @@ import com.amazonaws.mobile.client.AWSStartupResult;
 public class HomeActivity extends TabHost {
 
     private BluetoothAdapter mBluetoothAdapter;
+    private  Boolean permissions_granted = false;
+    public static SensingDBHelper sensingDBHelper;
 
     private View view;
     @Override
     public int getContentViewId() {
         return R.layout.activity_home;
     }
-
     @Override
     public int getNavigationMenuItemId() {
         return R.id.navigation_home;
     }
-    public static SensingDBHelper sensingDBHelper;
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar_home);
+        final Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar_home);
         setSupportActionBar(myToolbar);
+        if(getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setHomeButtonEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
+        myToolbar.setNavigationIcon(R.drawable.baseline_location_on_black_18dp);  //your icon
+        myToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String x =  myToolbar.getNavigationIcon().toString();
+                toggleLocation();
+            }
+        });
         //For no keyboard showing on starting the activity
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
         sensingDBHelper = new SensingDBHelper(this);
+        //Permissions handling
+        String[] permissions = new String[3]; //Increase size to add more permissions
+        permissions[0] = Manifest.permission.RECORD_AUDIO;
+        permissions[1] = Manifest.permission.ACCESS_COARSE_LOCATION;//Add more permissions
+        permissions[2] = Manifest.permission.ACCESS_FINE_LOCATION;//Add more permissions
+        if (ContextCompat.checkSelfPermission(this, permissions[0]) != PackageManager.PERMISSION_GRANTED ||
+                ContextCompat.checkSelfPermission(this, permissions[1]) != PackageManager.PERMISSION_GRANTED) //Check new permission here
+        {
+            Log.i("BT" , "no permissions");
+            ActivityCompat.requestPermissions(this, permissions, 9);
+        }
         //BT adapter initialization
         mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         if(!checkBTEnabled()){
@@ -59,7 +87,6 @@ public class HomeActivity extends TabHost {
                 Log.d("nina", "AWSMobileClient is instantiated and connected to AWS");
             }
         }).execute();
-
 
         Button xposure_btn = (Button)findViewById(R.id.home_xposure_btn);
         final Intent xp_intent = new Intent(this, XposureActivity.class);
@@ -88,8 +115,30 @@ public class HomeActivity extends TabHost {
             }
         });
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
 
+        getMenuInflater().inflate(R.menu.settings, menu);
+        return true;
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_settings:
+                // User chose the "Settings" item, show the app settings UI...
+                Intent intent = new Intent(this, SettingsActivity.class);
+                startActivity(intent);
+
+                return true;
+
+            default:
+                // If we got here, the user's action was not recognized.
+                // Invoke the superclass to handle it.
+                return super.onOptionsItemSelected(item);
+
+        }
+    }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -98,30 +147,23 @@ public class HomeActivity extends TabHost {
             case 9: {
                 // If request is cancelled, the result arrays are empty.
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    Intent svcIntent = new Intent(this, SensingService.class);
-                    startService(svcIntent);
+                    permissions_granted = true;
                 }
             }
         }
     }
 
+    public void toggleLocation(){
+
+    }
     //Function to check if BT is enabled only
     public Boolean checkBTEnabled() {//change name
         if (mBluetoothAdapter == null) {
             Log.i("BT", "Device is not supported by Bluetooth");
             return false;
-        } else if (mBluetoothAdapter.isEnabled()) {
-            //Permissions handling
-            String[] permissions = new String[1];
-            permissions[0] = Manifest.permission.RECORD_AUDIO;
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
-                    != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions(this, permissions, 9);
-            } else{
-
+        } else if (mBluetoothAdapter.isEnabled() && permissions_granted) {
                 Intent svcIntent = new Intent(this, SensingService.class);
                 startService(svcIntent);
-            }
             return true;
         }
         return false;
@@ -136,21 +178,13 @@ public class HomeActivity extends TabHost {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        switch (requestCode){
+        switch (requestCode) {
             case 7:
                 Log.i("BT", "enable bt");
-                //Permissions handling
-                String[] permissions = new String[1];
-                permissions[0] = Manifest.permission.RECORD_AUDIO;
-                if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
-                        != PackageManager.PERMISSION_GRANTED) {
-                    ActivityCompat.requestPermissions(this, permissions, 9);
-                } else{
-
-                    if (mBluetoothAdapter.isEnabled()) {
-                        startService(new Intent(this, SensingService.class));
-                    }
+                if (mBluetoothAdapter.isEnabled()) {
+                    startService(new Intent(this, SensingService.class));
                 }
+
                 break;
         }
     }

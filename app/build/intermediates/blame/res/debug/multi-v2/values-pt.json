@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\yujaa\\AndroidStudioProjects\\CityMeter-android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-pt\\values-pt.xml",
+            "outputFile": "F:\\Projects\\CityMeter-android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-pt\\values-pt.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\yujaa\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\d8626798dd563ba54cbd5cc787017155\\res\\values-pt\\values-pt.xml",
+                    "source": "C:\\Users\\Nina Sakhnini\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\04b3eccd16314a9e026539f0e5a9e746\\res\\values-pt\\values-pt.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\yujaa\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\31fc37f7253092a1f883fb6f1c034ba8\\res\\values-pt\\values-pt.xml",
+                    "source": "C:\\Users\\Nina Sakhnini\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\a570bdf09499bda37905911df531a19d\\res\\values-pt\\values-pt.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
