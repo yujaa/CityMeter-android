@@ -29,10 +29,13 @@ tools:context=".XposureActivity">
     <android.support.constraint.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="0dp"
-        android:layout_height="139dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:background="#F2F2F6"
+        android:background="@drawable/calm"
+        app:layout_constraintBottom_toTopOf="@+id/pm25_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar_xposure">
@@ -42,9 +45,9 @@ tools:context=".XposureActivity">
             android:layout_width="0dp"
             android:layout_height="54dp"
             android:layout_marginStart="8dp"
-            android:text="some text here..."
+            android:text="Today's Xposure"
             android:textColor="#0B2161"
-            android:textSize="30dp"
+            android:textSize="28dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -52,11 +55,13 @@ tools:context=".XposureActivity">
             android:id="@+id/home_text1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="128dp"
-            android:layout_marginTop="76dp"
-            android:text="You are near"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="45dp"
+            android:text="You've been in a healthy environment for the last 24 hours :)"
             android:textColor="#1C1C1C"
-            android:textSize="25dp"
+            android:textSize="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </android.support.constraint.ConstraintLayout>
@@ -65,12 +70,12 @@ tools:context=".XposureActivity">
         android:id="@+id/pm25_layout"
         android:layout_width="0dp"
         android:layout_height="100dp"
+        android:layout_marginBottom="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/day_noise_layout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+        app:layout_constraintStart_toStartOf="parent">
 
         <TableLayout
             android:layout_width="match_parent"
@@ -84,9 +89,9 @@ tools:context=".XposureActivity">
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:weightSum="10"
                 android:background="@drawable/round_corner_button"
-                android:backgroundTint="#EEEEEE">
+                android:backgroundTint="#EEEEEE"
+                android:weightSum="10">
 
                 <TextView
                     android:id="@+id/pm25_text"
@@ -157,12 +162,12 @@ tools:context=".XposureActivity">
         android:id="@+id/day_noise_layout"
         android:layout_width="0dp"
         android:layout_height="100dp"
+        android:layout_marginBottom="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/night_noise_layout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pm25_layout">
+        app:layout_constraintStart_toStartOf="parent">
 
         <TableLayout
             android:layout_width="match_parent"
@@ -176,9 +181,9 @@ tools:context=".XposureActivity">
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:weightSum="10"
                 android:background="@drawable/round_corner_button"
-                android:backgroundTint="#EEEEEE">
+                android:backgroundTint="#EEEEEE"
+                android:weightSum="10">
 
                 <TextView
                     android:id="@+id/home_day_noise_text"
@@ -251,12 +256,12 @@ tools:context=".XposureActivity">
         android:id="@+id/night_noise_layout"
         android:layout_width="0dp"
         android:layout_height="100dp"
+        android:layout_marginBottom="24dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/navigation"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/day_noise_layout">
+        app:layout_constraintStart_toStartOf="parent">
 
         <TableLayout
             android:layout_width="match_parent"
@@ -270,9 +275,9 @@ tools:context=".XposureActivity">
             <TableRow
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:weightSum="10"
                 android:background="@drawable/round_corner_button"
-                android:backgroundTint="#EEEEEE">
+                android:backgroundTint="#EEEEEE"
+                android:weightSum="10">
 
                 <TextView
                     android:id="@+id/home_night_noise_text"

@@ -2,6 +2,7 @@ package uic.hcilab.citymeter;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationListener;
 import android.os.Build;
@@ -25,19 +26,25 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.Circle;
+import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+
 import org.json.simple.JSONObject;
 
 public class HereNowActivity extends TabHost implements OnMapReadyCallback, ApiCallback, LocationListener {
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
-    String curLat = "41.751142";
-    String curLng = "-87.71299";
+    float curLat = 41.751142f;
+    float curLng = -87.71299f;
     private GoogleMap mMap;
-    PlaceAutocompleteFragment placeAutoComplete;
 
+    HashMap<String, HashMap<String, String>> nodesInfo = new HashMap<String,  HashMap<String, String>>();
     float pmNowData = 0;
     float soundNowData = 0;
     @Override
@@ -73,6 +80,9 @@ public class HereNowActivity extends TabHost implements OnMapReadyCallback, ApiC
                 else {
                     view.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                 }
+
+                new AoTData(HereNowActivity.this).execute("info/nodes");
+
                 ///Bar
                 //PM2.5
                 float pm25_bar_loc;
@@ -84,23 +94,23 @@ public class HereNowActivity extends TabHost implements OnMapReadyCallback, ApiC
                 TextView pm25_thumb_value = (TextView) findViewById(R.id.here_pm25_value);
                 pm25_bar_width = pm25_bar.getWidth();
                 pm25_bar_loc=pm25_bar.getX();
-                pm25_thumb.setX(pm25_bar_loc+ pm25_bar_width*(pm25_value/pm25_range)-(pm25_thumb.getWidth()/2));
+                pm25_thumb.setX(pm25_bar_width - (pm25_bar_loc+ pm25_bar_width*(pm25_value/pm25_range)-(pm25_thumb.getWidth()/2)));
                 pm25_thumb_value.setX(pm25_thumb.getX()+pm25_thumb.getWidth());
-                pm25_thumb_value.setText(pm25_value+"");
+                pm25_thumb_value.setText(Math.round(pm25_value)+"");
 
-                //day noise
-                float day_noise_bar_loc;
-                int day_noise_bar_width;
-                float day_noise_range = 100f; //max - min //ToDo: Toy data
-                float day_noise_value = soundNowData;              //ToDo: Toy data
-                ImageView day_noise_bar = (ImageView) findViewById(R.id.here_noise_bar);
-                ImageView day_noise_thumb = (ImageView) findViewById(R.id.here_noise_thumb);
-                TextView day_noise_thumb_value = (TextView) findViewById(R.id.here_noise_value);
-                day_noise_bar_width = day_noise_bar.getWidth();
-                day_noise_bar_loc=day_noise_bar.getX();
-                day_noise_thumb.setX(day_noise_bar_loc+ day_noise_bar_width*(day_noise_value/day_noise_range)-(day_noise_thumb.getWidth()/2));
-                day_noise_thumb_value.setX(day_noise_thumb.getX()+day_noise_thumb.getWidth());
-                day_noise_thumb_value.setText(day_noise_value+"");
+                //noise
+                float here_noise_bar_loc;
+                int here_noise_bar_width;
+                float here_noise_range = 100f; //max - min //ToDo: Toy data
+                float here_noise_value = soundNowData;              //ToDo: Toy data
+                ImageView here_noise_bar = (ImageView) findViewById(R.id.here_noise_bar);
+                ImageView here_noise_thumb = (ImageView) findViewById(R.id.here_noise_thumb);
+                TextView here_noise_thumb_value = (TextView) findViewById(R.id.here_noise_value);
+                here_noise_bar_width = here_noise_bar.getWidth();
+                here_noise_bar_loc=here_noise_bar.getX();
+                here_noise_thumb.setX(here_noise_bar_width - (here_noise_bar_loc+ here_noise_bar_width*((here_noise_value-35)/here_noise_range)-(here_noise_thumb.getWidth()/2)));
+                here_noise_thumb_value.setX(here_noise_thumb.getX()+here_noise_thumb.getWidth());
+                here_noise_thumb_value.setText(Math.round(here_noise_value)+"");
 
             }
         });
@@ -109,39 +119,45 @@ public class HereNowActivity extends TabHost implements OnMapReadyCallback, ApiC
     @Override
     public void onApiCallback(JSONObject jsonData, String urlApi) {
         //Log.i("my", String.valueOf(jsonData));
-        if (urlApi.equals("value/node/pm25/001e06113107")) {
+        //PM2.5
+        if(urlApi.equals("info/nodes")) {
+            getNodesLocationData(jsonData);
+            new AoTData(HereNowActivity.this).execute("value/nodes");
+        }
+        else if(urlApi.equals("value/node/pm25/001e06113107"))
             getPmData(jsonData);
-            ///Bar
-            //PM2.5
+
+        else if(urlApi.equals("value/nodes")) {
+            getSoundData(jsonData);
             float pm25_bar_loc;
             int pm25_bar_width;
-            float pm25_range = 650f; //max - min //ToDo: Toy data
+            float pm25_range = 700f; //max - min //ToDo: Toy data
             float pm25_value = pmNowData;              //ToDo: Toy data
             ImageView pm25_bar = (ImageView) findViewById(R.id.here_pm25_bar);
             ImageView pm25_thumb = (ImageView) findViewById(R.id.here_pm25_thumb);
             TextView pm25_thumb_value = (TextView) findViewById(R.id.here_pm25_value);
             pm25_bar_width = pm25_bar.getWidth();
-            pm25_bar_loc=pm25_bar.getX();
-            pm25_thumb.setX(pm25_bar_loc+ pm25_bar_width*(pm25_value/pm25_range)-(pm25_thumb.getWidth()/2));
-            pm25_thumb_value.setX(pm25_thumb.getX()+pm25_thumb.getWidth());
-            pm25_thumb_value.setText(pm25_value+"");
-        }
-        if (urlApi.equals("value/nodes")) {
-            getSoundData(jsonData);
-            ///Bar
-            //day noise
-            float day_noise_bar_loc;
-            int day_noise_bar_width;
-            float day_noise_range = 100f; //max - min //ToDo: Toy data
-            float day_noise_value = soundNowData;              //ToDo: Toy data
-            ImageView day_noise_bar = (ImageView) findViewById(R.id.here_noise_bar);
-            ImageView day_noise_thumb = (ImageView) findViewById(R.id.here_noise_thumb);
-            TextView day_noise_thumb_value = (TextView) findViewById(R.id.here_noise_value);
-            day_noise_bar_width = day_noise_bar.getWidth();
-            day_noise_bar_loc=day_noise_bar.getX();
-            day_noise_thumb.setX(day_noise_bar_loc+ day_noise_bar_width*(day_noise_value/day_noise_range)-(day_noise_thumb.getWidth()/2));
-            day_noise_thumb_value.setX(day_noise_thumb.getX()+day_noise_thumb.getWidth());
-            day_noise_thumb_value.setText(day_noise_value+"");
+            pm25_bar_loc = pm25_bar.getX();
+            pm25_thumb.setX(pm25_bar_width - (pm25_bar_loc + pm25_bar_width * (pm25_value / pm25_range) - (pm25_thumb.getWidth() / 2)));
+            pm25_thumb_value.setX(pm25_thumb.getX() + pm25_thumb.getWidth());
+            pm25_thumb_value.setText(Math.round(pm25_value) + "");
+
+            //noise
+            float here_noise_bar_loc;
+            int here_noise_bar_width;
+            float here_noise_range = 100f; //max - min //ToDo: Toy data
+            float here_noise_value = soundNowData;              //ToDo: Toy data
+            ImageView here_noise_bar = (ImageView) findViewById(R.id.here_noise_bar);
+            ImageView here_noise_thumb = (ImageView) findViewById(R.id.here_noise_thumb);
+            TextView here_noise_thumb_value = (TextView) findViewById(R.id.here_noise_value);
+            here_noise_bar_width = here_noise_bar.getWidth();
+            here_noise_bar_loc = here_noise_bar.getX();
+            here_noise_thumb.setX(here_noise_bar_width - (here_noise_bar_loc + here_noise_bar_width * ((here_noise_value - 35) / here_noise_range) - (here_noise_thumb.getWidth() / 2)));
+            here_noise_thumb_value.setX(here_noise_thumb.getX() + here_noise_thumb.getWidth());
+            here_noise_thumb_value.setText(Math.round(here_noise_value) + "");
+
+            getNodesValueData(jsonData);
+            drawNodesMarker(nodesInfo);
         }
     }
 
@@ -195,6 +211,13 @@ public class HereNowActivity extends TabHost implements OnMapReadyCallback, ApiC
 
         mMap.getUiSettings().setZoomControlsEnabled(true);
         mMap.setMinZoomPreference(10);
+
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(curLat, curLng))
+                .title((String) "")
+                .alpha(10.0f)
+                .flat(true)
+        );
     }
 
     private void enableMyLocationIfPermitted() {
@@ -211,7 +234,7 @@ public class HereNowActivity extends TabHost implements OnMapReadyCallback, ApiC
     }
 
     private void showDefaultLocation() {
-        LatLng curLoc = new LatLng(Double.parseDouble(curLat), Double.parseDouble(curLng));
+        LatLng curLoc = new LatLng(curLat, curLng);
         mMap.moveCamera(CameraUpdateFactory.newLatLng(curLoc));
         Log.i("my","here");
     }
@@ -246,6 +269,91 @@ public class HereNowActivity extends TabHost implements OnMapReadyCallback, ApiC
                 public void onMyLocationClick(@NonNull Location location) {
                 }
             };
+
+
+    public void getNodesLocationData(JSONObject nodesLocation){
+        //parse json
+        for(Object k: nodesLocation.keySet()){
+            //Log.i("my1", k.toString());
+            if(!k.toString().equals("total")){
+                HashMap<String, String> node = new HashMap<String, String>();
+                node.put("lat",((JSONObject)nodesLocation.get(k.toString())).get("lat").toString());
+                node.put("lon",((JSONObject)nodesLocation.get(k.toString())).get("lon").toString());
+                node.put("addr",((JSONObject)nodesLocation.get(k.toString())).get("address").toString());
+                nodesInfo.put(k.toString(), node);
+            }
+        }
+
+    }
+
+    public void getNodesValueData(JSONObject nodesValue)
+    {
+        //parse json
+        for(Object k: nodesValue.keySet()){
+
+            HashMap<String, String> node = new HashMap<String, String>();
+            if(!k.toString().equals("total")&&!k.toString().equals("node")&&!k.toString().equals("")){
+                if(((JSONObject)nodesValue.get(k.toString())).containsKey("timestamp"))
+                    if(!((JSONObject)nodesValue.get(k.toString())).get("timestamp").toString().equals(""))
+                        node.put("timeStamp",((JSONObject)nodesValue.get(k.toString())).get("timestamp").toString());
+                if(((JSONObject)nodesValue.get(k.toString())).containsKey("sound"))
+                    if(!((JSONObject)nodesValue.get(k.toString())).get("sound").toString().equals(""))
+                        node.put("sound",((JSONObject)nodesValue.get(k.toString())).get("sound").toString());
+                if(((JSONObject)nodesValue.get(k.toString())).containsKey("no2"))
+                    if(!((JSONObject)nodesValue.get(k.toString())).get("no2").toString().equals(""))
+                        node.put("no2",((JSONObject)nodesValue.get(k.toString())).get("no2").toString());
+//                if(((JSONObject)nodesValue.get(k.toString())).containsKey("pm2_5"))
+//                        node.put("pm2_5",((JSONObject)nodesValue.get(k.toString())).get("pm2_5").toString());
+                if(nodesInfo.get(k.toString())!=null)
+                    nodesInfo.get(k.toString()).putAll(node);
+            }
+        }
+    }
+
+    public void drawNodesMarker( HashMap<String, HashMap<String, String>> nodesInfoParam)
+    {
+        Set set = nodesInfoParam.entrySet();
+        Iterator iterator = set.iterator();
+        while(iterator.hasNext()) {
+            double sound;
+            int circleColor = Color.argb(100, 100, 100, 100);;
+
+            Map.Entry entry = (Map.Entry) iterator.next();
+            double lat = Double.parseDouble((((HashMap) entry.getValue()).get("lat")).toString());
+            double lon = Double.parseDouble((((HashMap) entry.getValue()).get("lon")).toString());
+
+            if(((HashMap) entry.getValue()).containsKey("sound")) {
+                sound = Double.parseDouble((((HashMap) entry.getValue()).get("sound")).toString());
+                if (sound < 50) circleColor = Color.argb(100,0,228,0);
+                else if (sound < 65) circleColor = Color.argb(100,255,255,0);
+                else if (sound < 80) circleColor = Color.argb(100,255,126,0);
+                else if (sound < 95) circleColor = Color.argb(100,255,0,0);
+                else if (sound < 110) circleColor = Color.argb(100,143,63,151);
+                else circleColor = Color.argb(100,126,0,35);
+            }
+//            else
+//                continue;
+
+            // Instantiates a new CircleOptions object and defines the center and radius
+            CircleOptions circleOptions = new CircleOptions()
+                    .center(new LatLng(lat, lon))
+                    .radius(100) // In meters
+                    .strokeWidth(0)
+                    .fillColor(circleColor)
+                    .clickable(true);
+
+            // Get back the mutable Circle
+            Circle circle = mMap.addCircle(circleOptions);
+
+
+//            mMap.addMarker(new MarkerOptions()
+//                    .position(new LatLng(lat, lon))
+//                    .title((String) entry.getKey())
+//                    .alpha(5.0f)
+//                    .flat(true)
+//                    );
+        }
+    }
 
     @Override
     public void onProviderDisabled(String provider) {}

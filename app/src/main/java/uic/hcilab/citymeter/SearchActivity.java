@@ -285,11 +285,11 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
 
             if(((HashMap) entry.getValue()).containsKey("sound")) {
                 sound = Double.parseDouble((((HashMap) entry.getValue()).get("sound")).toString());
-                if (sound < 20) circleColor = Color.argb(100,0,228,0);
-                else if (sound < 40) circleColor = Color.argb(100,255,255,0);
-                else if (sound < 60) circleColor = Color.argb(100,255,126,0);
-                else if (sound < 80) circleColor = Color.argb(100,255,0,0);
-                else if (sound < 100) circleColor = Color.argb(100,143,63,151);
+                if (sound < 50) circleColor = Color.argb(100,0,228,0);
+                else if (sound < 65) circleColor = Color.argb(100,255,255,0);
+                else if (sound < 80) circleColor = Color.argb(100,255,126,0);
+                else if (sound < 95) circleColor = Color.argb(100,255,0,0);
+                else if (sound < 110) circleColor = Color.argb(100,143,63,151);
                 else circleColor = Color.argb(100,126,0,35);
             }
 //            else

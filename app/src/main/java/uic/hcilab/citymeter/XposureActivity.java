@@ -115,28 +115,28 @@ public class XposureActivity extends TabHost implements ApiCallback{
             //day noise
             float day_noise_bar_loc;
             int day_noise_bar_width;
-            float day_noise_range = 100f; //max - min //ToDo: Toy data
+            float day_noise_range = 90; //max - min //ToDo: Toy data
             float day_noise_value = (exposureData.get("node_sound_avg")+ exposureData.get("sensor_sound_avg"))/2;
             ImageView day_noise_bar = (ImageView) findViewById(R.id.day_noise_bar);
             ImageView day_noise_thumb = (ImageView) findViewById(R.id.day_noise_thumb);
             TextView day_noise_thumb_value = (TextView) findViewById(R.id.day_noise_value);
             day_noise_bar_width = day_noise_bar.getWidth();
             day_noise_bar_loc=day_noise_bar.getX();
-            day_noise_thumb.setX(day_noise_bar_width - (day_noise_bar_loc+ day_noise_bar_width*(day_noise_value/day_noise_range)-(day_noise_thumb.getWidth()/2)));
+            day_noise_thumb.setX(day_noise_bar_width - (day_noise_bar_loc+ day_noise_bar_width*((day_noise_value-35)/day_noise_range)-(day_noise_thumb.getWidth()/2)));
             day_noise_thumb_value.setX(day_noise_thumb.getX()+day_noise_thumb.getWidth());
             day_noise_thumb_value.setText(Math.round(day_noise_value)+"");
 
             //day noise
             float night_noise_bar_loc;
             int night_noise_bar_width;
-            float night_noise_range = 100f; //max - min //ToDo: Toy data
-            float night_noise_value = 30f;              //ToDo: Toy data
+            float night_noise_range = 90f; //max - min //ToDo: Toy data
+            float night_noise_value = 40f;              //ToDo: Toy data
             ImageView night_noise_bar = (ImageView) findViewById(R.id.night_noise_bar);
             ImageView night_noise_thumb = (ImageView) findViewById(R.id.night_noise_thumb);
             TextView night_noise_thumb_value = (TextView) findViewById(R.id.night_noise_value);
             night_noise_bar_width = night_noise_bar.getWidth();
             night_noise_bar_loc= night_noise_bar.getX();
-            night_noise_thumb.setX(night_noise_bar_loc-(night_noise_bar_loc+ night_noise_bar_width*(night_noise_value/night_noise_range)-(night_noise_thumb.getWidth()/2)));
+            night_noise_thumb.setX(night_noise_bar_width-(night_noise_bar_loc+ night_noise_bar_width*((night_noise_value-35)/night_noise_range)-(night_noise_thumb.getWidth()/2)));
             night_noise_thumb_value.setX(night_noise_thumb.getX()+night_noise_thumb.getWidth());
             night_noise_thumb_value.setText(Math.round(night_noise_value)+"");
         }
