@@ -65,8 +65,9 @@ def bluetooth_on_accept():
         print ("Accepted connection from ", client_info)
         timestamp = client_socket.recv(1024)
         print('recieved time: ' + str(timestamp))
-##        command = 'hwclock --set --date "8/11/2013 23:10:45"'
-##        set_time_command = os.system('echo %s|sudo -S %s' % ('', command))
+        time = str(timestamp).replace('b','').replace('\'','')
+        command = 'date -s "'+ str(time)+ '"'
+        set_time_command = os.system('echo %s|sudo -S %s' % ('', command))
         isConnected = True
     except BaseException as e:
         print('bluetooth connection failed: ' + str(e))
