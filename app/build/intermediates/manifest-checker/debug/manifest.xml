@@ -70,6 +70,9 @@
             android:stopWithTask="true" />
 
         <activity
+            android:name="uic.hcilab.citymeter.SettingsActivity"
+            android:label="@string/title_search" />
+        <activity
             android:name="com.google.android.gms.common.api.GoogleApiActivity"
             android:exported="false"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />

@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Fri Jul 06 18:55:57 CDT 2018
+#Fri Jul 06 19:01:38 CDT 2018
 2.base=F\:\\Projects\\CityMeter-android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\74
 5.set=DEX
 0.path=classes.dex

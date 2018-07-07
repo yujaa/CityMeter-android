@@ -57,7 +57,9 @@
             android:enabled="true"
             android:exported="true"
             android:stopWithTask="true" />
-
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_search" />
 
     </application>
 
