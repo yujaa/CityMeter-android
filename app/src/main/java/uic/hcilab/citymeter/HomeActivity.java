@@ -126,8 +126,8 @@ public class HomeActivity extends TabHost {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_settings:
-                // User chose the "Settings" item, show the app settings UI...
-                Intent intent = new Intent(this, SettingsActivity.class);
+                // User chose the "Settings" item, show thea app settings UI...
+                Intent intent = new Intent(this, AddCoUserActivity.class);
                 startActivity(intent);
 
                 return true;

@@ -44,11 +44,13 @@ public class CoUserDBHelper {
                 .build();
     }
     //CREATE
-    public void createCoEntry(String uid, String cuid) {
+    public void createCoEntry(String uid, String cuid, double isLoc, double isAct, double isCogTest) {
         final com.amazonaws.models.nosql.CousersDO entry = new com.amazonaws.models.nosql.CousersDO();
         entry.setUid(uid);
         entry.setCuid(cuid);
-
+        entry.setCanSeeActivities(isAct);
+        entry.setCanSeeLocation(isLoc);
+        entry.setCanSeeCogTest(isCogTest);
         connect();
         new Thread(new Runnable() {
             @Override
@@ -61,5 +63,12 @@ public class CoUserDBHelper {
                 }
             }
         }).start();
+    }
+    //retrieve
+    public void getCoUser(){
+
+    }
+    public void updateCoUser(){
+
     }
 }

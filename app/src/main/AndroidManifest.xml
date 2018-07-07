@@ -19,10 +19,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-
-        <activity android:name=".StepsActivity"
-            android:label= "Steps you can take" />
-
+        <activity
+            android:name=".StepsActivity"
+            android:label="Steps you can take" />
         <activity
             android:name=".HereNowActivity"
             android:label="Here &amp; Now" />
@@ -57,10 +56,11 @@
             android:enabled="true"
             android:exported="true"
             android:stopWithTask="true" />
+
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_search" />
-
+        <activity android:name=".AddCoUserActivity"></activity>
     </application>
 
 </manifest>

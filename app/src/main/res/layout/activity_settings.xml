@@ -19,29 +19,12 @@
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme" />
 
-        <LinearLayout
+        <Switch
+            android:id="@+id/locationToggle"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/locLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Location"
-                tools:layout_editor_absoluteX="61dp"
-                tools:layout_editor_absoluteY="97dp" />
-
-            <ToggleButton
-                android:id="@+id/locationToggle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="ToggleButton"
-                tools:layout_editor_absoluteX="244dp"
-                tools:layout_editor_absoluteY="69dp" />
-        </LinearLayout>
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Location" />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/appRecycler"

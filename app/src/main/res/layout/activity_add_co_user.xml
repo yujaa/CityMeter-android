@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddCoUserActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/editcotoolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+            <ImageButton
+                android:id="@+id/editCoUser"
+                android:layout_width="@android:dimen/app_icon_size"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                app:srcCompat="@drawable/ic_edit"
+                tools:layout_editor_absoluteY="511dp" />
+
+            <Switch
+                android:id="@+id/setAllCoUser"
+                android:layout_width="487dp"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_weight="9"
+                android:paddingLeft="0dp"
+                android:paddingRight="10dp"
+                android:splitTrack="false"
+                android:switchMinWidth="60dp"
+                android:switchPadding="0dp"
+                android:switchTextAppearance="@style/TextAppearance.AppCompat"
+                android:text="John"
+                android:textSize="24sp"
+                android:textStyle="normal"
+                tools:layout_editor_absoluteY="511dp"
+                />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/allowLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="15dp"
+            android:paddingLeft="8dp"
+            android:paddingTop="15dp"
+            android:text="@string/allow_to_access"
+            android:textSize="27sp"
+            android:textStyle="bold" />
+
+        <Switch
+            android:id="@+id/locationSwitch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:switchMinWidth="55dp"
+            android:text="@string/my_location"
+            android:textSize="18sp"
+            />
+
+        <Switch
+            android:id="@+id/activitiesSwitch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:switchMinWidth="55dp"
+            android:text="@string/my_activities"
+            android:textSize="18sp"/>
+
+        <Switch
+            android:id="@+id/cogSwitch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:switchMinWidth="55dp"
+            android:text="@string/cognitive_test_results"
+            android:textSize="18sp"
+            />
+
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

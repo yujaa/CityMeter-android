@@ -115,79 +115,83 @@ MERGED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\Nina
 	android:theme
 		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:21:9-65
 activity#uic.hcilab.citymeter.StepsActivity
-ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:23:9-24:51
+ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:22:9-24:50
 	android:label
-		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:24:13-48
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:24:13-47
 	android:name
-		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:23:19-48
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:23:13-42
 activity#uic.hcilab.citymeter.HereNowActivity
-ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:26:9-28:46
+ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:25:9-27:46
 	android:label
-		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:28:13-43
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:27:13-43
 	android:name
-		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:27:13-44
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:26:13-44
 activity#uic.hcilab.citymeter.XposureActivity
-ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:29:9-31:39
+ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:28:9-30:39
 	android:label
-		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:31:13-36
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:30:13-36
 	android:name
-		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:30:13-44
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:29:13-44
 activity#uic.hcilab.citymeter.SummaryActivity
-ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:32:9-34:53
+ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:31:9-33:53
 	android:label
-		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:34:13-50
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:33:13-50
 	android:name
-		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:33:13-44
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:32:13-44
 activity#uic.hcilab.citymeter.ActivitiesActivity
-ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:35:9-37:56
+ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:34:9-36:56
 	android:label
-		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:37:13-53
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:36:13-53
 	android:name
-		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:36:13-47
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:35:13-47
 activity#uic.hcilab.citymeter.SearchActivity
-ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:38:9-40:52
+ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:37:9-39:52
 	android:label
-		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:40:13-49
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:39:13-49
 	android:name
-		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:39:13-43
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:38:13-43
 activity#uic.hcilab.citymeter.HomeActivity
-ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:41:9-49:20
+ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:40:9-48:20
 	android:label
-		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:43:13-47
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:42:13-47
 	android:name
-		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:42:13-41
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:41:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:44:13-48:29
+ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:43:13-47:29
 action#android.intent.action.MAIN
-ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:45:17-69
+ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:44:17-69
 	android:name
-		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:45:25-66
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:44:25-66
 category#android.intent.category.LAUNCHER
-ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:47:17-77
+ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:46:17-77
 	android:name
-		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:47:27-74
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:46:27-74
 meta-data#com.google.android.geo.API_KEY
-ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:51:9-53:55
+ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:50:9-52:55
 	android:value
-		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:53:13-52
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:52:13-52
 	android:name
-		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:52:13-58
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:51:13-58
 service#uic.hcilab.citymeter.SensingService
-ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:55:9-59:43
+ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:54:9-58:43
 	android:enabled
-		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:57:13-35
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:56:13-35
 	android:exported
-		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:58:13-36
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:57:13-36
 	android:stopWithTask
-		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:59:13-40
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:58:13-40
 	android:name
-		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:56:13-43
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:55:13-43
 activity#uic.hcilab.citymeter.SettingsActivity
 ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:60:9-62:52
 	android:label
 		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:62:13-49
 	android:name
 		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:61:13-45
+activity#uic.hcilab.citymeter.AddCoUserActivity
+ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:63:9-64
+	android:name
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:63:19-52
 uses-sdk
 INJECTED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml

@@ -1,4 +1,4 @@
-#Fri Jul 06 19:01:38 CDT 2018
+#Fri Jul 06 20:26:18 CDT 2018
 path.1=classes.dex
 path.0=classes.dex
 renamed.5=classes6.dex
@@ -7,12 +7,12 @@ renamed.3=classes4.dex
 renamed.2=classes3.dex
 renamed.1=classes2.dex
 renamed.0=classes.dex
-base.5=F\:\\Projects\\CityMeter-android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\74
-base.4=F\:\\Projects\\CityMeter-android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\71
-base.3=F\:\\Projects\\CityMeter-android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\69
-base.2=F\:\\Projects\\CityMeter-android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\72
-base.1=F\:\\Projects\\CityMeter-android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\70
-base.0=F\:\\Projects\\CityMeter-android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\73
+base.5=F\:\\Projects\\CityMeter-android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\16
+base.4=F\:\\Projects\\CityMeter-android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\13
+base.3=F\:\\Projects\\CityMeter-android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\14
+base.2=F\:\\Projects\\CityMeter-android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\11
+base.1=F\:\\Projects\\CityMeter-android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\12
+base.0=F\:\\Projects\\CityMeter-android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\15
 path.5=classes.dex
 path.4=classes.dex
 path.3=classes.dex

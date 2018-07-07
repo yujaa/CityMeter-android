@@ -9,4 +9,8 @@
     <string name="title_summary">Summary</string>
     <string name="title_activity_settings">Settings</string>
     <string name="title_bt">Bluetooth</string>
+    <string name="allow_to_access">Allow To Access</string>
+    <string name="my_location">My Location</string>
+    <string name="my_activities">My Activities</string>
+    <string name="cognitive_test_results">Cognitive Test Results</string>
 </resources>
