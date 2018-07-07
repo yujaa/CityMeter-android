@@ -78,6 +78,15 @@ public class HomeActivity extends TabHost {
                 startActivity(hn_intent);
             }
         });
+
+        Button step_btn = (Button)findViewById(R.id.home_step_btn);
+        final Intent st_intent = new Intent(this, StepsActivity.class);
+        step_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(st_intent);
+            }
+        });
     }
 
 
