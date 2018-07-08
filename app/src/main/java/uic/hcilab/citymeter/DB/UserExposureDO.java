@@ -1,4 +1,4 @@
-package uic.hcilab.citymeter;
+package uic.hcilab.citymeter.DB;
 
 import com.amazonaws.mobileconnectors.dynamodbv2.dynamodbmapper.DynamoDBAttribute;
 import com.amazonaws.mobileconnectors.dynamodbv2.dynamodbmapper.DynamoDBHashKey;

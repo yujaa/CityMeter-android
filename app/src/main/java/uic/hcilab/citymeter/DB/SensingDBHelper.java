@@ -1,4 +1,4 @@
-package uic.hcilab.citymeter;
+package uic.hcilab.citymeter.DB;
 
 import android.content.Context;
 import android.util.Log;
@@ -11,13 +11,14 @@ import com.amazonaws.mobile.config.AWSConfiguration;
 import com.amazonaws.mobileconnectors.dynamodbv2.dynamodbmapper.DynamoDBMapper;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
 
-public class CoUserDBHelper {
 
+
+public class SensingDBHelper  {
     // Declare a DynamoDBMapper object
     DynamoDBMapper dynamoDBMapper;
     Context ctx;
 
-    CoUserDBHelper (Context context) {
+    public SensingDBHelper (Context context) {
         ctx = context;
         connect();
     }
@@ -44,31 +45,54 @@ public class CoUserDBHelper {
                 .build();
     }
     //CREATE
-    public void createCoEntry(String uid, String cuid, double isLoc, double isAct, double isCogTest) {
-        final com.amazonaws.models.nosql.CousersDO entry = new com.amazonaws.models.nosql.CousersDO();
-        entry.setUid(uid);
-        entry.setCuid(cuid);
-        entry.setCanSeeActivities(isAct);
-        entry.setCanSeeLocation(isLoc);
-        entry.setCanSeeCogTest(isCogTest);
+    public void createExposureInst_pm(String id, String timestamp, double pm , double lon, double lat, double ind ) {
+        final UserExposureDO exposureInst = new UserExposureDO();
+
+        exposureInst.setUserId(id);
+
+        exposureInst.setTimestamp(timestamp);
+
+        exposureInst.setPm25(pm);
+        exposureInst.setDBA(-1.0);
+        exposureInst.setLongitude(lon);
+        exposureInst.setLatitude(lat);
+        exposureInst.setIndoor(ind);
         connect();
         new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
-                    dynamoDBMapper.save(entry);
+                    dynamoDBMapper.save(exposureInst);
                     // Item saved
-                } catch (Exception e) {
+                }catch (Exception e){
                     Log.i("BT", "Error writing to dB: " + e.toString());
                 }
             }
         }).start();
     }
-    //retrieve
-    public void getCoUser(){
+    public void createExposureInst_dBA(String id, String timestamp, double dbA , double lon, double lat, double ind ) {
+        final UserExposureDO exposureInst = new UserExposureDO();
 
-    }
-    public void updateCoUser(){
-
+        exposureInst.setUserId(id);
+        exposureInst.setTimestamp(timestamp);
+        exposureInst.setPm25(-1.0);
+        exposureInst.setDBA(dbA);
+        exposureInst.setLongitude(lon);
+        exposureInst.setLatitude(lat);
+        exposureInst.setIndoor(ind);
+        connect();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    dynamoDBMapper.save(exposureInst);
+                    Log.i("nina", "wrote to db");
+                    // Item saved
+                }
+                catch (Exception e){
+                    Log.i("nina", e.toString());
+                }
+            }
+        }).start();
     }
 }

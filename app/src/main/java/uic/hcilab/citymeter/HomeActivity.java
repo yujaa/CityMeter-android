@@ -1,32 +1,28 @@
 package uic.hcilab.citymeter;
 
 import android.Manifest;
-import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
-import android.content.Context;
-import android.content.ContextWrapper;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.view.menu.MenuBuilder;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewTreeObserver;
 import android.view.WindowManager;
-import android.widget.ActionMenuView;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.ImageButton;
+
 import com.amazonaws.mobile.client.AWSMobileClient;
 import com.amazonaws.mobile.client.AWSStartupHandler;
 import com.amazonaws.mobile.client.AWSStartupResult;
+
+import uic.hcilab.citymeter.DB.SensingDBHelper;
+import uic.hcilab.citymeter.Sensing.SensingService;
 
 public class HomeActivity extends TabHost {
 
@@ -127,7 +123,7 @@ public class HomeActivity extends TabHost {
         switch (item.getItemId()) {
             case R.id.action_settings:
                 // User chose the "Settings" item, show thea app settings UI...
-                Intent intent = new Intent(this, AddCoUserActivity.class);
+                Intent intent = new Intent(this, SettingsActivity.class);
                 startActivity(intent);
 
                 return true;

@@ -5,68 +5,50 @@
     build-mode="COLD"
     density="hdpi"
     format="10"
-    ir-eligibility="R_CLASS_CHANGE"
+    ir-eligibility="FIELD_ADDED"
     plugin-version="3.1.2"
-    timestamp="1530926773610"
+    timestamp="1531066300062"
     token="6557461817571977091"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="1651" />
+        duration="361" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="17" />
+        duration="39" />
     <task
         name="verifier"
-        duration="64" />
+        duration="15" />
 
-    <artifact
-        location="F:\Projects\CityMeter-android\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
-        type="SPLIT" />
-    <artifact
-        location="F:\Projects\CityMeter-android\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
-        type="SPLIT" />
     <artifact
         location="F:\Projects\CityMeter-android\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
         type="SPLIT" />
     <artifact
-        location="F:\Projects\CityMeter-android\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
-        type="SPLIT" />
-    <artifact
-        location="F:\Projects\CityMeter-android\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
-        type="SPLIT" />
-    <artifact
         location="F:\Projects\CityMeter-android\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
         type="SPLIT" />
-    <artifact
-        location="F:\Projects\CityMeter-android\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
-        type="SPLIT" />
-    <artifact
-        location="F:\Projects\CityMeter-android\app\build\intermediates\instant-run-apk\debug\app-debug.apk"
-        type="SPLIT_MAIN" />
 
     <build
         build-mode="FULL"
-        timestamp="1530924139664"
+        timestamp="1531060369841"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
-            location="F:\Projects\CityMeter-android\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
+            location="F:\Projects\CityMeter-android\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
             type="SPLIT" />
         <artifact
-            location="F:\Projects\CityMeter-android\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
-            type="SPLIT" />
-        <artifact
-            location="F:\Projects\CityMeter-android\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
+            location="F:\Projects\CityMeter-android\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
             type="SPLIT" />
         <artifact
             location="F:\Projects\CityMeter-android\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
             type="SPLIT" />
         <artifact
-            location="F:\Projects\CityMeter-android\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
+            location="F:\Projects\CityMeter-android\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
+            type="SPLIT" />
+        <artifact
+            location="F:\Projects\CityMeter-android\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
             type="SPLIT" />
         <artifact
             location="F:\Projects\CityMeter-android\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
@@ -75,16 +57,40 @@
             location="F:\Projects\CityMeter-android\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
             type="SPLIT" />
         <artifact
-            location="F:\Projects\CityMeter-android\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
+            location="F:\Projects\CityMeter-android\app\build\intermediates\instant-run-apk\debug\app-debug.apk"
+            type="SPLIT_MAIN" />
+        <artifact
+            location="F:\Projects\CityMeter-android\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
+            type="SPLIT" />
+        <artifact
+            location="F:\Projects\CityMeter-android\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
+            type="SPLIT" />
+        <artifact
+            location="F:\Projects\CityMeter-android\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
+            type="SPLIT" />
+        <artifact
+            location="F:\Projects\CityMeter-android\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
+            type="SPLIT" />
+    </build>
+    <build
+        build-mode="COLD"
+        ir-eligibility="R_CLASS_CHANGE"
+        timestamp="1531065702046"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="F:\Projects\CityMeter-android\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
             type="SPLIT" />
         <artifact
             location="F:\Projects\CityMeter-android\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
             type="SPLIT" />
         <artifact
-            location="F:\Projects\CityMeter-android\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
+            location="F:\Projects\CityMeter-android\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
             type="SPLIT" />
         <artifact
-            location="F:\Projects\CityMeter-android\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
+            location="F:\Projects\CityMeter-android\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
+            type="SPLIT" />
+        <artifact
+            location="F:\Projects\CityMeter-android\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
             type="SPLIT" />
         <artifact
             location="F:\Projects\CityMeter-android\app\build\intermediates\instant-run-apk\debug\app-debug.apk"
@@ -92,33 +98,15 @@
     </build>
     <build
         build-mode="COLD"
-        ir-eligibility="R_CLASS_CHANGE"
-        timestamp="1530926773610"
+        ir-eligibility="FIELD_ADDED"
+        timestamp="1531066300062"
         verifier="COLD_SWAP_REQUESTED" >
-        <artifact
-            location="F:\Projects\CityMeter-android\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
-            type="SPLIT" />
-        <artifact
-            location="F:\Projects\CityMeter-android\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
-            type="SPLIT" />
         <artifact
             location="F:\Projects\CityMeter-android\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
             type="SPLIT" />
         <artifact
-            location="F:\Projects\CityMeter-android\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
-            type="SPLIT" />
-        <artifact
-            location="F:\Projects\CityMeter-android\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
-            type="SPLIT" />
-        <artifact
             location="F:\Projects\CityMeter-android\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
             type="SPLIT" />
-        <artifact
-            location="F:\Projects\CityMeter-android\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
-            type="SPLIT" />
-        <artifact
-            location="F:\Projects\CityMeter-android\app\build\intermediates\instant-run-apk\debug\app-debug.apk"
-            type="SPLIT_MAIN" />
     </build>
 
 </instant-run>

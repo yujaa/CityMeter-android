@@ -13,4 +13,8 @@
     <string name="my_location">My Location</string>
     <string name="my_activities">My Activities</string>
     <string name="cognitive_test_results">Cognitive Test Results</string>
+    <string name="app_settings">App Settings</string>
+    <string name="your_co_users">Your Co-Users</string>
+    <string name="location">Location</string>
+    <string name="add_couser">Add CoUser</string>
 </resources>

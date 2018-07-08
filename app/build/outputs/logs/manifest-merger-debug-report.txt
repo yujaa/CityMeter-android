@@ -15,6 +15,7 @@ MERGED from [com.google.android.gms:play-services-tasks:15.0.1] C:\Users\Nina Sa
 MERGED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\play-services-basement-15.0.1.aar\966c6ce9d3b1164e0772667f995d4d86\AndroidManifest.xml:17:1-28:12
 MERGED from [com.android.support:support-v4:27.1.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\c11e60ef613464c3087dd99f2a941814\AndroidManifest.xml:17:1-22:12
 MERGED from [com.amazonaws:aws-android-sdk-mobile-client:2.6.24] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-mobile-client-2.6.24.aar\1db1b6ac1d5fa2d959e1daf52f252886\AndroidManifest.xml:2:1-6:12
+MERGED from [com.android.support:cardview-v7:27.1.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\cardview-v7-27.1.1.aar\08dda9b19658acb5ed292ebb4eb06485\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\8939a9286a28d42d537b3552e90f10a3\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\ffb4aa3421bbd50297d32cf8005fe1c1\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:recyclerview-v7:27.1.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.1.aar\fc3593900f27f5412b026a349c27090c\AndroidManifest.xml:17:1-22:12
@@ -172,7 +173,7 @@ ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:50:9-5
 		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:52:13-52
 	android:name
 		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:51:13-58
-service#uic.hcilab.citymeter.SensingService
+service#uic.hcilab.citymeter.Sensing.SensingService
 ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:54:9-58:43
 	android:enabled
 		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:56:13-35
@@ -181,7 +182,7 @@ ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:54:9-5
 	android:stopWithTask
 		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:58:13-40
 	android:name
-		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:55:13-43
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:55:13-51
 activity#uic.hcilab.citymeter.SettingsActivity
 ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:60:9-62:52
 	android:label
@@ -218,6 +219,8 @@ MERGED from [com.android.support:support-v4:27.1.1] C:\Users\Nina Sakhnini\.grad
 MERGED from [com.android.support:support-v4:27.1.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\c11e60ef613464c3087dd99f2a941814\AndroidManifest.xml:20:5-44
 MERGED from [com.amazonaws:aws-android-sdk-mobile-client:2.6.24] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-mobile-client-2.6.24.aar\1db1b6ac1d5fa2d959e1daf52f252886\AndroidManifest.xml:4:5-73
 MERGED from [com.amazonaws:aws-android-sdk-mobile-client:2.6.24] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-mobile-client-2.6.24.aar\1db1b6ac1d5fa2d959e1daf52f252886\AndroidManifest.xml:4:5-73
+MERGED from [com.android.support:cardview-v7:27.1.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\cardview-v7-27.1.1.aar\08dda9b19658acb5ed292ebb4eb06485\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:27.1.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\cardview-v7-27.1.1.aar\08dda9b19658acb5ed292ebb4eb06485\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\8939a9286a28d42d537b3552e90f10a3\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\8939a9286a28d42d537b3552e90f10a3\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\Nina Sakhnini\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\ffb4aa3421bbd50297d32cf8005fe1c1\AndroidManifest.xml:20:5-44

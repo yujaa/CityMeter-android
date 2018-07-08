@@ -64,7 +64,7 @@
             android:value="@string/google_maps_key" />
 
         <service
-            android:name="uic.hcilab.citymeter.SensingService"
+            android:name="uic.hcilab.citymeter.Sensing.SensingService"
             android:enabled="true"
             android:exported="true"
             android:stopWithTask="true" />

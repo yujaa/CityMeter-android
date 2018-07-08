@@ -1,4 +1,4 @@
-package uic.hcilab.citymeter;
+package uic.hcilab.citymeter.DB;
 
 
 import android.content.Context;
@@ -10,7 +10,6 @@ import com.amazonaws.mobile.client.AWSStartupHandler;
 import com.amazonaws.mobile.client.AWSStartupResult;
 import com.amazonaws.mobile.config.AWSConfiguration;
 import com.amazonaws.mobileconnectors.dynamodbv2.dynamodbmapper.DynamoDBMapper;
-import com.amazonaws.models.nosql.UsersDO;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
 
 public class UsersDBHelper {
@@ -46,7 +45,7 @@ public class UsersDBHelper {
     }
     //CREATE
     public void createUser(String id, String name,  double isCo) {
-        final com.amazonaws.models.nosql.UsersDO user = new UsersDO();
+        final UsersDO user = new UsersDO();
 
         user.setUserID(id);
         user.setName(name);
