@@ -193,6 +193,7 @@ public class CoUserDBHelper {
             public void run() {
                 try {
                     dynamoDBMapper.save(entry);
+                    isDone = true;
                     // Item saved
                 } catch (Exception e) {
                     Log.i("BT", "Error writing to dB: " + e.toString());
@@ -214,10 +215,10 @@ public class CoUserDBHelper {
             @Override
             public void run() {
                 coUsers = dynamoDBMapper.scan(CousersDO.class, scanExpression);
+                isDone = true;
             }
         }).start();
     }
-
     public void getAllCoUsers(String userID) {
         Map<String, AttributeValue> eav = new HashMap<String, AttributeValue>();
         eav.put(":val1", new AttributeValue().withS(userID));
@@ -242,8 +243,7 @@ public class CoUserDBHelper {
             }
         }).start();
     }
-
-    public void updateCoUser(String id, String cid, double location, double activity, double cogTest) {
+    public CousersDO updateCoUser(String id, String cid, double location, double activity, double cogTest) {
         final CousersDO user = new CousersDO();
         user.setUid(id);
         user.setCuid(cid);
@@ -257,6 +257,16 @@ public class CoUserDBHelper {
                 dynamoDBMapper.save(user);
             }
         }).start();
-
+        return user;
+    }
+    public void deletecoUser(final CousersDO coUser) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                dynamoDBMapper.delete(coUser);
+                isDone = true;
+                // Item deleted
+            }
+        }).start();
     }
 }

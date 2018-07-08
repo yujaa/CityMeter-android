@@ -189,10 +189,10 @@ ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:60:9-6
 		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:62:13-49
 	android:name
 		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:61:13-45
-activity#uic.hcilab.citymeter.AddCoUserActivity
-ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:63:9-64
+activity#uic.hcilab.citymeter.DetailCoUserActivity
+ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:63:9-67
 	android:name
-		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:63:19-52
+		ADDED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml:63:19-55
 uses-sdk
 INJECTED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from F:\Projects\CityMeter-android\app\src\main\AndroidManifest.xml

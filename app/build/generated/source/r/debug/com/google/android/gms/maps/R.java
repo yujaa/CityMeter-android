@@ -33,10 +33,10 @@ public final class R {
         public static final int zOrderOnTop = 0x7f0301c1;
     }
     public static final class id {
-        public static final int hybrid = 0x7f080079;
-        public static final int none = 0x7f0800a1;
-        public static final int normal = 0x7f0800a2;
-        public static final int satellite = 0x7f0800c1;
+        public static final int hybrid = 0x7f08007a;
+        public static final int none = 0x7f0800a2;
+        public static final int normal = 0x7f0800a3;
+        public static final int satellite = 0x7f0800c2;
         public static final int terrain = 0x7f0800ef;
     }
     public static final class styleable {

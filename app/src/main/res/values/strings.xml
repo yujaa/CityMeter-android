@@ -17,4 +17,5 @@
     <string name="your_co_users">Your Co-Users</string>
     <string name="location">Location</string>
     <string name="add_couser">Add CoUser</string>
+    <string name="delete">Delete</string>
 </resources>

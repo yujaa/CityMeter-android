@@ -1,7 +1,6 @@
 package uic.hcilab.citymeter;
 
-import android.support.design.widget.AppBarLayout;
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -10,13 +9,13 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import uic.hcilab.citymeter.DB.CoUserDBHelper;
 import uic.hcilab.citymeter.DB.CousersDO;
 import uic.hcilab.citymeter.Helpers.CoUserRecyclerViewAdapter;
 
+//TODO: update user ID
 public class SettingsActivity extends TabHost implements CoUserRecyclerViewAdapter.ItemClickListener {
     CoUserRecyclerViewAdapter adapter;
     CoUserDBHelper coUserDBHelper;
@@ -50,6 +49,7 @@ public class SettingsActivity extends TabHost implements CoUserRecyclerViewAdapt
         coUserDBHelper.getAllCoUsers("1");
         while (!coUserDBHelper.isDone){
         }
+        coUserDBHelper.isDone = false;
         List<CousersDO> coUsers = coUserDBHelper.coUsers;
 
 
@@ -72,7 +72,10 @@ public class SettingsActivity extends TabHost implements CoUserRecyclerViewAdapt
     }
     @Override
     public void onItemClick(View view, int position) {
-
+        Intent intent = new Intent(getBaseContext(), DetailCoUserActivity.class);
+        intent.putExtra("COUSER_ID", adapter.getItem(position));
+        startActivity(intent);
+        SettingsActivity.this.finish();
         Toast.makeText(this, "You clicked " + adapter.getItem(position) + " on row number " + position, Toast.LENGTH_SHORT).show();
     }
 }

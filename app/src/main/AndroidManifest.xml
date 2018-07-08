@@ -60,7 +60,7 @@
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_search" />
-        <activity android:name=".AddCoUserActivity"></activity>
+        <activity android:name=".DetailCoUserActivity"></activity>
     </application>
 
 </manifest>
