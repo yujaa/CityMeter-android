@@ -5,8 +5,11 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.audiofx.Equalizer;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.SystemClock;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -47,88 +50,84 @@ public class DetailCoUserActivity extends TabHost {
         couserToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getBaseContext(), SettingsActivity.class);
+                Intent intent = new Intent(getApplicationContext(), SettingsActivity.class);
                 startActivity(intent);
                 DetailCoUserActivity.this.finish();
             }
         });
-        coUserDBHelper = new CoUserDBHelper(this);
-        coUserDBHelper.getCoUser("1"/*not co user ID*/, cuid);
-        while (! coUserDBHelper.isDone){
+        if (isOnline()) {
+            Log.i("coco", "internet is here");
+            coUserDBHelper = new CoUserDBHelper(this);
+            coUserDBHelper.getCoUser("1"/*not co user ID*/, cuid);
+            cousersDO = coUserDBHelper.coUsers.get(0);
 
-        }
-        coUserDBHelper.isDone = false;
-        cousersDO = coUserDBHelper.coUsers.get(0);
-
-        final Switch locationSwitch = (Switch) findViewById(R.id.locationSwitch);
-        if (cousersDO.getCanSeeLocation() == 1.0){
-            isTrue = true;
-        }
-        else{
-            isTrue = false;
-        }
-        locationSwitch.setChecked(isTrue);
-        locationSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                double loc;
-                if(cousersDO.getCanSeeLocation() == 1.0){
-                    loc = 0.0;
-                }
-                else{
-                    loc = 1.0;
-                }
-                cousersDO = coUserDBHelper.updateCoUser("1", cuid, loc,cousersDO.getCanSeeActivities(), cousersDO.getCanSeeCogTest());
+            final Switch locationSwitch = (Switch) findViewById(R.id.locationSwitch);
+            if (cousersDO.getCanSeeLocation() == 1.0) {
+                isTrue = true;
+            } else {
+                isTrue = false;
             }
-        });
-
-        final Switch activitiesSwitch = (Switch) findViewById(R.id.activitiesSwitch);
-
-        if (cousersDO.getCanSeeActivities() == 1.0){
-            isTrue = true;
-        }
-        else{
-            isTrue = false;
-        }
-        activitiesSwitch.setChecked(isTrue);
-        activitiesSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
-                double act;
-                if(cousersDO.getCanSeeActivities() == 1.0){
-                    act = 0.0;
+            locationSwitch.setChecked(isTrue);
+            locationSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    double loc;
+                    if (cousersDO.getCanSeeLocation() == 1.0) {
+                        loc = 0.0;
+                    } else {
+                        loc = 1.0;
+                    }
+                    cousersDO = coUserDBHelper.updateCoUser("1", cuid, loc, cousersDO.getCanSeeActivities(), cousersDO.getCanSeeCogTest());
                 }
-                else{
-                    act = 1.0;
-                }
-                cousersDO = coUserDBHelper.updateCoUser("1", cuid, cousersDO.getCanSeeLocation(),act, cousersDO.getCanSeeCogTest());
+            });
+
+            final Switch activitiesSwitch = (Switch) findViewById(R.id.activitiesSwitch);
+
+            if (cousersDO.getCanSeeActivities() == 1.0) {
+                isTrue = true;
+            } else {
+                isTrue = false;
             }
-        });
+            activitiesSwitch.setChecked(isTrue);
+            activitiesSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
-        final Switch cognitiveDataSwitch = (Switch) findViewById(R.id.cogSwitch);
+                    double act;
+                    if (cousersDO.getCanSeeActivities() == 1.0) {
+                        act = 0.0;
+                    } else {
+                        act = 1.0;
+                    }
+                    cousersDO = coUserDBHelper.updateCoUser("1", cuid, cousersDO.getCanSeeLocation(), act, cousersDO.getCanSeeCogTest());
+                }
+            });
 
-        if (cousersDO.getCanSeeCogTest() == 1.0){
-            isTrue = true;
-        }
-        else{
-            isTrue = false;
-        }
-        cognitiveDataSwitch.setChecked(isTrue);
-        cognitiveDataSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                double cog;
-                if(cousersDO.getCanSeeCogTest() == 1.0){
-                    cog = 0.0;
-                }
-                else{
-                    cog = 1.0;
-                }
-                cousersDO = coUserDBHelper.updateCoUser("1", cuid, cousersDO.getCanSeeLocation(),cousersDO.getCanSeeActivities(), cog);
+            final Switch cognitiveDataSwitch = (Switch) findViewById(R.id.cogSwitch);
+
+            if (cousersDO.getCanSeeCogTest() == 1.0) {
+                isTrue = true;
+            } else {
+                isTrue = false;
             }
-        });
-
+            cognitiveDataSwitch.setChecked(isTrue);
+            cognitiveDataSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    double cog;
+                    if (cousersDO.getCanSeeCogTest() == 1.0) {
+                        cog = 0.0;
+                    } else {
+                        cog = 1.0;
+                    }
+                    cousersDO = coUserDBHelper.updateCoUser("1", cuid, cousersDO.getCanSeeLocation(), cousersDO.getCanSeeActivities(), cog);
+                }
+            });
+        }
+        else
+        {
+            Toast.makeText(this,"Internet is not connected", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
@@ -159,18 +158,17 @@ public class DetailCoUserActivity extends TabHost {
                 alertDialog.setPositiveButton("OK",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
-                                coUserDBHelper.deletecoUser(cousersDO);
-                                while (!coUserDBHelper.isDone){
+                                if(isOnline()) {
+                                    coUserDBHelper.deletecoUser(cousersDO);
+                                    cousersDO.setCuid(input.getText().toString());
+                                    coUserDBHelper.createCoEntry("1", cousersDO.getCuid(), cousersDO.getCanSeeLocation(),
+                                            cousersDO.getCanSeeActivities(), cousersDO.getCanSeeCogTest());
+                                    getSupportActionBar().setTitle(cousersDO.getCuid());
                                 }
-                                coUserDBHelper.isDone = false;
-                                cousersDO.setCuid(input.getText().toString());
-                                coUserDBHelper.createCoEntry("1", cousersDO.getCuid(), cousersDO.getCanSeeLocation(),
-                                        cousersDO.getCanSeeActivities(),cousersDO.getCanSeeCogTest());
-                                while (!coUserDBHelper.isDone){
-
+                                else
+                                {
+                                    Toast.makeText(DetailCoUserActivity.this,"Internet is not connected", Toast.LENGTH_SHORT).show();
                                 }
-                                coUserDBHelper.isDone = false;
-                                getSupportActionBar().setTitle(cousersDO.getCuid());
                             }
                         });
 
@@ -189,13 +187,16 @@ public class DetailCoUserActivity extends TabHost {
                     public void onClick(DialogInterface dialog, int which) {
                         switch (which) {
                             case DialogInterface.BUTTON_POSITIVE:
+                                if(isOnline()){
                                 coUserDBHelper.deletecoUser(cousersDO);
-                                while (!coUserDBHelper.isDone) {
-                                }
-                                coUserDBHelper.isDone = false;
                                 Intent intent = new Intent(getBaseContext(), SettingsActivity.class);
                                 startActivity(intent);
                                 DetailCoUserActivity.this.finish();
+                                }
+                                else
+                                {
+                                    Toast.makeText(DetailCoUserActivity.this,"Internet is not connected", Toast.LENGTH_SHORT).show();
+                                }
                                 break;
 
                             case DialogInterface.BUTTON_NEGATIVE:
@@ -216,7 +217,13 @@ public class DetailCoUserActivity extends TabHost {
         }
     }
 
-
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(getBaseContext(), SettingsActivity.class);
+        startActivity(intent);
+        DetailCoUserActivity.this.finish();
+    }
 
     @Override
     public int getContentViewId() {
@@ -226,5 +233,20 @@ public class DetailCoUserActivity extends TabHost {
     @Override
     public int getNavigationMenuItemId() {
         return R.id.navigation_home;
+    }
+
+    public boolean isOnline() {
+        boolean connected = false;
+        try {
+            ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
+            NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+            connected = networkInfo != null && networkInfo.isAvailable() &&
+                    networkInfo.isConnected();
+            return connected;
+        } catch (Exception e) {
+            System.out.println("CheckConnectivity Exception: " + e.getMessage());
+            Log.v("connectivity", e.toString());
+        }
+        return connected;
     }
 }

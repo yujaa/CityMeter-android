@@ -150,13 +150,14 @@ public class CoUserDBHelper {
         }
     };
     public Boolean isDone = false;
+    public Thread thread;
 
     public CoUserDBHelper(Context context) {
         ctx = context;
         connect();
     }
 
-    private void connect() {
+    public void connect() {
         // AWSMobileClient enables AWS user credentials to access your table
         AWSMobileClient.getInstance().initialize(ctx, new AWSStartupHandler() {
             @Override
@@ -187,8 +188,7 @@ public class CoUserDBHelper {
         entry.setCanSeeActivities(isAct);
         entry.setCanSeeLocation(isLoc);
         entry.setCanSeeCogTest(isCogTest);
-        connect();
-        new Thread(new Runnable() {
+        Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
@@ -199,27 +199,38 @@ public class CoUserDBHelper {
                     Log.i("BT", "Error writing to dB: " + e.toString());
                 }
             }
-        }).start();
+        });
+        thread.start();
+        while(!isDone){}
+        isDone = false;
+        thread.interrupt();
     }
 
     //retrieve
     public void getCoUser(final String ID, String cID) {
-        Map<String, AttributeValue> eav = new HashMap<String, AttributeValue>();
+        try{Map<String, AttributeValue> eav = new HashMap<String, AttributeValue>();
         eav.put(":val1", new AttributeValue().withS(ID));
         eav.put(":val2", new AttributeValue().withS(cID));
 
         final DynamoDBScanExpression scanExpression = new DynamoDBScanExpression()
                 .withFilterExpression("uid = :val1 and cuid = :val2").withExpressionAttributeValues(eav);
-        connect();
-        new Thread(new Runnable() {
+        Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
                 coUsers = dynamoDBMapper.scan(CousersDO.class, scanExpression);
                 isDone = true;
             }
-        }).start();
+        });
+        thread.start();
+        //while(!isDone){}
+        isDone = false;
+        thread.join();}
+        catch (Exception e){
+            
+        }
     }
-    public void getAllCoUsers(String userID) {
+    public void getAllCoUsers(String userID)  {
+        try{
         Map<String, AttributeValue> eav = new HashMap<String, AttributeValue>();
         eav.put(":val1", new AttributeValue().withS(userID));
 
@@ -227,46 +238,65 @@ public class CoUserDBHelper {
                 .withFilterExpression("uid = :val1 ").withExpressionAttributeValues(eav);
 //        final DynamoDBQueryExpression queryExpression = new DynamoDBQueryExpression().withFilterExpression("uid = :val1 ").withExpressionAttributeValues(eav);
 
-        connect();
 
 //                coUsers = dynamoDBMapper.query(CousersDO.class, scanExpression);
-        new Thread(new Runnable() {
+        thread = new Thread(new Runnable() {
             @Override
             public void run() {
                 coUsers = dynamoDBMapper.scan(CousersDO.class, scanExpression);
-
-                for (CousersDO co:coUsers
-                        ) {
-                    Log.i("coco", co.getCuid());
-                }
                 isDone = true;
             }
-        }).start();
+        });
+        thread.start();
+        //while(!isDone){}
+        isDone = false;
+        thread.join();}
+        catch (Exception e){
+
+        }
     }
     public CousersDO updateCoUser(String id, String cid, double location, double activity, double cogTest) {
         final CousersDO user = new CousersDO();
-        user.setUid(id);
+        try{user.setUid(id);
         user.setCuid(cid);
         user.setCanSeeLocation(location);
         user.setCanSeeActivities(activity);
         user.setCanSeeCogTest(cogTest);
 
-        new Thread(new Runnable() {
+        Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
                 dynamoDBMapper.save(user);
             }
-        }).start();
+        });
+        thread.start();
+       // while(!isDone){}
+        isDone = false;
+        thread.join();}
+        catch (Exception e){
+
+        }
         return user;
     }
     public void deletecoUser(final CousersDO coUser) {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                dynamoDBMapper.delete(coUser);
-                isDone = true;
-                // Item deleted
-            }
-        }).start();
+        try{
+            Thread thread = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    dynamoDBMapper.delete(coUser);
+                    isDone = true;
+                    // Item deleted
+                }
+            });
+
+        thread.start();
+        //while(!isDone){}
+        isDone = false;
+        thread.join();
+        }
+        catch (Exception e){
+
+        }
+
     }
 }

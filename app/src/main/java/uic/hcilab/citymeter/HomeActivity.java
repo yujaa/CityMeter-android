@@ -125,7 +125,6 @@ public class HomeActivity extends TabHost {
                 // User chose the "Settings" item, show thea app settings UI...
                 Intent intent = new Intent(this, SettingsActivity.class);
                 startActivity(intent);
-
                 return true;
 
             default:

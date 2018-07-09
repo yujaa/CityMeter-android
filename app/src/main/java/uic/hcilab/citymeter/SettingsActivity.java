@@ -1,15 +1,22 @@
 package uic.hcilab.citymeter;
 
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 
 import uic.hcilab.citymeter.DB.CoUserDBHelper;
 import uic.hcilab.citymeter.DB.CousersDO;
@@ -45,22 +52,36 @@ public class SettingsActivity extends TabHost implements CoUserRecyclerViewAdapt
             public void onClick(View v) {
             }
         });
-        coUserDBHelper = new CoUserDBHelper(this);
-        coUserDBHelper.getAllCoUsers("1");
-        while (!coUserDBHelper.isDone){
-        }
-        coUserDBHelper.isDone = false;
-        List<CousersDO> coUsers = coUserDBHelper.coUsers;
 
-
-        // set up the RecyclerView
-        RecyclerView recyclerView = findViewById(R.id.couserRecycler);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new CoUserRecyclerViewAdapter(this, coUsers);
-        adapter.setClickListener(this);
-        recyclerView.setAdapter(adapter);
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (isOnline()) {
+            coUserDBHelper = new CoUserDBHelper(this);
+            coUserDBHelper.connect();
+            coUserDBHelper.getAllCoUsers("1");
+            List<CousersDO> coUsers = coUserDBHelper.coUsers;
+
+            // set up the RecyclerView
+            RecyclerView recyclerView = findViewById(R.id.couserRecycler);
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+            adapter = new CoUserRecyclerViewAdapter(this, coUsers);
+            adapter.setClickListener(this);
+            recyclerView.setAdapter(adapter);
+        }
+        else
+        {
+            Toast.makeText(this,"Internet is not connected", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        SettingsActivity.this.finish();
+    }
 
     @Override
     public int getContentViewId() {
@@ -76,6 +97,25 @@ public class SettingsActivity extends TabHost implements CoUserRecyclerViewAdapt
         intent.putExtra("COUSER_ID", adapter.getItem(position));
         startActivity(intent);
         SettingsActivity.this.finish();
-        Toast.makeText(this, "You clicked " + adapter.getItem(position) + " on row number " + position, Toast.LENGTH_SHORT).show();
+    }
+
+    public boolean isOnline() {
+        boolean connected = false;
+        try {
+            ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
+            NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+            connected = networkInfo != null && networkInfo.isAvailable() &&
+                    networkInfo.isConnected();
+            return connected;
+        } catch (Exception e) {
+            System.out.println("CheckConnectivity Exception: " + e.getMessage());
+            Log.v("connectivity", e.toString());
+        }
+        return connected;
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 }
