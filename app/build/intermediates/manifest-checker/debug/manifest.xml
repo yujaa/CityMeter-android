@@ -73,6 +73,7 @@
             android:name="uic.hcilab.citymeter.SettingsActivity"
             android:label="@string/title_search" />
         <activity android:name="uic.hcilab.citymeter.DetailCoUserActivity" />
+        <activity android:name="uic.hcilab.citymeter.AddCoUserActivity" />
         <activity
             android:name="com.google.android.gms.common.api.GoogleApiActivity"
             android:exported="false"

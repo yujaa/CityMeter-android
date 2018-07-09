@@ -50,6 +50,9 @@ public class SettingsActivity extends TabHost implements CoUserRecyclerViewAdapt
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(getBaseContext(), AddCoUserActivity.class);
+                startActivity(intent);
+                SettingsActivity.this.finish();
             }
         });
 
