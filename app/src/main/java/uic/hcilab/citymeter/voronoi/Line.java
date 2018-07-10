@@ -1,4 +1,4 @@
-package voronoi;
+package uic.hcilab.citymeter.voronoi;
 
 public class Line {
     Intersection.Point p1;

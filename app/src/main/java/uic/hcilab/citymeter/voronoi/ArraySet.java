@@ -1,4 +1,4 @@
-package voronoi;
+package uic.hcilab.citymeter.voronoi;
 /*
  * Copyright (c) 2007 by L. Paul Chew.
  *
