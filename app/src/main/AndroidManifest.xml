@@ -39,14 +39,7 @@
             android:label="@string/title_search" />
         <activity
             android:name=".HomeActivity"
-            android:label="@string/title_home">
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:label="@string/title_home"></activity>
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -64,7 +57,13 @@
         <activity android:name=".DetailCoUserActivity" />
         <activity android:name=".AddCoUserActivity" />
         <activity android:name=".AuthenticatorActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
+        <activity android:name=".SignupActivity"></activity>
     </application>
 
 </manifest>

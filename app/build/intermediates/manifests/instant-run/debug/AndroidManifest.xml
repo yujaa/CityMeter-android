@@ -54,11 +54,6 @@
         <activity
             android:name="uic.hcilab.citymeter.HomeActivity"
             android:label="@string/title_home" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <meta-data
@@ -77,6 +72,11 @@
         <activity android:name="uic.hcilab.citymeter.DetailCoUserActivity" />
         <activity android:name="uic.hcilab.citymeter.AddCoUserActivity" />
         <activity android:name="uic.hcilab.citymeter.AuthenticatorActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name="com.google.android.gms.common.api.GoogleApiActivity"

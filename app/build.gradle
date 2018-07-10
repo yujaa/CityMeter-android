@@ -36,8 +36,8 @@ dependencies {
     implementation 'com.android.support:cardview-v7:27.1.1'
 
     // Cognito UserPools for SignIn
-    implementation ('com.amazonaws:aws-android-sdk-auth-userpools:2.6.+@aar') { transitive = true }
+    implementation('com.amazonaws:aws-android-sdk-auth-userpools:2.6.+@aar') { transitive = true }
 
     // Sign in UI Library
-    implementation ('com.amazonaws:aws-android-sdk-auth-ui:2.6.+@aar') { transitive = true }
+    implementation('com.amazonaws:aws-android-sdk-auth-ui:2.6.+@aar') { transitive = true }
 }
