@@ -11,9 +11,9 @@ public final class R {
         public static final int buttonSize = 0x7f03004b;
         public static final int circleCrop = 0x7f030062;
         public static final int colorScheme = 0x7f030073;
-        public static final int imageAspectRatio = 0x7f0300c9;
-        public static final int imageAspectRatioAdjust = 0x7f0300ca;
-        public static final int scopeUris = 0x7f03014c;
+        public static final int imageAspectRatio = 0x7f0300ca;
+        public static final int imageAspectRatioAdjust = 0x7f0300cb;
+        public static final int scopeUris = 0x7f030150;
     }
     public static final class color {
         public static final int common_google_signin_btn_text_dark = 0x7f050033;
@@ -48,19 +48,19 @@ public final class R {
         public static final int common_google_signin_btn_text_light_focused = 0x7f070076;
         public static final int common_google_signin_btn_text_light_normal = 0x7f070077;
         public static final int common_google_signin_btn_text_light_normal_background = 0x7f070078;
-        public static final int googleg_disabled_color_18 = 0x7f070080;
-        public static final int googleg_standard_color_18 = 0x7f070081;
+        public static final int googleg_disabled_color_18 = 0x7f070081;
+        public static final int googleg_standard_color_18 = 0x7f070082;
     }
     public static final class id {
         public static final int adjust_height = 0x7f080023;
         public static final int adjust_width = 0x7f080024;
         public static final int auto = 0x7f08002b;
-        public static final int dark = 0x7f080049;
-        public static final int icon_only = 0x7f080082;
-        public static final int light = 0x7f08008d;
-        public static final int none = 0x7f0800a8;
-        public static final int standard = 0x7f0800ee;
-        public static final int wide = 0x7f08011f;
+        public static final int dark = 0x7f08004e;
+        public static final int icon_only = 0x7f08008c;
+        public static final int light = 0x7f080097;
+        public static final int none = 0x7f0800b9;
+        public static final int standard = 0x7f080109;
+        public static final int wide = 0x7f08013d;
     }
     public static final class string {
         public static final int common_google_play_services_enable_button = 0x7f0e002a;
@@ -82,11 +82,11 @@ public final class R {
         public static final int common_signin_button_text_long = 0x7f0e003b;
     }
     public static final class styleable {
-        public static final int[] LoadingImageView = { 0x7f030062, 0x7f0300c9, 0x7f0300ca };
+        public static final int[] LoadingImageView = { 0x7f030062, 0x7f0300ca, 0x7f0300cb };
         public static final int LoadingImageView_circleCrop = 0;
         public static final int LoadingImageView_imageAspectRatio = 1;
         public static final int LoadingImageView_imageAspectRatioAdjust = 2;
-        public static final int[] SignInButton = { 0x7f03004b, 0x7f030050, 0x7f030073, 0x7f03014c, 0x7f030181 };
+        public static final int[] SignInButton = { 0x7f03004b, 0x7f030050, 0x7f030073, 0x7f030150, 0x7f030189 };
         public static final int SignInButton_buttonSize = 0;
         public static final int SignInButton_button_style = 1;
         public static final int SignInButton_colorScheme = 2;
