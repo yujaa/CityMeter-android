@@ -39,4 +39,21 @@ public class DataAnalysis {
         else if (pm25 < 301) return "Very Unhealthy";
         else return "Hazardous";
     }
+
+    public double getPosOnBar(double value, int level[], int numOfLevel){
+        int curIdx = -1;
+        int prevStd = 0;
+        for(int i=0; i< numOfLevel; i++){
+            if(value < level[i]) {
+                curIdx = i;
+                break;
+            }
+            prevStd = level[i];
+        }
+        if(curIdx == -1)
+            return numOfLevel;
+        else
+            return ((value - prevStd)/(level[curIdx]-prevStd)) + curIdx;
+
+    }
 }

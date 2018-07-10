@@ -87,9 +87,9 @@ public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCa
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar_search);
+        //Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar_search);
         LocationManager locationManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
-        setSupportActionBar(myToolbar);
+        //setSupportActionBar(myToolbar);
 
         boolean first= true;
         Intersection.Point prevPnt = new Intersection.Point(0,0);

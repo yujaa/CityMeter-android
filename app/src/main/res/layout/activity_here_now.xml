@@ -6,14 +6,13 @@ android:layout_width="match_parent"
 android:layout_height="match_parent"
 tools:context=".HereNowActivity">
 
-<android.support.v7.widget.Toolbar
-    android:id="@+id/toolbar_here_now"
-    android:layout_width="match_parent"
-    android:layout_height="?attr/actionBarSize"
-    android:background="?attr/colorPrimary"
-    android:elevation="4dp"
-    android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_here_now"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:theme="@style/ThemeOverlay.AppCompat.Light"
+        style="@style/Base_ToolbarStyle"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
 <include
     android:id="@+id/navigation"
