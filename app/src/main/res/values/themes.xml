@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.myTheme.TitleBar" parent="ThemeOverlay.AppCompat.ActionBar">
+        <item name="android:textColorPrimary">#2e3348</item>
+        <item name="android:colorPrimary">#FFFFFF</item>
+        <item name="android:textSize">25sp</item>
+    </style>
+</resources>

@@ -1,8 +1,4 @@
-package voronoi;
-
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Path;
+package uic.hcilab.citymeter.voronoi;
 
 import java.util.ArrayList;
 import java.util.Collections;

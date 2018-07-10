@@ -67,53 +67,8 @@ public class HereNowActivity extends TabHost implements OnMapReadyCallback, ApiC
 
         new AoTData(HereNowActivity.this).execute("value/node/pm25/001e06113107");
         new AoTData(HereNowActivity.this).execute("value/nodes");
+        new AoTData(HereNowActivity.this).execute("info/nodes");
 
-        //get View for change bar
-        final View view = findViewById(android.R.id.content);
-        view.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
-            @Override
-            public void onGlobalLayout() {
-                // Removing layout listener to avoid multiple calls
-                if(Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
-                    view.getViewTreeObserver().removeGlobalOnLayoutListener(this);
-                }
-                else {
-                    view.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-                }
-
-                new AoTData(HereNowActivity.this).execute("info/nodes");
-
-                ///Bar
-                //PM2.5
-                float pm25_bar_loc;
-                int pm25_bar_width;
-                float pm25_range = 650f; //max - min //ToDo: Toy data
-                float pm25_value = pmNowData;              //ToDo: Toy data
-                ImageView pm25_bar = (ImageView) findViewById(R.id.here_pm25_bar);
-                ImageView pm25_thumb = (ImageView) findViewById(R.id.here_pm25_thumb);
-                TextView pm25_thumb_value = (TextView) findViewById(R.id.here_pm25_value);
-                pm25_bar_width = pm25_bar.getWidth();
-                pm25_bar_loc=pm25_bar.getX();
-                pm25_thumb.setX(pm25_bar_width - (pm25_bar_loc+ pm25_bar_width*(pm25_value/pm25_range)-(pm25_thumb.getWidth()/2)));
-                pm25_thumb_value.setX(pm25_thumb.getX()+pm25_thumb.getWidth());
-                pm25_thumb_value.setText(Math.round(pm25_value)+"");
-
-                //noise
-                float here_noise_bar_loc;
-                int here_noise_bar_width;
-                float here_noise_range = 100f; //max - min //ToDo: Toy data
-                float here_noise_value = soundNowData;              //ToDo: Toy data
-                ImageView here_noise_bar = (ImageView) findViewById(R.id.here_noise_bar);
-                ImageView here_noise_thumb = (ImageView) findViewById(R.id.here_noise_thumb);
-                TextView here_noise_thumb_value = (TextView) findViewById(R.id.here_noise_value);
-                here_noise_bar_width = here_noise_bar.getWidth();
-                here_noise_bar_loc=here_noise_bar.getX();
-                here_noise_thumb.setX(here_noise_bar_width - (here_noise_bar_loc+ here_noise_bar_width*((here_noise_value-35)/here_noise_range)-(here_noise_thumb.getWidth()/2)));
-                here_noise_thumb_value.setX(here_noise_thumb.getX()+here_noise_thumb.getWidth());
-                here_noise_thumb_value.setText(Math.round(here_noise_value)+"");
-
-            }
-        });
     }
 
     @Override

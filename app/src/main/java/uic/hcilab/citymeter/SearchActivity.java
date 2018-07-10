@@ -37,10 +37,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import voronoi.Intersection;
-import voronoi.Line;
-import voronoi.Pnt;
-import voronoi.VoronoiLayer;
+import uic.hcilab.citymeter.voronoi.Intersection;
+import uic.hcilab.citymeter.voronoi.Line;
+import uic.hcilab.citymeter.voronoi.Pnt;
+import uic.hcilab.citymeter.voronoi.VoronoiLayer;
 
 public class SearchActivity extends TabHost implements OnMapReadyCallback, ApiCallback, LocationListener {
 

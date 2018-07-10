@@ -37,7 +37,7 @@ public final class R {
         public static final int none = 0x7f0800a8;
         public static final int normal = 0x7f0800a9;
         public static final int satellite = 0x7f0800c8;
-        public static final int terrain = 0x7f0800f5;
+        public static final int terrain = 0x7f0800fb;
     }
     public static final class styleable {
         public static final int[] MapAttrs = { 0x7f030029, 0x7f030051, 0x7f030052, 0x7f030053, 0x7f030054, 0x7f030055, 0x7f030056, 0x7f030057, 0x7f0300d6, 0x7f0300d7, 0x7f0300d8, 0x7f0300d9, 0x7f030123, 0x7f030126, 0x7f0301ac, 0x7f0301ad, 0x7f0301ae, 0x7f0301af, 0x7f0301b0, 0x7f0301b1, 0x7f0301b2, 0x7f0301b4, 0x7f0301c1 };
