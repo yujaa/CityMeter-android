@@ -26,4 +26,9 @@
     <string name="can_see_my_activities">Can see my Activities</string>
     <string name="can_see_my_location">Can see my Location</string>
     <string name="edit">Edit</string>
+    <string name="email_phone">Email/Phone</string>
+    <string name="password">Password</string>
+    <string name="cancel">Cancel</string>
+    <string name="log_in">Log In</string>
+    <string name="sign_up_a_new_user">Sign Up a new user</string>
 </resources>
