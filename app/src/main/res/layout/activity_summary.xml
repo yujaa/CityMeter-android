@@ -10,10 +10,9 @@
         android:id="@+id/toolbar_summary"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        android:elevation="4dp"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+        android:theme="@style/ThemeOverlay.AppCompat.Light"
+        style="@style/Base_ToolbarStyle"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
     <include
         android:id="@+id/navigation"

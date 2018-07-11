@@ -5,23 +5,16 @@ import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationListener;
-import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.View;
-import android.view.ViewTreeObserver;
+
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.google.android.gms.common.api.Status;
-import com.google.android.gms.location.places.Place;
-import com.google.android.gms.location.places.ui.PlaceAutocompleteFragment;
-import com.google.android.gms.location.places.ui.PlaceSelectionListener;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -47,6 +40,8 @@ public class HereNowActivity extends TabHost implements OnMapReadyCallback, ApiC
     HashMap<String, HashMap<String, String>> nodesInfo = new HashMap<String,  HashMap<String, String>>();
     float pmNowData = 0;
     float soundNowData = 0;
+    DataAnalysis da = new DataAnalysis();
+
     @Override
     public int getContentViewId() {
         return R.layout.activity_here_now;
@@ -84,32 +79,37 @@ public class HereNowActivity extends TabHost implements OnMapReadyCallback, ApiC
 
         else if(urlApi.equals("value/nodes")) {
             getSoundData(jsonData);
-            float pm25_bar_loc;
-            int pm25_bar_width;
-            float pm25_range = 700f; //max - min //ToDo: Toy data
-            float pm25_value = pmNowData;              //ToDo: Toy data
-            ImageView pm25_bar = (ImageView) findViewById(R.id.here_pm25_bar);
-            ImageView pm25_thumb = (ImageView) findViewById(R.id.here_pm25_thumb);
-            TextView pm25_thumb_value = (TextView) findViewById(R.id.here_pm25_value);
-            pm25_bar_width = pm25_bar.getWidth();
-            pm25_bar_loc = pm25_bar.getX();
-            pm25_thumb.setX(pm25_bar_width - (pm25_bar_loc + pm25_bar_width * (pm25_value / pm25_range) - (pm25_thumb.getWidth() / 2)));
-            pm25_thumb_value.setX(pm25_thumb.getX() + pm25_thumb.getWidth());
-            pm25_thumb_value.setText(Math.round(pm25_value) + "");
 
-            //noise
-            float here_noise_bar_loc;
-            int here_noise_bar_width;
-            float here_noise_range = 100f; //max - min //ToDo: Toy data
-            float here_noise_value = soundNowData;              //ToDo: Toy data
+            //PM2.5
+            float here_pm25_value = pmNowData;
+            int here_pm25_level [] = {50, 101, 151, 201, 301, 501};
+
+            ImageView here_pm25_bar = (ImageView) findViewById(R.id.here_pm25_bar);
+            ImageView here_pm25_thumb = (ImageView) findViewById(R.id.here_pm25_thumb);
+            TextView here_pm25_thumb_value = (TextView) findViewById(R.id.here_pm25_value);
+            int here_pm25_bar_width = here_pm25_bar.getWidth();
+            float here_pm25_bar_loc=here_pm25_bar.getX();
+
+            double pos = da.getPosOnBar(here_pm25_value, here_pm25_level, 6);
+            Log.i("myy",pos+"");
+            here_pm25_thumb.setX((float)(here_pm25_bar_loc+ here_pm25_bar_width- (pos * here_pm25_bar_width /6)-(here_pm25_thumb.getWidth()/2)));
+            here_pm25_thumb_value.setX(here_pm25_thumb.getX()+here_pm25_thumb.getWidth());
+            here_pm25_thumb_value.setText(Math.round(here_pm25_value)+"");
+
+            //day noise
+            float here_noise_value = soundNowData;
+            int here_noise_level [] = {55, 65, 75, 85};//{80, 90, 100, 110, 130, 160};
+
             ImageView here_noise_bar = (ImageView) findViewById(R.id.here_noise_bar);
             ImageView here_noise_thumb = (ImageView) findViewById(R.id.here_noise_thumb);
             TextView here_noise_thumb_value = (TextView) findViewById(R.id.here_noise_value);
-            here_noise_bar_width = here_noise_bar.getWidth();
-            here_noise_bar_loc = here_noise_bar.getX();
-            here_noise_thumb.setX(here_noise_bar_width - (here_noise_bar_loc + here_noise_bar_width * ((here_noise_value - 35) / here_noise_range) - (here_noise_thumb.getWidth() / 2)));
-            here_noise_thumb_value.setX(here_noise_thumb.getX() + here_noise_thumb.getWidth());
-            here_noise_thumb_value.setText(Math.round(here_noise_value) + "");
+            int here_noise_bar_width = here_noise_bar.getWidth();
+            float here_noise_bar_loc=here_noise_bar.getX();
+
+            pos = da.getPosOnBar(here_noise_value, here_noise_level, 4);
+            here_noise_thumb.setX((float)(here_noise_bar_loc+ here_noise_bar_width - (pos * here_noise_bar_width / 4)-(here_noise_thumb.getWidth()/2)));
+            here_noise_thumb_value.setX(here_noise_thumb.getX()+here_noise_thumb.getWidth());
+            here_noise_thumb_value.setText(Math.round(here_noise_value)+"");
 
             getNodesValueData(jsonData);
             drawNodesMarker(nodesInfo);

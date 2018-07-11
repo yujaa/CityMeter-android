@@ -8,12 +8,11 @@ tools:context=".XposureActivity">
 
     <android.support.v7.widget.Toolbar
     android:id="@+id/toolbar_xposure"
-    android:layout_width="match_parent"
-    android:layout_height="?attr/actionBarSize"
-    android:background="?attr/colorPrimary"
-    android:elevation="4dp"
-    android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:theme="@style/ThemeOverlay.AppCompat.Light"
+        style="@style/Base_ToolbarStyle"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
     <include
     android:id="@+id/navigation"
@@ -37,8 +36,10 @@ tools:context=".XposureActivity">
         app:layout_constraintBottom_toTopOf="@+id/pm25_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar_xposure">
-        <!--android:background="@drawable/calm"-->
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_xposure"
+        android:background="@drawable/calm"
+        >
+
 
         <TextView
             android:id="@+id/xposure_contentHead"
@@ -223,7 +224,7 @@ tools:context=".XposureActivity">
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:srcCompat="@drawable/color_coded_bar" />
+                        app:srcCompat="@drawable/color_coded_bar_4" />
 
                     <TextView
                         android:id="@+id/day_noise_value"
@@ -317,7 +318,7 @@ tools:context=".XposureActivity">
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:srcCompat="@drawable/color_coded_bar" />
+                        app:srcCompat="@drawable/color_coded_bar_4" />
 
                     <TextView
                         android:id="@+id/night_noise_value"
