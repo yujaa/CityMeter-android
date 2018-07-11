@@ -9,6 +9,8 @@ MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\yujaa\.gradle\cac
 MERGED from [com.android.support.constraint:constraint-layout:1.1.0] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.0.aar\b8a00d9caba6a3e4461a2cd121c110b9\AndroidManifest.xml:2:1-11:12
 MERGED from [com.google.android.gms:play-services-places:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-places-15.0.1.aar\d2c0d8a0706e1176679276391b887fd3\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.1.aar\2f1f6a9d0892f04c3fd9ebabb7cca38e\AndroidManifest.xml:17:1-32:12
+MERGED from [com.google.android.gms:play-services-plus:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-plus-15.0.1.aar\076894102806edfe77d6a023fdaaa22f\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-audience:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-audience-15.0.1.aar\f3f0ad53ad4e58226b4c37a17954f1f8\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.gms:play-services-base:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-base-15.0.1.aar\5245fbf517f0eca7ddbd7ad7bee6b8e1\AndroidManifest.xml:17:1-29:12
 MERGED from [com.google.android.gms:play-services-places-placereport:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-places-placereport-15.0.1.aar\1c19ebcea7beafa6cad02bbb6ec0de2a\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.gms:play-services-tasks:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-tasks-15.0.1.aar\ce113c986296d371a5a2e1b7533fcdea\AndroidManifest.xml:2:1-9:12
@@ -105,6 +107,10 @@ MERGED from [com.google.android.gms:play-services-places:15.0.1] C:\Users\yujaa\
 MERGED from [com.google.android.gms:play-services-places:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-places-15.0.1.aar\d2c0d8a0706e1176679276391b887fd3\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.1.aar\2f1f6a9d0892f04c3fd9ebabb7cca38e\AndroidManifest.xml:30:5-20
 MERGED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.1.aar\2f1f6a9d0892f04c3fd9ebabb7cca38e\AndroidManifest.xml:30:5-20
+MERGED from [com.google.android.gms:play-services-plus:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-plus-15.0.1.aar\076894102806edfe77d6a023fdaaa22f\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-plus:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-plus-15.0.1.aar\076894102806edfe77d6a023fdaaa22f\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-audience:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-audience-15.0.1.aar\f3f0ad53ad4e58226b4c37a17954f1f8\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-audience:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-audience-15.0.1.aar\f3f0ad53ad4e58226b4c37a17954f1f8\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.gms:play-services-base:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-base-15.0.1.aar\5245fbf517f0eca7ddbd7ad7bee6b8e1\AndroidManifest.xml:22:5-27:19
 MERGED from [com.google.android.gms:play-services-base:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-base-15.0.1.aar\5245fbf517f0eca7ddbd7ad7bee6b8e1\AndroidManifest.xml:22:5-27:19
 MERGED from [com.google.android.gms:play-services-places-placereport:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-places-placereport-15.0.1.aar\1c19ebcea7beafa6cad02bbb6ec0de2a\AndroidManifest.xml:22:5-20
@@ -147,18 +153,18 @@ ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\A
 		ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:30:13-36
 	android:name
 		ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:29:13-44
-activity#uic.hcilab.citymeter.SummaryActivity
+activity#uic.hcilab.citymeter.ProfileActivity
 ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:31:9-33:53
 	android:label
 		ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:33:13-50
 	android:name
 		ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:32:13-44
-activity#uic.hcilab.citymeter.ActivitiesActivity
-ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:34:9-36:56
+activity#uic.hcilab.citymeter.TestActivity
+ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:34:9-36:50
 	android:label
-		ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:36:13-53
+		ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:36:13-47
 	android:name
-		ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:35:13-47
+		ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:35:13-41
 activity#uic.hcilab.citymeter.SearchActivity
 ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:37:9-39:52
 	android:label
@@ -166,7 +172,7 @@ ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\A
 	android:name
 		ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:38:13-43
 activity#uic.hcilab.citymeter.HomeActivity
-ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:40:9-42:59
+ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:40:9-42:50
 	android:label
 		ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:42:13-47
 	android:name
@@ -216,7 +222,7 @@ ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\A
 	android:name
 		ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:63:27-74
 activity#uic.hcilab.citymeter.SignupActivity
-ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:66:9-61
+ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:66:9-52
 	android:name
 		ADDED from C:\Users\yujaa\AndroidStudioProjects\CityMeter-android\app\src\main\AndroidManifest.xml:66:19-49
 uses-sdk
@@ -233,6 +239,10 @@ MERGED from [com.google.android.gms:play-services-places:15.0.1] C:\Users\yujaa\
 MERGED from [com.google.android.gms:play-services-places:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-places-15.0.1.aar\d2c0d8a0706e1176679276391b887fd3\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.1.aar\2f1f6a9d0892f04c3fd9ebabb7cca38e\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.1.aar\2f1f6a9d0892f04c3fd9ebabb7cca38e\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-plus:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-plus-15.0.1.aar\076894102806edfe77d6a023fdaaa22f\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-plus:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-plus-15.0.1.aar\076894102806edfe77d6a023fdaaa22f\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-audience:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-audience-15.0.1.aar\f3f0ad53ad4e58226b4c37a17954f1f8\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-audience:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-audience-15.0.1.aar\f3f0ad53ad4e58226b4c37a17954f1f8\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-base:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-base-15.0.1.aar\5245fbf517f0eca7ddbd7ad7bee6b8e1\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-base:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-base-15.0.1.aar\5245fbf517f0eca7ddbd7ad7bee6b8e1\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-places-placereport:15.0.1] C:\Users\yujaa\.gradle\caches\transforms-1\files-1.1\play-services-places-placereport-15.0.1.aar\1c19ebcea7beafa6cad02bbb6ec0de2a\AndroidManifest.xml:20:5-44

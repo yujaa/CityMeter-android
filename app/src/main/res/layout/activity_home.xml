@@ -26,28 +26,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/home_left_bar"
-        android:layout_width="23dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="8dp"
-        android:background="#ffff00"
-        android:enabled="false"
-        app:layout_constraintBottom_toTopOf="@+id/navigation"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar_home" />
-
-    <Button
-        android:id="@+id/home_right_bar"
-        android:layout_width="23dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="8dp"
-        android:background="#ffff00"
-        android:enabled="false"
-        app:layout_constraintBottom_toTopOf="@+id/navigation"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar_home" />
-
     <android.support.constraint.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="0dp"
@@ -56,8 +34,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="10dp"
         android:background="#F2F2F6"
-        app:layout_constraintEnd_toStartOf="@+id/home_left_bar"
-        app:layout_constraintStart_toEndOf="@+id/home_right_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar_home">
 
         <Button
@@ -119,18 +97,18 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toTopOf="@+id/navigation"
-        app:layout_constraintEnd_toStartOf="@+id/home_left_bar"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/home_right_bar"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
         app:layout_constraintVertical_bias="1.0">
 
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:orientation="vertical"
             android:stretchColumns="1"
             android:weightSum="2.4"
-            android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"

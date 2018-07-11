@@ -43,11 +43,11 @@
             android:name="uic.hcilab.citymeter.XposureActivity"
             android:label="Xposure" />
         <activity
-            android:name="uic.hcilab.citymeter.SummaryActivity"
-            android:label="@string/title_summary" />
+            android:name="uic.hcilab.citymeter.ProfileActivity"
+            android:label="@string/title_profile" />
         <activity
-            android:name="uic.hcilab.citymeter.ActivitiesActivity"
-            android:label="@string/title_activities" />
+            android:name="uic.hcilab.citymeter.TestActivity"
+            android:label="@string/title_test" />
         <activity
             android:name="uic.hcilab.citymeter.SearchActivity"
             android:label="@string/title_search" />
