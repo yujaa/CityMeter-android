@@ -682,19 +682,19 @@ public final class R {
         public static final int submit_area = 0x7f080119;
         public static final int tabMode = 0x7f08011a;
         public static final int tag_transition_group = 0x7f08011c;
-        public static final int text = 0x7f08011e;
-        public static final int text2 = 0x7f08011f;
-        public static final int textSpacerNoButtons = 0x7f080120;
-        public static final int textSpacerNoTitle = 0x7f080121;
-        public static final int time = 0x7f080127;
-        public static final int title = 0x7f080128;
-        public static final int titleDividerNoCustom = 0x7f080129;
-        public static final int title_template = 0x7f08012a;
-        public static final int top = 0x7f080131;
-        public static final int topPanel = 0x7f080132;
-        public static final int uniform = 0x7f080139;
-        public static final int up = 0x7f08013a;
-        public static final int wrap_content = 0x7f080148;
+        public static final int text = 0x7f08011f;
+        public static final int text2 = 0x7f080120;
+        public static final int textSpacerNoButtons = 0x7f080121;
+        public static final int textSpacerNoTitle = 0x7f080122;
+        public static final int time = 0x7f080128;
+        public static final int title = 0x7f080129;
+        public static final int titleDividerNoCustom = 0x7f08012a;
+        public static final int title_template = 0x7f08012b;
+        public static final int top = 0x7f080132;
+        public static final int topPanel = 0x7f080133;
+        public static final int uniform = 0x7f08013a;
+        public static final int up = 0x7f08013b;
+        public static final int wrap_content = 0x7f080149;
     }
     public static final class integer {
         public static final int abc_config_activityDefaultDur = 0x7f090000;

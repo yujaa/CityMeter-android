@@ -1,6 +1,7 @@
 package uic.hcilab.citymeter.Helpers;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.amazonaws.mobileconnectors.cognitoidentityprovider.CognitoDevice;
 import com.amazonaws.mobileconnectors.cognitoidentityprovider.CognitoUser;
@@ -22,23 +23,49 @@ import com.amazonaws.mobileconnectors.cognitoidentityprovider.handlers.SignUpHan
 import com.amazonaws.mobileconnectors.cognitoidentityprovider.handlers.VerificationHandler;
 import com.amazonaws.services.cognitoidentityprovider.AmazonCognitoIdentityProvider;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.io.StringWriter;
+import java.io.Writer;
 import java.util.Map;
+
+import uic.hcilab.citymeter.R;
 
 public class LogInHelper {
     Context context;
+    String userPoolId ;
+    String clientId;
+    String clientSecret;
+    CognitoUserPool pool;
+    CognitoUser user;
 
-    public LogInHelper(Context ctx) {
+    public LogInHelper(Context ctx)  {
         context = ctx;
+        try {
+            userPoolId = getJSON(context).getString("PoolId");
+            clientId = getJSON(context).getString("AppClientId");
+            clientSecret = getJSON(context).getString("AppClientSecret");
+            pool = createUserPool();
+        }
+        catch (Exception e){
+
+        }
     }
 
     //    Create a CognitoUserPool
-    public CognitoUserPool createUserPool(String userPoolId, String clientId, String clientSecret, AmazonCognitoIdentityProvider clientConfiguration) {
+    public CognitoUserPool createUserPool( AmazonCognitoIdentityProvider clientConfiguration) {
         // user pool can also be created with client app configuration:
         CognitoUserPool userPool = new CognitoUserPool(context, userPoolId, clientId, clientSecret, clientConfiguration);
         return userPool;
     }
 
-    public CognitoUserPool createUserPool(String userPoolId, String clientId, String clientSecret) {
+    public CognitoUserPool createUserPool() {
         CognitoUserPool userPool = new CognitoUserPool(context, userPoolId, clientId, clientSecret);
         return userPool;
 
@@ -63,19 +90,19 @@ public class LogInHelper {
     }
 
     //Get the Cached User
-    public CognitoUser getCachedUser(CognitoUserPool userPool) {
-        CognitoUser user = userPool.getCurrentUser();
+    public CognitoUser getCachedUser() {
+        CognitoUser user = pool.getCurrentUser();
         return user;
     }
 
     // Create a User Object with a UserId
-    public CognitoUser createUserObject(CognitoUserPool userPool, String userId) {
-        CognitoUser user = userPool.getUser(userId);
+    public CognitoUser createUserObject( String userId) {
+        CognitoUser user = pool.getUser(userId);
         return user;
     }
 
     //Confirm a User
-    public void confirmUserSignUp(CognitoUser user, String code) {
+    public void confirmUserSignUp( String code) {
         // create a callback handler for confirm
         GenericHandler handler = new GenericHandler() {
 
@@ -93,7 +120,7 @@ public class LogInHelper {
     }
 
     //Request a Confirmation Code
-    public void RequestConfirmationCode(CognitoUser user) {
+    public void RequestConfirmationCode() {
 
         // create a callback handler for the confirmation code request
         VerificationHandler handler = new VerificationHandler() {
@@ -114,7 +141,7 @@ public class LogInHelper {
     }
 
     //    Forgot Password:     Get Code     to Set     New Password
-    public void getCodeResetPassword(CognitoUser user, final String newPassword, final String code) {
+    public void getCodeResetPassword( final String newPassword, final String code) {
         ForgotPasswordHandler handler = new ForgotPasswordHandler() {
             @Override
             public void onSuccess() {
@@ -162,7 +189,7 @@ public class LogInHelper {
     }
 
     //Authentication Handler: Get Tokens
-    public void getTokens(CognitoUser user, final String userId, final String password, final Map<String, String> validationParameters, final String code) {
+    public void getTokens( final String userId, final String password, final Map<String, String> validationParameters, final String code) {
         // Implement authentication handler,
         AuthenticationHandler handler = new AuthenticationHandler() {
             @Override
@@ -220,7 +247,7 @@ public class LogInHelper {
     }
 
     //Get User Details
-    public void getUserDetails(CognitoUser user) {
+    public void getUserDetails() {
         GetDetailsHandler handler = new GetDetailsHandler() {
             @Override
             public void onSuccess(final CognitoUserDetails list) {
@@ -236,7 +263,7 @@ public class LogInHelper {
     }
 
     //Change or Set User Settings
-    public void setUserSetting(CognitoUser user, String settingName, String settingValue) {
+    public void setUserSetting( String settingName, String settingValue) {
         GenericHandler handler = new GenericHandler() {
 
             @Override
@@ -261,7 +288,7 @@ public class LogInHelper {
     }
 
     // Delete User
-    public void deleteUser(CognitoUser user) {
+    public void deleteUser() {
         GenericHandler handler = new GenericHandler() {
 
             @Override
@@ -278,7 +305,7 @@ public class LogInHelper {
     }
 
     //Sign Out User
-    public void signOutUser(CognitoUser user) {
+    public void signOutUser() {
 // This has cleared all tokens and this user will have to go through the authentication process to get tokens.
         user.signOut();
     }
@@ -322,6 +349,37 @@ public class LogInHelper {
             }
         };
         cognitoDevice.doNotRememberThisDeviceInBackground(handler);
+    }
+
+
+    public JSONObject getJSON(Context context) {
+        String json = null;
+        JSONObject jsonObject = null;
+        try {
+            InputStream is = context.getResources().openRawResource(R.raw.awsconfiguration);
+            Writer writer = new StringWriter();
+            char[] buffer = new char[1024];
+            try {
+                Reader reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
+                int n;
+                while ((n = reader.read(buffer)) != -1) {
+                    writer.write(buffer, 0, n);
+                }
+            } finally {
+
+                is.close();
+            }
+
+
+            json = writer.toString();
+            jsonObject = new JSONObject(json);
+            jsonObject = jsonObject.getJSONObject("CognitoUserPool");
+            jsonObject = jsonObject.getJSONObject("Default");
+        }
+        catch (Exception e ) {
+        }
+        return jsonObject;
+
     }
 
 }

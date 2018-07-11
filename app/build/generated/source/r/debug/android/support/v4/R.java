@@ -109,11 +109,11 @@ public final class R {
         public static final int start = 0x7f08010f;
         public static final int status_bar_latest_event_content = 0x7f080110;
         public static final int tag_transition_group = 0x7f08011c;
-        public static final int text = 0x7f08011e;
-        public static final int text2 = 0x7f08011f;
-        public static final int time = 0x7f080127;
-        public static final int title = 0x7f080128;
-        public static final int top = 0x7f080131;
+        public static final int text = 0x7f08011f;
+        public static final int text2 = 0x7f080120;
+        public static final int time = 0x7f080128;
+        public static final int title = 0x7f080129;
+        public static final int top = 0x7f080132;
     }
     public static final class integer {
         public static final int cancel_button_image_alpha = 0x7f090004;

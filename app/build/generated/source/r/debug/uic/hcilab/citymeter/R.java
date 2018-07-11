@@ -2242,7 +2242,7 @@ public final class R {
      * <tr><td>barrier</td><td>2</td><td></td></tr>
      * <tr><td>chains</td><td>4</td><td></td></tr>
      * <tr><td>dimensions</td><td>8</td><td></td></tr>
-     * <tr><td>direct</td><td>1</td><td></td></tr>
+     * <tr><td>direct</td><td>1</td><td>for now only direct & barriers</td></tr>
      * <tr><td>none</td><td>0</td><td></td></tr>
      * <tr><td>standard</td><td>3</td><td></td></tr>
      * </table>
@@ -4351,50 +4351,51 @@ public final class R {
     public static final int tableLayout=0x7f08011b;
     public static final int tag_transition_group=0x7f08011c;
     public static final int terrain=0x7f08011d;
-    public static final int text=0x7f08011e;
-    public static final int text2=0x7f08011f;
-    public static final int textSpacerNoButtons=0x7f080120;
-    public static final int textSpacerNoTitle=0x7f080121;
-    public static final int textView=0x7f080122;
-    public static final int textView2=0x7f080123;
-    public static final int text_input_password_toggle=0x7f080124;
-    public static final int textinput_counter=0x7f080125;
-    public static final int textinput_error=0x7f080126;
-    public static final int time=0x7f080127;
-    public static final int title=0x7f080128;
-    public static final int titleDividerNoCustom=0x7f080129;
-    public static final int title_template=0x7f08012a;
-    public static final int toolbar_here_now=0x7f08012b;
-    public static final int toolbar_home=0x7f08012c;
-    public static final int toolbar_profile=0x7f08012d;
-    public static final int toolbar_steps=0x7f08012e;
-    public static final int toolbar_test=0x7f08012f;
-    public static final int toolbar_xposure=0x7f080130;
-    public static final int top=0x7f080131;
-    public static final int topPanel=0x7f080132;
-    public static final int touch_outside=0x7f080133;
-    public static final int transition_current_scene=0x7f080134;
-    public static final int transition_layout_save=0x7f080135;
-    public static final int transition_position=0x7f080136;
-    public static final int transition_scene_layoutid_cache=0x7f080137;
-    public static final int transition_transform=0x7f080138;
-    public static final int uniform=0x7f080139;
-    public static final int up=0x7f08013a;
-    public static final int useLogo=0x7f08013b;
-    public static final int user_pool_sign_in_view_id=0x7f08013c;
-    public static final int usernameEditLogin=0x7f08013d;
-    public static final int usernameEditSignup=0x7f08013e;
-    public static final int usernameEditText=0x7f08013f;
-    public static final int usernameLabel=0x7f080140;
-    public static final int usernameLabelLogin=0x7f080141;
-    public static final int usernameLabelSignup=0x7f080142;
-    public static final int view_offset_helper=0x7f080143;
-    public static final int visible=0x7f080144;
-    public static final int wide=0x7f080145;
-    public static final int withText=0x7f080146;
-    public static final int wrap=0x7f080147;
-    public static final int wrap_content=0x7f080148;
-    public static final int xposure_contentHead=0x7f080149;
+    public static final int test_frame=0x7f08011e;
+    public static final int text=0x7f08011f;
+    public static final int text2=0x7f080120;
+    public static final int textSpacerNoButtons=0x7f080121;
+    public static final int textSpacerNoTitle=0x7f080122;
+    public static final int textView=0x7f080123;
+    public static final int textView2=0x7f080124;
+    public static final int text_input_password_toggle=0x7f080125;
+    public static final int textinput_counter=0x7f080126;
+    public static final int textinput_error=0x7f080127;
+    public static final int time=0x7f080128;
+    public static final int title=0x7f080129;
+    public static final int titleDividerNoCustom=0x7f08012a;
+    public static final int title_template=0x7f08012b;
+    public static final int toolbar_here_now=0x7f08012c;
+    public static final int toolbar_home=0x7f08012d;
+    public static final int toolbar_profile=0x7f08012e;
+    public static final int toolbar_steps=0x7f08012f;
+    public static final int toolbar_test=0x7f080130;
+    public static final int toolbar_xposure=0x7f080131;
+    public static final int top=0x7f080132;
+    public static final int topPanel=0x7f080133;
+    public static final int touch_outside=0x7f080134;
+    public static final int transition_current_scene=0x7f080135;
+    public static final int transition_layout_save=0x7f080136;
+    public static final int transition_position=0x7f080137;
+    public static final int transition_scene_layoutid_cache=0x7f080138;
+    public static final int transition_transform=0x7f080139;
+    public static final int uniform=0x7f08013a;
+    public static final int up=0x7f08013b;
+    public static final int useLogo=0x7f08013c;
+    public static final int user_pool_sign_in_view_id=0x7f08013d;
+    public static final int usernameEditLogin=0x7f08013e;
+    public static final int usernameEditSignup=0x7f08013f;
+    public static final int usernameEditText=0x7f080140;
+    public static final int usernameLabel=0x7f080141;
+    public static final int usernameLabelLogin=0x7f080142;
+    public static final int usernameLabelSignup=0x7f080143;
+    public static final int view_offset_helper=0x7f080144;
+    public static final int visible=0x7f080145;
+    public static final int wide=0x7f080146;
+    public static final int withText=0x7f080147;
+    public static final int wrap=0x7f080148;
+    public static final int wrap_content=0x7f080149;
+    public static final int xposure_contentHead=0x7f08014a;
   }
   public static final class integer {
     public static final int abc_config_activityDefaultDur=0x7f090000;
@@ -10004,7 +10005,7 @@ public final class R {
      * <tr><td>barrier</td><td>2</td><td></td></tr>
      * <tr><td>chains</td><td>4</td><td></td></tr>
      * <tr><td>dimensions</td><td>8</td><td></td></tr>
-     * <tr><td>direct</td><td>1</td><td></td></tr>
+     * <tr><td>direct</td><td>1</td><td>for now only direct & barriers</td></tr>
      * <tr><td>none</td><td>0</td><td></td></tr>
      * <tr><td>standard</td><td>3</td><td></td></tr>
      * </table>
