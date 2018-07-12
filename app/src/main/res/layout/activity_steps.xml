@@ -8,11 +8,11 @@
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar_steps"
+        style="@style/Base_ToolbarStyle"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:theme="@style/ThemeOverlay.AppCompat.Light"
-        style="@style/Base_ToolbarStyle"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
     <include
         android:id="@+id/navigation"
@@ -31,84 +31,80 @@
         android:layout_height="0dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:orientation="vertical"
+        android:weightSum="5"
         app:layout_constraintBottom_toTopOf="@+id/steps_scrollView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar_steps"
-        app:layout_constraintVertical_weight="1"
-        android:weightSum="3">
+        app:layout_constraintVertical_weight="2">
 
         <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:layout_weight="1"
             android:weightSum="2">
 
             <TextView
                 android:id="@+id/steps_pm25_text"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_height="match_parent"
                 android:layout_marginEnd="25dp"
                 android:layout_marginStart="25dp"
-                android:layout_marginTop="25dp"
+                android:layout_weight="1"
                 android:gravity="center"
                 android:text="PM 2.5"
                 android:textColor="#000000"
-                android:textSize="19dp"
-                />
+                android:textSize="19dp" />
 
             <TextView
                 android:id="@+id/steps_sound_text"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_height="match_parent"
                 android:layout_marginEnd="25dp"
                 android:layout_marginStart="25dp"
-                android:layout_marginTop="25dp"
+                android:layout_weight="1"
                 android:gravity="center"
                 android:text="Noise"
                 android:textColor="#000000"
-                android:textSize="19dp"
-                />
+                android:textSize="19dp" />
         </TableRow>
 
         <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="4"
             android:weightSum="2">
 
             <Button
                 android:id="@+id/steps_pm25"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:enabled="false"
                 android:layout_marginEnd="25dp"
                 android:layout_marginStart="25dp"
                 android:layout_marginTop="2dp"
                 android:layout_weight="1"
                 android:background="@drawable/round_corner_button"
-                android:textColor="#000000"
+                android:enabled="false"
                 android:lineSpacingExtra="8dp"
-                android:textSize="19dp"
-                android:text="" />
+                android:text=""
+                android:textColor="#000000"
+                android:textSize="19dp" />
 
             <Button
                 android:id="@+id/steps_sound"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:enabled="false"
                 android:layout_marginEnd="25dp"
                 android:layout_marginStart="25dp"
                 android:layout_marginTop="2dp"
                 android:layout_weight="1"
                 android:background="@drawable/round_corner_button"
+                android:enabled="false"
+                android:lineSpacingExtra="13dp"
+                android:text=""
                 android:textColor="#000000"
-                android:lineSpacingExtra="8dp"
-                android:textSize="19dp"
-                android:text="" />
+                android:textSize="19dp" />
         </TableRow>
 
     </TableLayout>
@@ -125,12 +121,36 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tableLayout"
-        app:layout_constraintVertical_weight="2">
+        app:layout_constraintVertical_weight="5">
 
-        <LinearLayout
+
+    </ScrollView>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/steps_scrollView"
+        app:layout_constraintEnd_toEndOf="@+id/steps_scrollView"
+        app:layout_constraintStart_toStartOf="@+id/steps_scrollView"
+        app:layout_constraintTop_toTopOf="@+id/steps_scrollView">
+
+        <TextView
+            android:id="@+id/steps_text1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" />
-    </ScrollView>
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:text="* Avoid all physical activity outdoors. \n\n*Avoid prolonged or heavy exertion! \n\n*Consider wearing earplugs."
+            android:textColor="#1C1C1C"
+            android:textSize="24dp"
+            app:layout_constraintBottom_toTopOf="@+id/steps_text2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
 
 </android.support.constraint.ConstraintLayout>

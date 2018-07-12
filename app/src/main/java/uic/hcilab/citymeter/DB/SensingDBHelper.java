@@ -12,7 +12,6 @@ import com.amazonaws.mobileconnectors.dynamodbv2.dynamodbmapper.DynamoDBMapper;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
 
 
-
 public class SensingDBHelper  {
     // Declare a DynamoDBMapper object
     DynamoDBMapper dynamoDBMapper;
@@ -58,7 +57,7 @@ public class SensingDBHelper  {
         exposureInst.setLatitude(lat);
         exposureInst.setIndoor(ind);
         connect();
-        new Thread(new Runnable() {
+       Thread thread =  new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
@@ -68,7 +67,14 @@ public class SensingDBHelper  {
                     Log.i("BT", "Error writing to dB: " + e.toString());
                 }
             }
-        }).start();
+        });
+       try {
+           thread.start();
+           thread.join();
+       }
+       catch (Exception e){
+
+       }
     }
     public void createExposureInst_dBA(String id, String timestamp, double dbA , double lon, double lat, double ind ) {
         final UserExposureDO exposureInst = new UserExposureDO();
@@ -81,7 +87,7 @@ public class SensingDBHelper  {
         exposureInst.setLatitude(lat);
         exposureInst.setIndoor(ind);
         connect();
-        new Thread(new Runnable() {
+        Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
@@ -93,6 +99,13 @@ public class SensingDBHelper  {
                     Log.i("nina", e.toString());
                 }
             }
-        }).start();
+        });
+        try {
+            thread.start();
+            thread.join();
+        }
+        catch (Exception e){
+
+        }
     }
 }

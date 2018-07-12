@@ -1,25 +1,24 @@
 package uic.hcilab.citymeter;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 
-public class ActivitiesActivity extends TabHost {
+public class ProfileActivity extends TabHost {
 
     @Override
     public int getContentViewId() {
-        return R.layout.activity_activities;
+        return R.layout.activity_profile;
     }
 
     @Override
     public int getNavigationMenuItemId() {
-        return R.id.navigation_activities;
+        return R.id.navigation_profile;
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar_activities);
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar_profile);
         setSupportActionBar(myToolbar);
     }
 }

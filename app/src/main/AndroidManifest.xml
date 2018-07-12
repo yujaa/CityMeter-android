@@ -29,23 +29,17 @@
             android:name=".XposureActivity"
             android:label="Xposure" />
         <activity
-            android:name=".SummaryActivity"
-            android:label="@string/title_summary" />
+            android:name=".ProfileActivity"
+            android:label="@string/title_profile" />
         <activity
-            android:name=".ActivitiesActivity"
-            android:label="@string/title_activities" />
+            android:name=".TestActivity"
+            android:label="@string/title_test" />
         <activity
             android:name=".SearchActivity"
             android:label="@string/title_search" />
         <activity
             android:name=".HomeActivity"
-            android:label="@string/title_home">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:label="@string/title_home" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -61,7 +55,15 @@
             android:name=".SettingsActivity"
             android:label="@string/title_search" />
         <activity android:name=".DetailCoUserActivity" />
-        <activity android:name=".AddCoUserActivity"></activity>
+        <activity android:name=".AddCoUserActivity" />
+        <activity android:name=".AuthenticatorActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".SignupActivity" />
     </application>
 
 </manifest>

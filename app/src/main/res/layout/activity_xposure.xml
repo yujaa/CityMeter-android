@@ -8,11 +8,11 @@ tools:context=".XposureActivity">
 
     <android.support.v7.widget.Toolbar
     android:id="@+id/toolbar_xposure"
-    android:layout_width="match_parent"
-    android:layout_height="?attr/actionBarSize"
-    android:theme="@style/ThemeOverlay.AppCompat.Light"
-    style="@style/Base_ToolbarStyle"
-    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:theme="@style/ThemeOverlay.AppCompat.Light"
+        style="@style/Base_ToolbarStyle"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
     <include
     android:id="@+id/navigation"
@@ -36,8 +36,9 @@ tools:context=".XposureActivity">
         app:layout_constraintBottom_toTopOf="@+id/pm25_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_xposure"
         android:background="@drawable/calm"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar_xposure">
+        >
 
 
         <TextView
@@ -138,7 +139,6 @@ tools:context=".XposureActivity">
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="4dp"
                         android:text="0"
-                        android:textSize="18dp"
                         app:layout_constraintBottom_toTopOf="@+id/pm25_bar"
                         app:layout_constraintStart_toEndOf="@+id/pm25_thumb" />
 
@@ -224,14 +224,13 @@ tools:context=".XposureActivity">
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:srcCompat="@drawable/color_coded_bar" />
+                        app:srcCompat="@drawable/color_coded_bar_4" />
 
                     <TextView
                         android:id="@+id/day_noise_value"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="4dp"
-                        android:textSize="18dp"
                         android:text="0"
                         app:layout_constraintBottom_toTopOf="@+id/day_noise_bar"
                         app:layout_constraintStart_toEndOf="@+id/day_noise_thumb" />
@@ -319,14 +318,13 @@ tools:context=".XposureActivity">
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:srcCompat="@drawable/color_coded_bar" />
+                        app:srcCompat="@drawable/color_coded_bar_4" />
 
                     <TextView
                         android:id="@+id/night_noise_value"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="4dp"
-                        android:textSize="18dp"
                         android:text="0"
                         app:layout_constraintBottom_toTopOf="@+id/night_noise_bar"
                         app:layout_constraintStart_toEndOf="@+id/night_noise_thumb" />

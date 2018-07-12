@@ -25,14 +25,14 @@
     <item
         android:id="@+id/navigation_activities"
         android:icon="@drawable/baseline_directions_run_black_18dp"
-        android:title="@string/title_activities"
+        android:title="@string/title_test"
         app:showAsAction="never" />
         <!--android:icon="@drawable/baseline_directions_run_black_18dp"-->
 
     <item
-        android:id="@+id/navigation_summary"
+        android:id="@+id/navigation_profile"
         android:icon="@drawable/baseline_person_black_18dp"
-        android:title="@string/title_summary"
+        android:title="@string/title_profile"
         app:showAsAction="never"/>
         <!--android:icon="@drawable/baseline_person_black_18dp"-->
 </menu>

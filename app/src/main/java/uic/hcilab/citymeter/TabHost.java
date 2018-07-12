@@ -6,7 +6,6 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
-import android.widget.TextView;
 
 public abstract class TabHost extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener{
 
@@ -22,11 +21,11 @@ public abstract class TabHost extends AppCompatActivity implements BottomNavigat
             case R.id.navigation_search:
                 startActivity(new Intent(this, SearchActivity.class));
                 break;
-            case R.id.navigation_activities:
-                startActivity(new Intent(this, ActivitiesActivity.class));
+            case R.id.navigation_test:
+                startActivity(new Intent(this, TestActivity.class));
                 break;
-            case R.id.navigation_summary:
-                startActivity(new Intent(this, SummaryActivity.class));
+            case R.id.navigation_profile:
+                startActivity(new Intent(this, ProfileActivity.class));
                 break;
         }
         return false;

@@ -16,7 +16,6 @@ import java.util.HashMap;
 public class XposureActivity extends TabHost implements ApiCallback{
     HashMap<String, Float> exposureData = new HashMap<String, Float>();
     DataAnalysis da = new DataAnalysis();
-
     @Override
     public int getContentViewId() {
         return R.layout.activity_xposure;
@@ -54,13 +53,13 @@ public class XposureActivity extends TabHost implements ApiCallback{
             float pm25_bar_loc=pm25_bar.getX();
 
             double pos = da.getPosOnBar(pm25_value, pm25_level, 6);
-            pm25_thumb.setX((float)(pm25_bar_loc+ (pos * pm25_bar_width / 6)-(pm25_thumb.getWidth()/2)));
+            pm25_thumb.setX((float)(pm25_bar_loc+ pm25_bar_width- (pos * pm25_bar_width /6)-(pm25_thumb.getWidth()/2)));
             pm25_thumb_value.setX(pm25_thumb.getX()+pm25_thumb.getWidth());
             pm25_thumb_value.setText(Math.round(pm25_value)+"");
 
             //day noise
             float day_noise_value = (exposureData.get("node_sound_avg")+ exposureData.get("sensor_sound_avg"))/2;
-            int day_noise_level [] = {80, 90, 100, 110, 130, 160};
+            int day_noise_level [] = {55, 65, 75, 85};//{80, 90, 100, 110, 130, 160};
 
             ImageView day_noise_bar = (ImageView) findViewById(R.id.day_noise_bar);
             ImageView day_noise_thumb = (ImageView) findViewById(R.id.day_noise_thumb);
@@ -68,22 +67,24 @@ public class XposureActivity extends TabHost implements ApiCallback{
             int day_noise_bar_width = day_noise_bar.getWidth();
             float day_noise_bar_loc=day_noise_bar.getX();
 
-            pos = da.getPosOnBar(day_noise_value, day_noise_level, 6);
-            day_noise_thumb.setX((float)(day_noise_bar_loc+ (pos * day_noise_bar_width / 6)-(day_noise_thumb.getWidth()/2)));
+            pos = da.getPosOnBar(day_noise_value, day_noise_level, 4);
+            Log.i("myy", pos+"");
+            day_noise_thumb.setX((float)(day_noise_bar_loc+ day_noise_bar_width - (pos * day_noise_bar_width / 4)-(day_noise_thumb.getWidth()/2)));
             day_noise_thumb_value.setX(day_noise_thumb.getX()+day_noise_thumb.getWidth());
             day_noise_thumb_value.setText(Math.round(day_noise_value)+"");
 
-            //day noise
-            float night_noise_bar_loc;
-            int night_noise_bar_width;
-            float night_noise_range = 90f; //max - min //ToDo: Toy data
+            //night noise
             float night_noise_value = 40f;              //ToDo: Toy data
+            int night_noise_level [] = {55, 65, 75, 85};//{80, 90, 100, 110, 130, 160};
+
             ImageView night_noise_bar = (ImageView) findViewById(R.id.night_noise_bar);
             ImageView night_noise_thumb = (ImageView) findViewById(R.id.night_noise_thumb);
             TextView night_noise_thumb_value = (TextView) findViewById(R.id.night_noise_value);
-            night_noise_bar_width = night_noise_bar.getWidth();
-            night_noise_bar_loc= night_noise_bar.getX();
-            night_noise_thumb.setX(night_noise_bar_width-(night_noise_bar_loc+ night_noise_bar_width*((night_noise_value-35)/night_noise_range)-(night_noise_thumb.getWidth()/2)));
+            int night_noise_bar_width = night_noise_bar.getWidth();
+            float night_noise_bar_loc= night_noise_bar.getX();
+
+            pos = da.getPosOnBar(night_noise_value, night_noise_level, 4);
+            night_noise_thumb.setX((float)(night_noise_bar_loc+ night_noise_bar_width - (pos * night_noise_bar_width / 4)-(night_noise_thumb.getWidth()/2)));
             night_noise_thumb_value.setX(night_noise_thumb.getX()+night_noise_thumb.getWidth());
             night_noise_thumb_value.setText(Math.round(night_noise_value)+"");
         }

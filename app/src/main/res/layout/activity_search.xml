@@ -55,14 +55,6 @@
             app:srcCompat="@drawable/color_coded_bar_vert" />
     </android.support.constraint.ConstraintLayout>
 
-    <!--<android.support.v7.widget.Toolbar-->
-        <!--android:id="@+id/toolbar_search"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="?attr/actionBarSize"-->
-        <!--android:theme="@style/ThemeOverlay.AppCompat.Light"-->
-        <!--style="@style/Base_ToolbarStyle"-->
-        <!--app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>-->
-
 
     <LinearLayout
         android:id="@+id/map_container"
