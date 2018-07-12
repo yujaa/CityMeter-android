@@ -17,6 +17,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
+import static com.amazonaws.services.cognitoidentityprovider.model.AttributeDataType.DateTime;
+
 public class CognitiveTestDBHelper {
     // Declare a DynamoDBMapper object
     private DynamoDBMapper dynamoDBMapper;
@@ -58,7 +60,7 @@ public class CognitiveTestDBHelper {
                                            String _tulip , String _quarters, String _groceriesChange, String _copyPictureFile, String _drawClockFile,
                                            String _countries12, String _circleLinesFile, String _trianglesFile, String _done ) {
         try {
-            final CognitiveTestDO entry = new CognitiveTestDO();
+            final com.amazonaws.models.nosql.CognitiveTestDO entry = new com.amazonaws.models.nosql.CognitiveTestDO();
             entry.setUid(_uid);
             entry.setMemoryProblem(_memoryProblem);
             entry.setBlood(_blood);
@@ -80,6 +82,7 @@ public class CognitiveTestDBHelper {
             entry.setCircleLinesFile(_circleLinesFile);
             entry.setTrianglesFile(_trianglesFile);
             entry.setDone(_done);
+            entry.setTimestamp(System.currentTimeMillis()+ "");
 
             Thread thread = new Thread(new Runnable() {
                 @Override
