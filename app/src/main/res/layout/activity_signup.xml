@@ -5,102 +5,294 @@
     android:layout_height="match_parent"
     tools:context=".AuthenticatorActivity">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/signupToolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary"
-            android:minHeight="?attr/actionBarSize"
-            android:theme="?attr/actionBarTheme" />
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/usernameLabelSignup"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingEnd="0dp"
-                android:paddingStart="10dp"
-                android:text="@string/email_phone" />
-
-            <EditText
-                android:id="@+id/usernameEditSignup"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:inputType="textPersonName" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/passwordLabelSignup"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingEnd="17dp"
-                android:paddingStart="10dp"
-                android:text="@string/password" />
-
-            <EditText
-                android:id="@+id/passwordEditSignup"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:inputType="textPassword" />
-
-        </LinearLayout>
-
-        <CheckBox
-            android:id="@+id/isCoUserCheck"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="20dp"
-            android:text="Are you a Co-User?" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingBottom="15dp"
-            android:paddingTop="15dp">
-
-            <Button
-                android:id="@+id/cancelSignupBtn"
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/signupToolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="20dp"
-                android:layout_marginStart="20dp"
-                android:layout_weight="1"
-                android:text="@string/cancel" />
+                android:background="?attr/colorPrimary"
+                android:minHeight="?attr/actionBarSize"
+                android:theme="?attr/actionBarTheme" />
 
-            <Button
-                android:id="@+id/signupSubmitBtn"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="20dp"
-                android:layout_marginStart="20dp"
-                android:layout_weight="1"
-                android:text="Sign Up" />
-        </LinearLayout>
+                android:orientation="horizontal">
 
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/usernameLabelSignup"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:paddingEnd="0dp"
+                    android:paddingStart="10dp"
+                    android:text="@string/email_phone" />
+
+                <EditText
+                    android:id="@+id/usernameEditSignup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:ems="10"
+                    android:inputType="textPersonName" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/passwordLabelSignup"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:paddingEnd="0dp"
+                    android:paddingStart="10dp"
+                    android:text="@string/password" />
+
+                <EditText
+                    android:id="@+id/passwordEditSignup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:ems="10"
+                    android:inputType="textPassword" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/nameLabelSignUp"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:paddingEnd="0dp"
+                    android:paddingStart="10dp"
+                    android:text="@string/name" />
+
+                <EditText
+                    android:id="@+id/nameEditSignup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:ems="10"
+                    android:inputType="text" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/dobLabelSignup"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:paddingEnd="5dp"
+                    android:paddingStart="10dp"
+                    android:text="Date of Birth" />
+
+                <EditText
+                    android:id="@+id/dobEditSignUp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:ems="10"
+                    android:inputType="date" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/educationLabelSignUp"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:paddingEnd="0dp"
+                    android:paddingStart="10dp"
+                    android:text="Education" />
+
+                <EditText
+                    android:id="@+id/educationEditSignup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:ems="10"
+                    android:inputType="text" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="5dp"
+                android:paddingTop="15dp">
+
+                <TextView
+                    android:id="@+id/genderLabelSignup"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:paddingEnd="0dp"
+                    android:paddingStart="10dp"
+                    android:text="Gender" />
+
+                <RadioGroup
+                    android:id="@+id/genderRadioGroupSignup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:orientation="horizontal">
+
+
+                    <RadioButton
+                        android:id="@+id/femaleRadioSignup"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingEnd="15dp"
+                        android:text="Female" />
+
+                    <RadioButton
+                        android:id="@+id/maleRadioSignup"
+                        android:layout_width="123dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Male" />
+
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingEnd="5dp"
+                android:paddingTop="15dp">
+
+                <TextView
+                    android:id="@+id/ethnicityLabelSignup"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:paddingEnd="0dp"
+                    android:paddingStart="10dp"
+                    android:text="Ethnicity" />
+
+                <RadioGroup
+                    android:id="@+id/ethnicityRadioGroupSignUp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2">
+
+                    <RadioButton
+                        android:id="@+id/asianRadioSignup"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingEnd="15dp"
+                        android:text="Asian" />
+
+                    <RadioButton
+                        android:id="@+id/blackRadioSignup"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Black" />
+
+                    <RadioButton
+                        android:id="@+id/hispanicRadioSignup"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingEnd="15dp"
+                        android:text="Hispanic" />
+
+                    <RadioButton
+                        android:id="@+id/whiteRadioSignup"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="White" />
+
+                    <RadioButton
+                        android:id="@+id/otherRadioSignup"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:editable="true"
+                        android:paddingEnd="10dp"
+                        android:text="Other" />
+
+                    <EditText
+                        android:id="@+id/otherEditSignup"
+                        android:layout_width="139dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:inputType="textPersonName" />
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <CheckBox
+                android:id="@+id/isCoUserCheckSignup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:text="Are you a caregiver?" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="15dp"
+                android:paddingTop="15dp">
+
+                <Button
+                    android:id="@+id/cancelSignupBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_weight="1"
+                    android:text="@string/cancel" />
+
+                <Button
+                    android:id="@+id/signupSubmitBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_weight="1"
+                    android:text="Sign Up" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
 
 </android.support.constraint.ConstraintLayout>

@@ -17,7 +17,7 @@ public class UsersDBHelper {
     DynamoDBMapper dynamoDBMapper;
     Context ctx;
 
-    UsersDBHelper (Context context) {
+    public UsersDBHelper(Context context) {
         ctx = context;
         connect();
     }
@@ -44,14 +44,18 @@ public class UsersDBHelper {
                 .build();
     }
     //CREATE
-    public void createUser(String id, String name,  double isCo) {
+    public void createUser(String id, String name, String dob, String gender, String ethnicity, String education,  double isCo) {
         final UsersDO user = new UsersDO();
 
         user.setUserID(id);
         user.setName(name);
+        user.setDob(dob);
+        user.setGender(gender);
+        user.setEducation(education);
+        user.setEthnicity(ethnicity);
         user.setIsCoUser(isCo);
         connect();
-        new Thread(new Runnable() {
+        Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
@@ -61,7 +65,13 @@ public class UsersDBHelper {
                     Log.i("BT", "Error writing to dB: " + e.toString());
                 }
             }
-        }).start();
+        });
+        try {
+            thread.start();
+            thread.join();
+        } catch (Exception e){
+
+        }
     }
 
 }
