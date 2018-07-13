@@ -64,6 +64,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".SignupActivity" />
+        <activity android:name=".DetailCareTakerActivity"></activity>
     </application>
 
 </manifest>

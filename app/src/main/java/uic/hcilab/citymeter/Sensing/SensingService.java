@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 import uic.hcilab.citymeter.DB.ExposureObject;
 import uic.hcilab.citymeter.DB.SensingDBHelper;
+import uic.hcilab.citymeter.Helpers.LogInHelper;
 import uic.hcilab.citymeter.HomeActivity;
 
 //Be careful with the variable when the available data is less than the buffer size
@@ -68,7 +69,7 @@ public class SensingService extends Service {
                                 Double latitude_ = dat.latitude;
                                 Double indoor_ = dat.indoor;
                                 if (dbA_ != -1.0) {
-                                    sensingDBHelper.createExposureInst_dBA("1", timestamp_, dbA_, longitude_, latitude_, indoor_);
+                                    sensingDBHelper.createExposureInst_dBA(LogInHelper.getCurrUser(), timestamp_, dbA_, longitude_, latitude_, indoor_);
                                 }
                                 Handler handler = new Handler(Looper.getMainLooper());
                                 handler.post(new Runnable() {
@@ -111,7 +112,7 @@ public class SensingService extends Service {
                 Double longitude_ = dat.longitude;
                 Double latitude_ = dat.latitude;
                 Double indoor_ = dat.indoor;
-                sensingDBHelper.createExposureInst_pm("1", timestamp_, pm_, longitude_, latitude_, indoor_);
+                sensingDBHelper.createExposureInst_pm(LogInHelper.getCurrUser(), timestamp_, pm_, longitude_, latitude_, indoor_);
                 Handler handler = new Handler(Looper.getMainLooper());
                 handler.post(new Runnable() {
                     @Override
