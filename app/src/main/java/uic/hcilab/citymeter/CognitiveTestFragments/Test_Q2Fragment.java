@@ -13,9 +13,9 @@ import uic.hcilab.citymeter.R;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link Test_Q1Fragment.OnFragmentInteractionListener} interface
+ * {@link Test_Q3Fragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link Test_Q1Fragment#newInstance} factory method to
+ * Use the {@link Test_Q3Fragment#newInstance} factory method to
  * create an instance of this fragment.
  *
  */

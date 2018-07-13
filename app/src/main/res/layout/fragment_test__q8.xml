@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CognitiveTestFragments.Test_Q8Fragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/testQ10Pre"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            android:text="Review this example (this first one is done for you) then go to question 10 below:"
+            android:textColor="#000000"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/testQ10Sub"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:text=": Draw a line from one circle to another starting at 1 and alternating numbers and letters (1 to A to 2 to B to 3 to C)."
+            android:textColor="#000000"
+            android:textSize="15dp"
+            app:layout_constraintBottom_toTopOf="@+id/testQ10Pic1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/testQ10Pre" />
+
+        <ImageView
+            android:id="@+id/testQ10Pic1"
+            android:layout_width="0dp"
+            android:layout_height="102dp"
+            android:src="@drawable/q10example"
+            app:layout_constraintBottom_toTopOf="@+id/testQ10"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/testQ10Sub" />
+
+        <TextView
+            android:id="@+id/testQ10"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            android:text="10. Do the following: Draw a line from one circle to another starting at 1 and alternating numbers and letters in order before ending at F (1 to A to 2 to B and so on)."
+            android:textColor="#000000"
+            android:textSize="19dp"
+            app:layout_constraintBottom_toTopOf="@+id/testQ10Canvas"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/testQ10Pic1" />
+
+        <FrameLayout
+            android:id="@+id/testQ10Canvas"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/q10"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/testQ10"
+            app:layout_constraintVertical_bias="0.0">
+
+        </FrameLayout>
+
+
+    </android.support.constraint.ConstraintLayout>
+
+
+</FrameLayout>

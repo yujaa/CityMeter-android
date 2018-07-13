@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
-import android.widget.FrameLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,9 +41,13 @@ public class TestActivity extends TabHost {
         fragmentList.add(new Test_Info3Fragment());
         fragmentList.add(new Test_Q1Fragment());
         fragmentList.add(new Test_Q2Fragment());
+        fragmentList.add(new Test_Q3Fragment());
+        fragmentList.add(new Test_Q4Fragment());
+        fragmentList.add(new Test_Q5Fragment());
+        fragmentList.add(new Test_Q6Fragment());
+        fragmentList.add(new Test_Q7Fragment());
+        fragmentList.add(new Test_Q8Fragment());
 
-        //Fragment
-        FrameLayout frame = findViewById(R.id.test_frame);
 
         if (savedInstanceState == null) {
             FragmentTransaction ft = getFragmentManager().beginTransaction();
