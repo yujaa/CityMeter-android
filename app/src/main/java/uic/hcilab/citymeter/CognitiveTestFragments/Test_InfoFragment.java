@@ -20,7 +20,6 @@ import uic.hcilab.citymeter.R;
  */
 public class Test_InfoFragment extends Fragment {
 
-
     public Test_InfoFragment() {
         // Required empty public constructor
     }
