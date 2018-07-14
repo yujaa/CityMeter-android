@@ -3,6 +3,8 @@ package uic.hcilab.citymeter;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
@@ -18,11 +20,17 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.util.List;
+
+import uic.hcilab.citymeter.DB.CognitiveTestDBHelper;
+import uic.hcilab.citymeter.DB.CousersDO;
 import uic.hcilab.citymeter.DB.SensingDBHelper;
 import uic.hcilab.citymeter.Helpers.CaretakersRecyclerViewAdapter;
+import uic.hcilab.citymeter.Helpers.CognitiveTestRecyclerViewAdapter;
+import uic.hcilab.citymeter.Helpers.LogInHelper;
 import uic.hcilab.citymeter.voronoi.Line;
 
-public class DetailCareTakerActivity extends AppCompatActivity implements OnMapReadyCallback {
+public class DetailCareTakerActivity extends AppCompatActivity implements OnMapReadyCallback, CognitiveTestRecyclerViewAdapter.ItemClickListener {
     String cuid;
     boolean canLocation = false;
     boolean canActivities = false;
@@ -30,6 +38,8 @@ public class DetailCareTakerActivity extends AppCompatActivity implements OnMapR
     GoogleMap googleMap;
     double longitude;
     double latitude;
+    CognitiveTestRecyclerViewAdapter adapter;
+    List<com.amazonaws.models.nosql.CognitiveTestDO> tests;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -94,6 +104,17 @@ public class DetailCareTakerActivity extends AppCompatActivity implements OnMapR
         LinearLayout cogTest = (LinearLayout) findViewById(R.id.cognitiveTestLayout);
         if(canCogTest){
             cogTest.setVisibility(View.VISIBLE);
+            CognitiveTestDBHelper cognitiveTestDBHelper = new CognitiveTestDBHelper(DetailCareTakerActivity.this);
+            cognitiveTestDBHelper.getAllTests(cuid);
+
+           tests = cognitiveTestDBHelper.tests;
+
+            // set up the RecyclerView
+            RecyclerView recyclerView = findViewById(R.id.cogTestRecyclerCaretaker);
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+            adapter = new CognitiveTestRecyclerViewAdapter(this, tests);
+            adapter.setClickListener(DetailCareTakerActivity.this);
+            recyclerView.setAdapter(adapter);
         }
         else{
             cogTest.setVisibility(View.GONE);
@@ -101,7 +122,6 @@ public class DetailCareTakerActivity extends AppCompatActivity implements OnMapR
     }
     Boolean isActive (String s){
         if(s.contains( "1.0")){
-            Log.i("coco", s);
             return true;
         }
         else {
@@ -119,6 +139,34 @@ public class DetailCareTakerActivity extends AppCompatActivity implements OnMapR
         googleMap.animateCamera(CameraUpdateFactory.zoomTo(16.0f));
         googleMap.getUiSettings().setZoomControlsEnabled(true);
         googleMap.setMinZoomPreference(10);
+
+    }
+
+    @Override
+    public void onItemClick(View view, int position) {
+        Intent intent = new Intent(getBaseContext(), TestResultActivity.class);
+        intent.putExtra("Time", adapter.getItem(position));
+        intent.putExtra("memoryProblem", tests.get(position).getMemoryProblem());
+        intent.putExtra("blood", tests.get(position).getBlood());
+        intent.putExtra("balance", tests.get(position).getBalance());
+        intent.putExtra("balanceCause", tests.get(position).getBalanceCause());
+        intent.putExtra("stroke", tests.get(position).getMajorStroke());
+        intent.putExtra("sad", tests.get(position).getSadDepressed());
+        intent.putExtra("personality", tests.get(position).getPersonality());
+        intent.putExtra("difficulty", tests.get(position).getDifficultyActivities());
+        intent.putExtra("today", tests.get(position).getTodayDate());
+        intent.putExtra("rhino", tests.get(position).getNamePictureRhino());
+        intent.putExtra("harp", tests.get(position).getNamePictureHarp());
+        intent.putExtra("tulip", tests.get(position).getTulip());
+        intent.putExtra("quarters", tests.get(position).getQuarters());
+        intent.putExtra("change", tests.get(position).getGroceriesChange());
+        intent.putExtra("copy", tests.get(position).getCopyPictureFile());
+        intent.putExtra("clock", tests.get(position).getDrawClockFile());
+        intent.putExtra("countries", tests.get(position).getCountries12());
+        intent.putExtra("circle", tests.get(position).getCircleLinesFile());
+        intent.putExtra("tri", tests.get(position).getTrianglesFile());
+        intent.putExtra("done", tests.get(position).getDone());
+        startActivity(intent);
 
     }
 }

@@ -1340,6 +1340,10 @@
         "source": "C:\\Users\\Nina Sakhnini\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\04b3eccd16314a9e026539f0e5a9e746\\res\\drawable-hdpi-v4\\abc_ic_star_half_black_48dp.png"
     },
     {
+        "merged": "F:\\Projects\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_test_result.xml.flat",
+        "source": "F:\\Projects\\CityMeter-android\\app\\src\\main\\res\\layout\\activity_test_result.xml"
+    },
+    {
         "merged": "F:\\Projects\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_edit.png.flat",
         "source": "F:\\Projects\\CityMeter-android\\app\\src\\main\\res\\drawable-xxhdpi\\ic_edit.png"
     },

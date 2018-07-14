@@ -80,6 +80,7 @@
         <activity android:name="uic.hcilab.citymeter.SignupActivity" />
         <activity android:name="uic.hcilab.citymeter.DetailCareTakerActivity" />
         <activity android:name="uic.hcilab.citymeter.CaretakersXposureActivity" />
+        <activity android:name="uic.hcilab.citymeter.TestResultActivity" />
         <activity
             android:name="com.google.android.gms.common.api.GoogleApiActivity"
             android:exported="false"
