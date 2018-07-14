@@ -39,14 +39,17 @@ public class TestResultActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_result);
         cuid = getIntent().getStringExtra("User");
+
         _memoryProblem = getIntent().getStringExtra("memoryProblem");
         TextView mem = (TextView) findViewById(R.id.memoryA);
         mem.setText(_memoryProblem);
         mem.setTextColor(Color.BLUE);
+
         _blood = getIntent().getStringExtra("blood");
         TextView blood = (TextView) findViewById(R.id.bloodA);
         blood.setText(_blood);
         blood.setTextColor(Color.BLUE);
+
         _balance = getIntent().getStringExtra("balance");
         _balanceCause = getIntent().getStringExtra("balanceCause");
         TextView balance = (TextView) findViewById(R.id.balanceA);
