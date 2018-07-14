@@ -132,6 +132,9 @@ public class SettingsActivity extends TabHost implements CoUserRecyclerViewAdapt
         if (view.getParent().toString().contains("caretaker")) {
             Intent intent = new Intent(getBaseContext(), DetailCareTakerActivity.class);
             intent.putExtra("CARETAKER_ID", adapterCaretaker.getItem(position));
+            intent.putExtra("location", adapterCaretaker.getCoUser(position).getCanSeeLocation() + "");
+            intent.putExtra("activities", adapterCaretaker.getCoUser(position).getCanSeeActivities() + "" );
+            intent.putExtra("cogTest", adapterCaretaker.getCoUser(position).getCanSeeCogTest()+ "");
             startActivity(intent);
             SettingsActivity.this.finish();
         } else {

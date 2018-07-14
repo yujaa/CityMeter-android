@@ -66,6 +66,10 @@ public class CaretakersRecyclerViewAdapter  extends RecyclerView.Adapter<Caretak
             return mData.get(id).getUid().toString();
         }
 
+        public CousersDO getCoUser(int id){
+            return mData.get(id);
+        }
+
         // allows clicks events to be caught
         public void setClickListener(SettingsActivity itemClickListener) {
             this.mClickListener = itemClickListener;
