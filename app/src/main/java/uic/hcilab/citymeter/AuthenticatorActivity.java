@@ -102,7 +102,6 @@ public class AuthenticatorActivity extends AppCompatActivity {
         username = user.getUserId();
         if(username != null) {
             LogInHelper.setUser(username);
-            inUsername.setText(user.getUserId());
             user.getSessionInBackground(authenticationHandler);
         }
     }
@@ -113,7 +112,6 @@ public class AuthenticatorActivity extends AppCompatActivity {
             LogInHelper.setUser(username);
         }
         if(this.password == null) {
-            inUsername.setText(username);
             password = inPassword.getText().toString();
             if(password == null) {
                 Toast.makeText(AuthenticatorActivity.this, "Please enter password", Toast.LENGTH_SHORT).show();
