@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -18,6 +19,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import uic.hcilab.citymeter.DB.SensingDBHelper;
+import uic.hcilab.citymeter.Helpers.CaretakersRecyclerViewAdapter;
 import uic.hcilab.citymeter.voronoi.Line;
 
 public class DetailCareTakerActivity extends AppCompatActivity implements OnMapReadyCallback {
@@ -76,6 +78,15 @@ public class DetailCareTakerActivity extends AppCompatActivity implements OnMapR
         LinearLayout activities = (LinearLayout) findViewById(R.id.activityLayout);
         if(canActivities){
             activities.setVisibility(View.VISIBLE);
+            Button xposure = (Button) findViewById(R.id.activitiesCaretakerButton);
+            xposure.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getBaseContext(), CaretakersXposureActivity.class);
+                    intent.putExtra("CARETAKER_ID", cuid);
+                    startActivity(intent);
+                }
+            });
         }
         else{
             activities.setVisibility(View.GONE);

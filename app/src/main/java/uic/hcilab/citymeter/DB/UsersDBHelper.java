@@ -112,5 +112,29 @@ public class UsersDBHelper {
 
         return isCoUser;
     }
+    public String getName(String id){
+        String name = id;
+        try {
+            Map<String, AttributeValue> eav = new HashMap<String, AttributeValue>();
+            eav.put(":val1", new AttributeValue().withS(id));
+
+            final DynamoDBScanExpression scanExpression = new DynamoDBScanExpression()
+                    .withFilterExpression("userID = :val1").withExpressionAttributeValues(eav);
+
+            Thread thread = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    user = dynamoDBMapper.scan(UsersDO.class, scanExpression);
+                }
+            });
+            thread.start();
+            thread.join();
+            name = user.get(0).getName();
+
+        } catch (Exception e) {
+            Log.i("settings" , "Error: " + e.toString());
+        }
+        return name;
+    }
 
 }

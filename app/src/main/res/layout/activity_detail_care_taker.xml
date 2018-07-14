@@ -59,7 +59,20 @@
             android:id="@+id/activityLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"></LinearLayout>
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/activitiesCaretakerLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="View Exposure History" />
+
+            <Button
+                android:id="@+id/activitiesCaretakerButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="View Exposure History" />
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/cognitiveTestLayout"
