@@ -7,15 +7,27 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.Toast;
+
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapView;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 import uic.hcilab.citymeter.DB.SensingDBHelper;
 import uic.hcilab.citymeter.voronoi.Line;
 
-public class DetailCareTakerActivity extends AppCompatActivity {
+public class DetailCareTakerActivity extends AppCompatActivity implements OnMapReadyCallback {
     String cuid;
     boolean canLocation = false;
     boolean canActivities = false;
     boolean canCogTest = false;
+    GoogleMap googleMap;
+    double longitude;
+    double latitude;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,13 +54,21 @@ public class DetailCareTakerActivity extends AppCompatActivity {
                 DetailCareTakerActivity.this.finish();
             }
         });
-
         LinearLayout location = (LinearLayout) findViewById(R.id.lastLocationLayout);
         if(canLocation){
-            location.setVisibility(View.VISIBLE);
-            SensingDBHelper sensingDBHelper = new SensingDBHelper(DetailCareTakerActivity.this);
-            double longitude =  sensingDBHelper.getLatestLocation(cuid).get("longitude") ;
-            double latitude =  sensingDBHelper.getLatestLocation(cuid).get("latitude") ;
+            try {
+                location.setVisibility(View.VISIBLE);
+                SensingDBHelper sensingDBHelper = new SensingDBHelper(DetailCareTakerActivity.this);
+                longitude = sensingDBHelper.getLatestLocation(cuid).get("longitude");
+                latitude = sensingDBHelper.getLatestLocation(cuid).get("latitude");
+                SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                        .findFragmentById(R.id.lastLocationMapView);
+                mapFragment.getMapAsync(DetailCareTakerActivity.this);
+            }
+            catch (Exception e){
+                Toast.makeText(DetailCareTakerActivity.this, "Failed to get last known location", Toast.LENGTH_SHORT).show();
+                Log.i("lastLoc", "Error : " + e.toString());
+            }
         }
         else{
             location.setVisibility(View.GONE);
@@ -76,5 +96,18 @@ public class DetailCareTakerActivity extends AppCompatActivity {
         else {
             return false;
         }
+    }
+
+    @Override
+    public void onMapReady(GoogleMap map) {
+
+        googleMap = map;
+
+        googleMap.addMarker(new MarkerOptions().position(new LatLng(latitude,longitude)));
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(latitude,longitude)));
+        googleMap.animateCamera(CameraUpdateFactory.zoomTo(16.0f));
+        googleMap.getUiSettings().setZoomControlsEnabled(true);
+        googleMap.setMinZoomPreference(10);
+
     }
 }

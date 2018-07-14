@@ -22,19 +22,49 @@
         <LinearLayout
             android:id="@+id/lastLocationLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"></LinearLayout>
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/lastLocationLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Last Location" />
+
+            <LinearLayout
+                android:id="@+id/map_container"
+                android:layout_width="match_parent"
+                android:layout_height="@android:dimen/thumbnail_height"
+                android:layout_marginTop="8dp"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toTopOf="@+id/navigation"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0">
+
+
+                <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/lastLocationMapView"
+                    android:name="com.google.android.gms.maps.SupportMapFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/activityLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"></LinearLayout>
 
         <LinearLayout
             android:id="@+id/cognitiveTestLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"></LinearLayout>
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

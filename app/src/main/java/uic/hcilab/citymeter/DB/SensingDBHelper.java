@@ -258,7 +258,12 @@ public class SensingDBHelper  {
             Thread thread = new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    exposures = dynamoDBMapper.query(UserExposureDO.class, queryExpression);
+                    try {
+                        exposures = dynamoDBMapper.query(UserExposureDO.class, queryExpression);
+                    }
+                    catch (Exception e){
+                        Log.i("lastLoc", "Error: " + e.toString());
+                    }
                 }
             });
             thread.start();
