@@ -154,9 +154,11 @@
         </TableRow>
 
         <TableRow
+            android:id="@+id/testInfoQ3Row1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingLeft="25dp">
+            android:paddingLeft="25dp"
+            android:visibility="invisible">
 
             <TextView
                 android:id="@+id/testInfoQ3Sub"
@@ -169,9 +171,11 @@
         </TableRow>
 
         <TableRow
+            android:id="@+id/testInfoQ3Row2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingLeft="25dp" >
+            android:paddingLeft="25dp"
+            android:visibility="invisible">
 
             <RadioGroup
                 android:id="@+id/testInfoQ3SubRG"
@@ -196,10 +200,12 @@
             </RadioGroup>
         </TableRow>
         <TableRow
+            android:id="@+id/testInfoQ3Row3"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:paddingLeft="25dp"
-            android:paddingRight="25dp" >
+            android:paddingRight="25dp"
+            android:visibility="invisible">
 
 
             <TextView
@@ -212,10 +218,12 @@
                 android:text="Please write a specific reason" />
         </TableRow>
         <TableRow
+            android:id="@+id/testInfoQ3Row4"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:paddingLeft="25dp"
-            android:paddingRight="25dp" >
+            android:paddingRight="25dp"
+            android:visibility="invisible">
 
             <EditText
                 android:id="@+id/editText4"

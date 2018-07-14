@@ -18,7 +18,7 @@ import uic.hcilab.citymeter.R;
  * Use the {@link Test_Q9Fragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Test_Q9Fragment extends Fragment {
+public class Test_Q9Fragment extends android.app.Fragment {
 
     public Test_Q9Fragment() {
         // Required empty public constructor
