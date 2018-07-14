@@ -145,6 +145,7 @@ public class DetailCareTakerActivity extends AppCompatActivity implements OnMapR
     @Override
     public void onItemClick(View view, int position) {
         Intent intent = new Intent(getBaseContext(), TestResultActivity.class);
+        intent.putExtra("User", cuid);
         intent.putExtra("Time", adapter.getItem(position));
         intent.putExtra("memoryProblem", tests.get(position).getMemoryProblem());
         intent.putExtra("blood", tests.get(position).getBlood());
