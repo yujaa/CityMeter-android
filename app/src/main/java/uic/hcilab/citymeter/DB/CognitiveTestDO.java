@@ -1,4 +1,4 @@
-package uic.hcilab.citymeter.DB;
+package com.amazonaws.models.nosql;
 
 import com.amazonaws.mobileconnectors.dynamodbv2.dynamodbmapper.DynamoDBAttribute;
 import com.amazonaws.mobileconnectors.dynamodbv2.dynamodbmapper.DynamoDBHashKey;
@@ -32,6 +32,7 @@ public class CognitiveTestDO {
     private String _personality;
     private String _quarters;
     private String _sadDepressed;
+    private String _timestamp;
     private String _todayDate;
     private String _trianglesFile;
     private String _tulip;
@@ -180,6 +181,14 @@ public class CognitiveTestDO {
 
     public void setSadDepressed(final String _sadDepressed) {
         this._sadDepressed = _sadDepressed;
+    }
+    @DynamoDBAttribute(attributeName = "timestamp")
+    public String getTimestamp() {
+        return _timestamp;
+    }
+
+    public void setTimestamp(final String _timestamp) {
+        this._timestamp = _timestamp;
     }
     @DynamoDBAttribute(attributeName = "today_date")
     public String getTodayDate() {
