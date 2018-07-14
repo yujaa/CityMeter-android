@@ -11,22 +11,27 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import java.util.Collection;
-import java.util.Iterator;
+
 import java.util.List;
-import java.util.ListIterator;
 
 import uic.hcilab.citymeter.DB.CoUserDBHelper;
 import uic.hcilab.citymeter.DB.CousersDO;
+import uic.hcilab.citymeter.DB.UsersDBHelper;
+import uic.hcilab.citymeter.Helpers.CaretakersRecyclerViewAdapter;
 import uic.hcilab.citymeter.Helpers.CoUserRecyclerViewAdapter;
+import uic.hcilab.citymeter.Helpers.LogInHelper;
 
 //TODO: update user ID
 public class SettingsActivity extends TabHost implements CoUserRecyclerViewAdapter.ItemClickListener {
-    CoUserRecyclerViewAdapter adapter;
+    CoUserRecyclerViewAdapter adapterCaregiver;
+    CaretakersRecyclerViewAdapter adapterCaretaker;
     CoUserDBHelper coUserDBHelper;
     ImageButton add;
+    UsersDBHelper usersDBHelper;
+    Boolean isCoUser = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +51,7 @@ public class SettingsActivity extends TabHost implements CoUserRecyclerViewAdapt
                 SettingsActivity.this.finish();
             }
         });
+        usersDBHelper = new UsersDBHelper(this);
         add = (ImageButton) findViewById(R.id.addCoUserButton);
         add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,6 +61,18 @@ public class SettingsActivity extends TabHost implements CoUserRecyclerViewAdapt
                 SettingsActivity.this.finish();
             }
         });
+        LinearLayout careTakerLayout = (LinearLayout) findViewById(R.id.careTakerLayout);
+        LinearLayout careGiverLayout = (LinearLayout) findViewById(R.id.careGiverLayout);
+        if (usersDBHelper.isCoUser()){
+            careTakerLayout.setVisibility(View.VISIBLE);
+            careGiverLayout.setVisibility(View.GONE);
+            isCoUser = true;
+        }
+        else{
+            careTakerLayout.setVisibility(View.GONE);
+            careGiverLayout.setVisibility(View.VISIBLE);
+            isCoUser = false;
+        }
 
     }
 
@@ -64,15 +82,30 @@ public class SettingsActivity extends TabHost implements CoUserRecyclerViewAdapt
         if (isOnline()) {
             coUserDBHelper = new CoUserDBHelper(this);
             coUserDBHelper.connect();
-            coUserDBHelper.getAllCoUsers("1");
-            List<CousersDO> coUsers = coUserDBHelper.coUsers;
+            if (!isCoUser) {
+                coUserDBHelper.getAllCoUsers(LogInHelper.getCurrUser());
 
-            // set up the RecyclerView
-            RecyclerView recyclerView = findViewById(R.id.couserRecycler);
-            recyclerView.setLayoutManager(new LinearLayoutManager(this));
-            adapter = new CoUserRecyclerViewAdapter(this, coUsers);
-            adapter.setClickListener(this);
-            recyclerView.setAdapter(adapter);
+                List<CousersDO> coUsers = coUserDBHelper.coUsers;
+
+                // set up the RecyclerView
+                RecyclerView recyclerView = findViewById(R.id.couserRecycler);
+                recyclerView.setLayoutManager(new LinearLayoutManager(this));
+                adapterCaregiver = new CoUserRecyclerViewAdapter(this, coUsers);
+                adapterCaregiver.setClickListener(this);
+                recyclerView.setAdapter(adapterCaregiver);
+            }
+            else{
+                coUserDBHelper.getAllCareTakers(LogInHelper.getCurrUser());
+
+                List<CousersDO> careTakers = coUserDBHelper.coUsers;
+
+                // set up the RecyclerView
+                RecyclerView recyclerView = findViewById(R.id.caretakerRecycler);
+                recyclerView.setLayoutManager(new LinearLayoutManager(this));
+                adapterCaretaker = new CaretakersRecyclerViewAdapter(this, careTakers);
+                adapterCaretaker.setClickListener(this);
+                recyclerView.setAdapter(adapterCaretaker);
+            }
         }
         else
         {
@@ -96,10 +129,21 @@ public class SettingsActivity extends TabHost implements CoUserRecyclerViewAdapt
     }
     @Override
     public void onItemClick(View view, int position) {
-        Intent intent = new Intent(getBaseContext(), DetailCoUserActivity.class);
-        intent.putExtra("COUSER_ID", adapter.getItem(position));
-        startActivity(intent);
-        SettingsActivity.this.finish();
+        if (view.getParent().toString().contains("caretaker")) {
+            Intent intent = new Intent(getBaseContext(), DetailCareTakerActivity.class);
+            intent.putExtra("CARETAKER_ID", adapterCaretaker.getItem(position));
+            intent.putExtra("location", adapterCaretaker.getCoUser(position).getCanSeeLocation() + "");
+            intent.putExtra("activities", adapterCaretaker.getCoUser(position).getCanSeeActivities() + "" );
+            intent.putExtra("cogTest", adapterCaretaker.getCoUser(position).getCanSeeCogTest()+ "");
+            startActivity(intent);
+            SettingsActivity.this.finish();
+        } else {
+            Intent intent = new Intent(getBaseContext(), DetailCoUserActivity.class);
+            intent.putExtra("COUSER_ID", adapterCaregiver.getItem(position));
+            startActivity(intent);
+            SettingsActivity.this.finish();
+        }
+
     }
 
     public boolean isOnline() {

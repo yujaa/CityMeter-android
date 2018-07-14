@@ -1,0 +1,1205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TestResultActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/resultToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TableRow
+                    android:id="@+id/memoryRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/memoryQ"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Have you had any problems with memory or thinking? " />
+
+                        <TextView
+                            android:id="@+id/memoryQ2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="(Unscored)" />
+
+                        <TextView
+                            android:id="@+id/memoryA"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="TextView" />
+                    </LinearLayout>
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/bloodRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/bloodQ"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Have you had any blood relatives that have had problems " />
+
+                        <TextView
+                            android:id="@+id/bloodQ2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="with memory or thinking?  (Unscored)" />
+
+                        <TextView
+                            android:id="@+id/bloodA"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="TextView" />
+                    </LinearLayout>
+
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/balanceRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/balanceQ"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Do you have balance problems? If yes, do you know " />
+
+                        <TextView
+                            android:id="@+id/balanceQ2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="the cause? (Specify Reason) (Unscored)" />
+
+                        <TextView
+                            android:id="@+id/balanceA"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="TextView" />
+                    </LinearLayout>
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/strokeRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/strokeQ"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Have you ever had a major stroke? (Unscored)" />
+
+                        <TextView
+                            android:id="@+id/strokeA"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="TextView" />
+                    </LinearLayout>
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/sadRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/sadQ"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Do you currently feel sad or depressed? (Unscored)" />
+
+                        <TextView
+                            android:id="@+id/sadA"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="TextView" />
+                    </LinearLayout>
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/personalitiesRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/personalityQ"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Have you had any change in your personality?" />
+
+                        <TextView
+                            android:id="@+id/personalityQ2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="if yes, specify changes. (Unscored)" />
+
+                        <TextView
+                            android:id="@+id/personalityA"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="TextView" />
+                    </LinearLayout>
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/difficultiesRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/difficultiesQ"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Do you have more difficulties doing everyday activities" />
+
+                        <TextView
+                            android:id="@+id/difficultiesQ2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="due to thinking problems? (Unscored)" />
+
+                        <TextView
+                            android:id="@+id/difficultiesA"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="TextView" />
+                    </LinearLayout>
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/todayRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/todayQ"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="What is today's date?" />
+
+                        <TextView
+                            android:id="@+id/todayA"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="TextView" />
+
+                        <TextView
+                            android:id="@+id/todayScore"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Correct day = 2, 3 days around day = 1" />
+
+                        <TextView
+                            android:id="@+id/todayScore2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Corect Month = 1, Correct Year = 1" />
+
+                        <RadioGroup
+                            android:id="@+id/todayRadio"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:checkedButton="@+id/zero"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/zero"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="0" />
+
+                            <RadioButton
+                                android:id="@+id/one"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="1" />
+
+                            <RadioButton
+                                android:id="@+id/two"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="2" />
+
+                            <RadioButton
+                                android:id="@+id/three"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="3" />
+
+                            <RadioButton
+                                android:id="@+id/four"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="4" />
+                        </RadioGroup>
+
+                    </LinearLayout>
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/rhinoRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/rhinoQ"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Name the following picture: " />
+
+                        <ImageView
+                            android:id="@+id/rhinoQI"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:adjustViewBounds="true"
+                            android:maxWidth="230dp"
+                            app:srcCompat="@drawable/rhino" />
+
+                        <TextView
+                            android:id="@+id/rhinoA"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="TextView" />
+
+                        <TextView
+                            android:id="@+id/rhinoScore"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Correct name = 1, spelling is not important" />
+
+                        <RadioGroup
+                            android:id="@+id/rhinoRadio"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:checkedButton="@+id/zero"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@id/zero"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="0" />
+
+                            <RadioButton
+                                android:id="@id/one"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="1" />
+                        </RadioGroup>
+                    </LinearLayout>
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/harpRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/harpQ"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Name the following picture: " />
+
+                        <ImageView
+                            android:id="@+id/harpQI"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:adjustViewBounds="true"
+                            android:maxWidth="230dp"
+                            app:srcCompat="@drawable/harp" />
+
+                        <TextView
+                            android:id="@+id/harpA"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="TextView" />
+
+                        <TextView
+                            android:id="@+id/harpScore"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Correct name = 1, spelling is not important" />
+
+                        <RadioGroup
+                            android:id="@+id/harpRadio"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:checkedButton="@+id/zero"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@id/zero"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="0" />
+
+                            <RadioButton
+                                android:id="@id/one"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="1" />
+                        </RadioGroup>
+                    </LinearLayout>
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/tulipRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tulipQ"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="How are a rose and a tulip similar?" />
+
+                        <TextView
+                            android:id="@+id/tulipQ2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Write down how they are alike. They both are… what?" />
+
+                        <TextView
+                            android:id="@+id/tulipA"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="TextView" />
+
+                        <TextView
+                            android:id="@+id/tulipScore"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Abstract = 2 Concrete = 1"/>
+                        <TextView
+                            android:id="@+id/tulipScore2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="(spelling/grammar not important" />
+
+                        <RadioGroup
+                            android:id="@+id/tulipRadio"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:checkedButton="@+id/zero"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@id/zero"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="0" />
+
+                            <RadioButton
+                                android:id="@id/one"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="1" />
+
+                            <RadioButton
+                                android:id="@id/two"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="2" />
+                        </RadioGroup>
+                    </LinearLayout>
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/quartersRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/quartersQ"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="How many quarters are in $6.75 cents?" />
+
+                        <TextView
+                            android:id="@+id/quartersA"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="TextView" />
+
+                        <TextView
+                            android:id="@+id/quartersScore"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Correct = 1" />
+
+                        <RadioGroup
+                            android:id="@+id/quartersRadio"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:checkedButton="@+id/zero"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@id/zero"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="0" />
+
+                            <RadioButton
+                                android:id="@id/one"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="1" />
+
+                        </RadioGroup>
+                    </LinearLayout>
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/changeRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/changeQ"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="You are buying $3.05 of groceries. How much change" />
+
+                        <TextView
+                            android:id="@+id/changeQ2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text= "would you receive back from a $5 bill?" />
+
+                        <TextView
+                            android:id="@+id/changeA"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="TextView" />
+
+                        <TextView
+                            android:id="@+id/changeScore"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Correct = 1" />
+
+                        <RadioGroup
+                            android:id="@+id/changeRadio"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:checkedButton="@+id/zero"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@id/zero"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="0" />
+
+                            <RadioButton
+                                android:id="@id/one"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="1" />
+
+                        </RadioGroup>
+                    </LinearLayout>
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/copyRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/copyQ"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Copy this picture:" />
+
+                        <ImageView
+                            android:id="@+id/copyQI"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:adjustViewBounds="true"
+                            android:maxWidth="230dp"
+                            app:srcCompat="@drawable/q7" />
+
+                        <TextView
+                            android:id="@+id/copyA"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Copied shape:" />
+
+                        <ImageView
+                            android:id="@+id/copyAI"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:adjustViewBounds="true"
+                            android:maxWidth="230dp"
+                            app:srcCompat="@android:drawable/screen_background_light_transparent" />
+
+                        <TextView
+                            android:id="@+id/copyScore"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="3-D, parallel lines within 10° and correct shape = 2" />
+
+                        <TextView
+                            android:id="@+id/copyScore2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="3-D but lines not parallel within 10°"/>
+                            <TextView
+                                android:id="@+id/copyScore3"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text=" or otherwise incorrect shape = 1" />
+
+                        <RadioGroup
+                            android:id="@+id/copyRadio"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:checkedButton="@+id/zero"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@id/zero"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="0" />
+
+                            <RadioButton
+                                android:id="@id/one"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="1" />
+
+                            <RadioButton
+                                android:id="@id/two"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="2" />
+
+                        </RadioGroup>
+
+                    </LinearLayout>
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/clockRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/clockQ"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Draw a large face of a clock and place in the numbers" />
+
+                        <TextView
+                            android:id="@+id/clockQ2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Position the hands for 10 minutes before 11 o’clock" />
+
+                        <TextView
+                            android:id="@+id/clockQ3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:lines="2"
+                            android:text="On your clock, label “L” for the long hand and “S” for the short hand" />
+
+                        <TextView
+                            android:id="@+id/clockA"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Drawn clock:" />
+
+                        <ImageView
+                            android:id="@+id/clockAI"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:adjustViewBounds="true"
+                            android:maxWidth="230dp"
+                            app:srcCompat="@android:drawable/screen_background_light_transparent" />
+
+                        <TextView
+                            android:id="@+id/clockScore"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="4 components: "/>
+                        <TextView
+                            android:id="@+id/clockScore2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Clock face, clock numbers (all 12 numbers in correct order clockwise and approximately correct quadrant position)"/>
+                            <TextView
+                            android:id="@+id/clockScore3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="hand positions (hands to correct time and must be joined near clock center)"/>
+                        <TextView
+                            android:id="@+id/clockScore4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="hand size (actual or if labeled correctly)" />
+
+                        <TextView
+                            android:id="@+id/clockScore5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="4 of 4 components correct = 2" />
+
+                        <TextView
+                            android:id="@+id/clockScore6"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="3 of 4 components correct including hand positions = 1" />
+
+                        <RadioGroup
+                            android:id="@+id/clockRadio"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:checkedButton="@+id/zero"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@id/zero"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="0" />
+
+                            <RadioButton
+                                android:id="@id/one"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="1" />
+
+                            <RadioButton
+                                android:id="@id/two"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="2" />
+
+                        </RadioGroup>
+
+                    </LinearLayout>
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/countriesRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/countriesQ"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Write down the names of 12 different " />
+
+                        <TextView
+                            android:id="@+id/countriesQ2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="countries located anywhere in the world" />
+
+                        <TextView
+                        android:id="@+id/countriesA"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="TextView" />
+                        <TextView
+                            android:id="@+id/countriesA2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="TextView" />
+                        <TextView
+                            android:id="@+id/countriesA3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="TextView" />
+
+                        <TextView
+                            android:id="@+id/countriesScore"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="12 different items listed = 2" />
+
+                        <TextView
+                            android:id="@+id/countriesScore2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="10 or 11 different items = 1" />
+
+                        <TextView
+                            android:id="@+id/countriesScore3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="9 or less different items = 0" />
+
+                        <RadioGroup
+                            android:id="@+id/countriesRadio"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:checkedButton="@+id/zero"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@id/zero"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="0" />
+
+                            <RadioButton
+                                android:id="@id/one"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="1" />
+
+                            <RadioButton
+                                android:id="@id/two"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="2" />
+
+                        </RadioGroup>
+                    </LinearLayout>
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/circleRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/circleQ"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Draw a line from one circle to another starting at 1" />
+
+                        <TextView
+                            android:id="@+id/circleQ2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="and alternating numbers and letters in order before ending at F" />
+
+                        <TextView
+                            android:id="@+id/circleQ3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="(1 to A to 2 to B and so on)." />
+
+                        <TextView
+                            android:id="@+id/circleA"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Connected shape:" />
+
+                        <ImageView
+                            android:id="@+id/circleAI"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:adjustViewBounds="true"
+                            android:maxWidth="230dp"
+                            app:srcCompat="@android:drawable/screen_background_light_transparent" />
+
+                        <TextView
+                            android:id="@+id/circleScore"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="An error is if two items that should be connected are not" />
+
+                        <TextView
+                            android:id="@+id/circleScore2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text=" or if two items that should not be connected are." />
+
+                        <TextView
+                            android:id="@+id/circleScore3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Perfect or self-corrected errors = 2 , 1 or 2 errors = 1 " />
+
+                        <TextView
+                            android:id="@+id/circleScore4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="More than 2 errors = 0" />
+
+                        <RadioGroup
+                            android:id="@+id/circleRadio"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:checkedButton="@+id/zero"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@id/zero"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="0" />
+
+                            <RadioButton
+                                android:id="@id/one"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="1" />
+
+                            <RadioButton
+                                android:id="@id/two"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="2" />
+
+                        </RadioGroup>
+
+                    </LinearLayout>
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/triangleRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/triangleQ"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Beginning with 4 triangles" />
+
+                        <TextView
+                            android:id="@+id/triangleQ2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Cross out 2 lines (mark with an X), Leaving 3 triangles" />
+
+                        <TextView
+                            android:id="@+id/triangleQ3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Each line must be part of a complete triangle (no extra lines)." />
+
+                        <TextView
+                            android:id="@+id/triangleA"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Solved shape:" />
+
+                        <ImageView
+                            android:id="@+id/triangleAI"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:adjustViewBounds="true"
+                            android:maxWidth="230dp"
+                            app:srcCompat="@android:drawable/screen_background_light_transparent" />
+
+                        <TextView
+                            android:id="@+id/triangleScore"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Correct lines crossed out and final diagram correct = 2" />
+
+                        <TextView
+                            android:id="@+id/triangleScore2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Correct lines crossed out and no final diagram drawn Or" />
+
+                        <TextView
+                            android:id="@+id/triangleScore3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Correct lines crossed out but final diagram Incorrect Or" />
+
+                        <TextView
+                            android:id="@+id/triangleScore4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="No lines crossed out and final diagram correct = 1" />
+
+                        <TextView
+                            android:id="@+id/triangleScore5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="All else (lines crossed out incorrectly but final diagram correct) = 0" />
+
+                        <RadioGroup
+                            android:id="@+id/triangleRadio"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:checkedButton="@+id/zero"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@id/zero"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="0" />
+
+                            <RadioButton
+                                android:id="@id/one"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="1" />
+
+                            <RadioButton
+                                android:id="@id/two"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="2" />
+
+                        </RadioGroup>
+
+                    </LinearLayout>
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/doneRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/doneQ"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Are you done?" />
+
+                        <TextView
+                            android:id="@+id/doneQ2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="The answer should be: “I have finished”" />
+
+                        <TextView
+                            android:id="@+id/doneA"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="TextView" />
+
+                        <TextView
+                            android:id="@+id/doneScore"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Exact Wording = 2" />
+
+                        <TextView
+                            android:id="@+id/doneScore2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text='Contains the word "finished" = 1' />
+
+                        <RadioGroup
+                            android:id="@+id/doneRadio"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:checkedButton="@+id/zero"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@id/zero"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="0" />
+
+                            <RadioButton
+                                android:id="@id/one"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="1" />
+
+                            <RadioButton
+                                android:id="@id/two"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="2" />
+
+                        </RadioGroup>
+                    </LinearLayout>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <Button
+                        android:id="@+id/submitScore"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Calculate Score" />
+                </TableRow>
+            </TableLayout>
+        </ScrollView>
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

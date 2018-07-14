@@ -25,6 +25,7 @@ import android.widget.Toast;
 
 import uic.hcilab.citymeter.DB.CoUserDBHelper;
 import uic.hcilab.citymeter.DB.CousersDO;
+import uic.hcilab.citymeter.Helpers.LogInHelper;
 
 //TODO: update user ID
 
@@ -58,7 +59,7 @@ public class DetailCoUserActivity extends TabHost {
         if (isOnline()) {
             Log.i("coco", "internet is here");
             coUserDBHelper = new CoUserDBHelper(this);
-            coUserDBHelper.getCoUser("1"/*not co user ID*/, cuid);
+            coUserDBHelper.getCoUser(LogInHelper.getCurrUser(), cuid);
             cousersDO = coUserDBHelper.coUsers.get(0);
 
             final Switch locationSwitch = (Switch) findViewById(R.id.locationSwitch);
@@ -77,7 +78,7 @@ public class DetailCoUserActivity extends TabHost {
                     } else {
                         loc = 1.0;
                     }
-                    cousersDO = coUserDBHelper.updateCoUser("1", cuid, loc, cousersDO.getCanSeeActivities(), cousersDO.getCanSeeCogTest());
+                    cousersDO = coUserDBHelper.updateCoUser(LogInHelper.getCurrUser(), cuid, loc, cousersDO.getCanSeeActivities(), cousersDO.getCanSeeCogTest());
                 }
             });
 
@@ -99,7 +100,7 @@ public class DetailCoUserActivity extends TabHost {
                     } else {
                         act = 1.0;
                     }
-                    cousersDO = coUserDBHelper.updateCoUser("1", cuid, cousersDO.getCanSeeLocation(), act, cousersDO.getCanSeeCogTest());
+                    cousersDO = coUserDBHelper.updateCoUser(LogInHelper.getCurrUser(), cuid, cousersDO.getCanSeeLocation(), act, cousersDO.getCanSeeCogTest());
                 }
             });
 
@@ -120,7 +121,7 @@ public class DetailCoUserActivity extends TabHost {
                     } else {
                         cog = 1.0;
                     }
-                    cousersDO = coUserDBHelper.updateCoUser("1", cuid, cousersDO.getCanSeeLocation(), cousersDO.getCanSeeActivities(), cog);
+                    cousersDO = coUserDBHelper.updateCoUser(LogInHelper.getCurrUser(), cuid, cousersDO.getCanSeeLocation(), cousersDO.getCanSeeActivities(), cog);
                 }
             });
         }
@@ -161,7 +162,7 @@ public class DetailCoUserActivity extends TabHost {
                                 if(isOnline()) {
                                     coUserDBHelper.deletecoUser(cousersDO);
                                     cousersDO.setCuid(input.getText().toString());
-                                    coUserDBHelper.createCoEntry("1", cousersDO.getCuid(), cousersDO.getCanSeeLocation(),
+                                    coUserDBHelper.createCoEntry(LogInHelper.getCurrUser(), cousersDO.getCuid(), cousersDO.getCanSeeLocation(),
                                             cousersDO.getCanSeeActivities(), cousersDO.getCanSeeCogTest());
                                     getSupportActionBar().setTitle(cousersDO.getCuid());
                                 }

@@ -261,6 +261,33 @@ public class CoUserDBHelper {
         }
     }
 
+    public void getAllCareTakers(String userID) {
+        try {
+            Map<String, AttributeValue> eav = new HashMap<String, AttributeValue>();
+            eav.put(":val1", new AttributeValue().withS(userID));
+
+            final DynamoDBScanExpression scanExpression = new DynamoDBScanExpression()
+                    .withFilterExpression("cuid = :val1 ").withExpressionAttributeValues(eav);
+//        final DynamoDBQueryExpression queryExpression = new DynamoDBQueryExpression().withFilterExpression("uid = :val1 ").withExpressionAttributeValues(eav);
+
+
+//                coUsers = dynamoDBMapper.query(CousersDO.class, scanExpression);
+            thread = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    coUsers = dynamoDBMapper.scan(CousersDO.class, scanExpression);
+                    isDone = true;
+                }
+            });
+            thread.start();
+            //while(!isDone){}
+            isDone = false;
+            thread.join();
+        } catch (Exception e) {
+
+        }
+    }
+
     public CousersDO updateCoUser(String id, String cid, double location, double activity, double cogTest) {
         final CousersDO user = new CousersDO();
         try {
