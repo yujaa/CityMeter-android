@@ -28,7 +28,8 @@
     <TableLayout
         android:id="@+id/tableLayout"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="131dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:orientation="vertical"
@@ -116,41 +117,27 @@
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toTopOf="@+id/navigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tableLayout"
         app:layout_constraintVertical_weight="5">
 
-
-    </ScrollView>
-
-    <android.support.constraint.ConstraintLayout
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/steps_scrollView"
-        app:layout_constraintEnd_toEndOf="@+id/steps_scrollView"
-        app:layout_constraintStart_toStartOf="@+id/steps_scrollView"
-        app:layout_constraintTop_toTopOf="@+id/steps_scrollView">
-
         <TextView
             android:id="@+id/steps_text1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:text="* Avoid all physical activity outdoors. \n\n*Avoid prolonged or heavy exertion! \n\n*Consider wearing earplugs."
+            android:lineSpacingExtra="3dp"
             android:textColor="#1C1C1C"
-            android:textSize="24dp"
-            app:layout_constraintBottom_toTopOf="@+id/steps_text2"
+            android:textSize="23dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-    </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+
 
 </android.support.constraint.ConstraintLayout>

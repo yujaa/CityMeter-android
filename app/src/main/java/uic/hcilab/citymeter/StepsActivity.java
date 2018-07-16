@@ -4,7 +4,9 @@ import android.content.res.ColorStateList;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.google.android.gms.common.api.Api;
 
@@ -55,7 +57,8 @@ public class StepsActivity extends TabHost implements ApiCallback{
             sound_btn.setText(da.getTextOfSound(soundNowData)+'\n'+(int)soundNowData);
             sound_btn.setBackgroundTintList(ColorStateList.valueOf(da.getColorOfSound(soundNowData)));
 
-
+            TextView steps_text = (TextView)findViewById(R.id.steps_text1);
+            steps_text.setText(da.getStepsToDo(pmNowData));
         }
     }
 

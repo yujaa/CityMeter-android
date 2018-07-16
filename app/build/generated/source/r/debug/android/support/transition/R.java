@@ -90,16 +90,16 @@ public final class R {
         public static final int save_image_matrix = 0x7f0800e3;
         public static final int save_non_transition_alpha = 0x7f0800e4;
         public static final int save_scale_type = 0x7f0800e5;
-        public static final int tag_transition_group = 0x7f080120;
-        public static final int text = 0x7f08018a;
-        public static final int text2 = 0x7f08018b;
-        public static final int time = 0x7f08019c;
-        public static final int title = 0x7f08019d;
-        public static final int transition_current_scene = 0x7f0801a9;
-        public static final int transition_layout_save = 0x7f0801aa;
-        public static final int transition_position = 0x7f0801ab;
-        public static final int transition_scene_layoutid_cache = 0x7f0801ac;
-        public static final int transition_transform = 0x7f0801ad;
+        public static final int tag_transition_group = 0x7f08011f;
+        public static final int text = 0x7f080189;
+        public static final int text2 = 0x7f08018a;
+        public static final int time = 0x7f08019b;
+        public static final int title = 0x7f08019c;
+        public static final int transition_current_scene = 0x7f0801a8;
+        public static final int transition_layout_save = 0x7f0801a9;
+        public static final int transition_position = 0x7f0801aa;
+        public static final int transition_scene_layoutid_cache = 0x7f0801ab;
+        public static final int transition_transform = 0x7f0801ac;
     }
     public static final class integer {
         public static final int status_bar_notification_info_maxnum = 0x7f09000a;
