@@ -102,9 +102,9 @@ public class SensingService extends Service {
             //not looping to try to connect again
             sensingController.BTSetup();
             //Connect BT
-            if (!sensingController.BTIsConnected()) {
-                sensingController.BTConnect();
-            }
+                if (!sensingController.BTIsConnected()) {
+                    sensingController.BTConnect();
+                }
             //Read BT
             while (sensingController.BTIsConnected() && isOnline()) {
                 ExposureObject dat = sensingController.BTRead();

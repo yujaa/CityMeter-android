@@ -71,6 +71,7 @@ public class DetailCareTakerActivity extends AppCompatActivity implements OnMapR
             try {
                 location.setVisibility(View.VISIBLE);
                 SensingDBHelper sensingDBHelper = new SensingDBHelper(DetailCareTakerActivity.this);
+                sensingDBHelper.connect();
                 longitude = sensingDBHelper.getLatestLocation(cuid).get("longitude");
                 latitude = sensingDBHelper.getLatestLocation(cuid).get("latitude");
                 SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -78,7 +79,6 @@ public class DetailCareTakerActivity extends AppCompatActivity implements OnMapR
                 mapFragment.getMapAsync(DetailCareTakerActivity.this);
             }
             catch (Exception e){
-                Toast.makeText(DetailCareTakerActivity.this, "Failed to get last known location", Toast.LENGTH_SHORT).show();
                 Log.i("careTkr", "Error : " + e.toString());
             }
         }

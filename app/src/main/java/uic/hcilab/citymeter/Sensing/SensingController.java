@@ -27,7 +27,7 @@ public class SensingController {
     private BluetoothAdapter mBluetoothAdapter ;
     private BluetoothDevice bluetoothDevice;
     private UUID myUUID;
-    private BluetoothSocket mBluetoothSocket;
+    public BluetoothSocket mBluetoothSocket;
     private byte[] readLine;
 
     double longitude;

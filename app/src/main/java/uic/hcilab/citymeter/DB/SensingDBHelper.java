@@ -254,6 +254,7 @@ public class SensingDBHelper  {
             final DynamoDBQueryExpression<UserExposureDO> queryExpression = new DynamoDBQueryExpression<UserExposureDO>()
                     .withFilterExpression("longitude <> :val1 and dBA <> :val1 ").withExpressionAttributeValues(eav)
                     .withHashKeyValues(exp);
+
             Thread thread = new Thread(new Runnable() {
                 @Override
                 public void run() {
@@ -261,7 +262,7 @@ public class SensingDBHelper  {
                         exposures = dynamoDBMapper.query(UserExposureDO.class, queryExpression);
                     }
                     catch (Exception e){
-                        Log.i("snsDB", "Error: " + e.toString());
+                        Log.i("snsDB", "Error: " + e.getLocalizedMessage());
                     }
                 }
             });
@@ -274,6 +275,7 @@ public class SensingDBHelper  {
             }
         } catch (Exception e) {
 
+            Log.i("snsDB", e.toString()) ;
         }
         return location;
     }
