@@ -52,6 +52,7 @@ public class SettingsActivity extends TabHost implements CoUserRecyclerViewAdapt
             }
         });
         usersDBHelper = new UsersDBHelper(this);
+        usersDBHelper.connect();
         add = (ImageButton) findViewById(R.id.addCoUserButton);
         add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,7 +83,7 @@ public class SettingsActivity extends TabHost implements CoUserRecyclerViewAdapt
         if (isOnline()) {
             coUserDBHelper = new CoUserDBHelper(this);
             coUserDBHelper.connect();
-            if (!isCoUser) {
+            if (!isCoUser)  {
                 coUserDBHelper.getAllCoUsers(LogInHelper.getCurrUser());
 
                 List<CousersDO> coUsers = coUserDBHelper.coUsers;

@@ -55,7 +55,12 @@ public class AuthenticatorActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                signInUser();
+                try {
+                    signInUser();
+                }
+                catch (Exception e){
+                    Toast.makeText(AuthenticatorActivity.this, "error in sign in : " + e.toString(), Toast.LENGTH_LONG).show();
+                }
             }
         });
 
@@ -95,6 +100,7 @@ public class AuthenticatorActivity extends AppCompatActivity {
             return;
         }
         LogInHelper.getPool().getUser(username).getSessionInBackground(authenticationHandler);
+
     }
 
     private void findCurrent() {
@@ -108,8 +114,14 @@ public class AuthenticatorActivity extends AppCompatActivity {
 
     private void getUserAuthentication(AuthenticationContinuation continuation, String username) {
         if(username != null) {
-            this.username = "+1" + username;
-            LogInHelper.setUser(username);
+            if (username.contains("@") && username.contains(".")) {
+
+                this.username = username;
+            }
+            else{
+                this.username ="+1" + username;
+            }
+            LogInHelper.setUser(this.username);
         }
         if(this.password == null) {
             password = inPassword.getText().toString();
@@ -126,12 +138,13 @@ public class AuthenticatorActivity extends AppCompatActivity {
         AuthenticationDetails authenticationDetails = new AuthenticationDetails(this.username, password, null);
         continuation.setAuthenticationDetails(authenticationDetails);
         continuation.continueTask();
+
     }
 
     AuthenticationHandler authenticationHandler = new AuthenticationHandler() {
         @Override
         public void onSuccess(CognitoUserSession cognitoUserSession, CognitoDevice device) {
-            Log.d("coco", " -- Auth Success");
+            Log.d("logIn", " -- Auth Success");
             LogInHelper.setCurrSession(cognitoUserSession);
             LogInHelper.newDevice(device);
             Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
@@ -153,13 +166,13 @@ public class AuthenticatorActivity extends AppCompatActivity {
         @Override
         public void onFailure(Exception e) {
 //            label.setText("Sign-in failed");
-
             Toast.makeText(AuthenticatorActivity.this, "Failed : " + e.toString(), Toast.LENGTH_SHORT).show();
-            Log.i("coco", "" + e.toString());
+            Log.i("logIn", " Authentication failed " + e.toString());
         }
 
         @Override
         public void authenticationChallenge(ChallengeContinuation continuation) {
+
             /**
              * For Custom authentication challenge, implement your logic to present challenge to the
              * user and pass the user's responses to the continuation.

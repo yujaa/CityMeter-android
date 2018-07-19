@@ -72,7 +72,7 @@ public class UsersDBHelper {
                     dynamoDBMapper.save(user);
                     // Item saved
                 } catch (Exception e) {
-                    Log.i("BT", "Error writing to dB: " + e.toString());
+                    Log.i("userDB", "Error writing to dB: " + e.toString());
                 }
             }
         });
@@ -87,7 +87,8 @@ public class UsersDBHelper {
         Boolean isCoUser = false;
         try {
             Map<String, AttributeValue> eav = new HashMap<String, AttributeValue>();
-            eav.put(":val1", new AttributeValue().withS(LogInHelper.getCurrUser()));
+            String userID = LogInHelper.getCurrUser();
+            eav.put(":val1", new AttributeValue().withS(userID));
 
             final DynamoDBScanExpression scanExpression = new DynamoDBScanExpression()
                     .withFilterExpression("userID = :val1").withExpressionAttributeValues(eav);
@@ -107,7 +108,7 @@ public class UsersDBHelper {
                 isCoUser = true;
             }
         } catch (Exception e) {
-            Log.i("settings" , "Error: " + e.toString());
+            Log.i("userDB" , "Error: " + e.toString());
         }
 
         return isCoUser;
@@ -132,7 +133,7 @@ public class UsersDBHelper {
             name = user.get(0).getName();
 
         } catch (Exception e) {
-            Log.i("settings" , "Error: " + e.toString());
+            Log.i("userDB" , "Error: " + e.toString());
         }
         return name;
     }

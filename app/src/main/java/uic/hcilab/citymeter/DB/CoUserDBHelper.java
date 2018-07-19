@@ -197,7 +197,7 @@ public class CoUserDBHelper {
                         isDone = true;
                         // Item saved
                     } catch (Exception e) {
-                        Log.i("BT", "Error writing to dB: " + e.toString());
+                        Log.i("coDB", "Error writing to dB: " + e.toString());
                     }
                 }
             });

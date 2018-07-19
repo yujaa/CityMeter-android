@@ -154,7 +154,6 @@ public class SensingDBHelper  {
 
     public SensingDBHelper (Context context) {
         ctx = context;
-        connect();
     }
     public void connect(){
         // AWSMobileClient enables AWS user credentials to access your table
@@ -199,7 +198,7 @@ public class SensingDBHelper  {
                     dynamoDBMapper.save(exposureInst);
                     // Item saved
                 }catch (Exception e){
-                    Log.i("BT", "Error writing to dB: " + e.toString());
+                    Log.i("snsDB", "Error writing to dB: " + e.toString());
                 }
             }
         });
@@ -227,11 +226,11 @@ public class SensingDBHelper  {
             public void run() {
                 try {
                     dynamoDBMapper.save(exposureInst);
-                    Log.i("nina", "wrote to db");
+                    Log.i("snsDB", "wrote to db");
                     // Item saved
                 }
                 catch (Exception e){
-                    Log.i("nina", e.toString());
+                    Log.i("snsDB", e.toString());
                 }
             }
         });
@@ -262,7 +261,7 @@ public class SensingDBHelper  {
                         exposures = dynamoDBMapper.query(UserExposureDO.class, queryExpression);
                     }
                     catch (Exception e){
-                        Log.i("lastLoc", "Error: " + e.toString());
+                        Log.i("snsDB", "Error: " + e.toString());
                     }
                 }
             });

@@ -79,7 +79,7 @@ public class DetailCareTakerActivity extends AppCompatActivity implements OnMapR
             }
             catch (Exception e){
                 Toast.makeText(DetailCareTakerActivity.this, "Failed to get last known location", Toast.LENGTH_SHORT).show();
-                Log.i("lastLoc", "Error : " + e.toString());
+                Log.i("careTkr", "Error : " + e.toString());
             }
         }
         else{

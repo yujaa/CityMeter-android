@@ -114,19 +114,22 @@
                 android:paddingTop="10dp"
                 android:text="@string/app_settings"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:visibility="gone" />
 
             <android.support.v7.widget.CardView
                 android:id="@+id/addActivityCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:visibility="gone" />
 
             <android.support.v7.widget.CardView
                 android:id="@+id/deleteActivityCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:visibility="gone" />
 
         </LinearLayout>
     </ScrollView>
@@ -139,6 +142,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="8dp"
         android:layout_weight="1"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

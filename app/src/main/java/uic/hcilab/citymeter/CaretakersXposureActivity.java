@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.simple.JSONObject;
 
@@ -45,8 +46,12 @@ public class CaretakersXposureActivity extends TabHost implements ApiCallback {
         });
         TextView message = (TextView) findViewById(R.id.home_textCaretaker);
         message.setText(id +  " has been in a healthy environment for the last 24 hours :)");
-
-        new AoTData(CaretakersXposureActivity.this).execute("exposure");
+        try {
+            new AoTData(CaretakersXposureActivity.this).execute("exposure");
+        }
+        catch(Exception e){
+            Toast.makeText(CaretakersXposureActivity.this, "Error fetching data", Toast.LENGTH_SHORT).show();
+        }
 
     }
 

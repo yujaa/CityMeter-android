@@ -66,6 +66,7 @@
             />
 
     </LinearLayout>
+
     <include
         android:id="@+id/navigation"
         layout="@layout/nav_tab_host"
@@ -74,6 +75,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="8dp"
         android:layout_weight="1"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

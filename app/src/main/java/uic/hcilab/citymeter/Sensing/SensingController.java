@@ -47,7 +47,7 @@ public class SensingController {
         try {
             noiseDetector.stop();
         }catch(Exception e){
-            Log.e("db", "stop error");
+            Log.e("snsCtrl", "stop error");
         }
     }
 
@@ -63,7 +63,7 @@ public class SensingController {
             mBluetoothAdapter.disable();
            // mActivity.unregisterReceiver(mReceiver);
         } catch (Exception e) {
-            Log.e("bt", "unregister error");
+            Log.e("snsCtrl", "unregister error");
         }
     }
 
@@ -89,7 +89,6 @@ public class SensingController {
         readLine = new byte[80];
         mBluetoothSocket.getInputStream().read(readLine);
         String msgInfo = new String(readLine, "UTF-8");
-        Log.i("BT", msgInfo);
         if(msgInfo.indexOf('[') == 0 && msgInfo.indexOf('{') == 1) {
             Double pm = pm_value(msgInfo);
             Double indoor_ = get_indoor(msgInfo);
@@ -106,7 +105,7 @@ public class SensingController {
         mBluetoothSocket.getOutputStream().write(timestamp.getBytes());
         }
         catch (Exception e){
-            Log.i("BT", "error sending time");
+            Log.i("snsCtrl", "error sending time");
         }
 
     }
@@ -120,17 +119,17 @@ public class SensingController {
                 final int state = intent.getIntExtra(BluetoothDevice.EXTRA_BOND_STATE, BluetoothDevice.ERROR);
                 final int oldState = intent.getIntExtra(BluetoothDevice.EXTRA_PREVIOUS_BOND_STATE, BluetoothDevice.ERROR);
                 if (state == BluetoothDevice.BOND_BONDED && oldState == BluetoothDevice.BOND_BONDING) {
-                    Log.i("BT", "device paired");
+                    Log.i("snsCtrl", "device paired");
                 } else if (state == BluetoothDevice.BOND_NONE && oldState == BluetoothDevice.BOND_BONDED) {
-                    Log.i("BT", "device unpaired");
+                    Log.i("snsCtrl", "device unpaired");
                 }
             }
             //For discovery
             if (BluetoothAdapter.ACTION_DISCOVERY_STARTED.equals(action)) {
-                Log.i("BT", "discovery started");
+                Log.i("snsCtrl", "discovery started");
             }
             if (BluetoothAdapter.ACTION_DISCOVERY_FINISHED.equals(action)) {
-                Log.i("BT", "discovery finished");
+                Log.i("snsCtrl", "discovery finished");
             }
             //On finding BT device
             if (BluetoothDevice.ACTION_FOUND.equals(action)) {
@@ -153,11 +152,11 @@ public class SensingController {
             longitude = location.getLongitude();
             latitude = location.getLatitude();
         }catch (SecurityException exception){
-            Log.i("BT", "location security error: " + exception.toString());
+            Log.i("snsCtrl", "location security error: " + exception.toString());
 
         }
         catch (Exception exception) {
-            Log.i("BT", "location error " + exception.toString());
+            Log.i("snsCtrl", "location error " + exception.toString());
         }
 
     }

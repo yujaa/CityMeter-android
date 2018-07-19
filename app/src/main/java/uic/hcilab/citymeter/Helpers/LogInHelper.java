@@ -39,27 +39,19 @@ public class LogInHelper {
 
     private static CognitoUserPool userPool;
     private static String user;
-    private static CognitoDevice newDevice;
 
+    private static int firstTimeLogInItemsCount;
 
-    private static List<ItemToDisplay> currDisplayedItems;
-    private static  int itemCount;
-
-    private static List<ItemToDisplay> trustedDevices;
-    private static int trustedDevicesCount;
-    private static List<CognitoDevice> deviceDetails;
-    private static CognitoDevice thisDevice;
-    private static boolean thisDeviceTrustState;
 
     private static List<ItemToDisplay> firstTimeLogInDetails;
     private static Map<String, String> firstTimeLogInUserAttributes;
     private static List<String> firstTimeLogInRequiredAttributes;
-    private static int firstTimeLogInItemsCount;
-    private static Map<String, String> firstTimeLogInUpDatedAttributes;
-    private static String firstTimeLoginNewPassword;
 
-    private static List<ItemToDisplay> mfaOptions;
-    private static List<String> mfaAllOptionsCode;
+
+    private static CognitoDevice newDevice;
+
+    // User details from the service
+    private static CognitoUserSession currSession;
 
     // Change the next three lines of code to run this demo on your user pool
 
@@ -70,20 +62,6 @@ public class LogInHelper {
     private static String clientSecret = null;
 
     private static final Regions cognitoRegion = Regions.US_EAST_1;
-
-    // User details from the service
-    private static CognitoUserSession currSession;
-    private static CognitoUserDetails userDetails;
-
-    private static boolean phoneAvailable;
-    private static boolean emailAvailable;
-
-    // User details to display - they are the current values, including any local modification
-    private static boolean phoneVerified;
-    private static boolean emailVerified;
-
-
-    private static Set<String> currUserAttributes;
 
     public static void init(Context ctx) {
         context = ctx;
@@ -111,22 +89,7 @@ public class LogInHelper {
 
         }
 
-        phoneVerified = false;
-        phoneAvailable = false;
-        emailVerified = false;
-        emailAvailable = false;
 
-        currUserAttributes = new HashSet<String>();
-        currDisplayedItems = new ArrayList<ItemToDisplay>();
-        trustedDevices = new ArrayList<ItemToDisplay>();
-        firstTimeLogInDetails = new ArrayList<ItemToDisplay>();
-        firstTimeLogInUpDatedAttributes= new HashMap<String, String>();
-
-        newDevice = null;
-        thisDevice = null;
-        thisDeviceTrustState = false;
-
-        mfaOptions = new ArrayList<ItemToDisplay>();
         }
         catch (Exception e){
 
@@ -136,12 +99,6 @@ public class LogInHelper {
     public static CognitoUserPool getPool() {
         return userPool;
     }
-
-
-    public static void setCurrSession(CognitoUserSession session) {
-        currSession = session;
-    }
-
 
     public static String getCurrUser() {
         return user;
@@ -154,7 +111,7 @@ public class LogInHelper {
     public static void setUserAttributeForDisplayFirstLogIn(Map<String, String> currAttributes, List<String> requiredAttributes) {
         firstTimeLogInUserAttributes = currAttributes;
         firstTimeLogInRequiredAttributes = requiredAttributes;
-        firstTimeLogInUpDatedAttributes = new HashMap<String, String>();
+        //firstTimeLogInUpDatedAttributes = new HashMap<String, String>();
         refreshDisplayItemsForFirstTimeLogin();
     }
 
@@ -186,10 +143,13 @@ public class LogInHelper {
         }
     }
 
+    public static void setCurrSession(CognitoUserSession session) {
+        currSession = session;
+    }
+
     public static void newDevice(CognitoDevice device) {
         newDevice = device;
     }
-
 
     public LogInHelper(Context ctx)  {
         context = ctx;
@@ -266,6 +226,55 @@ public class LogInHelper {
 
     }
 
+    /*
+    init()
+    phoneVerified = false;
+        phoneAvailable = false;
+        emailVerified = false;
+        emailAvailable = false;
+
+        currUserAttributes = new HashSet<String>();
+        currDisplayedItems = new ArrayList<>();
+        trustedDevices = new ArrayList<>();
+        firstTimeLogInDetails = new ArrayList<>();
+        firstTimeLogInUpDatedAttributes= new HashMap<>();
+
+        newDevice = null;
+        thisDevice = null;
+        thisDeviceTrustState = false;
+
+        mfaOptions = new ArrayList<>();
+
+
+
+    private static int firstTimeLogInItemsCount;
+    private static Map<String, String> firstTimeLogInUpDatedAttributes;
+    private static String firstTimeLoginNewPassword;
+
+    private static List<ItemToDisplay> mfaOptions;
+    private static List<String> mfaAllOptionsCode;
+
+
+    private static List<ItemToDisplay> currDisplayedItems;
+    private static  int itemCount;
+
+    private static List<ItemToDisplay> trustedDevices;
+    private static int trustedDevicesCount;
+    private static List<CognitoDevice> deviceDetails;
+    private static CognitoDevice thisDevice;
+    private static boolean thisDeviceTrustState;
+
+    private static CognitoUserDetails userDetails;
+
+    private static boolean phoneAvailable;
+    private static boolean emailAvailable;
+
+    // User details to display - they are the current values, including any local modification
+    private static boolean phoneVerified;
+    private static boolean emailVerified;
+
+
+    private static Set<String> currUserAttributes;
     public static void refreshWithSync() {
         // This will refresh the current items to display list with the attributes fetched from service
         List<String> tempKeys = new ArrayList<>();
@@ -578,5 +587,5 @@ public class LogInHelper {
     public static void deleteAttribute(String attributeName) {
 
     }
-
+*/
 }

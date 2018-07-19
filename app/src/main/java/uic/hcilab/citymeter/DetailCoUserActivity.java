@@ -57,7 +57,6 @@ public class DetailCoUserActivity extends TabHost {
             }
         });
         if (isOnline()) {
-            Log.i("coco", "internet is here");
             coUserDBHelper = new CoUserDBHelper(this);
             coUserDBHelper.getCoUser(LogInHelper.getCurrUser(), cuid);
             cousersDO = coUserDBHelper.coUsers.get(0);
