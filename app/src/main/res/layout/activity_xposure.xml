@@ -133,24 +133,32 @@ tools:context=".XposureActivity">
                         app:layout_constraintStart_toStartOf="parent"
                         app:srcCompat="@drawable/color_coded_bar" />
 
-                    <TextView
-                        android:id="@+id/pm25_value"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="4dp"
-                        android:text="0"
-                        app:layout_constraintBottom_toTopOf="@+id/pm25_bar"
-                        app:layout_constraintStart_toEndOf="@+id/pm25_thumb" />
-
-                    <ImageView
+                    <android.support.constraint.ConstraintLayout
                         android:id="@+id/pm25_thumb"
-                        android:layout_width="20dp"
-                        android:layout_height="22dp"
-                        android:layout_marginBottom="1dp"
+                        android:layout_width="60dp"
+                        android:layout_height="23dp"
                         android:layout_marginStart="20dp"
                         app:layout_constraintBottom_toTopOf="@+id/pm25_bar"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:srcCompat="@drawable/pin" />
+                        app:layout_constraintStart_toStartOf="parent">
+
+                        <TextView
+                            android:id="@+id/pm25_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="4dp"
+                            android:text="0"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/pm25_thumb_img" />
+
+                        <ImageView
+                            android:id="@+id/pm25_thumb_img"
+                            android:layout_width="20dp"
+                            android:layout_height="22dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:srcCompat="@drawable/pin" />
+                    </android.support.constraint.ConstraintLayout>
+
                 </android.support.constraint.ConstraintLayout>
 
             </TableRow>
@@ -226,24 +234,31 @@ tools:context=".XposureActivity">
                         app:layout_constraintStart_toStartOf="parent"
                         app:srcCompat="@drawable/color_coded_bar_4" />
 
-                    <TextView
-                        android:id="@+id/day_noise_value"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="4dp"
-                        android:text="0"
-                        app:layout_constraintBottom_toTopOf="@+id/day_noise_bar"
-                        app:layout_constraintStart_toEndOf="@+id/day_noise_thumb" />
-
-                    <ImageView
+                    <android.support.constraint.ConstraintLayout
                         android:id="@+id/day_noise_thumb"
-                        android:layout_width="20dp"
-                        android:layout_height="22dp"
-                        android:layout_marginBottom="1dp"
+                        android:layout_width="60dp"
+                        android:layout_height="23dp"
                         android:layout_marginStart="20dp"
                         app:layout_constraintBottom_toTopOf="@+id/day_noise_bar"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:srcCompat="@drawable/pin" />
+                        app:layout_constraintStart_toStartOf="parent">
+
+                        <TextView
+                            android:id="@+id/day_noise_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="4dp"
+                            android:text="0"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/day_noise_thumb_img" />
+
+                        <ImageView
+                            android:id="@+id/day_noise_thumb_img"
+                            android:layout_width="20dp"
+                            android:layout_height="22dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:srcCompat="@drawable/pin" />
+                    </android.support.constraint.ConstraintLayout>
                 </android.support.constraint.ConstraintLayout>
 
             </TableRow>
@@ -320,24 +335,31 @@ tools:context=".XposureActivity">
                         app:layout_constraintStart_toStartOf="parent"
                         app:srcCompat="@drawable/color_coded_bar_4" />
 
-                    <TextView
-                        android:id="@+id/night_noise_value"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="4dp"
-                        android:text="0"
-                        app:layout_constraintBottom_toTopOf="@+id/night_noise_bar"
-                        app:layout_constraintStart_toEndOf="@+id/night_noise_thumb" />
-
-                    <ImageView
+                    <android.support.constraint.ConstraintLayout
                         android:id="@+id/night_noise_thumb"
-                        android:layout_width="20dp"
-                        android:layout_height="22dp"
-                        android:layout_marginBottom="1dp"
+                        android:layout_width="60dp"
+                        android:layout_height="23dp"
                         android:layout_marginStart="20dp"
                         app:layout_constraintBottom_toTopOf="@+id/night_noise_bar"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:srcCompat="@drawable/pin" />
+                        app:layout_constraintStart_toStartOf="parent">
+
+                        <TextView
+                            android:id="@+id/night_noise_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="4dp"
+                            android:text="0"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/night_noise_thumb_img" />
+
+                        <ImageView
+                            android:id="@+id/night_noise_thumb_img"
+                            android:layout_width="20dp"
+                            android:layout_height="22dp"
+                            app:layout_constraintBottom_toTopOf="@+id/night_noise_bar"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:srcCompat="@drawable/pin" />
+                    </android.support.constraint.ConstraintLayout>
                 </android.support.constraint.ConstraintLayout>
             </TableRow>
 

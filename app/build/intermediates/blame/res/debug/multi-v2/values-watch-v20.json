@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "F:\\Projects\\CityMeter-android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-watch-v20\\values-watch-v20.xml",
+            "outputFile": "C:\\Users\\yujaa\\AndroidStudioProjects\\CityMeter-android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-watch-v20\\values-watch-v20.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Nina Sakhnini\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\04b3eccd16314a9e026539f0e5a9e746\\res\\values-watch-v20\\values-watch-v20.xml",
+                    "source": "C:\\Users\\yujaa\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\d8626798dd563ba54cbd5cc787017155\\res\\values-watch-v20\\values-watch-v20.xml",
                     "from": {
                         "startLines": "2,5,8",
                         "startColumns": "4,4,4",
