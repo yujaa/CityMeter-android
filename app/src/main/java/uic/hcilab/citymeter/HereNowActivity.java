@@ -92,6 +92,15 @@ public class HereNowActivity extends TabHost implements OnMapReadyCallback, ApiC
         setSupportActionBar(myToolbar);
         initMap();
 
+
+        here_pm25_bar = (ImageView) findViewById(R.id.here_pm25_bar);
+        here_pm25_thumb = (ImageView) findViewById(R.id.here_pm25_thumb);
+        here_pm25_thumb_value = (TextView) findViewById(R.id.here_pm25_value);
+
+        here_noise_bar = (ImageView) findViewById(R.id.here_noise_bar);
+        here_noise_thumb = (ImageView) findViewById(R.id.here_noise_thumb);
+        here_noise_thumb_value = (TextView) findViewById(R.id.here_noise_value);
+
        new AoTData(HereNowActivity.this).execute("value/node/pm25/001e06113107");
         new AoTData(HereNowActivity.this).execute("value/nodes");
         new AoTData(HereNowActivity.this).execute("info/nodes");
@@ -120,9 +129,6 @@ public class HereNowActivity extends TabHost implements OnMapReadyCallback, ApiC
             float here_pm25_value = pmNowData;
             int here_pm25_level [] = {50, 101, 151, 201, 301, 501};
 
-            here_pm25_bar = (ImageView) findViewById(R.id.here_pm25_bar);
-            here_pm25_thumb = (ImageView) findViewById(R.id.here_pm25_thumb);
-            here_pm25_thumb_value = (TextView) findViewById(R.id.here_pm25_value);
             int here_pm25_bar_width = here_pm25_bar.getWidth();
             float here_pm25_bar_loc=here_pm25_bar.getX();
 
@@ -136,9 +142,6 @@ public class HereNowActivity extends TabHost implements OnMapReadyCallback, ApiC
             float here_noise_value = soundNowData;
             int here_noise_level [] = {55, 65, 75, 85};//{80, 90, 100, 110, 130, 160};
 
-            here_noise_bar = (ImageView) findViewById(R.id.here_noise_bar);
-            here_noise_thumb = (ImageView) findViewById(R.id.here_noise_thumb);
-            here_noise_thumb_value = (TextView) findViewById(R.id.here_noise_value);
             int here_noise_bar_width = here_noise_bar.getWidth();
             float here_noise_bar_loc=here_noise_bar.getX();
 
@@ -366,9 +369,45 @@ public class HereNowActivity extends TabHost implements OnMapReadyCallback, ApiC
                 while (true) {
                     if (pmNowData != sensingService.pm_value) {
                         pmNowData = (float) sensingService.pm_value;
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                //PM2.5
+                                //float here_pm25_value = pmNowData;
+                                int here_pm25_level[] = {50, 101, 151, 201, 301, 501};
+
+                                int here_pm25_bar_width = here_pm25_bar.getWidth();
+                                float here_pm25_bar_loc = here_pm25_bar.getX();
+
+                                double pos = da.getPosOnBar(pmNowData, here_pm25_level, 6);
+                                Log.i("nina", pos + "");
+                                here_pm25_thumb.setX((float) (here_pm25_bar_loc + here_pm25_bar_width - (pos * here_pm25_bar_width / 6) - (here_pm25_thumb.getWidth() / 2)));
+                                here_pm25_thumb_value.setX(here_pm25_thumb.getX() + here_pm25_thumb.getWidth());
+                                here_pm25_thumb_value.setText(Math.round(pmNowData) + "");
+                            }
+                        });
+
                     }
                     if (soundNowData != sensingService.dBA_value) {
                         soundNowData = (float) sensingService.dBA_value;
+                        runOnUiThread(new Runnable() {
+                                          @Override
+                                          public void run() {
+                                              //day noise
+                                              //float here_noise_value = soundNowData;
+                                              int here_noise_level[] = {55, 65, 75, 85};//{80, 90, 100, 110, 130, 160};
+
+                                              int here_noise_bar_width = here_noise_bar.getWidth();
+                                              float here_noise_bar_loc = here_noise_bar.getX();
+
+                                              double pos = da.getPosOnBar(soundNowData, here_noise_level, 4);
+                                              Log.i("nina1", pos + "");
+                                              here_noise_thumb.setX((float) (here_noise_bar_loc + here_noise_bar_width - (pos * here_noise_bar_width / 4) - (here_noise_thumb.getWidth() / 2)));
+                                              here_noise_thumb_value.setX(here_noise_thumb.getX() + here_noise_thumb.getWidth());
+                                              here_noise_thumb_value.setText(Math.round(soundNowData) + "");
+                                          }
+                                      });
+
                     }
                    try {
                         Thread.sleep(5000);
@@ -379,6 +418,7 @@ public class HereNowActivity extends TabHost implements OnMapReadyCallback, ApiC
             }
         });
         thread.start();
+                }
 
-    }
+
 }
