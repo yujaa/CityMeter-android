@@ -1881,37 +1881,54 @@
             "outputFile": "C:\\Users\\yujaa\\AndroidStudioProjects\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\values_values.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\yujaa\\.gradle\\caches\\transforms-1\\files-1.1\\aws-android-sdk-auth-userpools-2.6.24.aar\\716659f09778eb2e582e5c04a58007ef\\res\\values\\dimens.xml",
+                    "source": "C:\\Users\\yujaa\\.gradle\\caches\\transforms-1\\files-1.1\\aws-android-sdk-auth-ui-2.6.26.aar\\566794304c7317791a8134a05a8dfb9c\\res\\values\\colors.xml",
                     "from": {
-                        "startLines": "2,5,4,7,6,3",
-                        "startColumns": "4,4,4,4,4,4",
-                        "startOffsets": "55,242,183,363,298,108",
-                        "endColumns": "52,55,58,53,64,74",
-                        "endOffsets": "103,293,237,412,358,178"
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "57",
+                        "endOffsets": "108"
                     },
                     "to": {
-                        "startLines": "820,832,833,834,835,836",
-                        "startColumns": "4,4,4,4,4,4",
-                        "startOffsets": "68564,69231,69287,69346,69400,69465",
-                        "endColumns": "52,55,58,53,64,74",
-                        "endOffsets": "68612,69282,69341,69395,69460,69535"
+                        "startLines": "228",
+                        "startColumns": "4",
+                        "startOffsets": "12751",
+                        "endColumns": "57",
+                        "endOffsets": "12804"
                     }
                 },
                 {
-                    "source": "C:\\Users\\yujaa\\.gradle\\caches\\transforms-1\\files-1.1\\aws-android-sdk-auth-userpools-2.6.24.aar\\716659f09778eb2e582e5c04a58007ef\\res\\values\\strings.xml",
+                    "source": "C:\\Users\\yujaa\\.gradle\\caches\\transforms-1\\files-1.1\\aws-android-sdk-auth-ui-2.6.26.aar\\566794304c7317791a8134a05a8dfb9c\\res\\values\\strings.xml",
                     "from": {
-                        "startLines": "23,15,17,14,16,22,39,35,41,19,42,18,32,40,31,43,24,2,6,8,5,4,7,3,26,45,28,29,37,36,27,30,34,25,33,44,10,11,1,9,12,13,38,21,20",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "1498,925,1123,852,1045,1443,2679,2374,2925,1277,2987,1192,2177,2786,2098,3038,1559,75,332,461,265,211,406,131,1711,3214,1835,1919,2513,2429,1778,2027,2315,1633,2252,3143,575,650,16,516,706,781,2593,1392,1338",
-                        "endColumns": "60,119,68,72,77,54,106,54,61,60,50,84,74,138,78,104,73,55,73,54,66,53,54,79,66,94,83,107,79,83,56,70,58,77,62,70,74,55,58,58,74,70,85,50,53",
-                        "endOffsets": "1554,1040,1187,920,1118,1493,2781,2424,2982,1333,3033,1272,2247,2920,2172,3138,1628,126,401,511,327,260,456,206,1773,3304,1914,2022,2588,2508,1830,2093,2369,1706,2310,3209,645,701,70,570,776,847,2674,1438,1387"
+                        "startLines": "4,5,3,6",
+                        "startColumns": "5,5,5,5",
+                        "startOffsets": "207,296,116,352",
+                        "endColumns": "88,55,90,54",
+                        "endOffsets": "290,346,201,401"
                     },
                     "to": {
-                        "startLines": "943,945,946,947,948,949,952,955,956,957,958,959,964,965,966,967,973,978,981,982,983,985,986,988,991,992,993,994,995,996,997,998,999,1000,1001,1002,1004,1005,1007,1008,1009,1012,1017,1019,1020",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "77313,77426,77546,77615,77688,77766,78029,78224,78279,78341,78402,78453,78730,78805,78944,79023,79943,80283,80518,80592,80647,80769,80823,80968,81162,81229,81324,81408,81516,81596,81680,81737,81808,81867,81945,82008,82150,82225,82342,82401,82460,82642,82909,83044,83095",
-                        "endColumns": "60,119,68,72,77,54,106,54,61,60,50,84,74,138,78,104,73,55,73,54,66,53,54,73,66,94,83,107,79,83,56,70,58,77,62,70,74,55,58,58,74,70,85,50,53",
-                        "endOffsets": "77369,77541,77610,77683,77761,77816,78131,78274,78336,78397,78448,78533,78800,78939,79018,79123,80012,80334,80587,80642,80709,80818,80873,81037,81224,81319,81403,81511,81591,81675,81732,81803,81862,81940,82003,82074,82220,82276,82396,82455,82530,82708,82990,83090,83144"
+                        "startLines": "979,984,987,989",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "80339,80714,80878,81042",
+                        "endColumns": "87,54,89,53",
+                        "endOffsets": "80422,80764,80963,81091"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\yujaa\\.gradle\\caches\\transforms-1\\files-1.1\\aws-android-sdk-auth-ui-2.6.26.aar\\566794304c7317791a8134a05a8dfb9c\\res\\values\\dimens.xml",
+                    "from": {
+                        "startLines": "2,3,5",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,108,214",
+                        "endColumns": "52,52,54",
+                        "endOffsets": "103,156,264"
+                    },
+                    "to": {
+                        "startLines": "821,822,823",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "68617,68670,68723",
+                        "endColumns": "52,52,54",
+                        "endOffsets": "68665,68718,68773"
                     }
                 },
                 {
@@ -1932,23 +1949,6 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\yujaa\\.gradle\\caches\\transforms-1\\files-1.1\\aws-android-sdk-auth-ui-2.6.24.aar\\0819f8a610ed33bce2faaf0273816ff9\\res\\values\\colors.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "57",
-                        "endOffsets": "108"
-                    },
-                    "to": {
-                        "startLines": "228",
-                        "startColumns": "4",
-                        "startOffsets": "12751",
-                        "endColumns": "57",
-                        "endOffsets": "12804"
-                    }
-                },
-                {
                     "source": "C:\\Users\\yujaa\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-places-15.0.1.aar\\d2c0d8a0706e1176679276391b887fd3\\res\\values\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,12,13,14,15,16,17,18,19,20,21,24,25",
@@ -1966,20 +1966,20 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\yujaa\\.gradle\\caches\\transforms-1\\files-1.1\\aws-android-sdk-auth-userpools-2.6.24.aar\\716659f09778eb2e582e5c04a58007ef\\res\\values\\ids.xml",
+                    "source": "C:\\Users\\yujaa\\.gradle\\caches\\transforms-1\\files-1.1\\aws-android-sdk-auth-userpools-2.6.26.aar\\9f7c64564e61fd7f860afde9490754a7\\res\\values\\dimens.xml",
                     "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "54",
-                        "endOffsets": "105"
+                        "startLines": "2,5,4,7,6,3",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "55,242,183,363,298,108",
+                        "endColumns": "52,55,58,53,64,74",
+                        "endOffsets": "103,293,237,412,358,178"
                     },
                     "to": {
-                        "startLines": "867",
-                        "startColumns": "4",
-                        "startOffsets": "70979",
-                        "endColumns": "54",
-                        "endOffsets": "71029"
+                        "startLines": "820,832,833,834,835,836",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "68564,69231,69287,69346,69400,69465",
+                        "endColumns": "52,55,58,53,64,74",
+                        "endOffsets": "68612,69282,69341,69395,69460,69535"
                     }
                 },
                 {
@@ -2002,20 +2002,20 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\yujaa\\.gradle\\caches\\transforms-1\\files-1.1\\aws-android-sdk-auth-ui-2.6.24.aar\\0819f8a610ed33bce2faaf0273816ff9\\res\\values\\strings.xml",
+                    "source": "C:\\Users\\yujaa\\.gradle\\caches\\transforms-1\\files-1.1\\aws-android-sdk-auth-userpools-2.6.26.aar\\9f7c64564e61fd7f860afde9490754a7\\res\\values\\strings.xml",
                     "from": {
-                        "startLines": "4,5,3,6",
-                        "startColumns": "5,5,5,5",
-                        "startOffsets": "207,296,116,352",
-                        "endColumns": "88,55,90,54",
-                        "endOffsets": "290,346,201,401"
+                        "startLines": "23,15,17,14,16,22,39,35,41,19,42,18,32,40,31,43,24,2,6,8,5,4,7,3,26,45,28,29,37,36,27,30,34,25,33,44,10,11,1,9,12,13,38,21,20",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "1498,925,1123,852,1045,1443,2679,2374,2925,1277,2987,1192,2177,2786,2098,3038,1559,75,332,461,265,211,406,131,1711,3214,1835,1919,2513,2429,1778,2027,2315,1633,2252,3143,575,650,16,516,706,781,2593,1392,1338",
+                        "endColumns": "60,119,68,72,77,54,106,54,61,60,50,84,74,138,78,104,73,55,73,54,66,53,54,79,66,94,83,107,79,83,56,70,58,77,62,70,74,55,58,58,74,70,85,50,53",
+                        "endOffsets": "1554,1040,1187,920,1118,1493,2781,2424,2982,1333,3033,1272,2247,2920,2172,3138,1628,126,401,511,327,260,456,206,1773,3304,1914,2022,2588,2508,1830,2093,2369,1706,2310,3209,645,701,70,570,776,847,2674,1438,1387"
                     },
                     "to": {
-                        "startLines": "979,984,987,989",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "80339,80714,80878,81042",
-                        "endColumns": "87,54,89,53",
-                        "endOffsets": "80422,80764,80963,81091"
+                        "startLines": "943,945,946,947,948,949,952,955,956,957,958,959,964,965,966,967,973,978,981,982,983,985,986,988,991,992,993,994,995,996,997,998,999,1000,1001,1002,1004,1005,1007,1008,1009,1012,1017,1019,1020",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "77313,77426,77546,77615,77688,77766,78029,78224,78279,78341,78402,78453,78730,78805,78944,79023,79943,80283,80518,80592,80647,80769,80823,80968,81162,81229,81324,81408,81516,81596,81680,81737,81808,81867,81945,82008,82150,82225,82342,82401,82460,82642,82909,83044,83095",
+                        "endColumns": "60,119,68,72,77,54,106,54,61,60,50,84,74,138,78,104,73,55,73,54,66,53,54,73,66,94,83,107,79,83,56,70,58,77,62,70,74,55,58,58,74,70,85,50,53",
+                        "endOffsets": "77369,77541,77610,77683,77761,77816,78131,78274,78336,78397,78448,78533,78800,78939,79018,79123,80012,80334,80587,80642,80709,80818,80873,81037,81224,81319,81403,81511,81591,81675,81732,81803,81862,81940,82003,82074,82220,82276,82396,82455,82530,82708,82990,83090,83144"
                     }
                 },
                 {
@@ -2036,23 +2036,6 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\yujaa\\.gradle\\caches\\transforms-1\\files-1.1\\aws-android-sdk-auth-ui-2.6.24.aar\\0819f8a610ed33bce2faaf0273816ff9\\res\\values\\dimens.xml",
-                    "from": {
-                        "startLines": "2,3,5",
-                        "startColumns": "4,4,4",
-                        "startOffsets": "55,108,214",
-                        "endColumns": "52,52,54",
-                        "endOffsets": "103,156,264"
-                    },
-                    "to": {
-                        "startLines": "821,822,823",
-                        "startColumns": "4,4,4",
-                        "startOffsets": "68617,68670,68723",
-                        "endColumns": "52,52,54",
-                        "endOffsets": "68665,68718,68773"
-                    }
-                },
-                {
                     "source": "C:\\Users\\yujaa\\AndroidStudioProjects\\CityMeter-android\\app\\src\\main\\res\\values\\strings.xml",
                     "from": {
                         "startLines": "3,18,11,1,15,25,24,26,23,14,22,19,27,28,34,17,30,13,12,20,29,4,31,9,2,10,5,8,6,7,21,16",
@@ -2067,23 +2050,6 @@
                         "startOffsets": "73887,73940,73990,74050,74097,74417,74489,74585,74653,74782,77189,77233,77275,77374,77959,78136,78182,78538,78594,78646,78684,80209,81096,82281,82535,82595,82713,82757,82807,82855,82995,83149",
                         "endColumns": "52,49,59,46,53,71,95,67,41,73,43,41,37,51,69,45,41,55,51,37,45,73,65,60,59,46,43,49,47,53,48,55",
                         "endOffsets": "73935,73985,74045,74092,74146,74484,74580,74648,74690,74851,77228,77270,77308,77421,78024,78177,78219,78589,78641,78679,78725,80278,81157,82337,82590,82637,82752,82802,82850,82904,83039,83200"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\yujaa\\.gradle\\caches\\transforms-1\\files-1.1\\aws-android-sdk-auth-core-2.6.24.aar\\24fb8f354e233a0fee64ea7053b5e215\\res\\values\\strings.xml",
-                    "from": {
-                        "startLines": "1",
-                        "startColumns": "2",
-                        "startOffsets": "14",
-                        "endColumns": "88",
-                        "endOffsets": "100"
-                    },
-                    "to": {
-                        "startLines": "980",
-                        "startColumns": "4",
-                        "startOffsets": "80427",
-                        "endColumns": "90",
-                        "endOffsets": "80513"
                     }
                 },
                 {
@@ -2216,6 +2182,23 @@
                     }
                 },
                 {
+                    "source": "C:\\Users\\yujaa\\.gradle\\caches\\transforms-1\\files-1.1\\aws-android-sdk-auth-core-2.6.26.aar\\1ab6df8f4818d8d8c7323de007d1ab1d\\res\\values\\strings.xml",
+                    "from": {
+                        "startLines": "1",
+                        "startColumns": "2",
+                        "startOffsets": "14",
+                        "endColumns": "88",
+                        "endOffsets": "100"
+                    },
+                    "to": {
+                        "startLines": "980",
+                        "startColumns": "4",
+                        "startOffsets": "80427",
+                        "endColumns": "90",
+                        "endOffsets": "80513"
+                    }
+                },
+                {
                     "source": "C:\\Users\\yujaa\\AndroidStudioProjects\\CityMeter-android\\app\\src\\main\\res\\values\\colors.xml",
                     "from": {
                         "startLines": "6,11,8,10,9,7,4,2,3,5",
@@ -2230,6 +2213,23 @@
                         "startOffsets": "6436,6480,6525,6570,6615,6657,8359,8405,8452,13095",
                         "endColumns": "43,44,44,44,41,44,45,46,50,50",
                         "endOffsets": "6475,6520,6565,6610,6652,6697,8400,8447,8498,13141"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\yujaa\\.gradle\\caches\\transforms-1\\files-1.1\\aws-android-sdk-auth-userpools-2.6.26.aar\\9f7c64564e61fd7f860afde9490754a7\\res\\values\\ids.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "54",
+                        "endOffsets": "105"
+                    },
+                    "to": {
+                        "startLines": "867",
+                        "startColumns": "4",
+                        "startOffsets": "70979",
+                        "endColumns": "54",
+                        "endOffsets": "71029"
                     }
                 },
                 {
