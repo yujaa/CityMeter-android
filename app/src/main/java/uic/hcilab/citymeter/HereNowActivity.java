@@ -1,10 +1,15 @@
 package uic.hcilab.citymeter;
 
 import android.Manifest;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationListener;
+import android.os.IBinder;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -31,6 +36,8 @@ import java.util.Set;
 
 import org.json.simple.JSONObject;
 
+import uic.hcilab.citymeter.Sensing.SensingService;
+
 public class HereNowActivity extends TabHost implements OnMapReadyCallback, ApiCallback, LocationListener {
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
     float curLat = 41.751142f;
@@ -41,6 +48,32 @@ public class HereNowActivity extends TabHost implements OnMapReadyCallback, ApiC
     float pmNowData = 0;
     float soundNowData = 0;
     DataAnalysis da = new DataAnalysis();
+
+
+    ImageView here_noise_bar ;
+    ImageView here_noise_thumb ;
+    TextView here_noise_thumb_value;
+
+
+    ImageView here_pm25_bar;
+    ImageView here_pm25_thumb;
+    TextView here_pm25_thumb_value ;
+
+    //Bind to sensing service
+    SensingService sensingService;
+    ServiceConnection serviceConnection = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder service) {
+            SensingService.LocalBinder binder = (SensingService.LocalBinder) service;
+            sensingService = binder.getServiceInstance();
+            valueChangeListener();
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+
+        }
+    };
 
     @Override
     public int getContentViewId() {
@@ -57,12 +90,15 @@ public class HereNowActivity extends TabHost implements OnMapReadyCallback, ApiC
         super.onCreate(savedInstanceState);
         Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar_here_now);
         setSupportActionBar(myToolbar);
-
         initMap();
 
-        new AoTData(HereNowActivity.this).execute("value/node/pm25/001e06113107");
+       new AoTData(HereNowActivity.this).execute("value/node/pm25/001e06113107");
         new AoTData(HereNowActivity.this).execute("value/nodes");
         new AoTData(HereNowActivity.this).execute("info/nodes");
+
+        Intent service = new Intent(this, SensingService.class);
+        startService(service);
+        bindService(service, serviceConnection,Context.BIND_AUTO_CREATE);
 
     }
 
@@ -84,9 +120,9 @@ public class HereNowActivity extends TabHost implements OnMapReadyCallback, ApiC
             float here_pm25_value = pmNowData;
             int here_pm25_level [] = {50, 101, 151, 201, 301, 501};
 
-            ImageView here_pm25_bar = (ImageView) findViewById(R.id.here_pm25_bar);
-            ImageView here_pm25_thumb = (ImageView) findViewById(R.id.here_pm25_thumb);
-            TextView here_pm25_thumb_value = (TextView) findViewById(R.id.here_pm25_value);
+            here_pm25_bar = (ImageView) findViewById(R.id.here_pm25_bar);
+            here_pm25_thumb = (ImageView) findViewById(R.id.here_pm25_thumb);
+            here_pm25_thumb_value = (TextView) findViewById(R.id.here_pm25_value);
             int here_pm25_bar_width = here_pm25_bar.getWidth();
             float here_pm25_bar_loc=here_pm25_bar.getX();
 
@@ -100,9 +136,9 @@ public class HereNowActivity extends TabHost implements OnMapReadyCallback, ApiC
             float here_noise_value = soundNowData;
             int here_noise_level [] = {55, 65, 75, 85};//{80, 90, 100, 110, 130, 160};
 
-            ImageView here_noise_bar = (ImageView) findViewById(R.id.here_noise_bar);
-            ImageView here_noise_thumb = (ImageView) findViewById(R.id.here_noise_thumb);
-            TextView here_noise_thumb_value = (TextView) findViewById(R.id.here_noise_value);
+            here_noise_bar = (ImageView) findViewById(R.id.here_noise_bar);
+            here_noise_thumb = (ImageView) findViewById(R.id.here_noise_thumb);
+            here_noise_thumb_value = (TextView) findViewById(R.id.here_noise_value);
             int here_noise_bar_width = here_noise_bar.getWidth();
             float here_noise_bar_loc=here_noise_bar.getX();
 
@@ -320,7 +356,29 @@ public class HereNowActivity extends TabHost implements OnMapReadyCallback, ApiC
     public void onLocationChanged(Location location) {
 
     }
-
     @Override
     public void onStatusChanged(String provider, int status, Bundle extras) {}
+
+    private void valueChangeListener(){
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (true) {
+                    if (pmNowData != sensingService.pm_value) {
+                        pmNowData = (float) sensingService.pm_value;
+                    }
+                    if (soundNowData != sensingService.dBA_value) {
+                        soundNowData = (float) sensingService.dBA_value;
+                    }
+                   try {
+                        Thread.sleep(5000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+        thread.start();
+
+    }
 }

@@ -157,7 +157,7 @@ public class HomeActivity extends TabHost {
             return false;
         } else if (mBluetoothAdapter.isEnabled() && permissions_granted) {
                 Intent svcIntent = new Intent(this, SensingService.class);
-                startService(svcIntent);
+//                startService(svcIntent);
             return true;
         }
         return false;
@@ -175,7 +175,7 @@ public class HomeActivity extends TabHost {
         switch (requestCode) {
             case 7:
                 if (mBluetoothAdapter.isEnabled()) {
-                    startService(new Intent(this, SensingService.class));
+//                    startService(new Intent(this, SensingService.class));
                 }
 
                 break;

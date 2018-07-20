@@ -10,6 +10,7 @@ import android.location.Criteria;
 import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.Binder;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.IBinder;
@@ -25,12 +26,17 @@ import uic.hcilab.citymeter.HomeActivity;
 
 //Be careful with the variable when the available data is less than the buffer size
 
-public class SensingService extends Service {
+public class SensingService extends Service  {
     public SensingController sensingController;
     ActivityManager activityManager;//To check if app is open
     ComponentName componentName;//To check if app is open
     SensingDBHelper sensingDBHelper;
     String id;
+    public double pm_value = 0.0;
+    public double dBA_value = 0.0;
+
+    private final IBinder mBinder = new LocalBinder();
+
     public SensingService() {
     }
 
@@ -71,13 +77,14 @@ public class SensingService extends Service {
                                 Double indoor_ = dat.indoor;
                                 if (dbA_ > 0 && count > 3) {
                                     sensingDBHelper.createExposureInst_dBA(id, timestamp_, dbA_, longitude_, latitude_, indoor_);
-                                    Handler handler = new Handler(Looper.getMainLooper());
+                                    dBA_value = dbA_;
+                                   /* Handler handler = new Handler(Looper.getMainLooper());
                                     handler.post(new Runnable() {
                                         @Override
                                         public void run() {
                                             Toast.makeText(SensingService.this, "dB(A) = " + String.valueOf(dbA_), Toast.LENGTH_SHORT).show();
                                         }
-                                    });
+                                    });*/
                                 }
                             } else {
                                 stopSelf();
@@ -117,13 +124,14 @@ public class SensingService extends Service {
                 Double latitude_ = dat.latitude;
                 Double indoor_ = dat.indoor;
                 sensingDBHelper.createExposureInst_pm(id, timestamp_, pm_, longitude_, latitude_, indoor_);
-                Handler handler = new Handler(Looper.getMainLooper());
+                pm_value = pm_;
+                /*Handler handler = new Handler(Looper.getMainLooper());
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
                         Toast.makeText(SensingService.this, "PM 2.5 = " + String.valueOf(pm_), Toast.LENGTH_SHORT).show();
                     }
-                });
+                });*/
             }
             if (!sensingController.BTIsConnected()) {
                 sensingController.BTDisable();
@@ -207,7 +215,13 @@ public class SensingService extends Service {
     @Override
     public IBinder onBind(Intent intent) {
         // TODO: Return the communication channel to the service.
-        throw new UnsupportedOperationException("Not yet implemented");
+        return mBinder;
+    }
+
+    public class LocalBinder extends Binder {
+        public SensingService getServiceInstance(){
+            return SensingService.this;
+        }
     }
     @Override
     public void onDestroy() {
