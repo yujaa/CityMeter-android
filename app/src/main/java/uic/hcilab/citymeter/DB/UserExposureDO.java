@@ -46,7 +46,10 @@ public class UserExposureDO {
     }
 
     public void setDBA(final Double _dBA) {
-        this._dBA = _dBA;
+        this._dBA = Double.valueOf(_dBA);
+    }
+    public void setDBA(final String _dBA) {
+        this._dBA = Double.valueOf(_dBA);
     }
     @DynamoDBAttribute(attributeName = "indoor")
     public Double getIndoor() {

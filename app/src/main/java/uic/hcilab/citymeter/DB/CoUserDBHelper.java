@@ -197,7 +197,7 @@ public class CoUserDBHelper {
                         isDone = true;
                         // Item saved
                     } catch (Exception e) {
-                        Log.i("BT", "Error writing to dB: " + e.toString());
+                        Log.i("coDB", "Error writing to dB: " + e.toString());
                     }
                 }
             });
@@ -241,6 +241,33 @@ public class CoUserDBHelper {
 
             final DynamoDBScanExpression scanExpression = new DynamoDBScanExpression()
                     .withFilterExpression("uid = :val1 ").withExpressionAttributeValues(eav);
+//        final DynamoDBQueryExpression queryExpression = new DynamoDBQueryExpression().withFilterExpression("uid = :val1 ").withExpressionAttributeValues(eav);
+
+
+//                coUsers = dynamoDBMapper.query(CousersDO.class, scanExpression);
+            thread = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    coUsers = dynamoDBMapper.scan(CousersDO.class, scanExpression);
+                    isDone = true;
+                }
+            });
+            thread.start();
+            //while(!isDone){}
+            isDone = false;
+            thread.join();
+        } catch (Exception e) {
+
+        }
+    }
+
+    public void getAllCareTakers(String userID) {
+        try {
+            Map<String, AttributeValue> eav = new HashMap<String, AttributeValue>();
+            eav.put(":val1", new AttributeValue().withS(userID));
+
+            final DynamoDBScanExpression scanExpression = new DynamoDBScanExpression()
+                    .withFilterExpression("cuid = :val1 ").withExpressionAttributeValues(eav);
 //        final DynamoDBQueryExpression queryExpression = new DynamoDBQueryExpression().withFilterExpression("uid = :val1 ").withExpressionAttributeValues(eav);
 
 

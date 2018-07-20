@@ -6,94 +6,133 @@
     android:layout_height="match_parent"
     tools:context=".SettingsActivity">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/settingstoolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary"
-            android:minHeight="?attr/actionBarSize"
-            android:theme="?attr/actionBarTheme"
-            app:title="Settings" />
-
-        <Switch
-            android:id="@+id/locationToggle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="0dp"
-            android:paddingBottom="10dp"
-            android:paddingEnd="5dp"
-            android:paddingStart="5dp"
-            android:paddingTop="10dp"
-            android:text="@string/location"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/couserLabel"
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/settingstoolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:background="?attr/colorPrimary"
+                android:minHeight="?attr/actionBarSize"
+                android:theme="?attr/actionBarTheme"
+                app:title="Settings" />
+
+            <Switch
+                android:id="@+id/locationToggle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="0dp"
+                android:paddingBottom="10dp"
+                android:paddingEnd="5dp"
+                android:paddingStart="5dp"
+                android:paddingTop="10dp"
+                android:text="@string/location"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/careGiverLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/couserLabel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingBottom="10dp"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"
+                        android:paddingTop="10dp"
+                        android:text="Your Caregivers"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <ImageButton
+                        android:id="@+id/addCoUserButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="@android:dimen/app_icon_size"
+                        android:layout_weight="5"
+                        android:background="@android:color/transparent"
+                        android:contentDescription="@string/add_couser"
+                        app:srcCompat="@drawable/ic_add_co_user" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/couserRecycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp" />
+
+            <LinearLayout
+                android:id="@+id/careTakerLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/caretakersLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dp"
+                    android:paddingEnd="5dp"
+                    android:paddingStart="5dp"
+                    android:paddingTop="10dp"
+                    android:text="Your Caretakers"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/caretakerRecycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/appSettingslabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:paddingBottom="10dp"
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
                 android:paddingTop="10dp"
-                android:text="@string/your_co_users"
+                android:text="@string/app_settings"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:visibility="gone" />
 
-            <ImageButton
-                android:id="@+id/addCoUserButton"
+            <android.support.v7.widget.CardView
+                android:id="@+id/addActivityCard"
                 android:layout_width="match_parent"
-                android:layout_height="@android:dimen/app_icon_size"
-                android:layout_weight="5"
-                android:background="@android:color/transparent"
-                android:contentDescription="@string/add_couser"
-                app:srcCompat="@drawable/ic_add_co_user" />
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:visibility="gone" />
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/deleteActivityCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:visibility="gone" />
+
         </LinearLayout>
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/couserRecycler"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:paddingBottom="10dp"
-            android:paddingTop="10dp" />
-
-        <TextView
-            android:id="@+id/appSettingslabel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="10dp"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp"
-            android:paddingTop="10dp"
-            android:text="@string/app_settings"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <android.support.v7.widget.CardView
-            android:id="@+id/addActivityCard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
-        <android.support.v7.widget.CardView
-            android:id="@+id/deleteActivityCard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
-    </LinearLayout>
+    </ScrollView>
 
     <include
         android:id="@+id/navigation"
@@ -103,6 +142,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="8dp"
         android:layout_weight="1"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

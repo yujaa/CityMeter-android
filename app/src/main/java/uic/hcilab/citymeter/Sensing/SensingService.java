@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 import uic.hcilab.citymeter.DB.ExposureObject;
 import uic.hcilab.citymeter.DB.SensingDBHelper;
+import uic.hcilab.citymeter.Helpers.LogInHelper;
 import uic.hcilab.citymeter.HomeActivity;
 
 //Be careful with the variable when the available data is less than the buffer size
@@ -29,7 +30,7 @@ public class SensingService extends Service {
     ActivityManager activityManager;//To check if app is open
     ComponentName componentName;//To check if app is open
     SensingDBHelper sensingDBHelper;
-
+    String id;
     public SensingService() {
     }
 
@@ -38,9 +39,9 @@ public class SensingService extends Service {
         super.onCreate();
         sensingController = new SensingController();
         sensingDBHelper = HomeActivity.sensingDBHelper;
+        id = LogInHelper.getCurrUser();
         dbThread.start();
         pmThread.start();
-        //serverThread.start();
     }
 
     @Override
@@ -67,16 +68,17 @@ public class SensingService extends Service {
                                 Double longitude_ = dat.longitude;
                                 Double latitude_ = dat.latitude;
                                 Double indoor_ = dat.indoor;
-                                if (dbA_ != -1.0) {
-                                    sensingDBHelper.createExposureInst_dBA("1", timestamp_, dbA_, longitude_, latitude_, indoor_);
+                                if (dbA_ > 0) {
+                                    sensingDBHelper.createExposureInst_dBA(id, timestamp_, dbA_, longitude_, latitude_, indoor_);
+
+                                    Handler handler = new Handler(Looper.getMainLooper());
+                                    handler.post(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            Toast.makeText(SensingService.this, "dB(A) = " + String.valueOf(dbA_), Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
                                 }
-                                Handler handler = new Handler(Looper.getMainLooper());
-                                handler.post(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        Toast.makeText(SensingService.this, "dB(A) = " + String.valueOf(dbA_), Toast.LENGTH_SHORT).show();
-                                    }
-                                });
                             } else {
                                 stopSelf();
                                 onDestroy();
@@ -90,7 +92,7 @@ public class SensingService extends Service {
                         }
                     }
                 } catch (Exception e) {
-                    Log.i("BT", "dB Thread Error: " + e.toString());
+                    Log.i("snsThrd", "dB Thread Error: " + e.toString());
                 }
             }
     });
@@ -100,9 +102,9 @@ public class SensingService extends Service {
             //not looping to try to connect again
             sensingController.BTSetup();
             //Connect BT
-            if (!sensingController.BTIsConnected()) {
-                sensingController.BTConnect();
-            }
+                if (!sensingController.BTIsConnected()) {
+                    sensingController.BTConnect();
+                }
             //Read BT
             while (sensingController.BTIsConnected() && isOnline()) {
                 ExposureObject dat = sensingController.BTRead();
@@ -111,7 +113,7 @@ public class SensingService extends Service {
                 Double longitude_ = dat.longitude;
                 Double latitude_ = dat.latitude;
                 Double indoor_ = dat.indoor;
-                sensingDBHelper.createExposureInst_pm("1", timestamp_, pm_, longitude_, latitude_, indoor_);
+                sensingDBHelper.createExposureInst_pm(id, timestamp_, pm_, longitude_, latitude_, indoor_);
                 Handler handler = new Handler(Looper.getMainLooper());
                 handler.post(new Runnable() {
                     @Override
@@ -128,7 +130,7 @@ public class SensingService extends Service {
 
 
         } catch (Exception e) {
-            Log.e("BT", "BT Handler Exception: " + e.toString());
+            Log.i("snsThrd", "BT Handler Exception: " + e.toString());
         }
     }
 
@@ -141,7 +143,7 @@ public class SensingService extends Service {
                     pmThread_helper();
                     Thread.sleep(5000);
                 } catch (Exception e) {
-                    Log.i("BT", "BT Thread Error: " + e.toString());
+                    Log.i("snsThrd", "BT Thread Error: " + e.toString());
                 }
             }
         }

@@ -64,6 +64,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".SignupActivity" />
+        <activity android:name=".DetailCareTakerActivity" />
+        <activity android:name=".CaretakersXposureActivity" />
+        <activity android:name=".TestResultActivity"></activity>
     </application>
 
 </manifest>

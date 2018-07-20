@@ -15,6 +15,10 @@ import java.util.Set;
 
 public class UsersDO {
     private String _userID;
+    private String _dob;
+    private String _education;
+    private String _ethnicity;
+    private String _gender;
     private Double _isCoUser;
     private String _name;
 
@@ -26,6 +30,38 @@ public class UsersDO {
 
     public void setUserID(final String _userID) {
         this._userID = _userID;
+    }
+    @DynamoDBAttribute(attributeName = "dob")
+    public String getDob() {
+        return _dob;
+    }
+
+    public void setDob(final String _dob) {
+        this._dob = _dob;
+    }
+    @DynamoDBAttribute(attributeName = "education")
+    public String getEducation() {
+        return _education;
+    }
+
+    public void setEducation(final String _education) {
+        this._education = _education;
+    }
+    @DynamoDBAttribute(attributeName = "ethnicity")
+    public String getEthnicity() {
+        return _ethnicity;
+    }
+
+    public void setEthnicity(final String _ethnicity) {
+        this._ethnicity = _ethnicity;
+    }
+    @DynamoDBAttribute(attributeName = "gender")
+    public String getGender() {
+        return _gender;
+    }
+
+    public void setGender(final String _gender) {
+        this._gender = _gender;
     }
     @DynamoDBAttribute(attributeName = "isCoUser")
     public Double getIsCoUser() {

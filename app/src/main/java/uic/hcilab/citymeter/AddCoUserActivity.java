@@ -10,6 +10,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 
 import uic.hcilab.citymeter.DB.CoUserDBHelper;
+import uic.hcilab.citymeter.Helpers.LogInHelper;
 
 public class AddCoUserActivity extends AppCompatActivity {
     CoUserDBHelper coUserDBHelper;
@@ -56,7 +57,7 @@ public class AddCoUserActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (cuid.getText().toString() != "") {
-                    coUserDBHelper.createCoEntry("1", cuid.getText().toString(), boolTodouble(locCheck.isChecked()), boolTodouble(activitiesCheck.isChecked()), boolTodouble(cogCheck.isChecked()));
+                    coUserDBHelper.createCoEntry(LogInHelper.getCurrUser(), cuid.getText().toString(), boolTodouble(locCheck.isChecked()), boolTodouble(activitiesCheck.isChecked()), boolTodouble(cogCheck.isChecked()));
                     Intent intent = new Intent(getBaseContext(), SettingsActivity.class);
                     startActivity(intent);
                     AddCoUserActivity.this.finish();
