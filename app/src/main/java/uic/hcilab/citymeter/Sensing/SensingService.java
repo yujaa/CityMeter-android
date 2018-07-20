@@ -58,6 +58,7 @@ public class SensingService extends Service {
                     //Enable noise detector
                     sensingController.noiseDetector.start();
                     setLocation();
+                    int count = 0;
                     //Get noise levels readings
                     while (true) {
                         while (sensingController.noiseDetector.isRecording() && isOnline()) {
@@ -68,9 +69,8 @@ public class SensingService extends Service {
                                 Double longitude_ = dat.longitude;
                                 Double latitude_ = dat.latitude;
                                 Double indoor_ = dat.indoor;
-                                if (dbA_ > 0) {
+                                if (dbA_ > 0 && count > 3) {
                                     sensingDBHelper.createExposureInst_dBA(id, timestamp_, dbA_, longitude_, latitude_, indoor_);
-
                                     Handler handler = new Handler(Looper.getMainLooper());
                                     handler.post(new Runnable() {
                                         @Override
@@ -84,7 +84,10 @@ public class SensingService extends Service {
                                 onDestroy();
                                 break;
                             }
-                            Thread.sleep(5000);
+                            if (count > 3) {
+                                Thread.sleep(5000);
+                            }
+                            count++;
                         }
                         if (!sensingController.noiseDetector.isRecording()) {
                             sensingController.noiseDetector.stop();
