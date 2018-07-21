@@ -69,7 +69,6 @@ public class HomeActivity extends TabHost {
         if (ContextCompat.checkSelfPermission(this, permissions[0]) != PackageManager.PERMISSION_GRANTED ||
                 ContextCompat.checkSelfPermission(this, permissions[1]) != PackageManager.PERMISSION_GRANTED) //Check new permission here
         {
-            Log.i("BT" , "no permissions");
             ActivityCompat.requestPermissions(this, permissions, 9);
         }
         //BT adapter initialization
@@ -80,7 +79,7 @@ public class HomeActivity extends TabHost {
         AWSMobileClient.getInstance().initialize(this, new AWSStartupHandler() {
             @Override
             public void onComplete(AWSStartupResult awsStartupResult) {
-                Log.d("nina", "AWSMobileClient is instantiated and connected to AWS");
+                Log.d("home", "AWSMobileClient is instantiated and connected to AWS");
             }
         }).execute();
 
@@ -154,11 +153,11 @@ public class HomeActivity extends TabHost {
     //Function to check if BT is enabled only
     public Boolean checkBTEnabled() {//change name
         if (mBluetoothAdapter == null) {
-            Log.i("BT", "Device is not supported by Bluetooth");
+            Log.i("home", "Device is not supported by Bluetooth");
             return false;
         } else if (mBluetoothAdapter.isEnabled() && permissions_granted) {
                 Intent svcIntent = new Intent(this, SensingService.class);
-                startService(svcIntent);
+//                startService(svcIntent);
             return true;
         }
         return false;
@@ -175,9 +174,8 @@ public class HomeActivity extends TabHost {
         super.onActivityResult(requestCode, resultCode, data);
         switch (requestCode) {
             case 7:
-                Log.i("BT", "enable bt");
                 if (mBluetoothAdapter.isEnabled()) {
-                    startService(new Intent(this, SensingService.class));
+//                    startService(new Intent(this, SensingService.class));
                 }
 
                 break;

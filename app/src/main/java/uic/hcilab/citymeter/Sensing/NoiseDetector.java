@@ -25,7 +25,7 @@ public class NoiseDetector {
                 mAudioRecord = new AudioRecord(MediaRecorder.AudioSource.MIC, 44100, AudioFormat.CHANNEL_IN_MONO, AudioFormat.ENCODING_PCM_16BIT, mBufferSize);
             }
         } catch (Exception e) {
-            Log.i("BT", "Noise detect error");
+            Log.i("dB", "Noise detect error");
         }
     }
 
@@ -45,7 +45,7 @@ public class NoiseDetector {
             mAudioRecord.stop();
             mAudioRecord.release();
         } catch (Exception e) {
-            Log.i("BT", "recorder close error");
+            Log.i("dB", "recorder close error");
         }
     }
 
@@ -95,7 +95,7 @@ public class NoiseDetector {
         SimpleDateFormat s = new SimpleDateFormat("MMM dd yyyy HH:mm:ss");
         String msg_timestamp = s.format(new Date());
         ExposureObject result;
-        Log.i("BT", "" + dBA);
+        Log.i("dB", "" + dBA);
         if (dBA < 130.0 ) {
             result = new ExposureObject(msg_timestamp, dBA, longitude, latitude, -1.0);
         } else {

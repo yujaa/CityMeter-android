@@ -3,6 +3,7 @@ package uic.hcilab.citymeter.DB;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.amazonaws.auth.AWSCredentialsProvider;
 import com.amazonaws.mobile.client.AWSMobileClient;
@@ -10,12 +11,16 @@ import com.amazonaws.mobile.client.AWSStartupHandler;
 import com.amazonaws.mobile.client.AWSStartupResult;
 import com.amazonaws.mobile.config.AWSConfiguration;
 import com.amazonaws.mobileconnectors.dynamodbv2.dynamodbmapper.DynamoDBMapper;
+import com.amazonaws.mobileconnectors.dynamodbv2.dynamodbmapper.DynamoDBScanExpression;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
+import com.amazonaws.services.dynamodbv2.model.AttributeValue;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.Map;
 
 import static com.amazonaws.services.cognitoidentityprovider.model.AttributeDataType.DateTime;
 
@@ -92,7 +97,7 @@ public class CognitiveTestDBHelper {
                         isDone = true;
                         // Item saved
                     } catch (Exception e) {
-                        Log.i("BT", "Error writing to dB: " + e.toString());
+                        Log.i("cogTDB", "Error writing to dB: " + e.toString());
                     }
                 }
             });
@@ -102,6 +107,32 @@ public class CognitiveTestDBHelper {
         } catch (Exception e)
 
         {
+        }
+    }
+
+    public List<com.amazonaws.models.nosql.CognitiveTestDO> tests ;
+    public void getAllTests(String id){
+        try {
+            Map<String, AttributeValue> eav = new HashMap<String, AttributeValue>();
+            eav.put(":val1", new AttributeValue().withS(id));
+
+            final DynamoDBScanExpression scanExpression = new DynamoDBScanExpression()
+                    .withFilterExpression("uid = :val1 ").withExpressionAttributeValues(eav);
+            Thread thread = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        tests = dynamoDBMapper.scan(com.amazonaws.models.nosql.CognitiveTestDO.class, scanExpression);
+                    }
+                    catch (Exception e){
+                        Toast.makeText(ctx, "Error reading test results", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+            thread.start();
+            thread.join();
+        } catch (Exception e) {
+
         }
     }
 
