@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Ja Eun\Desktop\CityMeter-android\CityMeter-android\app\src\main\AndroidManifest.xml:2:1-69:12
-INJECTED from C:\Users\Ja Eun\Desktop\CityMeter-android\CityMeter-android\app\src\main\AndroidManifest.xml:2:1-69:12
-INJECTED from C:\Users\Ja Eun\Desktop\CityMeter-android\CityMeter-android\app\src\main\AndroidManifest.xml:2:1-69:12
-INJECTED from C:\Users\Ja Eun\Desktop\CityMeter-android\CityMeter-android\app\src\main\AndroidManifest.xml:2:1-69:12
+ADDED from C:\Users\Ja Eun\Desktop\CityMeter-android\CityMeter-android\app\src\main\AndroidManifest.xml:2:1-72:12
+INJECTED from C:\Users\Ja Eun\Desktop\CityMeter-android\CityMeter-android\app\src\main\AndroidManifest.xml:2:1-72:12
+INJECTED from C:\Users\Ja Eun\Desktop\CityMeter-android\CityMeter-android\app\src\main\AndroidManifest.xml:2:1-72:12
+INJECTED from C:\Users\Ja Eun\Desktop\CityMeter-android\CityMeter-android\app\src\main\AndroidManifest.xml:2:1-72:12
 MERGED from [com.android.support:design:27.1.1] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\0fedde7274d493b0673d8934254de5dd\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\8f88624224205c3379103693de9b55cf\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support.constraint:constraint-layout:1.1.0] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.0.aar\718f7a167907df77a49a15d07fbe0687\AndroidManifest.xml:2:1-11:12
@@ -16,10 +16,10 @@ MERGED from [com.google.android.gms:play-services-places-placereport:15.0.1] C:\
 MERGED from [com.google.android.gms:play-services-tasks:15.0.1] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\play-services-tasks-15.0.1.aar\6d3d46bce9a07e125969f993ff0f68d8\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\play-services-basement-15.0.1.aar\79a78813fa11cc6c01a668d85d85a34e\AndroidManifest.xml:17:1-28:12
 MERGED from [com.android.support:support-v4:27.1.1] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\ce25b2626c14bcd4717d1632316df44b\AndroidManifest.xml:17:1-22:12
-MERGED from [com.amazonaws:aws-android-sdk-mobile-client:2.6.24] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-mobile-client-2.6.24.aar\e4451681da15eaf760d3ae56a0e32d2d\AndroidManifest.xml:2:1-6:12
+MERGED from [com.amazonaws:aws-android-sdk-mobile-client:2.6.26] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-mobile-client-2.6.26.aar\be7e9becfce9f01f30002f1808787a39\AndroidManifest.xml:2:1-6:12
 MERGED from [com.android.support:cardview-v7:27.1.1] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\cardview-v7-27.1.1.aar\889750d099d8a0907f0d3d9d81a24db2\AndroidManifest.xml:17:1-22:12
-MERGED from [com.amazonaws:aws-android-sdk-auth-userpools:2.6.24] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-userpools-2.6.24.aar\d130b518142519d7a90ca4fcd73fd4d8\AndroidManifest.xml:2:1-21:80
-MERGED from [com.amazonaws:aws-android-sdk-auth-ui:2.6.24] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-ui-2.6.24.aar\67d691547c1d64861b1a6a441925dec4\AndroidManifest.xml:2:1-10:80
+MERGED from [com.amazonaws:aws-android-sdk-auth-userpools:2.6.26] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-userpools-2.6.26.aar\f8cf56f99720a612428f4b910619ed0a\AndroidManifest.xml:2:1-21:80
+MERGED from [com.amazonaws:aws-android-sdk-auth-ui:2.6.26] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-ui-2.6.26.aar\492360f25dff14d1f76189bd5907b889\AndroidManifest.xml:2:1-10:80
 MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\97cf2d6a691f03b4e7a634a490a76948\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\af5252b7610aa6d0d6b76ee613660b6c\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:recyclerview-v7:27.1.1] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.1.aar\2d1794c3947365d206d2a05595d88bc5\AndroidManifest.xml:17:1-22:12
@@ -29,25 +29,25 @@ MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\Ja Eun
 MERGED from [com.android.support:transition:27.1.1] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\transition-27.1.1.aar\094eeca99455fae6839b53fda71bbd2b\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\d06f5f0ee9da586740c4ba4c5a0d5337\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-compat:27.1.1] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\026b685b55a35e3e8eb5bcc89985da90\AndroidManifest.xml:17:1-22:12
-MERGED from [com.amazonaws:aws-android-sdk-auth-core:2.6.24] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-core-2.6.24.aar\a0783e39c1d8a6049838524ec06af55e\AndroidManifest.xml:2:1-4:80
+MERGED from [com.amazonaws:aws-android-sdk-auth-core:2.6.26] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-core-2.6.26.aar\f6ab2bb7b412edd8626bfa3af5ad2021\AndroidManifest.xml:2:1-4:80
 MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\15eb846867ee944c795408967ed8def0\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\5755e9c7e0103e4a09e3fbe8f1059048\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\2bd57c67e5a45d62760b550a6e6da9a1\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.core:runtime:1.1.0] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\3c1084f7e01061642f4b8cd879f3b19b\AndroidManifest.xml:17:1-22:12
-INJECTED from C:\Users\Ja Eun\Desktop\CityMeter-android\CityMeter-android\app\src\main\AndroidManifest.xml:2:1-69:12
-INJECTED from C:\Users\Ja Eun\Desktop\CityMeter-android\CityMeter-android\app\src\main\AndroidManifest.xml:2:1-69:12
-INJECTED from C:\Users\Ja Eun\Desktop\CityMeter-android\CityMeter-android\app\src\main\AndroidManifest.xml:2:1-69:12
+INJECTED from C:\Users\Ja Eun\Desktop\CityMeter-android\CityMeter-android\app\src\main\AndroidManifest.xml:2:1-72:12
+INJECTED from C:\Users\Ja Eun\Desktop\CityMeter-android\CityMeter-android\app\src\main\AndroidManifest.xml:2:1-72:12
+INJECTED from C:\Users\Ja Eun\Desktop\CityMeter-android\CityMeter-android\app\src\main\AndroidManifest.xml:2:1-72:12
 	package
 		ADDED from C:\Users\Ja Eun\Desktop\CityMeter-android\CityMeter-android\app\src\main\AndroidManifest.xml:3:5-35
 		INJECTED from C:\Users\Ja Eun\Desktop\CityMeter-android\CityMeter-android\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\Ja Eun\Desktop\CityMeter-android\CityMeter-android\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\Ja Eun\Desktop\CityMeter-android\CityMeter-android\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Ja Eun\Desktop\CityMeter-android\CityMeter-android\app\src\main\AndroidManifest.xml:2:1-69:12
+		ADDED from C:\Users\Ja Eun\Desktop\CityMeter-android\CityMeter-android\app\src\main\AndroidManifest.xml:2:1-72:12
 		INJECTED from C:\Users\Ja Eun\Desktop\CityMeter-android\CityMeter-android\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\Ja Eun\Desktop\CityMeter-android\CityMeter-android\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Ja Eun\Desktop\CityMeter-android\CityMeter-android\app\src\main\AndroidManifest.xml:2:1-69:12
+		ADDED from C:\Users\Ja Eun\Desktop\CityMeter-android\CityMeter-android\app\src\main\AndroidManifest.xml:2:1-72:12
 		INJECTED from C:\Users\Ja Eun\Desktop\CityMeter-android\CityMeter-android\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\Ja Eun\Desktop\CityMeter-android\CityMeter-android\app\src\main\AndroidManifest.xml:2:11-69
@@ -79,10 +79,10 @@ uses-permission#android.permission.INTERNET
 ADDED from C:\Users\Ja Eun\Desktop\CityMeter-android\CityMeter-android\app\src\main\AndroidManifest.xml:11:5-67
 MERGED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.1.aar\c6405d324ad37953e96a1891ac846fb5\AndroidManifest.xml:24:5-67
 MERGED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.1.aar\c6405d324ad37953e96a1891ac846fb5\AndroidManifest.xml:24:5-67
-MERGED from [com.amazonaws:aws-android-sdk-auth-userpools:2.6.24] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-userpools-2.6.24.aar\d130b518142519d7a90ca4fcd73fd4d8\AndroidManifest.xml:4:5-66
-MERGED from [com.amazonaws:aws-android-sdk-auth-userpools:2.6.24] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-userpools-2.6.24.aar\d130b518142519d7a90ca4fcd73fd4d8\AndroidManifest.xml:4:5-66
-MERGED from [com.amazonaws:aws-android-sdk-auth-ui:2.6.24] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-ui-2.6.24.aar\67d691547c1d64861b1a6a441925dec4\AndroidManifest.xml:4:5-66
-MERGED from [com.amazonaws:aws-android-sdk-auth-ui:2.6.24] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-ui-2.6.24.aar\67d691547c1d64861b1a6a441925dec4\AndroidManifest.xml:4:5-66
+MERGED from [com.amazonaws:aws-android-sdk-auth-userpools:2.6.26] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-userpools-2.6.26.aar\f8cf56f99720a612428f4b910619ed0a\AndroidManifest.xml:4:5-66
+MERGED from [com.amazonaws:aws-android-sdk-auth-userpools:2.6.26] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-userpools-2.6.26.aar\f8cf56f99720a612428f4b910619ed0a\AndroidManifest.xml:4:5-66
+MERGED from [com.amazonaws:aws-android-sdk-auth-ui:2.6.26] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-ui-2.6.26.aar\492360f25dff14d1f76189bd5907b889\AndroidManifest.xml:4:5-66
+MERGED from [com.amazonaws:aws-android-sdk-auth-ui:2.6.26] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-ui-2.6.26.aar\492360f25dff14d1f76189bd5907b889\AndroidManifest.xml:4:5-66
 	android:name
 		ADDED from C:\Users\Ja Eun\Desktop\CityMeter-android\CityMeter-android\app\src\main\AndroidManifest.xml:11:22-64
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
@@ -93,14 +93,14 @@ uses-permission#android.permission.ACCESS_NETWORK_STATE
 ADDED from C:\Users\Ja Eun\Desktop\CityMeter-android\CityMeter-android\app\src\main\AndroidManifest.xml:13:5-79
 MERGED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.1.aar\c6405d324ad37953e96a1891ac846fb5\AndroidManifest.xml:23:5-79
 MERGED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.1.aar\c6405d324ad37953e96a1891ac846fb5\AndroidManifest.xml:23:5-79
-MERGED from [com.amazonaws:aws-android-sdk-auth-userpools:2.6.24] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-userpools-2.6.24.aar\d130b518142519d7a90ca4fcd73fd4d8\AndroidManifest.xml:5:5-78
-MERGED from [com.amazonaws:aws-android-sdk-auth-userpools:2.6.24] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-userpools-2.6.24.aar\d130b518142519d7a90ca4fcd73fd4d8\AndroidManifest.xml:5:5-78
-MERGED from [com.amazonaws:aws-android-sdk-auth-ui:2.6.24] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-ui-2.6.24.aar\67d691547c1d64861b1a6a441925dec4\AndroidManifest.xml:5:5-78
-MERGED from [com.amazonaws:aws-android-sdk-auth-ui:2.6.24] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-ui-2.6.24.aar\67d691547c1d64861b1a6a441925dec4\AndroidManifest.xml:5:5-78
+MERGED from [com.amazonaws:aws-android-sdk-auth-userpools:2.6.26] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-userpools-2.6.26.aar\f8cf56f99720a612428f4b910619ed0a\AndroidManifest.xml:5:5-78
+MERGED from [com.amazonaws:aws-android-sdk-auth-userpools:2.6.26] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-userpools-2.6.26.aar\f8cf56f99720a612428f4b910619ed0a\AndroidManifest.xml:5:5-78
+MERGED from [com.amazonaws:aws-android-sdk-auth-ui:2.6.26] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-ui-2.6.26.aar\492360f25dff14d1f76189bd5907b889\AndroidManifest.xml:5:5-78
+MERGED from [com.amazonaws:aws-android-sdk-auth-ui:2.6.26] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-ui-2.6.26.aar\492360f25dff14d1f76189bd5907b889\AndroidManifest.xml:5:5-78
 	android:name
 		ADDED from C:\Users\Ja Eun\Desktop\CityMeter-android\CityMeter-android\app\src\main\AndroidManifest.xml:13:22-76
 application
-ADDED from C:\Users\Ja Eun\Desktop\CityMeter-android\CityMeter-android\app\src\main\AndroidManifest.xml:15:5-67:19
+ADDED from C:\Users\Ja Eun\Desktop\CityMeter-android\CityMeter-android\app\src\main\AndroidManifest.xml:15:5-70:19
 MERGED from [com.android.support.constraint:constraint-layout:1.1.0] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.0.aar\718f7a167907df77a49a15d07fbe0687\AndroidManifest.xml:9:5-20
 MERGED from [com.android.support.constraint:constraint-layout:1.1.0] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.0.aar\718f7a167907df77a49a15d07fbe0687\AndroidManifest.xml:9:5-20
 MERGED from [com.google.android.gms:play-services-places:15.0.1] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\play-services-places-15.0.1.aar\c7a91a150b85b0b7cf0744cc6d73db07\AndroidManifest.xml:22:5-20
@@ -119,10 +119,10 @@ MERGED from [com.google.android.gms:play-services-tasks:15.0.1] C:\Users\Ja Eun\
 MERGED from [com.google.android.gms:play-services-tasks:15.0.1] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\play-services-tasks-15.0.1.aar\6d3d46bce9a07e125969f993ff0f68d8\AndroidManifest.xml:7:5-20
 MERGED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\play-services-basement-15.0.1.aar\79a78813fa11cc6c01a668d85d85a34e\AndroidManifest.xml:22:5-26:19
 MERGED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\play-services-basement-15.0.1.aar\79a78813fa11cc6c01a668d85d85a34e\AndroidManifest.xml:22:5-26:19
-MERGED from [com.amazonaws:aws-android-sdk-auth-userpools:2.6.24] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-userpools-2.6.24.aar\d130b518142519d7a90ca4fcd73fd4d8\AndroidManifest.xml:8:6-20:20
-MERGED from [com.amazonaws:aws-android-sdk-auth-userpools:2.6.24] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-userpools-2.6.24.aar\d130b518142519d7a90ca4fcd73fd4d8\AndroidManifest.xml:8:6-20:20
-MERGED from [com.amazonaws:aws-android-sdk-auth-ui:2.6.24] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-ui-2.6.24.aar\67d691547c1d64861b1a6a441925dec4\AndroidManifest.xml:7:5-9:19
-MERGED from [com.amazonaws:aws-android-sdk-auth-ui:2.6.24] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-ui-2.6.24.aar\67d691547c1d64861b1a6a441925dec4\AndroidManifest.xml:7:5-9:19
+MERGED from [com.amazonaws:aws-android-sdk-auth-userpools:2.6.26] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-userpools-2.6.26.aar\f8cf56f99720a612428f4b910619ed0a\AndroidManifest.xml:8:6-20:20
+MERGED from [com.amazonaws:aws-android-sdk-auth-userpools:2.6.26] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-userpools-2.6.26.aar\f8cf56f99720a612428f4b910619ed0a\AndroidManifest.xml:8:6-20:20
+MERGED from [com.amazonaws:aws-android-sdk-auth-ui:2.6.26] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-ui-2.6.26.aar\492360f25dff14d1f76189bd5907b889\AndroidManifest.xml:7:5-9:19
+MERGED from [com.amazonaws:aws-android-sdk-auth-ui:2.6.26] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-ui-2.6.26.aar\492360f25dff14d1f76189bd5907b889\AndroidManifest.xml:7:5-9:19
 	android:supportsRtl
 		ADDED from C:\Users\Ja Eun\Desktop\CityMeter-android\CityMeter-android\app\src\main\AndroidManifest.xml:20:9-35
 	android:label
@@ -225,6 +225,18 @@ activity#uic.hcilab.citymeter.SignupActivity
 ADDED from C:\Users\Ja Eun\Desktop\CityMeter-android\CityMeter-android\app\src\main\AndroidManifest.xml:66:9-52
 	android:name
 		ADDED from C:\Users\Ja Eun\Desktop\CityMeter-android\CityMeter-android\app\src\main\AndroidManifest.xml:66:19-49
+activity#uic.hcilab.citymeter.DetailCareTakerActivity
+ADDED from C:\Users\Ja Eun\Desktop\CityMeter-android\CityMeter-android\app\src\main\AndroidManifest.xml:67:9-61
+	android:name
+		ADDED from C:\Users\Ja Eun\Desktop\CityMeter-android\CityMeter-android\app\src\main\AndroidManifest.xml:67:19-58
+activity#uic.hcilab.citymeter.CaretakersXposureActivity
+ADDED from C:\Users\Ja Eun\Desktop\CityMeter-android\CityMeter-android\app\src\main\AndroidManifest.xml:68:9-63
+	android:name
+		ADDED from C:\Users\Ja Eun\Desktop\CityMeter-android\CityMeter-android\app\src\main\AndroidManifest.xml:68:19-60
+activity#uic.hcilab.citymeter.TestResultActivity
+ADDED from C:\Users\Ja Eun\Desktop\CityMeter-android\CityMeter-android\app\src\main\AndroidManifest.xml:69:9-65
+	android:name
+		ADDED from C:\Users\Ja Eun\Desktop\CityMeter-android\CityMeter-android\app\src\main\AndroidManifest.xml:69:19-53
 uses-sdk
 INJECTED from C:\Users\Ja Eun\Desktop\CityMeter-android\CityMeter-android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\Ja Eun\Desktop\CityMeter-android\CityMeter-android\app\src\main\AndroidManifest.xml
@@ -253,14 +265,14 @@ MERGED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\Ja E
 MERGED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\play-services-basement-15.0.1.aar\79a78813fa11cc6c01a668d85d85a34e\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-v4:27.1.1] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\ce25b2626c14bcd4717d1632316df44b\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-v4:27.1.1] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\ce25b2626c14bcd4717d1632316df44b\AndroidManifest.xml:20:5-44
-MERGED from [com.amazonaws:aws-android-sdk-mobile-client:2.6.24] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-mobile-client-2.6.24.aar\e4451681da15eaf760d3ae56a0e32d2d\AndroidManifest.xml:4:5-73
-MERGED from [com.amazonaws:aws-android-sdk-mobile-client:2.6.24] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-mobile-client-2.6.24.aar\e4451681da15eaf760d3ae56a0e32d2d\AndroidManifest.xml:4:5-73
+MERGED from [com.amazonaws:aws-android-sdk-mobile-client:2.6.26] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-mobile-client-2.6.26.aar\be7e9becfce9f01f30002f1808787a39\AndroidManifest.xml:4:5-73
+MERGED from [com.amazonaws:aws-android-sdk-mobile-client:2.6.26] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-mobile-client-2.6.26.aar\be7e9becfce9f01f30002f1808787a39\AndroidManifest.xml:4:5-73
 MERGED from [com.android.support:cardview-v7:27.1.1] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\cardview-v7-27.1.1.aar\889750d099d8a0907f0d3d9d81a24db2\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:cardview-v7:27.1.1] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\cardview-v7-27.1.1.aar\889750d099d8a0907f0d3d9d81a24db2\AndroidManifest.xml:20:5-44
-MERGED from [com.amazonaws:aws-android-sdk-auth-userpools:2.6.24] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-userpools-2.6.24.aar\d130b518142519d7a90ca4fcd73fd4d8\AndroidManifest.xml:21:1-69
-MERGED from [com.amazonaws:aws-android-sdk-auth-userpools:2.6.24] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-userpools-2.6.24.aar\d130b518142519d7a90ca4fcd73fd4d8\AndroidManifest.xml:21:1-69
-MERGED from [com.amazonaws:aws-android-sdk-auth-ui:2.6.24] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-ui-2.6.24.aar\67d691547c1d64861b1a6a441925dec4\AndroidManifest.xml:10:1-69
-MERGED from [com.amazonaws:aws-android-sdk-auth-ui:2.6.24] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-ui-2.6.24.aar\67d691547c1d64861b1a6a441925dec4\AndroidManifest.xml:10:1-69
+MERGED from [com.amazonaws:aws-android-sdk-auth-userpools:2.6.26] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-userpools-2.6.26.aar\f8cf56f99720a612428f4b910619ed0a\AndroidManifest.xml:21:1-69
+MERGED from [com.amazonaws:aws-android-sdk-auth-userpools:2.6.26] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-userpools-2.6.26.aar\f8cf56f99720a612428f4b910619ed0a\AndroidManifest.xml:21:1-69
+MERGED from [com.amazonaws:aws-android-sdk-auth-ui:2.6.26] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-ui-2.6.26.aar\492360f25dff14d1f76189bd5907b889\AndroidManifest.xml:10:1-69
+MERGED from [com.amazonaws:aws-android-sdk-auth-ui:2.6.26] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-ui-2.6.26.aar\492360f25dff14d1f76189bd5907b889\AndroidManifest.xml:10:1-69
 MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\97cf2d6a691f03b4e7a634a490a76948\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\97cf2d6a691f03b4e7a634a490a76948\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\af5252b7610aa6d0d6b76ee613660b6c\AndroidManifest.xml:20:5-44
@@ -279,8 +291,8 @@ MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\Ja Eun\.g
 MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\d06f5f0ee9da586740c4ba4c5a0d5337\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-compat:27.1.1] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\026b685b55a35e3e8eb5bcc89985da90\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-compat:27.1.1] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\026b685b55a35e3e8eb5bcc89985da90\AndroidManifest.xml:20:5-44
-MERGED from [com.amazonaws:aws-android-sdk-auth-core:2.6.24] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-core-2.6.24.aar\a0783e39c1d8a6049838524ec06af55e\AndroidManifest.xml:4:1-69
-MERGED from [com.amazonaws:aws-android-sdk-auth-core:2.6.24] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-core-2.6.24.aar\a0783e39c1d8a6049838524ec06af55e\AndroidManifest.xml:4:1-69
+MERGED from [com.amazonaws:aws-android-sdk-auth-core:2.6.26] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-core-2.6.26.aar\f6ab2bb7b412edd8626bfa3af5ad2021\AndroidManifest.xml:4:1-69
+MERGED from [com.amazonaws:aws-android-sdk-auth-core:2.6.26] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-core-2.6.26.aar\f6ab2bb7b412edd8626bfa3af5ad2021\AndroidManifest.xml:4:1-69
 MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\15eb846867ee944c795408967ed8def0\AndroidManifest.xml:20:5-44
 MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\15eb846867ee944c795408967ed8def0\AndroidManifest.xml:20:5-44
 MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\5755e9c7e0103e4a09e3fbe8f1059048\AndroidManifest.xml:20:5-44
@@ -320,56 +332,56 @@ ADDED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\Ja Eu
 	android:name
 		ADDED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\play-services-basement-15.0.1.aar\79a78813fa11cc6c01a668d85d85a34e\AndroidManifest.xml:24:13-58
 uses-permission#android.permission.ACCESS_WIFI_STATE
-ADDED from [com.amazonaws:aws-android-sdk-auth-userpools:2.6.24] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-userpools-2.6.24.aar\d130b518142519d7a90ca4fcd73fd4d8\AndroidManifest.xml:6:5-75
+ADDED from [com.amazonaws:aws-android-sdk-auth-userpools:2.6.26] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-userpools-2.6.26.aar\f8cf56f99720a612428f4b910619ed0a\AndroidManifest.xml:6:5-75
 	android:name
-		ADDED from [com.amazonaws:aws-android-sdk-auth-userpools:2.6.24] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-userpools-2.6.24.aar\d130b518142519d7a90ca4fcd73fd4d8\AndroidManifest.xml:6:22-73
+		ADDED from [com.amazonaws:aws-android-sdk-auth-userpools:2.6.26] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-userpools-2.6.26.aar\f8cf56f99720a612428f4b910619ed0a\AndroidManifest.xml:6:22-73
 activity#com.amazonaws.mobile.auth.userpools.ForgotPasswordActivity
-ADDED from [com.amazonaws:aws-android-sdk-auth-userpools:2.6.24] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-userpools-2.6.24.aar\d130b518142519d7a90ca4fcd73fd4d8\AndroidManifest.xml:9:10-10:21
+ADDED from [com.amazonaws:aws-android-sdk-auth-userpools:2.6.26] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-userpools-2.6.26.aar\f8cf56f99720a612428f4b910619ed0a\AndroidManifest.xml:9:10-10:21
 	android:screenOrientation
-		ADDED from [com.amazonaws:aws-android-sdk-auth-userpools:2.6.24] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-userpools-2.6.24.aar\d130b518142519d7a90ca4fcd73fd4d8\AndroidManifest.xml:9:220-256
+		ADDED from [com.amazonaws:aws-android-sdk-auth-userpools:2.6.26] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-userpools-2.6.26.aar\f8cf56f99720a612428f4b910619ed0a\AndroidManifest.xml:9:220-256
 	android:label
-		ADDED from [com.amazonaws:aws-android-sdk-auth-userpools:2.6.24] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-userpools-2.6.24.aar\d130b518142519d7a90ca4fcd73fd4d8\AndroidManifest.xml:9:91-145
+		ADDED from [com.amazonaws:aws-android-sdk-auth-userpools:2.6.26] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-userpools-2.6.26.aar\f8cf56f99720a612428f4b910619ed0a\AndroidManifest.xml:9:91-145
 	android:configChanges
-		ADDED from [com.amazonaws:aws-android-sdk-auth-userpools:2.6.24] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-userpools-2.6.24.aar\d130b518142519d7a90ca4fcd73fd4d8\AndroidManifest.xml:9:20-90
+		ADDED from [com.amazonaws:aws-android-sdk-auth-userpools:2.6.26] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-userpools-2.6.26.aar\f8cf56f99720a612428f4b910619ed0a\AndroidManifest.xml:9:20-90
 	android:name
-		ADDED from [com.amazonaws:aws-android-sdk-auth-userpools:2.6.24] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-userpools-2.6.24.aar\d130b518142519d7a90ca4fcd73fd4d8\AndroidManifest.xml:9:146-219
+		ADDED from [com.amazonaws:aws-android-sdk-auth-userpools:2.6.26] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-userpools-2.6.26.aar\f8cf56f99720a612428f4b910619ed0a\AndroidManifest.xml:9:146-219
 activity#com.amazonaws.mobile.auth.userpools.SignUpActivity
-ADDED from [com.amazonaws:aws-android-sdk-auth-userpools:2.6.24] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-userpools-2.6.24.aar\d130b518142519d7a90ca4fcd73fd4d8\AndroidManifest.xml:12:10-13:21
+ADDED from [com.amazonaws:aws-android-sdk-auth-userpools:2.6.26] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-userpools-2.6.26.aar\f8cf56f99720a612428f4b910619ed0a\AndroidManifest.xml:12:10-13:21
 	android:screenOrientation
-		ADDED from [com.amazonaws:aws-android-sdk-auth-userpools:2.6.24] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-userpools-2.6.24.aar\d130b518142519d7a90ca4fcd73fd4d8\AndroidManifest.xml:12:204-240
+		ADDED from [com.amazonaws:aws-android-sdk-auth-userpools:2.6.26] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-userpools-2.6.26.aar\f8cf56f99720a612428f4b910619ed0a\AndroidManifest.xml:12:204-240
 	android:label
-		ADDED from [com.amazonaws:aws-android-sdk-auth-userpools:2.6.24] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-userpools-2.6.24.aar\d130b518142519d7a90ca4fcd73fd4d8\AndroidManifest.xml:12:91-137
+		ADDED from [com.amazonaws:aws-android-sdk-auth-userpools:2.6.26] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-userpools-2.6.26.aar\f8cf56f99720a612428f4b910619ed0a\AndroidManifest.xml:12:91-137
 	android:configChanges
-		ADDED from [com.amazonaws:aws-android-sdk-auth-userpools:2.6.24] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-userpools-2.6.24.aar\d130b518142519d7a90ca4fcd73fd4d8\AndroidManifest.xml:12:20-90
+		ADDED from [com.amazonaws:aws-android-sdk-auth-userpools:2.6.26] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-userpools-2.6.26.aar\f8cf56f99720a612428f4b910619ed0a\AndroidManifest.xml:12:20-90
 	android:name
-		ADDED from [com.amazonaws:aws-android-sdk-auth-userpools:2.6.24] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-userpools-2.6.24.aar\d130b518142519d7a90ca4fcd73fd4d8\AndroidManifest.xml:12:138-203
+		ADDED from [com.amazonaws:aws-android-sdk-auth-userpools:2.6.26] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-userpools-2.6.26.aar\f8cf56f99720a612428f4b910619ed0a\AndroidManifest.xml:12:138-203
 activity#com.amazonaws.mobile.auth.userpools.MFAActivity
-ADDED from [com.amazonaws:aws-android-sdk-auth-userpools:2.6.24] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-userpools-2.6.24.aar\d130b518142519d7a90ca4fcd73fd4d8\AndroidManifest.xml:15:10-16:21
+ADDED from [com.amazonaws:aws-android-sdk-auth-userpools:2.6.26] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-userpools-2.6.26.aar\f8cf56f99720a612428f4b910619ed0a\AndroidManifest.xml:15:10-16:21
 	android:screenOrientation
-		ADDED from [com.amazonaws:aws-android-sdk-auth-userpools:2.6.24] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-userpools-2.6.24.aar\d130b518142519d7a90ca4fcd73fd4d8\AndroidManifest.xml:15:197-233
+		ADDED from [com.amazonaws:aws-android-sdk-auth-userpools:2.6.26] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-userpools-2.6.26.aar\f8cf56f99720a612428f4b910619ed0a\AndroidManifest.xml:15:197-233
 	android:label
-		ADDED from [com.amazonaws:aws-android-sdk-auth-userpools:2.6.24] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-userpools-2.6.24.aar\d130b518142519d7a90ca4fcd73fd4d8\AndroidManifest.xml:15:91-133
+		ADDED from [com.amazonaws:aws-android-sdk-auth-userpools:2.6.26] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-userpools-2.6.26.aar\f8cf56f99720a612428f4b910619ed0a\AndroidManifest.xml:15:91-133
 	android:configChanges
-		ADDED from [com.amazonaws:aws-android-sdk-auth-userpools:2.6.24] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-userpools-2.6.24.aar\d130b518142519d7a90ca4fcd73fd4d8\AndroidManifest.xml:15:20-90
+		ADDED from [com.amazonaws:aws-android-sdk-auth-userpools:2.6.26] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-userpools-2.6.26.aar\f8cf56f99720a612428f4b910619ed0a\AndroidManifest.xml:15:20-90
 	android:name
-		ADDED from [com.amazonaws:aws-android-sdk-auth-userpools:2.6.24] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-userpools-2.6.24.aar\d130b518142519d7a90ca4fcd73fd4d8\AndroidManifest.xml:15:134-196
+		ADDED from [com.amazonaws:aws-android-sdk-auth-userpools:2.6.26] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-userpools-2.6.26.aar\f8cf56f99720a612428f4b910619ed0a\AndroidManifest.xml:15:134-196
 activity#com.amazonaws.mobile.auth.userpools.SignUpConfirmActivity
-ADDED from [com.amazonaws:aws-android-sdk-auth-userpools:2.6.24] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-userpools-2.6.24.aar\d130b518142519d7a90ca4fcd73fd4d8\AndroidManifest.xml:18:10-19:21
+ADDED from [com.amazonaws:aws-android-sdk-auth-userpools:2.6.26] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-userpools-2.6.26.aar\f8cf56f99720a612428f4b910619ed0a\AndroidManifest.xml:18:10-19:21
 	android:screenOrientation
-		ADDED from [com.amazonaws:aws-android-sdk-auth-userpools:2.6.24] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-userpools-2.6.24.aar\d130b518142519d7a90ca4fcd73fd4d8\AndroidManifest.xml:18:219-255
+		ADDED from [com.amazonaws:aws-android-sdk-auth-userpools:2.6.26] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-userpools-2.6.26.aar\f8cf56f99720a612428f4b910619ed0a\AndroidManifest.xml:18:219-255
 	android:label
-		ADDED from [com.amazonaws:aws-android-sdk-auth-userpools:2.6.24] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-userpools-2.6.24.aar\d130b518142519d7a90ca4fcd73fd4d8\AndroidManifest.xml:18:91-145
+		ADDED from [com.amazonaws:aws-android-sdk-auth-userpools:2.6.26] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-userpools-2.6.26.aar\f8cf56f99720a612428f4b910619ed0a\AndroidManifest.xml:18:91-145
 	android:configChanges
-		ADDED from [com.amazonaws:aws-android-sdk-auth-userpools:2.6.24] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-userpools-2.6.24.aar\d130b518142519d7a90ca4fcd73fd4d8\AndroidManifest.xml:18:20-90
+		ADDED from [com.amazonaws:aws-android-sdk-auth-userpools:2.6.26] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-userpools-2.6.26.aar\f8cf56f99720a612428f4b910619ed0a\AndroidManifest.xml:18:20-90
 	android:name
-		ADDED from [com.amazonaws:aws-android-sdk-auth-userpools:2.6.24] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-userpools-2.6.24.aar\d130b518142519d7a90ca4fcd73fd4d8\AndroidManifest.xml:18:146-218
+		ADDED from [com.amazonaws:aws-android-sdk-auth-userpools:2.6.26] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-userpools-2.6.26.aar\f8cf56f99720a612428f4b910619ed0a\AndroidManifest.xml:18:146-218
 activity#com.amazonaws.mobile.auth.ui.SignInActivity
-ADDED from [com.amazonaws:aws-android-sdk-auth-ui:2.6.24] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-ui-2.6.24.aar\67d691547c1d64861b1a6a441925dec4\AndroidManifest.xml:8:9-234
+ADDED from [com.amazonaws:aws-android-sdk-auth-ui:2.6.26] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-ui-2.6.26.aar\492360f25dff14d1f76189bd5907b889\AndroidManifest.xml:8:9-234
 	android:screenOrientation
-		ADDED from [com.amazonaws:aws-android-sdk-auth-ui:2.6.24] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-ui-2.6.24.aar\67d691547c1d64861b1a6a441925dec4\AndroidManifest.xml:8:196-232
+		ADDED from [com.amazonaws:aws-android-sdk-auth-ui:2.6.26] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-ui-2.6.26.aar\492360f25dff14d1f76189bd5907b889\AndroidManifest.xml:8:196-232
 	android:label
-		ADDED from [com.amazonaws:aws-android-sdk-auth-ui:2.6.24] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-ui-2.6.24.aar\67d691547c1d64861b1a6a441925dec4\AndroidManifest.xml:8:90-136
+		ADDED from [com.amazonaws:aws-android-sdk-auth-ui:2.6.26] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-ui-2.6.26.aar\492360f25dff14d1f76189bd5907b889\AndroidManifest.xml:8:90-136
 	android:configChanges
-		ADDED from [com.amazonaws:aws-android-sdk-auth-ui:2.6.24] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-ui-2.6.24.aar\67d691547c1d64861b1a6a441925dec4\AndroidManifest.xml:8:19-89
+		ADDED from [com.amazonaws:aws-android-sdk-auth-ui:2.6.26] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-ui-2.6.26.aar\492360f25dff14d1f76189bd5907b889\AndroidManifest.xml:8:19-89
 	android:name
-		ADDED from [com.amazonaws:aws-android-sdk-auth-ui:2.6.24] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-ui-2.6.24.aar\67d691547c1d64861b1a6a441925dec4\AndroidManifest.xml:8:137-195
+		ADDED from [com.amazonaws:aws-android-sdk-auth-ui:2.6.26] C:\Users\Ja Eun\.gradle\caches\transforms-1\files-1.1\aws-android-sdk-auth-ui-2.6.26.aar\492360f25dff14d1f76189bd5907b889\AndroidManifest.xml:8:137-195

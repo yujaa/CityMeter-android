@@ -1,6 +1,7 @@
 package uic.hcilab.citymeter;
 
 import android.Manifest;
+import android.annotation.TargetApi;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -9,6 +10,7 @@ import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationListener;
+import android.os.Environment;
 import android.os.IBinder;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
@@ -29,6 +31,11 @@ import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -92,6 +99,12 @@ public class HereNowActivity extends TabHost implements OnMapReadyCallback, ApiC
         setSupportActionBar(myToolbar);
         initMap();
 
+        ActivityCompat.requestPermissions(HereNowActivity.this,
+                new String[] {
+                        Manifest.permission.READ_EXTERNAL_STORAGE,
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE
+                },
+                100);
 
         here_pm25_bar = (ImageView) findViewById(R.id.here_pm25_bar);
         here_pm25_thumb = (ImageView) findViewById(R.id.here_pm25_thumb);
@@ -384,6 +397,7 @@ public class HereNowActivity extends TabHost implements OnMapReadyCallback, ApiC
                                 here_pm25_thumb.setX((float) (here_pm25_bar_loc + here_pm25_bar_width - (pos * here_pm25_bar_width / 6) - (here_pm25_thumb.getWidth() / 2)));
                                 here_pm25_thumb_value.setX(here_pm25_thumb.getX() + here_pm25_thumb.getWidth());
                                 here_pm25_thumb_value.setText(Math.round(pmNowData) + "");
+                                writeToSDFile(sensingService.timestamp_value+","+sensingService.lat_value+","+sensingService.lon_value+","+"pm2.5"+","+sensingService.pm_value+"\n");
                             }
                         });
 
@@ -405,10 +419,12 @@ public class HereNowActivity extends TabHost implements OnMapReadyCallback, ApiC
                                               here_noise_thumb.setX((float) (here_noise_bar_loc + here_noise_bar_width - (pos * here_noise_bar_width / 4) - (here_noise_thumb.getWidth() / 2)));
                                               here_noise_thumb_value.setX(here_noise_thumb.getX() + here_noise_thumb.getWidth());
                                               here_noise_thumb_value.setText(Math.round(soundNowData) + "");
+                                              writeToSDFile(sensingService.timestamp_value+","+sensingService.lat_value+","+sensingService.lon_value+","+"sound"+","+sensingService.dBA_value+"\n");
                                           }
                                       });
 
                     }
+
                    try {
                         Thread.sleep(5000);
                     } catch (InterruptedException e) {
@@ -418,7 +434,40 @@ public class HereNowActivity extends TabHost implements OnMapReadyCallback, ApiC
             }
         });
         thread.start();
+    }
+
+    private void writeToSDFile(String str){
+
+        // Find the root of the external storage.
+        File root = Environment.getExternalStorageDirectory();
+        File dir = new File (root.getAbsolutePath() + "/citymeter-data");
+        Long tsLong = System.currentTimeMillis()/1000;
+        String ts = tsLong.toString();
+        File file = new File(dir, "mydata"+ts+".txt");
+        try {
+
+            int permissionCheck = ContextCompat.checkSelfPermission(HereNowActivity.this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE);
+            if (permissionCheck == PackageManager.PERMISSION_GRANTED) {
+                if (!file.createNewFile()) {
+                    Log.i("Test", "This file is already exist: " + file.getAbsolutePath());
                 }
+
+            }
+            FileOutputStream f = new FileOutputStream(file, true);
+            PrintWriter pw = new PrintWriter(f);
+            pw.println(str);
+            pw.flush();
+            pw.close();
+            f.close();
+            Log.i("Test1", str+":"+ts);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            Log.i("my", "******* File not found. Did you" +
+                    " add a WRITE_EXTERNAL_STORAGE permission to the   manifest?");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 
 }

@@ -62,10 +62,12 @@ public class HomeActivity extends TabHost {
 
         sensingDBHelper = new SensingDBHelper(this);
         //Permissions handling
-        String[] permissions = new String[3]; //Increase size to add more permissions
+        String[] permissions = new String[5]; //Increase size to add more permissions
         permissions[0] = Manifest.permission.RECORD_AUDIO;
         permissions[1] = Manifest.permission.ACCESS_COARSE_LOCATION;//Add more permissions
         permissions[2] = Manifest.permission.ACCESS_FINE_LOCATION;//Add more permissions
+        permissions[3] = Manifest.permission.READ_EXTERNAL_STORAGE;
+        permissions[4] = Manifest.permission.WRITE_EXTERNAL_STORAGE;
         if (ContextCompat.checkSelfPermission(this, permissions[0]) != PackageManager.PERMISSION_GRANTED ||
                 ContextCompat.checkSelfPermission(this, permissions[1]) != PackageManager.PERMISSION_GRANTED) //Check new permission here
         {

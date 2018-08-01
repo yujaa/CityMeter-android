@@ -23,71 +23,20 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\aws-android-sdk-auth-userpools-2.6.24.aar\\d130b518142519d7a90ca4fcd73fd4d8\\res\\values\\ids.xml",
+                    "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\aws-android-sdk-auth-ui-2.6.26.aar\\492360f25dff14d1f76189bd5907b889\\res\\values\\colors.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
                         "startOffsets": "55",
-                        "endColumns": "54",
-                        "endOffsets": "105"
+                        "endColumns": "57",
+                        "endOffsets": "108"
                     },
                     "to": {
-                        "startLines": "867",
+                        "startLines": "228",
                         "startColumns": "4",
-                        "startOffsets": "70979",
-                        "endColumns": "54",
-                        "endOffsets": "71029"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\aws-android-sdk-auth-ui-2.6.24.aar\\67d691547c1d64861b1a6a441925dec4\\res\\values\\strings.xml",
-                    "from": {
-                        "startLines": "4,5,3,6",
-                        "startColumns": "5,5,5,5",
-                        "startOffsets": "207,296,116,352",
-                        "endColumns": "88,55,90,54",
-                        "endOffsets": "290,346,201,401"
-                    },
-                    "to": {
-                        "startLines": "979,984,987,989",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "80339,80714,80878,81042",
-                        "endColumns": "87,54,89,53",
-                        "endOffsets": "80422,80764,80963,81091"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\aws-android-sdk-auth-userpools-2.6.24.aar\\d130b518142519d7a90ca4fcd73fd4d8\\res\\values\\dimens.xml",
-                    "from": {
-                        "startLines": "2,5,4,7,6,3",
-                        "startColumns": "4,4,4,4,4,4",
-                        "startOffsets": "55,242,183,363,298,108",
-                        "endColumns": "52,55,58,53,64,74",
-                        "endOffsets": "103,293,237,412,358,178"
-                    },
-                    "to": {
-                        "startLines": "820,832,833,834,835,836",
-                        "startColumns": "4,4,4,4,4,4",
-                        "startOffsets": "68564,69231,69287,69346,69400,69465",
-                        "endColumns": "52,55,58,53,64,74",
-                        "endOffsets": "68612,69282,69341,69395,69460,69535"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\aws-android-sdk-auth-core-2.6.24.aar\\a0783e39c1d8a6049838524ec06af55e\\res\\values\\strings.xml",
-                    "from": {
-                        "startLines": "1",
-                        "startColumns": "2",
-                        "startOffsets": "14",
-                        "endColumns": "88",
-                        "endOffsets": "100"
-                    },
-                    "to": {
-                        "startLines": "980",
-                        "startColumns": "4",
-                        "startOffsets": "80427",
-                        "endColumns": "90",
-                        "endOffsets": "80513"
+                        "startOffsets": "12751",
+                        "endColumns": "57",
+                        "endOffsets": "12804"
                     }
                 },
                 {
@@ -127,6 +76,23 @@
                     }
                 },
                 {
+                    "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\aws-android-sdk-auth-ui-2.6.26.aar\\492360f25dff14d1f76189bd5907b889\\res\\values\\strings.xml",
+                    "from": {
+                        "startLines": "4,5,3,6",
+                        "startColumns": "5,5,5,5",
+                        "startOffsets": "207,296,116,352",
+                        "endColumns": "88,55,90,54",
+                        "endOffsets": "290,346,201,401"
+                    },
+                    "to": {
+                        "startLines": "979,984,987,989",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "80339,80714,80878,81042",
+                        "endColumns": "87,54,89,53",
+                        "endOffsets": "80422,80764,80963,81091"
+                    }
+                },
+                {
                     "source": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\src\\main\\res\\values\\styles.xml",
                     "from": {
                         "startLines": "2,3,5,11,18",
@@ -143,6 +109,23 @@
                         "endLines": "1031,1032,2116,2122,2134",
                         "endColumns": "89,79,12,12,12",
                         "endOffsets": "84019,84099,153372,153696,154228"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\aws-android-sdk-auth-ui-2.6.26.aar\\492360f25dff14d1f76189bd5907b889\\res\\values\\dimens.xml",
+                    "from": {
+                        "startLines": "2,3,5",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,108,214",
+                        "endColumns": "52,52,54",
+                        "endOffsets": "103,156,264"
+                    },
+                    "to": {
+                        "startLines": "821,822,823",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "68617,68670,68723",
+                        "endColumns": "52,52,54",
+                        "endOffsets": "68665,68718,68773"
                     }
                 },
                 {
@@ -254,6 +237,23 @@
                     }
                 },
                 {
+                    "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\aws-android-sdk-auth-userpools-2.6.26.aar\\f8cf56f99720a612428f4b910619ed0a\\res\\values\\dimens.xml",
+                    "from": {
+                        "startLines": "2,5,4,7,6,3",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "55,242,183,363,298,108",
+                        "endColumns": "52,55,58,53,64,74",
+                        "endOffsets": "103,293,237,412,358,178"
+                    },
+                    "to": {
+                        "startLines": "820,832,833,834,835,836",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "68564,69231,69287,69346,69400,69465",
+                        "endColumns": "52,55,58,53,64,74",
+                        "endOffsets": "68612,69282,69341,69395,69460,69535"
+                    }
+                },
+                {
                     "source": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\src\\main\\res\\values\\colors.xml",
                     "from": {
                         "startLines": "6,11,8,10,9,7,4,2,3,5",
@@ -271,6 +271,23 @@
                     }
                 },
                 {
+                    "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\aws-android-sdk-auth-core-2.6.26.aar\\f6ab2bb7b412edd8626bfa3af5ad2021\\res\\values\\strings.xml",
+                    "from": {
+                        "startLines": "1",
+                        "startColumns": "2",
+                        "startOffsets": "14",
+                        "endColumns": "88",
+                        "endOffsets": "100"
+                    },
+                    "to": {
+                        "startLines": "980",
+                        "startColumns": "4",
+                        "startOffsets": "80427",
+                        "endColumns": "90",
+                        "endOffsets": "80513"
+                    }
+                },
+                {
                     "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-27.1.1.aar\\d06f5f0ee9da586740c4ba4c5a0d5337\\res\\values\\values.xml",
                     "from": {
                         "startLines": "2,6,7,8,9,10",
@@ -285,23 +302,6 @@
                         "startOffsets": "11225,173250,173426,173548,173810,174005",
                         "endColumns": "88,65,121,60,65,66",
                         "endOffsets": "11309,173311,173543,173604,173871,174067"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\aws-android-sdk-auth-ui-2.6.24.aar\\67d691547c1d64861b1a6a441925dec4\\res\\values\\colors.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "57",
-                        "endOffsets": "108"
-                    },
-                    "to": {
-                        "startLines": "228",
-                        "startColumns": "4",
-                        "startOffsets": "12751",
-                        "endColumns": "57",
-                        "endOffsets": "12804"
                     }
                 },
                 {
@@ -356,24 +356,24 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\aws-android-sdk-auth-ui-2.6.24.aar\\67d691547c1d64861b1a6a441925dec4\\res\\values\\dimens.xml",
+                    "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\aws-android-sdk-auth-userpools-2.6.26.aar\\f8cf56f99720a612428f4b910619ed0a\\res\\values\\ids.xml",
                     "from": {
-                        "startLines": "2,3,5",
-                        "startColumns": "4,4,4",
-                        "startOffsets": "55,108,214",
-                        "endColumns": "52,52,54",
-                        "endOffsets": "103,156,264"
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "54",
+                        "endOffsets": "105"
                     },
                     "to": {
-                        "startLines": "821,822,823",
-                        "startColumns": "4,4,4",
-                        "startOffsets": "68617,68670,68723",
-                        "endColumns": "52,52,54",
-                        "endOffsets": "68665,68718,68773"
+                        "startLines": "867",
+                        "startColumns": "4",
+                        "startOffsets": "70979",
+                        "endColumns": "54",
+                        "endOffsets": "71029"
                     }
                 },
                 {
-                    "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\aws-android-sdk-auth-userpools-2.6.24.aar\\d130b518142519d7a90ca4fcd73fd4d8\\res\\values\\strings.xml",
+                    "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\aws-android-sdk-auth-userpools-2.6.26.aar\\f8cf56f99720a612428f4b910619ed0a\\res\\values\\strings.xml",
                     "from": {
                         "startLines": "23,15,17,14,16,22,39,35,41,19,42,18,32,40,31,43,24,2,6,8,5,4,7,3,26,45,28,29,37,36,27,30,34,25,33,44,10,11,1,9,12,13,38,21,20",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",

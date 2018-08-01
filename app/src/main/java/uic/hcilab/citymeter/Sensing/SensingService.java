@@ -16,6 +16,7 @@ import android.os.HandlerThread;
 import android.os.IBinder;
 import android.os.Looper;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -34,6 +35,10 @@ public class SensingService extends Service  {
     String id;
     public double pm_value = 0.0;
     public double dBA_value = 0.0;
+    public double lon_value;
+    public double lat_value;
+    public String timestamp_value;
+
 
     private final IBinder mBinder = new LocalBinder();
 
@@ -43,6 +48,7 @@ public class SensingService extends Service  {
     @Override
     public void onCreate() {
         super.onCreate();
+
         sensingController = new SensingController();
         sensingDBHelper = HomeActivity.sensingDBHelper;
         id = LogInHelper.getCurrUser();
@@ -78,6 +84,10 @@ public class SensingService extends Service  {
                                 if (dbA_ > 0 && count > 3) {
                                     sensingDBHelper.createExposureInst_dBA(id, timestamp_, dbA_, longitude_, latitude_, indoor_);
                                     dBA_value = dbA_;
+                                    timestamp_value=timestamp_;
+                                    lon_value=longitude_;
+                                    lat_value=latitude_;
+                                    Log.i("myy",""+dbA_);
                                    /* Handler handler = new Handler(Looper.getMainLooper());
                                     handler.post(new Runnable() {
                                         @Override
@@ -125,6 +135,9 @@ public class SensingService extends Service  {
                 Double indoor_ = dat.indoor;
                 sensingDBHelper.createExposureInst_pm(id, timestamp_, pm_, longitude_, latitude_, indoor_);
                 pm_value = pm_;
+                timestamp_value=timestamp_;
+                lon_value=longitude_;
+                lat_value=latitude_;
                 /*Handler handler = new Handler(Looper.getMainLooper());
                 handler.post(new Runnable() {
                     @Override

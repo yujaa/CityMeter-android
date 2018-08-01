@@ -60,12 +60,12 @@
         "source": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\src\\main\\res\\layout\\fragment_test__q7.xml"
     },
     {
-        "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_ic_menu_cut_mtrl_alpha.png.flat",
-        "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\8f88624224205c3379103693de9b55cf\\res\\drawable-xxxhdpi-v4\\abc_ic_menu_cut_mtrl_alpha.png"
-    },
-    {
         "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_launcher_background.xml.flat",
         "source": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\src\\main\\res\\drawable\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_ic_menu_cut_mtrl_alpha.png.flat",
+        "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\8f88624224205c3379103693de9b55cf\\res\\drawable-xxxhdpi-v4\\abc_ic_menu_cut_mtrl_alpha.png"
     },
     {
         "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_list_divider_mtrl_alpha.9.png.flat",
@@ -88,12 +88,12 @@
         "source": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\src\\main\\res\\drawable-xxhdpi\\ic_settings.png"
     },
     {
-        "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
-    },
-    {
         "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_nav_tab_host.xml.flat",
         "source": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\src\\main\\res\\layout\\nav_tab_host.xml"
+    },
+    {
+        "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
     },
     {
         "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_textfield_activated_mtrl_alpha.9.png.flat",
@@ -132,12 +132,12 @@
         "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\8f88624224205c3379103693de9b55cf\\res\\drawable-ldrtl-xxhdpi-v17\\abc_ic_menu_cut_mtrl_alpha.png"
     },
     {
-        "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_btn_check_material.xml.flat",
-        "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\8f88624224205c3379103693de9b55cf\\res\\drawable\\abc_btn_check_material.xml"
-    },
-    {
         "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_design_fab_background.xml.flat",
         "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\design-27.1.1.aar\\0fedde7274d493b0673d8934254de5dd\\res\\drawable\\design_fab_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_btn_check_material.xml.flat",
+        "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\8f88624224205c3379103693de9b55cf\\res\\drawable\\abc_btn_check_material.xml"
     },
     {
         "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ic_menu_selectall_mtrl_alpha.png.flat",
@@ -160,36 +160,36 @@
         "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-plus-15.0.1.aar\\c527b18067ad5752732aa6eebeda0025\\res\\drawable-hdpi-v4\\ic_plusone_standard_off_client.png"
     },
     {
-        "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_color_coded_bar.png.flat",
-        "source": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\src\\main\\res\\drawable\\color_coded_bar.png"
-    },
-    {
         "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_info_black_24dp.xml.flat",
         "source": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\src\\main\\res\\drawable\\ic_info_black_24dp.xml"
+    },
+    {
+        "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_color_coded_bar.png.flat",
+        "source": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\src\\main\\res\\drawable\\color_coded_bar.png"
     },
     {
         "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_text_select_handle_left_mtrl_dark.png.flat",
         "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\8f88624224205c3379103693de9b55cf\\res\\drawable-hdpi-v4\\abc_text_select_handle_left_mtrl_dark.png"
     },
     {
-        "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_design_navigation_menu.xml.flat",
-        "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\design-27.1.1.aar\\0fedde7274d493b0673d8934254de5dd\\res\\layout\\design_navigation_menu.xml"
-    },
-    {
         "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_primary_text_material_light.xml.flat",
         "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\8f88624224205c3379103693de9b55cf\\res\\color\\abc_primary_text_material_light.xml"
+    },
+    {
+        "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_design_navigation_menu.xml.flat",
+        "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\design-27.1.1.aar\\0fedde7274d493b0673d8934254de5dd\\res\\layout\\design_navigation_menu.xml"
     },
     {
         "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
         "source": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_scrubber_control_off_mtrl_alpha.png.flat",
-        "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\8f88624224205c3379103693de9b55cf\\res\\drawable-xhdpi-v4\\abc_scrubber_control_off_mtrl_alpha.png"
-    },
-    {
         "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_googleg_standard_color_18.png.flat",
         "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-15.0.1.aar\\3da08e9744eafde21ced9813a1ecbc95\\res\\drawable-hdpi-v4\\googleg_standard_color_18.png"
+    },
+    {
+        "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_scrubber_control_off_mtrl_alpha.png.flat",
+        "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\8f88624224205c3379103693de9b55cf\\res\\drawable-xhdpi-v4\\abc_scrubber_control_off_mtrl_alpha.png"
     },
     {
         "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_seekbar_thumb_material.xml.flat",
@@ -236,12 +236,12 @@
         "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-plus-15.0.1.aar\\c527b18067ad5752732aa6eebeda0025\\res\\drawable-mdpi-v4\\ic_plusone_tall_off_client.png"
     },
     {
-        "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_xposure.xml.flat",
-        "source": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\src\\main\\res\\layout\\activity_xposure.xml"
-    },
-    {
         "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_common_google_signin_btn_text_dark_normal_background.9.png.flat",
         "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-15.0.1.aar\\3da08e9744eafde21ced9813a1ecbc95\\res\\drawable-xxhdpi-v4\\common_google_signin_btn_text_dark_normal_background.9.png"
+    },
+    {
+        "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_xposure.xml.flat",
+        "source": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\src\\main\\res\\layout\\activity_xposure.xml"
     },
     {
         "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_ic_star_half_black_36dp.png.flat",
@@ -320,6 +320,10 @@
         "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-places-15.0.1.aar\\c7a91a150b85b0b7cf0744cc6d73db07\\res\\drawable-xhdpi-v4\\places_ic_clear.png"
     },
     {
+        "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_caretakers_xposure.xml.flat",
+        "source": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\src\\main\\res\\layout\\activity_caretakers_xposure.xml"
+    },
+    {
         "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_list_longpressed_holo.9.png.flat",
         "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\8f88624224205c3379103693de9b55cf\\res\\drawable-xxhdpi-v4\\abc_list_longpressed_holo.9.png"
     },
@@ -345,7 +349,7 @@
     },
     {
         "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_horizontal_or_sign_in_divider.xml.flat",
-        "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\aws-android-sdk-auth-ui-2.6.24.aar\\67d691547c1d64861b1a6a441925dec4\\res\\layout\\horizontal_or_sign_in_divider.xml"
+        "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\aws-android-sdk-auth-ui-2.6.26.aar\\492360f25dff14d1f76189bd5907b889\\res\\layout\\horizontal_or_sign_in_divider.xml"
     },
     {
         "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\layout-watch-v20_abc_alert_dialog_title_material.xml.flat",
@@ -477,7 +481,7 @@
     },
     {
         "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_sign_up_confirm.xml.flat",
-        "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\aws-android-sdk-auth-userpools-2.6.24.aar\\d130b518142519d7a90ca4fcd73fd4d8\\res\\layout\\activity_sign_up_confirm.xml"
+        "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\aws-android-sdk-auth-userpools-2.6.26.aar\\f8cf56f99720a612428f4b910619ed0a\\res\\layout\\activity_sign_up_confirm.xml"
     },
     {
         "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_list_pressed_holo_dark.9.png.flat",
@@ -506,6 +510,10 @@
     {
         "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\color-v23_abc_btn_colored_borderless_text_material.xml.flat",
         "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\8f88624224205c3379103693de9b55cf\\res\\color-v23\\abc_btn_colored_borderless_text_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_detail_care_taker.xml.flat",
+        "source": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\src\\main\\res\\layout\\activity_detail_care_taker.xml"
     },
     {
         "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_places_ic_search.png.flat",
@@ -565,7 +573,7 @@
     },
     {
         "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_default_sign_in_logo.png.flat",
-        "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\aws-android-sdk-auth-ui-2.6.24.aar\\67d691547c1d64861b1a6a441925dec4\\res\\drawable-xxxhdpi\\default_sign_in_logo.png"
+        "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\aws-android-sdk-auth-ui-2.6.26.aar\\492360f25dff14d1f76189bd5907b889\\res\\drawable-xxxhdpi\\default_sign_in_logo.png"
     },
     {
         "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_list_longpressed_holo.9.png.flat",
@@ -713,7 +721,7 @@
     },
     {
         "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_default_sign_in_logo.png.flat",
-        "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\aws-android-sdk-auth-ui-2.6.24.aar\\67d691547c1d64861b1a6a441925dec4\\res\\drawable-mdpi\\default_sign_in_logo.png"
+        "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\aws-android-sdk-auth-ui-2.6.26.aar\\492360f25dff14d1f76189bd5907b889\\res\\drawable-mdpi\\default_sign_in_logo.png"
     },
     {
         "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_btn_radio_to_on_mtrl_000.png.flat",
@@ -737,7 +745,7 @@
     },
     {
         "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_horizontal_sign_in_divider.xml.flat",
-        "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\aws-android-sdk-auth-ui-2.6.24.aar\\67d691547c1d64861b1a6a441925dec4\\res\\layout\\horizontal_sign_in_divider.xml"
+        "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\aws-android-sdk-auth-ui-2.6.26.aar\\492360f25dff14d1f76189bd5907b889\\res\\layout\\horizontal_sign_in_divider.xml"
     },
     {
         "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_powered_by_google_light.png.flat",
@@ -769,11 +777,15 @@
     },
     {
         "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_forgot_password.xml.flat",
-        "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\aws-android-sdk-auth-userpools-2.6.24.aar\\d130b518142519d7a90ca4fcd73fd4d8\\res\\layout\\activity_forgot_password.xml"
+        "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\aws-android-sdk-auth-userpools-2.6.26.aar\\f8cf56f99720a612428f4b910619ed0a\\res\\layout\\activity_forgot_password.xml"
     },
     {
         "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_scrubber_control_to_pressed_mtrl_005.png.flat",
         "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\8f88624224205c3379103693de9b55cf\\res\\drawable-hdpi-v4\\abc_scrubber_control_to_pressed_mtrl_005.png"
+    },
+    {
+        "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_q11_1.png.flat",
+        "source": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\src\\main\\res\\drawable\\q11_1.png"
     },
     {
         "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_ic_menu_cut_mtrl_alpha.png.flat",
@@ -1017,7 +1029,7 @@
     },
     {
         "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_mfa.xml.flat",
-        "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\aws-android-sdk-auth-userpools-2.6.24.aar\\d130b518142519d7a90ca4fcd73fd4d8\\res\\layout\\activity_mfa.xml"
+        "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\aws-android-sdk-auth-userpools-2.6.26.aar\\f8cf56f99720a612428f4b910619ed0a\\res\\layout\\activity_mfa.xml"
     },
     {
         "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_ic_menu_selectall_mtrl_alpha.png.flat",
@@ -1168,6 +1180,10 @@
         "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-15.0.1.aar\\3da08e9744eafde21ced9813a1ecbc95\\res\\drawable\\common_google_signin_btn_icon_dark_normal.xml"
     },
     {
+        "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_q11_2.png.flat",
+        "source": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\src\\main\\res\\drawable\\q11_2.png"
+    },
+    {
         "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_ic_go_search_api_material.xml.flat",
         "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\8f88624224205c3379103693de9b55cf\\res\\drawable\\abc_ic_go_search_api_material.xml"
     },
@@ -1301,7 +1317,7 @@
     },
     {
         "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-tvdpi_default_sign_in_logo.png.flat",
-        "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\aws-android-sdk-auth-ui-2.6.24.aar\\67d691547c1d64861b1a6a441925dec4\\res\\drawable-tvdpi\\default_sign_in_logo.png"
+        "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\aws-android-sdk-auth-ui-2.6.26.aar\\492360f25dff14d1f76189bd5907b889\\res\\drawable-tvdpi\\default_sign_in_logo.png"
     },
     {
         "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_textfield_search_activated_mtrl_alpha.9.png.flat",
@@ -1545,7 +1561,7 @@
     },
     {
         "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_default_sign_in_logo.png.flat",
-        "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\aws-android-sdk-auth-ui-2.6.24.aar\\67d691547c1d64861b1a6a441925dec4\\res\\drawable-hdpi\\default_sign_in_logo.png"
+        "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\aws-android-sdk-auth-ui-2.6.26.aar\\492360f25dff14d1f76189bd5907b889\\res\\drawable-hdpi\\default_sign_in_logo.png"
     },
     {
         "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_menu_hardkey_panel_mtrl_mult.9.png.flat",
@@ -1557,7 +1573,7 @@
     },
     {
         "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_default_sign_in_logo.png.flat",
-        "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\aws-android-sdk-auth-ui-2.6.24.aar\\67d691547c1d64861b1a6a441925dec4\\res\\drawable-xhdpi\\default_sign_in_logo.png"
+        "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\aws-android-sdk-auth-ui-2.6.26.aar\\492360f25dff14d1f76189bd5907b889\\res\\drawable-xhdpi\\default_sign_in_logo.png"
     },
     {
         "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_ic_menu_paste_mtrl_am_alpha.png.flat",
@@ -1913,7 +1929,7 @@
     },
     {
         "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_sign_up.xml.flat",
-        "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\aws-android-sdk-auth-userpools-2.6.24.aar\\d130b518142519d7a90ca4fcd73fd4d8\\res\\layout\\activity_sign_up.xml"
+        "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\aws-android-sdk-auth-userpools-2.6.26.aar\\f8cf56f99720a612428f4b910619ed0a\\res\\layout\\activity_sign_up.xml"
     },
     {
         "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_icon_light_focused.xml.flat",
@@ -1985,7 +2001,7 @@
     },
     {
         "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_default_sign_in_logo.png.flat",
-        "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\aws-android-sdk-auth-ui-2.6.24.aar\\67d691547c1d64861b1a6a441925dec4\\res\\drawable-xxhdpi\\default_sign_in_logo.png"
+        "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\aws-android-sdk-auth-ui-2.6.26.aar\\492360f25dff14d1f76189bd5907b889\\res\\drawable-xxhdpi\\default_sign_in_logo.png"
     },
     {
         "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_notification_bg_normal.9.png.flat",
@@ -2069,7 +2085,7 @@
     },
     {
         "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_sign_in.xml.flat",
-        "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\aws-android-sdk-auth-ui-2.6.24.aar\\67d691547c1d64861b1a6a441925dec4\\res\\layout\\activity_sign_in.xml"
+        "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\aws-android-sdk-auth-ui-2.6.26.aar\\492360f25dff14d1f76189bd5907b889\\res\\layout\\activity_sign_in.xml"
     },
     {
         "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
@@ -2437,7 +2453,7 @@
     },
     {
         "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_default_sign_in_logo.png.flat",
-        "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\aws-android-sdk-auth-ui-2.6.24.aar\\67d691547c1d64861b1a6a441925dec4\\res\\drawable-ldpi\\default_sign_in_logo.png"
+        "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\aws-android-sdk-auth-ui-2.6.26.aar\\492360f25dff14d1f76189bd5907b889\\res\\drawable-ldpi\\default_sign_in_logo.png"
     },
     {
         "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\color-v23_abc_tint_switch_track.xml.flat",
@@ -2450,6 +2466,10 @@
     {
         "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_btn_switch_to_on_mtrl_00012.9.png.flat",
         "source": "C:\\Users\\Ja Eun\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\8f88624224205c3379103693de9b55cf\\res\\drawable-mdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png"
+    },
+    {
+        "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_test_result.xml.flat",
+        "source": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\src\\main\\res\\layout\\activity_test_result.xml"
     },
     {
         "merged": "C:\\Users\\Ja Eun\\Desktop\\CityMeter-android\\CityMeter-android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_notify_panel_notification_icon_bg.png.flat",
