@@ -1,7 +1,6 @@
 package uic.hcilab.citymeter;
 
 import android.Manifest;
-import android.annotation.TargetApi;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -36,6 +35,8 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -55,7 +56,7 @@ public class HereNowActivity extends TabHost implements OnMapReadyCallback, ApiC
     float pmNowData = 0;
     float soundNowData = 0;
     DataAnalysis da = new DataAnalysis();
-
+    String filename;
 
     ImageView here_noise_bar ;
     ImageView here_noise_thumb ;
@@ -99,12 +100,6 @@ public class HereNowActivity extends TabHost implements OnMapReadyCallback, ApiC
         setSupportActionBar(myToolbar);
         initMap();
 
-        ActivityCompat.requestPermissions(HereNowActivity.this,
-                new String[] {
-                        Manifest.permission.READ_EXTERNAL_STORAGE,
-                        Manifest.permission.WRITE_EXTERNAL_STORAGE
-                },
-                100);
 
         here_pm25_bar = (ImageView) findViewById(R.id.here_pm25_bar);
         here_pm25_thumb = (ImageView) findViewById(R.id.here_pm25_thumb);
@@ -122,6 +117,9 @@ public class HereNowActivity extends TabHost implements OnMapReadyCallback, ApiC
         startService(service);
         bindService(service, serviceConnection,Context.BIND_AUTO_CREATE);
 
+        Long tsLong = System.currentTimeMillis()/1000;
+        String ts = tsLong.toString();
+        filename = "myData"+ts+".txt";
     }
 
     @Override
@@ -397,7 +395,9 @@ public class HereNowActivity extends TabHost implements OnMapReadyCallback, ApiC
                                 here_pm25_thumb.setX((float) (here_pm25_bar_loc + here_pm25_bar_width - (pos * here_pm25_bar_width / 6) - (here_pm25_thumb.getWidth() / 2)));
                                 here_pm25_thumb_value.setX(here_pm25_thumb.getX() + here_pm25_thumb.getWidth());
                                 here_pm25_thumb_value.setText(Math.round(pmNowData) + "");
-                                writeToSDFile(sensingService.timestamp_value+","+sensingService.lat_value+","+sensingService.lon_value+","+"pm2.5"+","+sensingService.pm_value+"\n");
+                                SimpleDateFormat s = new SimpleDateFormat("MMM dd yyyy HH:mm:ss");
+                                String format = s.format(new Date());
+                                writeToSDFile(format+","+sensingService.lat_value+","+sensingService.lon_value+","+"pm2.5"+","+sensingService.pm_value+"\n");
                             }
                         });
 
@@ -419,11 +419,15 @@ public class HereNowActivity extends TabHost implements OnMapReadyCallback, ApiC
                                               here_noise_thumb.setX((float) (here_noise_bar_loc + here_noise_bar_width - (pos * here_noise_bar_width / 4) - (here_noise_thumb.getWidth() / 2)));
                                               here_noise_thumb_value.setX(here_noise_thumb.getX() + here_noise_thumb.getWidth());
                                               here_noise_thumb_value.setText(Math.round(soundNowData) + "");
-                                              writeToSDFile(sensingService.timestamp_value+","+sensingService.lat_value+","+sensingService.lon_value+","+"sound"+","+sensingService.dBA_value+"\n");
+                                              SimpleDateFormat s = new SimpleDateFormat("MMM dd yyyy HH:mm:ss");
+                                              String format = s.format(new Date());
+                                              writeToSDFile(format+","+sensingService.lat_value+","+sensingService.lon_value+","+"sound"+","+sensingService.dBA_value+"\n");
                                           }
                                       });
 
                     }
+
+
 
                    try {
                         Thread.sleep(5000);
@@ -443,7 +447,8 @@ public class HereNowActivity extends TabHost implements OnMapReadyCallback, ApiC
         File dir = new File (root.getAbsolutePath() + "/citymeter-data");
         Long tsLong = System.currentTimeMillis()/1000;
         String ts = tsLong.toString();
-        File file = new File(dir, "mydata"+ts+".txt");
+        File file = new File(dir, filename);
+        Log.i("Test1", "1231312");
         try {
 
             int permissionCheck = ContextCompat.checkSelfPermission(HereNowActivity.this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE);
@@ -455,11 +460,11 @@ public class HereNowActivity extends TabHost implements OnMapReadyCallback, ApiC
             }
             FileOutputStream f = new FileOutputStream(file, true);
             PrintWriter pw = new PrintWriter(f);
-            pw.println(str);
+            pw.println(str+":"+ts);
             pw.flush();
             pw.close();
             f.close();
-            Log.i("Test1", str+":"+ts);
+            Log.i("my",str+":"+ts);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
             Log.i("my", "******* File not found. Did you" +
@@ -468,6 +473,7 @@ public class HereNowActivity extends TabHost implements OnMapReadyCallback, ApiC
             e.printStackTrace();
         }
     }
+
 
 
 }
